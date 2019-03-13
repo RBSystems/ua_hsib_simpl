@@ -1,0 +1,29 @@
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.pdb
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.DeviceSupport.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.DM.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.EthernetCommunications.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.GeneralIO.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.ThreeSeriesCards.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\PWCUtils.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpCustomAttributesInterface.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpHelperInterface.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpPro.exe
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpReflectionInterface.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpSQLHelperInterface.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.dll
+C:\Users\Samson\Dropbox\L3AV Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.pdb
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpSQLHelperInterface.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.dll
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.pdb
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\PWCUtils.dll
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpSQLHelperInterface.dll
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.dll
+C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb
