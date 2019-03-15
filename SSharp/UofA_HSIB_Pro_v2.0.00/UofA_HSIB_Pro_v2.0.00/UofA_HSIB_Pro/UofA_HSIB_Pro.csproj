@@ -111,7 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RLY_GlobalCache_v1.0.00.cs" />
     <Compile Include="SYSM_ConfigurationHandler_v1.2.02.cs" />
-    <Compile Include="SYSM_EISCHandler_v1.1.02.cs" />
+    <Compile Include="SYSM_EISCHandler_v1.1.03.cs" />
     <Compile Include="SYSM_Logger_v2.0.00.cs" />
     <None Include="Properties\ControlSystem.cfg" />
   </ItemGroup>
