@@ -153,8 +153,6 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_60
         private void FSENDLISTFB (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST , CrestronString SDATA ) 
             { 
             
-            __context__.SourceCodeLine = 288;
-            Trace( "in NodeDSP fSendListFB - iRoom = {0:d}, iList = {1:d}, sData = {2}", (ushort)IROOM, (ushort)ILIST, SDATA ) ; 
             __context__.SourceCodeLine = 290;
             
                 {
@@ -2258,13 +2256,18 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort IROOM , u
             
         
         __context__.SourceCodeLine = 1202;
-        ROOM [ IROOM] . POINT [ IINDEX] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1203;
-        FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
-        __context__.SourceCodeLine = 1204;
-        ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . POINT [ (IINDEX + (50 / 2))] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1205;
-        FUPDATELISTVIS (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
+        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE == 1) ) || Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE == 2) )) ))  ) ) 
+            { 
+            __context__.SourceCodeLine = 1204;
+            ROOM [ IROOM] . POINT [ IINDEX] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1205;
+            FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
+            __context__.SourceCodeLine = 1206;
+            ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . POINT [ (IINDEX + (50 / 2))] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1207;
+            FUPDATELISTVIS (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
+            } 
+        
         } 
     
     
@@ -2287,38 +2290,38 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
     STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
     
     
-    __context__.SourceCodeLine = 1220;
+    __context__.SourceCodeLine = 1222;
     STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
-    __context__.SourceCodeLine = 1221;
-    STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
     __context__.SourceCodeLine = 1223;
+    STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
+    __context__.SourceCodeLine = 1225;
     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_POINTS" , STEMPHEADER ))  ) ) 
         {
-        __context__.SourceCodeLine = 1223;
+        __context__.SourceCodeLine = 1225;
         ITYPE = (ushort) ( 1 ) ; 
         }
     
     else 
         {
-        __context__.SourceCodeLine = 1224;
+        __context__.SourceCodeLine = 1226;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_PRESETS" , STEMPHEADER ))  ) ) 
             {
-            __context__.SourceCodeLine = 1224;
+            __context__.SourceCodeLine = 1226;
             ITYPE = (ushort) ( 2 ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1225;
+            __context__.SourceCodeLine = 1227;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "ROOMS" , STEMPHEADER ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1225;
+                __context__.SourceCodeLine = 1227;
                 ITYPE = (ushort) ( 13 ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1226;
+                __context__.SourceCodeLine = 1228;
                 Trace( "NodeDSP - in fProcessInit - didn't catch header type - {0}", STEMPHEADER ) ; 
                 }
             
@@ -2326,30 +2329,30 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
         
         }
     
-    __context__.SourceCodeLine = 1228;
+    __context__.SourceCodeLine = 1230;
     while ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMPDATA ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1230;
+        __context__.SourceCodeLine = 1232;
         STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
-        __context__.SourceCodeLine = 1231;
+        __context__.SourceCodeLine = 1233;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "complete" , STEMPLINE ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1233;
+            __context__.SourceCodeLine = 1235;
             Functions.Delay (  (int) ( 10 ) ) ; 
-            __context__.SourceCodeLine = 1234;
+            __context__.SourceCodeLine = 1236;
             FPROCESSLIST (  __context__ , (ushort)( IROOM )) ; 
             } 
         
         else 
             { 
-            __context__.SourceCodeLine = 1238;
+            __context__.SourceCodeLine = 1240;
             STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
-            __context__.SourceCodeLine = 1239;
-            IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
             __context__.SourceCodeLine = 1241;
+            IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+            __context__.SourceCodeLine = 1243;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1243;
+                __context__.SourceCodeLine = 1245;
                 
                     {
                     int __SPLS_TMPVAR__SWTCH_5__ = ((int)ITYPE);
@@ -2357,17 +2360,17 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
                         { 
                         if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 1) ) ) ) 
                             { 
-                            __context__.SourceCodeLine = 1247;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMAX = (short) ( 6 ) ; 
-                            __context__.SourceCodeLine = 1248;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
                             __context__.SourceCodeLine = 1249;
-                            ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( 26 ) ; 
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMAX = (short) ( 6 ) ; 
                             __context__.SourceCodeLine = 1250;
-                            ROOM [ IROOM] . POINT [ IINDEX] . IMUTEDEFAULT = (ushort) ( 0 ) ; 
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
                             __context__.SourceCodeLine = 1251;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLDEFAULT = (short) ( 0 ) ; 
+                            ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( 26 ) ; 
+                            __context__.SourceCodeLine = 1252;
+                            ROOM [ IROOM] . POINT [ IINDEX] . IMUTEDEFAULT = (ushort) ( 0 ) ; 
                             __context__.SourceCodeLine = 1253;
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLDEFAULT = (short) ( 0 ) ; 
+                            __context__.SourceCodeLine = 1255;
                             FPROCESSLINE (  __context__ , (ushort)( IROOM ), (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                             } 
                         
@@ -2380,13 +2383,13 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
             
             else 
                 {
-                __context__.SourceCodeLine = 1259;
+                __context__.SourceCodeLine = 1261;
                 Trace( "NodeDSP - fProcessInit error, iIndex did not resolve -    {0} {1:d} {2}", STEMPHEADER , (ushort)IINDEX, STEMPLINE ) ; 
                 }
             
             } 
         
-        __context__.SourceCodeLine = 1228;
+        __context__.SourceCodeLine = 1230;
         } 
     
     
@@ -2406,16 +2409,16 @@ object DATAINIT_RX__DOLLAR__1_OnChange_29 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1200, this );
         
         
-        __context__.SourceCodeLine = 1276;
+        __context__.SourceCodeLine = 1278;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1277;
+        __context__.SourceCodeLine = 1279;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__1[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1279;
+            __context__.SourceCodeLine = 1281;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__1 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1280;
+            __context__.SourceCodeLine = 1282;
             FPROCESSINIT (  __context__ , (ushort)( IROOM ), STEMP) ; 
-            __context__.SourceCodeLine = 1277;
+            __context__.SourceCodeLine = 1279;
             } 
         
         
@@ -2441,16 +2444,16 @@ object DATAINIT_RX__DOLLAR__2_OnChange_30 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1200, this );
         
         
-        __context__.SourceCodeLine = 1288;
+        __context__.SourceCodeLine = 1290;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1289;
+        __context__.SourceCodeLine = 1291;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__2[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1291;
+            __context__.SourceCodeLine = 1293;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__2 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1292;
+            __context__.SourceCodeLine = 1294;
             FPROCESSINIT (  __context__ , (ushort)( IROOM ), STEMP) ; 
-            __context__.SourceCodeLine = 1289;
+            __context__.SourceCodeLine = 1291;
             } 
         
         
@@ -2476,28 +2479,28 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 1309;
-        WaitForInitializationComplete ( ) ; 
         __context__.SourceCodeLine = 1311;
+        WaitForInitializationComplete ( ) ; 
+        __context__.SourceCodeLine = 1313;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)2; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1313;
+            __context__.SourceCodeLine = 1315;
             if ( Functions.TestForTrue  ( ( VOLFBRANGE[ I ] .UshortValue)  ) ) 
                 {
-                __context__.SourceCodeLine = 1313;
+                __context__.SourceCodeLine = 1315;
                 IVOLFBRANGE [ I] = (ushort) ( VOLFBRANGE[ I ] .UshortValue ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1314;
+                __context__.SourceCodeLine = 1316;
                 IVOLFBRANGE [ I] = (ushort) ( 936 ) ; 
                 }
             
-            __context__.SourceCodeLine = 1311;
+            __context__.SourceCodeLine = 1313;
             } 
         
         
