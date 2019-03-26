@@ -303,10 +303,10 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_61
                         else 
                             {
                             __context__.SourceCodeLine = 251;
-                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "function" , STEMPKEY ))  ) ) 
+                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "fixed_id" , STEMPKEY ))  ) ) 
                                 {
                                 __context__.SourceCodeLine = 251;
-                                LIST [ IINDEX] . IFUNCTIONID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                LIST [ IINDEX] . IFIXEDID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 }
                             
                             else 
@@ -480,7 +480,7 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_61
                 __context__.SourceCodeLine = 285;
                 STEMPHEADER  .UpdateValue ( FGETDATAHEADER (  __context__ , (ushort)( ITYPE ))  ) ; 
                 __context__.SourceCodeLine = 286;
-                MakeString ( TO_ROOM_TX__DOLLAR__ [ LIST[ IINDEX ].IRMASS] , "{{{0} LOCALID={1:d}: GUID={2:d}, global_name={3}, local_name={4}, function_id={5:d}, group_id={6:d}, is_virtual={7:d}, range_max={8:d}, range_min={9:d}, default_vol={10:d}, default_mute={11:d}, vol_disabled={12:d}, mute_disabled={13:d}, point_type={14:d}, |}}", STEMPHEADER , (ushort)LIST[ IINDEX ].ILOCALID, (ushort)IINDEX, LIST [ IINDEX] . SGLOBALNAME , LIST [ IINDEX] . SLOCALNAME , (ushort)LIST[ IINDEX ].IFUNCTIONID, (ushort)LIST[ IINDEX ].IGROUPID, (ushort)LIST[ IINDEX ].IISVIRTUAL, (short)LIST[ IINDEX ].SIRANGEMAX, (short)LIST[ IINDEX ].SIRANGEMIN, (short)LIST[ IINDEX ].SIDEFAULTVOL, (ushort)LIST[ IINDEX ].IDEFAULTMUTE, (ushort)LIST[ IINDEX ].IVOLDISABLED, (ushort)LIST[ IINDEX ].IMUTEDISABLED, (ushort)LIST[ IINDEX ].IPOINTTYPE) ; 
+                MakeString ( TO_ROOM_TX__DOLLAR__ [ LIST[ IINDEX ].IRMASS] , "{{{0} LOCALID={1:d}: GUID={2:d}, global_name={3}, local_name={4}, fixed_id={5:d}, group_id={6:d}, is_virtual={7:d}, range_max={8:d}, range_min={9:d}, default_vol={10:d}, default_mute={11:d}, vol_disabled={12:d}, mute_disabled={13:d}, point_type={14:d}, |}}", STEMPHEADER , (ushort)LIST[ IINDEX ].ILOCALID, (ushort)IINDEX, LIST [ IINDEX] . SGLOBALNAME , LIST [ IINDEX] . SLOCALNAME , (ushort)LIST[ IINDEX ].IFIXEDID, (ushort)LIST[ IINDEX ].IGROUPID, (ushort)LIST[ IINDEX ].IISVIRTUAL, (short)LIST[ IINDEX ].SIRANGEMAX, (short)LIST[ IINDEX ].SIRANGEMIN, (short)LIST[ IINDEX ].SIDEFAULTVOL, (ushort)LIST[ IINDEX ].IDEFAULTMUTE, (ushort)LIST[ IINDEX ].IVOLDISABLED, (ushort)LIST[ IINDEX ].IMUTEDISABLED, (ushort)LIST[ IINDEX ].IPOINTTYPE) ; 
                 } 
             
             } 
@@ -865,7 +865,7 @@ public class STLIST : SplusStructureBase
     public ushort  ILOCALID = 0;
     
     [SplusStructAttribute(7, false, false)]
-    public ushort  IFUNCTIONID = 0;
+    public ushort  IFIXEDID = 0;
     
     [SplusStructAttribute(8, false, false)]
     public ushort  IGROUPID = 0;

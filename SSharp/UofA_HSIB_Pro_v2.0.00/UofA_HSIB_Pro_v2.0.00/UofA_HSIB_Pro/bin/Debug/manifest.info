@@ -1,8 +1,9 @@
-﻿MainAssembly=UofA_HSIB_Pro.dll:330cbbc03e40c298a81b3c07cd37e4c7
+﻿MainAssembly=UofA_HSIB_Pro.dll:76cd7a5da3e68b6640d37df7b7884253
 MainAssemblyMinFirmwareVersion=1.009.0029
 MainAssemblyResource=SimplSharpData.dat:820b61c48c8a2cace82957eed4cc377c
 MainAssemblyResource=SimplSharpData.dat.der:bf862965c00f3e6ec535e4e00e82d30c
 MainAssemblyResource=SimplSharpData.dat:820b61c48c8a2cace82957eed4cc377c
+MainAssemblyResource=SimplSharpData.dat.der:bf862965c00f3e6ec535e4e00e82d30c
 ü
 DependencySource=Crestron.SimplSharpPro.DeviceSupport.dll:caae4b4259aaf619059f0ae34473bfd2
 DependencyPath=UofA_HSIB_Pro.cpz:Crestron.SimplSharpPro.DeviceSupport.dll

@@ -1778,8 +1778,6 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_49
                                     __context__.SourceCodeLine = 1156;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "cam_localid" , STEMPKEY ))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 1158;
-                                        Trace( "in Room fprocessLine - found cam_localid - {0:d}", (ushort)Functions.Atoi( STEMPVALUE )) ; 
                                         __context__.SourceCodeLine = 1159;
                                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . ICAMLOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                         __context__.SourceCodeLine = 1160;
@@ -1895,8 +1893,6 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_49
                 ROOM [ IROOM] . CAM [ ICAM] . IVSRCLOCALID = (ushort) ( IINDEX ) ; 
                 __context__.SourceCodeLine = 1191;
                 ROOM [ IROOM] . CAM [ ICAM] . IVSRCGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
-                __context__.SourceCodeLine = 1192;
-                Trace( "iVSrcGUID of iCam{0:d} = {1:d}", (ushort)ICAM, (ushort)ROOM[ IROOM ].CAM[ ICAM ].IVSRCGUID) ; 
                 __context__.SourceCodeLine = 1193;
                 ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
                 __context__.SourceCodeLine = 1194;
@@ -1941,8 +1937,6 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_49
                     ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTLOCALID = (ushort) ( IINDEX ) ; 
                     __context__.SourceCodeLine = 1218;
                     ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
-                    __context__.SourceCodeLine = 1219;
-                    Trace( "iVDstGUID of iDisplay{0:d} = {1:d}", (ushort)IDISPLAY, (ushort)ROOM[ IROOM ].DISPLAY[ IDISPLAY ].IVDSTGUID) ; 
                     __context__.SourceCodeLine = 1220;
                     ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
                     __context__.SourceCodeLine = 1221;

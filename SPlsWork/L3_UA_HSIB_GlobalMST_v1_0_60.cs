@@ -1825,77 +1825,77 @@ private ushort FPROCESSLIST (  SplusExecutionContext __context__, ushort ILIST )
     __context__.SourceCodeLine = 1228;
     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ILIST >= 1 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ILIST <= 4 ) )) ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1230;
+        __context__.SourceCodeLine = 1231;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
-        ushort __FN_FOREND_VAL__1 = (ushort)30; 
+        ushort __FN_FOREND_VAL__1 = (ushort)23; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1232;
-            MakeString ( TO_ROOM_TX__DOLLAR__ [ I] , "{0}COMPLETE|}}", FGETDATAHEADER (  __context__ , (ushort)( ILIST )) ) ; 
             __context__.SourceCodeLine = 1233;
-            Functions.Delay (  (int) ( 5 ) ) ; 
-            __context__.SourceCodeLine = 1230;
+            MakeString ( TO_ROOM_TX__DOLLAR__ [ I] , "{0}COMPLETE|}}", FGETDATAHEADER (  __context__ , (ushort)( ILIST )) ) ; 
+            __context__.SourceCodeLine = 1234;
+            Functions.Delay (  (int) ( 50 ) ) ; 
+            __context__.SourceCodeLine = 1231;
             } 
         
-        __context__.SourceCodeLine = 1236;
+        __context__.SourceCodeLine = 1237;
         LIST [ ILIST] . IINITIALIZED = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1238;
+        __context__.SourceCodeLine = 1239;
         ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__2 = (ushort)FHIGHESTLISTINDEX( __context__ , (ushort)( ILIST ) , (ushort)( 0 ) ); 
         int __FN_FORSTEP_VAL__2 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
             { 
-            __context__.SourceCodeLine = 1240;
-            FCONFIGURELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( I ), (ushort)( 1 )) ; 
             __context__.SourceCodeLine = 1241;
+            FCONFIGURELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( I ), (ushort)( 1 )) ; 
+            __context__.SourceCodeLine = 1242;
             if ( Functions.TestForTrue  ( ( LIST[ ILIST ].ITEM[ I ].IITEMACTIVE)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1243;
+                __context__.SourceCodeLine = 1244;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ILIST == 2) ) || Functions.TestForTrue ( Functions.BoolToInt (ILIST == 4) )) ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1243;
+                    __context__.SourceCodeLine = 1244;
                     FCONFIGURELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( I ), (ushort)( 2 )) ; 
                     }
                 
                 } 
             
-            __context__.SourceCodeLine = 1238;
+            __context__.SourceCodeLine = 1239;
             } 
         
-        __context__.SourceCodeLine = 1246;
-        FUPDATELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( 0 )) ; 
         __context__.SourceCodeLine = 1247;
+        FUPDATELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( 0 )) ; 
+        __context__.SourceCodeLine = 1248;
         FUPDATELISTVIS (  __context__ , (ushort)( ILIST ), (ushort)( 0 )) ; 
         } 
     
     else 
         {
-        __context__.SourceCodeLine = 1249;
+        __context__.SourceCodeLine = 1250;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ILIST >= 5 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ILIST <= 8 ) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1251;
-            LIST_NUMOFITEMS [ ILIST]  .Value = (ushort) ( FHIGHESTLISTINDEX( __context__ , (ushort)( ILIST ) , (ushort)( 0 ) ) ) ; 
             __context__.SourceCodeLine = 1252;
+            LIST_NUMOFITEMS [ ILIST]  .Value = (ushort) ( FHIGHESTLISTINDEX( __context__ , (ushort)( ILIST ) , (ushort)( 0 ) ) ) ; 
+            __context__.SourceCodeLine = 1253;
             ushort __FN_FORSTART_VAL__3 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__3 = (ushort)FHIGHESTLISTINDEX( __context__ , (ushort)( ILIST ) , (ushort)( 0 ) ); 
             int __FN_FORSTEP_VAL__3 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__3; (__FN_FORSTEP_VAL__3 > 0)  ? ( (I  >= __FN_FORSTART_VAL__3) && (I  <= __FN_FOREND_VAL__3) ) : ( (I  <= __FN_FORSTART_VAL__3) && (I  >= __FN_FOREND_VAL__3) ) ; I  += (ushort)__FN_FORSTEP_VAL__3) 
                 { 
-                __context__.SourceCodeLine = 1254;
+                __context__.SourceCodeLine = 1255;
                 FCONFIGURELISTTEXT (  __context__ , (ushort)( ILIST ), (ushort)( I ), (ushort)( 1 )) ; 
-                __context__.SourceCodeLine = 1252;
+                __context__.SourceCodeLine = 1253;
                 } 
             
-            __context__.SourceCodeLine = 1256;
-            FUPDATELISTTEXTFILTER (  __context__ , (ushort)( ILIST )) ; 
             __context__.SourceCodeLine = 1257;
+            FUPDATELISTTEXTFILTER (  __context__ , (ushort)( ILIST )) ; 
+            __context__.SourceCodeLine = 1258;
             FUPDATELISTVISFILTER (  __context__ , (ushort)( ILIST ), (ushort)( 0 )) ; 
             } 
         
         }
     
-    __context__.SourceCodeLine = 1260;
+    __context__.SourceCodeLine = 1261;
     Functions.Delay (  (int) ( 100 ) ) ; 
     
     return 0; // default return value (none specified in module)
@@ -1929,275 +1929,275 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
     STEMPUSB  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 20, this );
     
     
-    __context__.SourceCodeLine = 1280;
+    __context__.SourceCodeLine = 1281;
     STEMPLINE  .UpdateValue ( STEMPLINEARG  ) ; 
-    __context__.SourceCodeLine = 1282;
+    __context__.SourceCodeLine = 1283;
     while ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMPLINE ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1284;
-        STEMPPAIR  .UpdateValue ( Functions.Remove ( "," , STEMPLINE )  ) ; 
         __context__.SourceCodeLine = 1285;
-        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPPAIR )  ) ; 
+        STEMPPAIR  .UpdateValue ( Functions.Remove ( "," , STEMPLINE )  ) ; 
         __context__.SourceCodeLine = 1286;
+        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPPAIR )  ) ; 
+        __context__.SourceCodeLine = 1287;
         STEMPVALUE  .UpdateValue ( Functions.Left ( STEMPPAIR ,  (int) ( (Functions.Length( STEMPPAIR ) - 1) ) )  ) ; 
-        __context__.SourceCodeLine = 1288;
+        __context__.SourceCodeLine = 1289;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "global_name" , STEMPKEY ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1290;
-            LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME  .UpdateValue ( STEMPVALUE  ) ; 
             __context__.SourceCodeLine = 1291;
+            LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME  .UpdateValue ( STEMPVALUE  ) ; 
+            __context__.SourceCodeLine = 1292;
             FCONFIGURELISTTEXT (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), (ushort)( 1 )) ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1293;
+            __context__.SourceCodeLine = 1294;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_name" , STEMPKEY ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1295;
+                __context__.SourceCodeLine = 1296;
                 LIST [ ITYPE] . ITEM [ IINDEX] . SLOCALNAME  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                 } 
             
             else 
                 {
-                __context__.SourceCodeLine = 1297;
+                __context__.SourceCodeLine = 1298;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room" , STEMPKEY ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1297;
+                    __context__.SourceCodeLine = 1298;
                     LIST [ ITYPE] . ITEM [ IINDEX] . IRMASS = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1298;
+                    __context__.SourceCodeLine = 1299;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_id" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1298;
+                        __context__.SourceCodeLine = 1299;
                         LIST [ ITYPE] . ITEM [ IINDEX] . ILOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1300;
+                        __context__.SourceCodeLine = 1301;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_src_id" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1300;
+                            __context__.SourceCodeLine = 1301;
                             LIST [ ITYPE] . ITEM [ IINDEX] . ILOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1301;
+                            __context__.SourceCodeLine = 1302;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "function" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1301;
+                                __context__.SourceCodeLine = 1302;
                                 LIST [ ITYPE] . ITEM [ IINDEX] . IFUNCTIONID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1302;
+                                __context__.SourceCodeLine = 1303;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "filter" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1302;
+                                    __context__.SourceCodeLine = 1303;
                                     LIST [ ITYPE] . ITEM [ IINDEX] . IFILTERID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1304;
+                                    __context__.SourceCodeLine = 1305;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "ip_address" , STEMPKEY ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1304;
+                                        __context__.SourceCodeLine = 1305;
                                         LIST [ ITYPE] . ITEM [ IINDEX] . SIPADDRESS  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1305;
+                                        __context__.SourceCodeLine = 1306;
                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "com_port" , STEMPKEY ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1305;
+                                            __context__.SourceCodeLine = 1306;
                                             LIST [ ITYPE] . ITEM [ IINDEX] . ICOMPORT = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1306;
+                                            __context__.SourceCodeLine = 1307;
                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "processor_index" , STEMPKEY ))  ) ) 
                                                 {
-                                                __context__.SourceCodeLine = 1306;
+                                                __context__.SourceCodeLine = 1307;
                                                 LIST [ ITYPE] . ITEM [ IINDEX] . IPROCESSORINDEX = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                 }
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 1308;
+                                                __context__.SourceCodeLine = 1309;
                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_camera" , STEMPKEY ))  ) ) 
                                                     {
-                                                    __context__.SourceCodeLine = 1308;
+                                                    __context__.SourceCodeLine = 1309;
                                                     LIST [ ITYPE] . ITEM [ IINDEX] . IISCAMERA = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                     }
                                                 
                                                 else 
                                                     {
-                                                    __context__.SourceCodeLine = 1309;
+                                                    __context__.SourceCodeLine = 1310;
                                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_display" , STEMPKEY ))  ) ) 
                                                         {
-                                                        __context__.SourceCodeLine = 1309;
+                                                        __context__.SourceCodeLine = 1310;
                                                         LIST [ ITYPE] . ITEM [ IINDEX] . IISDISPLAY = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                         }
                                                     
                                                     else 
                                                         {
-                                                        __context__.SourceCodeLine = 1310;
+                                                        __context__.SourceCodeLine = 1311;
                                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "relay_proc" , STEMPKEY ))  ) ) 
                                                             {
-                                                            __context__.SourceCodeLine = 1310;
+                                                            __context__.SourceCodeLine = 1311;
                                                             LIST [ ITYPE] . ITEM [ IINDEX] . IRELAYPROCESSOR = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                             }
                                                         
                                                         else 
                                                             {
-                                                            __context__.SourceCodeLine = 1311;
+                                                            __context__.SourceCodeLine = 1312;
                                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "rly_on" , STEMPKEY ))  ) ) 
                                                                 { 
-                                                                __context__.SourceCodeLine = 1313;
-                                                                I = (ushort) ( 1 ) ; 
                                                                 __context__.SourceCodeLine = 1314;
+                                                                I = (ushort) ( 1 ) ; 
+                                                                __context__.SourceCodeLine = 1315;
                                                                 while ( Functions.TestForTrue  ( ( Functions.Find( "+" , STEMPVALUE ))  ) ) 
                                                                     { 
-                                                                    __context__.SourceCodeLine = 1316;
-                                                                    STEMP  .UpdateValue ( Functions.Remove ( "+" , STEMPVALUE )  ) ; 
                                                                     __context__.SourceCodeLine = 1317;
-                                                                    LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . IRELAYINDEX = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                                                    STEMP  .UpdateValue ( Functions.Remove ( "+" , STEMPVALUE )  ) ; 
                                                                     __context__.SourceCodeLine = 1318;
+                                                                    LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . IRELAYINDEX = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                                                    __context__.SourceCodeLine = 1319;
                                                                     if ( Functions.TestForTrue  ( ( Functions.Find( "~" , STEMP ))  ) ) 
                                                                         { 
-                                                                        __context__.SourceCodeLine = 1320;
-                                                                        STRASH  .UpdateValue ( Functions.Remove ( "~" , STEMP )  ) ; 
                                                                         __context__.SourceCodeLine = 1321;
-                                                                        LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . IISINITINDEX = (ushort) ( 1 ) ; 
+                                                                        STRASH  .UpdateValue ( Functions.Remove ( "~" , STEMP )  ) ; 
                                                                         __context__.SourceCodeLine = 1322;
+                                                                        LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . IISINITINDEX = (ushort) ( 1 ) ; 
+                                                                        __context__.SourceCodeLine = 1323;
                                                                         LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . SIPADDRESS  .UpdateValue ( Functions.Left ( STEMP ,  (int) ( (Functions.Find( "+" , STEMP ) - 1) ) )  ) ; 
                                                                         } 
                                                                     
-                                                                    __context__.SourceCodeLine = 1324;
+                                                                    __context__.SourceCodeLine = 1325;
                                                                     I = (ushort) ( (I + 1) ) ; 
-                                                                    __context__.SourceCodeLine = 1314;
+                                                                    __context__.SourceCodeLine = 1315;
                                                                     } 
                                                                 
-                                                                __context__.SourceCodeLine = 1326;
-                                                                LIST [ ITYPE] . ITEM [ IINDEX] . IRELAYONNUMOF = (ushort) ( I ) ; 
                                                                 __context__.SourceCodeLine = 1327;
+                                                                LIST [ ITYPE] . ITEM [ IINDEX] . IRELAYONNUMOF = (ushort) ( I ) ; 
+                                                                __context__.SourceCodeLine = 1328;
                                                                 I = (ushort) ( 0 ) ; 
                                                                 } 
                                                             
                                                             else 
                                                                 {
-                                                                __context__.SourceCodeLine = 1329;
+                                                                __context__.SourceCodeLine = 1330;
                                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "rly_off" , STEMPKEY ))  ) ) 
                                                                     { 
-                                                                    __context__.SourceCodeLine = 1331;
-                                                                    I = (ushort) ( 1 ) ; 
                                                                     __context__.SourceCodeLine = 1332;
+                                                                    I = (ushort) ( 1 ) ; 
+                                                                    __context__.SourceCodeLine = 1333;
                                                                     while ( Functions.TestForTrue  ( ( Functions.Find( "+" , STEMPVALUE ))  ) ) 
                                                                         { 
-                                                                        __context__.SourceCodeLine = 1334;
-                                                                        STEMP  .UpdateValue ( Functions.Remove ( "+" , STEMPVALUE )  ) ; 
                                                                         __context__.SourceCodeLine = 1335;
-                                                                        LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . IRELAYINDEX = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                                                        STEMP  .UpdateValue ( Functions.Remove ( "+" , STEMPVALUE )  ) ; 
                                                                         __context__.SourceCodeLine = 1336;
+                                                                        LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . IRELAYINDEX = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                                                        __context__.SourceCodeLine = 1337;
                                                                         if ( Functions.TestForTrue  ( ( Functions.Find( "~" , STEMP ))  ) ) 
                                                                             { 
-                                                                            __context__.SourceCodeLine = 1338;
-                                                                            STRASH  .UpdateValue ( Functions.Remove ( "~" , STEMP )  ) ; 
                                                                             __context__.SourceCodeLine = 1339;
-                                                                            LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . IISINITINDEX = (ushort) ( 1 ) ; 
+                                                                            STRASH  .UpdateValue ( Functions.Remove ( "~" , STEMP )  ) ; 
                                                                             __context__.SourceCodeLine = 1340;
+                                                                            LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . IISINITINDEX = (ushort) ( 1 ) ; 
+                                                                            __context__.SourceCodeLine = 1341;
                                                                             LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . SIPADDRESS  .UpdateValue ( Functions.Left ( STEMP ,  (int) ( (Functions.Find( "+" , STEMP ) - 1) ) )  ) ; 
                                                                             } 
                                                                         
-                                                                        __context__.SourceCodeLine = 1342;
+                                                                        __context__.SourceCodeLine = 1343;
                                                                         I = (ushort) ( (I + 1) ) ; 
-                                                                        __context__.SourceCodeLine = 1332;
+                                                                        __context__.SourceCodeLine = 1333;
                                                                         } 
                                                                     
-                                                                    __context__.SourceCodeLine = 1344;
-                                                                    LIST [ ITYPE] . ITEM [ IINDEX] . IRELAYOFFNUMOF = (ushort) ( I ) ; 
                                                                     __context__.SourceCodeLine = 1345;
+                                                                    LIST [ ITYPE] . ITEM [ IINDEX] . IRELAYOFFNUMOF = (ushort) ( I ) ; 
+                                                                    __context__.SourceCodeLine = 1346;
                                                                     I = (ushort) ( 0 ) ; 
                                                                     } 
                                                                 
                                                                 else 
                                                                     {
-                                                                    __context__.SourceCodeLine = 1347;
+                                                                    __context__.SourceCodeLine = 1348;
                                                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "device_type" , STEMPKEY ))  ) ) 
                                                                         {
-                                                                        __context__.SourceCodeLine = 1347;
+                                                                        __context__.SourceCodeLine = 1348;
                                                                         LIST [ ITYPE] . ITEM [ IINDEX] . SDEVICETYPE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                                                         }
                                                                     
                                                                     else 
                                                                         {
-                                                                        __context__.SourceCodeLine = 1349;
+                                                                        __context__.SourceCodeLine = 1350;
                                                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "usb_mac" , STEMPKEY ))  ) ) 
                                                                             { 
-                                                                            __context__.SourceCodeLine = 1351;
-                                                                            STEMPVALUE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                                                             __context__.SourceCodeLine = 1352;
-                                                                            Trace( "usbAddr = {0}", STEMPVALUE ) ; 
+                                                                            STEMPVALUE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                                                             __context__.SourceCodeLine = 1353;
+                                                                            Trace( "usbAddr = {0}", STEMPVALUE ) ; 
+                                                                            __context__.SourceCodeLine = 1354;
                                                                             MakeString ( LIST [ ITYPE] . ITEM [ IINDEX] . SUSBADDR , "{0}{1}{2}", Functions.Chr (  (int) ( Functions.HextoI( Functions.Mid( STEMPVALUE , (int)( 1 ) , (int)( 2 ) ) ) ) ) , Functions.Chr (  (int) ( Functions.HextoI( Functions.Mid( STEMPVALUE , (int)( 3 ) , (int)( 2 ) ) ) ) ) , Functions.Chr (  (int) ( Functions.HextoI( Functions.Mid( STEMPVALUE , (int)( 5 ) , (int)( 2 ) ) ) ) ) ) ; 
-                                                                            __context__.SourceCodeLine = 1358;
-                                                                            Trace( "List[{0:d}].Item[{1:d}].sUSBAddr={2}", (ushort)ITYPE, (ushort)IINDEX, LIST [ ITYPE] . ITEM [ IINDEX] . SUSBADDR ) ; 
                                                                             __context__.SourceCodeLine = 1359;
+                                                                            Trace( "List[{0:d}].Item[{1:d}].sUSBAddr={2}", (ushort)ITYPE, (ushort)IINDEX, LIST [ ITYPE] . ITEM [ IINDEX] . SUSBADDR ) ; 
+                                                                            __context__.SourceCodeLine = 1360;
                                                                             LIST [ ITYPE] . ITEM [ IINDEX] . IISUSB = (ushort) ( 1 ) ; 
                                                                             } 
                                                                         
                                                                         else 
                                                                             {
-                                                                            __context__.SourceCodeLine = 1361;
+                                                                            __context__.SourceCodeLine = 1362;
                                                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_vtc" , STEMPKEY ))  ) ) 
                                                                                 {
-                                                                                __context__.SourceCodeLine = 1361;
+                                                                                __context__.SourceCodeLine = 1362;
                                                                                 LIST [ ITYPE] . ITEM [ IINDEX] . IISVTC = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                                 }
                                                                             
                                                                             else 
                                                                                 {
-                                                                                __context__.SourceCodeLine = 1362;
+                                                                                __context__.SourceCodeLine = 1363;
                                                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vtc_io" , STEMPKEY ))  ) ) 
                                                                                     {
-                                                                                    __context__.SourceCodeLine = 1362;
+                                                                                    __context__.SourceCodeLine = 1363;
                                                                                     LIST [ ITYPE] . ITEM [ IINDEX] . IVTCIO = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                                     }
                                                                                 
                                                                                 else 
                                                                                     {
-                                                                                    __context__.SourceCodeLine = 1364;
+                                                                                    __context__.SourceCodeLine = 1365;
                                                                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_virtual" , STEMPKEY ))  ) ) 
                                                                                         {
-                                                                                        __context__.SourceCodeLine = 1364;
+                                                                                        __context__.SourceCodeLine = 1365;
                                                                                         LIST [ ITYPE] . ITEM [ IINDEX] . IISVIRTUAL = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                                         }
                                                                                     
                                                                                     else 
                                                                                         {
-                                                                                        __context__.SourceCodeLine = 1365;
+                                                                                        __context__.SourceCodeLine = 1366;
                                                                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "cmd" , STEMPKEY ))  ) ) 
                                                                                             { 
-                                                                                            __context__.SourceCodeLine = 1367;
-                                                                                            LIST [ ITYPE] . ITEM [ IINDEX] . SCMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                                                                             __context__.SourceCodeLine = 1368;
+                                                                                            LIST [ ITYPE] . ITEM [ IINDEX] . SCMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
+                                                                                            __context__.SourceCodeLine = 1369;
                                                                                             LIST [ ITYPE] . ITEM [ IINDEX] . ICMDDATA = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                                             } 
                                                                                         
                                                                                         else 
                                                                                             { 
-                                                                                            __context__.SourceCodeLine = 1372;
-                                                                                            IERR = (ushort) ( 1 ) ; 
                                                                                             __context__.SourceCodeLine = 1373;
+                                                                                            IERR = (ushort) ( 1 ) ; 
+                                                                                            __context__.SourceCodeLine = 1374;
                                                                                             Trace( "error - MTRX Init Data - didn't catch key - type={0:d}, GUID={1:d}, key={2}, value={3}", (ushort)ITYPE, (ushort)IINDEX, STEMPKEY , STEMPVALUE ) ; 
                                                                                             } 
                                                                                         
@@ -2241,109 +2241,109 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
             
             }
         
-        __context__.SourceCodeLine = 1282;
+        __context__.SourceCodeLine = 1283;
         } 
     
-    __context__.SourceCodeLine = 1377;
+    __context__.SourceCodeLine = 1378;
     if ( Functions.TestForTrue  ( ( Functions.Not( IERR ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1379;
+        __context__.SourceCodeLine = 1380;
         if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS)  ) ) 
             { 
-            __context__.SourceCodeLine = 1382;
+            __context__.SourceCodeLine = 1383;
             MakeString ( LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , "{0:d3} {1}", (ushort)ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].IROOMNUM, LIST [ ITYPE] . ITEM [ IINDEX] . SLOCALNAME ) ; 
             } 
         
-        __context__.SourceCodeLine = 1388;
+        __context__.SourceCodeLine = 1389;
         if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISCAMERA)  ) ) 
             { 
-            __context__.SourceCodeLine = 1390;
-            SYS . CAM . INUMOFCAMS = (ushort) ( (SYS.CAM.INUMOFCAMS + 1) ) ; 
             __context__.SourceCodeLine = 1391;
-            SYS . CAM . IGUID [ SYS.CAM.INUMOFCAMS] = (ushort) ( IINDEX ) ; 
+            SYS . CAM . INUMOFCAMS = (ushort) ( (SYS.CAM.INUMOFCAMS + 1) ) ; 
             __context__.SourceCodeLine = 1392;
-            ROOM [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] . INUMOFCAMS = (ushort) ( (ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFCAMS + 1) ) ; 
+            SYS . CAM . IGUID [ SYS.CAM.INUMOFCAMS] = (ushort) ( IINDEX ) ; 
             __context__.SourceCodeLine = 1393;
-            LIST [ ITYPE] . ITEM [ IINDEX] . IISCAMERA = (ushort) ( 1 ) ; 
+            ROOM [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] . INUMOFCAMS = (ushort) ( (ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFCAMS + 1) ) ; 
             __context__.SourceCodeLine = 1394;
-            LIST [ ITYPE] . ITEM [ IINDEX] . ICAMLOCALID = (ushort) ( ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFCAMS ) ; 
+            LIST [ ITYPE] . ITEM [ IINDEX] . IISCAMERA = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1395;
-            LIST [ ITYPE] . ITEM [ IINDEX] . ICAMGUID = (ushort) ( SYS.CAM.INUMOFCAMS ) ; 
+            LIST [ ITYPE] . ITEM [ IINDEX] . ICAMLOCALID = (ushort) ( ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFCAMS ) ; 
             __context__.SourceCodeLine = 1396;
+            LIST [ ITYPE] . ITEM [ IINDEX] . ICAMGUID = (ushort) ( SYS.CAM.INUMOFCAMS ) ; 
+            __context__.SourceCodeLine = 1397;
             ICAMGUID = (ushort) ( SYS.CAM.INUMOFCAMS ) ; 
-            __context__.SourceCodeLine = 1398;
+            __context__.SourceCodeLine = 1399;
             MakeString ( CAM_DATAINIT__DOLLAR__ [ 1] , "{{ListTextFB:{0:d}= global_name={1}~ip={2},|;}}", (ushort)ICAMGUID, LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , LIST [ ITYPE] . ITEM [ IINDEX] . SIPADDRESS ) ; 
-            __context__.SourceCodeLine = 1403;
+            __context__.SourceCodeLine = 1404;
             MakeString ( LISTFB__DOLLAR__ [ 12] , "{{ListTextFB:{0:d}={1},|; ListVisFB:{2:d}=1,|;}}", (ushort)ICAMGUID, LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , (ushort)ICAMGUID) ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1409;
+            __context__.SourceCodeLine = 1410;
             if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISDISPLAY)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1411;
-                SYS . DISPLAY . INUMOFDISPLAYS = (ushort) ( (SYS.DISPLAY.INUMOFDISPLAYS + 1) ) ; 
                 __context__.SourceCodeLine = 1412;
-                SYS . DISPLAY . IGUID [ SYS.DISPLAY.INUMOFDISPLAYS] = (ushort) ( IINDEX ) ; 
+                SYS . DISPLAY . INUMOFDISPLAYS = (ushort) ( (SYS.DISPLAY.INUMOFDISPLAYS + 1) ) ; 
                 __context__.SourceCodeLine = 1413;
-                ROOM [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] . INUMOFDISPLAYS = (ushort) ( (ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFDISPLAYS + 1) ) ; 
+                SYS . DISPLAY . IGUID [ SYS.DISPLAY.INUMOFDISPLAYS] = (ushort) ( IINDEX ) ; 
                 __context__.SourceCodeLine = 1414;
-                LIST [ ITYPE] . ITEM [ IINDEX] . IISDISPLAY = (ushort) ( 1 ) ; 
+                ROOM [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] . INUMOFDISPLAYS = (ushort) ( (ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFDISPLAYS + 1) ) ; 
                 __context__.SourceCodeLine = 1415;
-                LIST [ ITYPE] . ITEM [ IINDEX] . IDISPLAYLOCALID = (ushort) ( ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFDISPLAYS ) ; 
+                LIST [ ITYPE] . ITEM [ IINDEX] . IISDISPLAY = (ushort) ( 1 ) ; 
                 __context__.SourceCodeLine = 1416;
-                IDISPLAYGUID = (ushort) ( SYS.DISPLAY.INUMOFDISPLAYS ) ; 
+                LIST [ ITYPE] . ITEM [ IINDEX] . IDISPLAYLOCALID = (ushort) ( ROOM[ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS ].INUMOFDISPLAYS ) ; 
                 __context__.SourceCodeLine = 1417;
+                IDISPLAYGUID = (ushort) ( SYS.DISPLAY.INUMOFDISPLAYS ) ; 
+                __context__.SourceCodeLine = 1418;
                 LIST [ ITYPE] . ITEM [ IINDEX] . IDISPLAYGUID = (ushort) ( IDISPLAYGUID ) ; 
-                __context__.SourceCodeLine = 1420;
+                __context__.SourceCodeLine = 1421;
                 LIST [ ITYPE] . ITEM [ IINDEX] . IPROCESSORINDEX = (ushort) ( 5 ) ; 
-                __context__.SourceCodeLine = 1422;
-                STEMPCOMPORT  .UpdateValue ( ""  ) ; 
                 __context__.SourceCodeLine = 1423;
+                STEMPCOMPORT  .UpdateValue ( ""  ) ; 
+                __context__.SourceCodeLine = 1424;
                 if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ SYS.DISPLAY.IGUID[ I ] ].ICOMPORT)  ) ) 
                     {
-                    __context__.SourceCodeLine = 1423;
+                    __context__.SourceCodeLine = 1424;
                     MakeString ( STEMPCOMPORT , "~com_port={0:d},", (ushort)LIST[ ITYPE ].ITEM[ SYS.DISPLAY.IGUID[ I ] ].ICOMPORT) ; 
                     }
                 
-                __context__.SourceCodeLine = 1425;
+                __context__.SourceCodeLine = 1426;
                 MakeString ( DISPLAY_DATAINIT__DOLLAR__ [ LIST[ ITYPE ].ITEM[ IINDEX ].IPROCESSORINDEX] , "{{ListTextFB:{0:d}= global_name={1}~ip={2}~device_type={3}{4},|;}}", (ushort)IDISPLAYGUID, LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , LIST [ ITYPE] . ITEM [ IINDEX] . SIPADDRESS , LIST [ ITYPE] . ITEM [ IINDEX] . SDEVICETYPE , STEMPCOMPORT ) ; 
-                __context__.SourceCodeLine = 1432;
+                __context__.SourceCodeLine = 1433;
                 MakeString ( LISTFB__DOLLAR__ [ 13] , "{{ListTextFB:{0:d}={1},|; ListVisFB:{2:d}=1,|;}}", (ushort)IDISPLAYGUID, LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , (ushort)IDISPLAYGUID) ; 
-                __context__.SourceCodeLine = 1439;
+                __context__.SourceCodeLine = 1440;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (LIST[ ITYPE ].ITEM[ IINDEX ].IRELAYPROCESSOR == 6))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1441;
+                    __context__.SourceCodeLine = 1442;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].IRELAYONNUMOF; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 1443;
+                        __context__.SourceCodeLine = 1444;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( LIST[ ITYPE ].ITEM[ IINDEX ].RELAYON[ I ].IRELAYINDEX ) && Functions.TestForTrue ( LIST[ ITYPE ].ITEM[ IINDEX ].RELAYON[ I ].IISINITINDEX )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1445;
+                            __context__.SourceCodeLine = 1446;
                             MakeString ( RELAY_DATAINIT__DOLLAR__ [ 2] , "{{ListTextFB:{0:d}= ip={1},|;}}", (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].RELAYON[ I ].IRELAYINDEX, LIST [ ITYPE] . ITEM [ IINDEX] . RELAYON [ I] . SIPADDRESS ) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 1441;
+                        __context__.SourceCodeLine = 1442;
                         } 
                     
-                    __context__.SourceCodeLine = 1451;
+                    __context__.SourceCodeLine = 1452;
                     ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__2 = (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].IRELAYOFFNUMOF; 
                     int __FN_FORSTEP_VAL__2 = (int)1; 
                     for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
                         { 
-                        __context__.SourceCodeLine = 1453;
+                        __context__.SourceCodeLine = 1454;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( LIST[ ITYPE ].ITEM[ IINDEX ].RELAYOFF[ I ].IRELAYINDEX ) && Functions.TestForTrue ( LIST[ ITYPE ].ITEM[ IINDEX ].RELAYOFF[ I ].IISINITINDEX )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1455;
+                            __context__.SourceCodeLine = 1456;
                             MakeString ( RELAY_DATAINIT__DOLLAR__ [ 2] , "{{ListTextFB:{0:d}= ip={1},|;}}", (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].RELAYOFF[ I ].IRELAYINDEX, LIST [ ITYPE] . ITEM [ IINDEX] . RELAYOFF [ I] . SIPADDRESS ) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 1451;
+                        __context__.SourceCodeLine = 1452;
                         } 
                     
                     } 
@@ -2352,10 +2352,10 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
             
             else 
                 {
-                __context__.SourceCodeLine = 1463;
+                __context__.SourceCodeLine = 1464;
                 if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISVTC)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1465;
+                    __context__.SourceCodeLine = 1466;
                     
                         {
                         int __SPLS_TMPVAR__SWTCH_5__ = ((int)ITYPE);
@@ -2363,13 +2363,13 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
                             { 
                             if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 1) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1468;
+                                __context__.SourceCodeLine = 1469;
                                 SYS . VTC [ LIST[ ITYPE ].ITEM[ IINDEX ].IISVTC] . IVOUTGUID [ LIST[ ITYPE ].ITEM[ IINDEX ].IVTCIO] = (ushort) ( IINDEX ) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 2) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1470;
+                                __context__.SourceCodeLine = 1471;
                                 SYS . VTC [ LIST[ ITYPE ].ITEM[ IINDEX ].IISVTC] . IVINGUID [ LIST[ ITYPE ].ITEM[ IINDEX ].IVTCIO] = (ushort) ( IINDEX ) ; 
                                 }
                             
@@ -2384,53 +2384,53 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
             
             }
         
-        __context__.SourceCodeLine = 1474;
+        __context__.SourceCodeLine = 1475;
         if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISUSB)  ) ) 
             {
-            __context__.SourceCodeLine = 1474;
+            __context__.SourceCodeLine = 1475;
             MakeString ( STEMPUSB , " usb_mac={0},", LIST [ ITYPE] . ITEM [ IINDEX] . SUSBADDR ) ; 
             }
         
-        __context__.SourceCodeLine = 1476;
-        LIST [ ITYPE] . ITEM [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1477;
-        LIST [ ITYPE] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
+        LIST [ ITYPE] . ITEM [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1478;
-        FHIGHESTLISTINDEX (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX )) ; 
+        LIST [ ITYPE] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1479;
+        FHIGHESTLISTINDEX (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX )) ; 
+        __context__.SourceCodeLine = 1480;
         if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS)  ) ) 
             { 
-            __context__.SourceCodeLine = 1482;
+            __context__.SourceCodeLine = 1483;
             if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISCAMERA)  ) ) 
                 {
-                __context__.SourceCodeLine = 1482;
+                __context__.SourceCodeLine = 1483;
                 MakeString ( STEMP , "is_camera=1, cam_localID={0:d}, cam_global={1:d}, ", (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].ICAMLOCALID, (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].ICAMGUID) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1486;
+                __context__.SourceCodeLine = 1487;
                 if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISDISPLAY)  ) ) 
                     {
-                    __context__.SourceCodeLine = 1486;
+                    __context__.SourceCodeLine = 1487;
                     MakeString ( STEMP , "is_display=1, display_localID={0:d}, display_global={1:d}, ", (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].IDISPLAYLOCALID, (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].IDISPLAYGUID) ; 
                     }
                 
                 }
             
-            __context__.SourceCodeLine = 1491;
-            STEMPHEADER  .UpdateValue ( FGETDATAHEADER (  __context__ , (ushort)( ITYPE ))  ) ; 
             __context__.SourceCodeLine = 1492;
+            STEMPHEADER  .UpdateValue ( FGETDATAHEADER (  __context__ , (ushort)( ITYPE ))  ) ; 
+            __context__.SourceCodeLine = 1493;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ITYPE >= 1 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ITYPE <= 2 ) )) ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1492;
+                __context__.SourceCodeLine = 1493;
                 MakeString ( TO_ROOM_TX__DOLLAR__ [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] , "{{{0} LOCALID={1:d}: GUID={2:d}, global_name={3}, local_name={4}, {5}is_virtual={6:d}, {7}|}}", STEMPHEADER , (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].ILOCALID, (ushort)IINDEX, LIST [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME , LIST [ ITYPE] . ITEM [ IINDEX] . SLOCALNAME , STEMP , (ushort)LIST[ ITYPE ].ITEM[ IINDEX ].IISVIRTUAL, STEMPUSB ) ; 
                 }
             
-            __context__.SourceCodeLine = 1504;
+            __context__.SourceCodeLine = 1505;
             if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ IINDEX ].IISVIRTUAL)  ) ) 
                 {
-                __context__.SourceCodeLine = 1504;
+                __context__.SourceCodeLine = 1505;
                 ROOM [ LIST[ ITYPE ].ITEM[ IINDEX ].IRMASS] . IVIRTUALVDSTGUID [ LIST[ ITYPE ].ITEM[ IINDEX ].ILOCALID] = (ushort) ( IINDEX ) ; 
                 }
             
@@ -2440,7 +2440,7 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort ITYPE , u
     
     else 
         {
-        __context__.SourceCodeLine = 1507;
+        __context__.SourceCodeLine = 1508;
         Trace( "GlobalMST - in fProcessLine - iErr <> 0  -  iIndex = {0:d}", (ushort)IINDEX) ; 
         }
     
@@ -2465,58 +2465,58 @@ private void FPROCESSROOMS (  SplusExecutionContext __context__, ushort ITYPE , 
     SDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
     
     
-    __context__.SourceCodeLine = 1515;
+    __context__.SourceCodeLine = 1516;
     if ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMPLINE ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1517;
-        SDATA  .UpdateValue ( STEMPLINE  ) ; 
         __context__.SourceCodeLine = 1518;
+        SDATA  .UpdateValue ( STEMPLINE  ) ; 
+        __context__.SourceCodeLine = 1519;
         while ( Functions.TestForTrue  ( ( Functions.Find( "," , SDATA ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1520;
-            STEMPKV  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
             __context__.SourceCodeLine = 1521;
-            STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPKV )  ) ; 
+            STEMPKV  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
             __context__.SourceCodeLine = 1522;
+            STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPKV )  ) ; 
+            __context__.SourceCodeLine = 1523;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room_guid" , STEMPKEY ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1522;
+                __context__.SourceCodeLine = 1523;
                 IINDEX = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1523;
+                __context__.SourceCodeLine = 1524;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room_name" , STEMPKEY ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1523;
+                    __context__.SourceCodeLine = 1524;
                     ROOM [ IINDEX] . SROOMNAME  .UpdateValue ( FTRIMWHITESPACE (  __context__ , Functions.Left( STEMPKV , (int)( (Functions.Length( STEMPKV ) - 1) ) ))  ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1524;
+                    __context__.SourceCodeLine = 1525;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "bldg_rm_num" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1524;
+                        __context__.SourceCodeLine = 1525;
                         ROOM [ IINDEX] . IROOMNUM = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1525;
+                        __context__.SourceCodeLine = 1526;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "discrete_macro_mode" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1525;
+                            __context__.SourceCodeLine = 1526;
                             ROOM [ IINDEX] . IDISCRETEMACROMODE = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1526;
+                            __context__.SourceCodeLine = 1527;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "macro_take_mode" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1526;
+                                __context__.SourceCodeLine = 1527;
                                 ROOM [ IINDEX] . IMACROTAKEMODE = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                                 }
                             
@@ -2528,12 +2528,12 @@ private void FPROCESSROOMS (  SplusExecutionContext __context__, ushort ITYPE , 
                 
                 }
             
-            __context__.SourceCodeLine = 1518;
+            __context__.SourceCodeLine = 1519;
             } 
         
-        __context__.SourceCodeLine = 1529;
+        __context__.SourceCodeLine = 1530;
         MakeString ( TO_ROOM_TX__DOLLAR__ [ IINDEX] , "{{ROOMS; RoomID={0:d}:{1},{2:d},discrete_macro_mode={3:d},macro_take_mode={4:d}|}}", (ushort)IINDEX, ROOM [ IINDEX] . SROOMNAME , (ushort)ROOM[ IINDEX ].IROOMNUM, (ushort)ROOM[ IINDEX ].IDISCRETEMACROMODE, (ushort)ROOM[ IINDEX ].IMACROTAKEMODE) ; 
-        __context__.SourceCodeLine = 1536;
+        __context__.SourceCodeLine = 1537;
         MakeString ( LISTFB__DOLLAR__ [ 11] , "{{ListVisFB:{0:d}=1,; ListTextFB:{1:d}={2},|;}}", (ushort)IINDEX, (ushort)IINDEX, ROOM [ IINDEX] . SROOMNAME ) ; 
         } 
     
@@ -2554,109 +2554,109 @@ private void FPROCESSFILTER (  SplusExecutionContext __context__, ushort ITYPE ,
     SDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
     
     
-    __context__.SourceCodeLine = 1545;
-    SDATA  .UpdateValue ( STEMPLINE  ) ; 
     __context__.SourceCodeLine = 1546;
+    SDATA  .UpdateValue ( STEMPLINE  ) ; 
+    __context__.SourceCodeLine = 1547;
     while ( Functions.TestForTrue  ( ( Functions.Find( "=" , SDATA ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1548;
-        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , SDATA )  ) ; 
         __context__.SourceCodeLine = 1549;
+        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , SDATA )  ) ; 
+        __context__.SourceCodeLine = 1550;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "global_name" , STEMPKEY ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1551;
-            STEMPVALUE  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
             __context__.SourceCodeLine = 1552;
+            STEMPVALUE  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
+            __context__.SourceCodeLine = 1553;
             FILTER [ ITYPE] . ITEM [ IINDEX] . SGLOBALNAME  .UpdateValue ( FTRIMWHITESPACE (  __context__ , Functions.Left( STEMPVALUE , (int)( (Functions.Length( STEMPVALUE ) - 1) ) ))  ) ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1554;
+            __context__.SourceCodeLine = 1555;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "list_index" , STEMPKEY ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1556;
-                STEMPVALUE  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
                 __context__.SourceCodeLine = 1557;
-                FILTER [ ITYPE] . ITEM [ IINDEX] . IGLOBALTOLIST = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                STEMPVALUE  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
                 __context__.SourceCodeLine = 1558;
+                FILTER [ ITYPE] . ITEM [ IINDEX] . IGLOBALTOLIST = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                __context__.SourceCodeLine = 1559;
                 FILTER [ ITYPE] . ITEM [ Functions.Atoi( STEMPVALUE )] . ILISTTOGLOBAL = (ushort) ( IINDEX ) ; 
                 } 
             
             else 
                 {
-                __context__.SourceCodeLine = 1560;
+                __context__.SourceCodeLine = 1561;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "v_guid" , STEMPKEY ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1562;
-                    STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
                     __context__.SourceCodeLine = 1563;
+                    STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
+                    __context__.SourceCodeLine = 1564;
                     while ( Functions.TestForTrue  ( ( Functions.Atoi( STEMPVALUE ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1565;
-                        I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                         __context__.SourceCodeLine = 1566;
-                        FILTER [ ITYPE] . IMEMBERLISTV [ IINDEX , I] = (ushort) ( 1 ) ; 
+                        I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                         __context__.SourceCodeLine = 1567;
-                        STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                        FILTER [ ITYPE] . IMEMBERLISTV [ IINDEX , I] = (ushort) ( 1 ) ; 
                         __context__.SourceCodeLine = 1568;
+                        STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                        __context__.SourceCodeLine = 1569;
                         FILTER [ ITYPE] . INUMOFMEMBERSV [ IINDEX] = (ushort) ( (FILTER[ ITYPE ].INUMOFMEMBERSV[ IINDEX ] + 1) ) ; 
-                        __context__.SourceCodeLine = 1563;
+                        __context__.SourceCodeLine = 1564;
                         } 
                     
                     } 
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1571;
+                    __context__.SourceCodeLine = 1572;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "a_guid" , STEMPKEY ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1573;
-                        STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
                         __context__.SourceCodeLine = 1574;
+                        STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
+                        __context__.SourceCodeLine = 1575;
                         while ( Functions.TestForTrue  ( ( Functions.Atoi( STEMPVALUE ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1576;
-                            I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                             __context__.SourceCodeLine = 1577;
-                            FILTER [ ITYPE] . IMEMBERLISTA [ IINDEX , I] = (ushort) ( 1 ) ; 
+                            I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                             __context__.SourceCodeLine = 1578;
-                            STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                            FILTER [ ITYPE] . IMEMBERLISTA [ IINDEX , I] = (ushort) ( 1 ) ; 
                             __context__.SourceCodeLine = 1579;
+                            STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                            __context__.SourceCodeLine = 1580;
                             FILTER [ ITYPE] . INUMOFMEMBERSA [ IINDEX] = (ushort) ( (FILTER[ ITYPE ].INUMOFMEMBERSA[ IINDEX ] + 1) ) ; 
-                            __context__.SourceCodeLine = 1574;
+                            __context__.SourceCodeLine = 1575;
                             } 
                         
                         } 
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1582;
+                        __context__.SourceCodeLine = 1583;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "f_guid" , STEMPKEY ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1584;
-                            STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
                             __context__.SourceCodeLine = 1585;
+                            STEMPVALUE  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
+                            __context__.SourceCodeLine = 1586;
                             while ( Functions.TestForTrue  ( ( Functions.Atoi( STEMPVALUE ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1587;
-                                I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 __context__.SourceCodeLine = 1588;
-                                FILTER [ ITYPE] . IMEMBERLISTF [ IINDEX , I] = (ushort) ( 1 ) ; 
+                                I = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 __context__.SourceCodeLine = 1589;
-                                STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                                FILTER [ ITYPE] . IMEMBERLISTF [ IINDEX , I] = (ushort) ( 1 ) ; 
                                 __context__.SourceCodeLine = 1590;
+                                STRASH  .UpdateValue ( Functions.Remove ( Functions.ItoA (  (int) ( I ) ) , STEMPVALUE )  ) ; 
+                                __context__.SourceCodeLine = 1591;
                                 FILTER [ ITYPE] . INUMOFMEMBERSF [ IINDEX] = (ushort) ( (FILTER[ ITYPE ].INUMOFMEMBERSF[ IINDEX ] + 1) ) ; 
-                                __context__.SourceCodeLine = 1585;
+                                __context__.SourceCodeLine = 1586;
                                 } 
                             
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 1595;
-                            Trace( "Global - in fProcessFilter - didn't catch key. GUID={0:d} key:\u0022{1}\u0022", (ushort)IINDEX, STEMPKEY ) ; 
                             __context__.SourceCodeLine = 1596;
+                            Trace( "Global - in fProcessFilter - didn't catch key. GUID={0:d} key:\u0022{1}\u0022", (ushort)IINDEX, STEMPKEY ) ; 
+                            __context__.SourceCodeLine = 1597;
                             IERR = (ushort) ( 1 ) ; 
                             } 
                         
@@ -2668,17 +2668,17 @@ private void FPROCESSFILTER (  SplusExecutionContext __context__, ushort ITYPE ,
             
             }
         
-        __context__.SourceCodeLine = 1546;
+        __context__.SourceCodeLine = 1547;
         } 
     
-    __context__.SourceCodeLine = 1600;
+    __context__.SourceCodeLine = 1601;
     if ( Functions.TestForTrue  ( ( Functions.Not( IERR ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1602;
-        FHIGHESTLISTINDEX (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX )) ; 
         __context__.SourceCodeLine = 1603;
-        FILTER [ ITYPE] . ITEM [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
+        FHIGHESTLISTINDEX (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX )) ; 
         __context__.SourceCodeLine = 1604;
+        FILTER [ ITYPE] . ITEM [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1605;
         FILTER [ ITYPE] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
         } 
     
@@ -2704,103 +2704,103 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, CrestronString S
     STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
     
     
-    __context__.SourceCodeLine = 1621;
-    STEMPDATA2  .UpdateValue ( STEMPINITDATA  ) ; 
     __context__.SourceCodeLine = 1622;
-    STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
+    STEMPDATA2  .UpdateValue ( STEMPINITDATA  ) ; 
     __context__.SourceCodeLine = 1623;
+    STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
+    __context__.SourceCodeLine = 1624;
     STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
-    __context__.SourceCodeLine = 1625;
+    __context__.SourceCodeLine = 1626;
     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_VSRC" , STEMPHEADER ))  ) ) 
         {
-        __context__.SourceCodeLine = 1625;
+        __context__.SourceCodeLine = 1626;
         ITYPE = (ushort) ( 1 ) ; 
         }
     
     else 
         {
-        __context__.SourceCodeLine = 1626;
+        __context__.SourceCodeLine = 1627;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_VDST" , STEMPHEADER ))  ) ) 
             {
-            __context__.SourceCodeLine = 1626;
+            __context__.SourceCodeLine = 1627;
             ITYPE = (ushort) ( 2 ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1627;
+            __context__.SourceCodeLine = 1628;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_ASRC" , STEMPHEADER ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1627;
+                __context__.SourceCodeLine = 1628;
                 ITYPE = (ushort) ( 3 ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1628;
+                __context__.SourceCodeLine = 1629;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_ADST" , STEMPHEADER ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1628;
+                    __context__.SourceCodeLine = 1629;
                     ITYPE = (ushort) ( 4 ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1629;
+                    __context__.SourceCodeLine = 1630;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_SRCF" , STEMPHEADER ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1629;
+                        __context__.SourceCodeLine = 1630;
                         ITYPE = (ushort) ( 5 ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1630;
+                        __context__.SourceCodeLine = 1631;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_SRCG" , STEMPHEADER ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1630;
+                            __context__.SourceCodeLine = 1631;
                             ITYPE = (ushort) ( 6 ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1631;
+                            __context__.SourceCodeLine = 1632;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_DSTF" , STEMPHEADER ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1631;
+                                __context__.SourceCodeLine = 1632;
                                 ITYPE = (ushort) ( 7 ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1632;
+                                __context__.SourceCodeLine = 1633;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MTRX_DSTG" , STEMPHEADER ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1632;
+                                    __context__.SourceCodeLine = 1633;
                                     ITYPE = (ushort) ( 8 ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1633;
+                                    __context__.SourceCodeLine = 1634;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "ROOMS" , STEMPHEADER ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1633;
+                                        __context__.SourceCodeLine = 1634;
                                         ITYPE = (ushort) ( 13 ) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1634;
+                                        __context__.SourceCodeLine = 1635;
                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "MACRO" , STEMPHEADER ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1634;
+                                            __context__.SourceCodeLine = 1635;
                                             ITYPE = (ushort) ( 14 ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1635;
+                                            __context__.SourceCodeLine = 1636;
                                             Trace( "Global - in fProcessInit - didn't catch header type - {0}", STEMPHEADER ) ; 
                                             }
                                         
@@ -2822,49 +2822,49 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, CrestronString S
         
         }
     
-    __context__.SourceCodeLine = 1638;
+    __context__.SourceCodeLine = 1639;
     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 14))  ) ) 
         { 
-        __context__.SourceCodeLine = 1640;
+        __context__.SourceCodeLine = 1641;
         if ( Functions.TestForTrue  ( ( Functions.Atoi( STEMPDATA2 ))  ) ) 
             {
-            __context__.SourceCodeLine = 1640;
+            __context__.SourceCodeLine = 1641;
             MakeString ( TO_ROOM_TX__DOLLAR__ [ Functions.Atoi( STEMPDATA2 )] , "{0}", STEMPDATA2 ) ; 
             }
         
         } 
     
-    __context__.SourceCodeLine = 1642;
+    __context__.SourceCodeLine = 1643;
     while ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMPDATA ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1644;
-        STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
         __context__.SourceCodeLine = 1645;
+        STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
+        __context__.SourceCodeLine = 1646;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "complete" , STEMPLINE ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1647;
+            __context__.SourceCodeLine = 1648;
             FPROCESSLIST (  __context__ , (ushort)( ITYPE )) ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1649;
+            __context__.SourceCodeLine = 1650;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 13))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1651;
+                __context__.SourceCodeLine = 1652;
                 FPROCESSROOMS (  __context__ , (ushort)( ITYPE ), STEMPLINE) ; 
                 } 
             
             else 
                 { 
-                __context__.SourceCodeLine = 1655;
-                STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
                 __context__.SourceCodeLine = 1656;
-                IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+                STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
                 __context__.SourceCodeLine = 1657;
+                IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+                __context__.SourceCodeLine = 1658;
                 if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1659;
+                    __context__.SourceCodeLine = 1660;
                     
                         {
                         int __SPLS_TMPVAR__SWTCH_6__ = ((int)ITYPE);
@@ -2872,49 +2872,49 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, CrestronString S
                             { 
                             if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 1) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1661;
+                                __context__.SourceCodeLine = 1662;
                                 FPROCESSLINE (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 2) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1662;
+                                __context__.SourceCodeLine = 1663;
                                 FPROCESSLINE (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 3) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1663;
+                                __context__.SourceCodeLine = 1664;
                                 FPROCESSLINE (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 4) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1664;
+                                __context__.SourceCodeLine = 1665;
                                 FPROCESSLINE (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 5) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1665;
+                                __context__.SourceCodeLine = 1666;
                                 FPROCESSFILTER (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 6) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1666;
+                                __context__.SourceCodeLine = 1667;
                                 FPROCESSFILTER (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 7) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1667;
+                                __context__.SourceCodeLine = 1668;
                                 FPROCESSFILTER (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 8) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 1668;
+                                __context__.SourceCodeLine = 1669;
                                 FPROCESSFILTER (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
@@ -2927,7 +2927,7 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, CrestronString S
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1671;
+                    __context__.SourceCodeLine = 1672;
                     Trace( "error - MTRX fProcessInit, iIndex did not resolve -    {0} {1:d} {2}", STEMPHEADER , (ushort)IINDEX, STEMPLINE ) ; 
                     }
                 
@@ -2935,7 +2935,7 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, CrestronString S
             
             }
         
-        __context__.SourceCodeLine = 1642;
+        __context__.SourceCodeLine = 1643;
         } 
     
     
@@ -2949,40 +2949,40 @@ private void FUPDATEVTC (  SplusExecutionContext __context__, ushort IVTCSEL )
     STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
     
     
-    __context__.SourceCodeLine = 1687;
-    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
     __context__.SourceCodeLine = 1688;
-    VTC_CTRL_SEL_UNITNAME__DOLLAR__  .UpdateValue ( SYS . VTC [ SYS.IVTCSEL] . SUNITNAME  ) ; 
+    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
     __context__.SourceCodeLine = 1689;
+    VTC_CTRL_SEL_UNITNAME__DOLLAR__  .UpdateValue ( SYS . VTC [ SYS.IVTCSEL] . SUNITNAME  ) ; 
+    __context__.SourceCodeLine = 1690;
     if ( Functions.TestForTrue  ( ( SYS.VTC[ IVTCSEL ].IROOMRES)  ) ) 
         {
-        __context__.SourceCodeLine = 1689;
+        __context__.SourceCodeLine = 1690;
         STEMP  .UpdateValue ( ROOM [ SYS.VTC[ IVTCSEL ].IROOMRES] . SROOMNAME  ) ; 
         }
     
-    __context__.SourceCodeLine = 1690;
-    VTC_ROOMRES_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
     __context__.SourceCodeLine = 1691;
-    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+    VTC_ROOMRES_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
     __context__.SourceCodeLine = 1692;
+    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+    __context__.SourceCodeLine = 1693;
     if ( Functions.TestForTrue  ( ( SYS.VTC[ IVTCSEL ].ICAMSELECT)  ) ) 
         {
-        __context__.SourceCodeLine = 1692;
+        __context__.SourceCodeLine = 1693;
         STEMP  .UpdateValue ( LIST [ 1] . ITEM [ SYS.VTC[ IVTCSEL ].ICAMSELECT] . SGLOBALNAME  ) ; 
         }
     
-    __context__.SourceCodeLine = 1693;
-    VTC_CAMSELECT_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
     __context__.SourceCodeLine = 1694;
-    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+    VTC_CAMSELECT_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
     __context__.SourceCodeLine = 1695;
+    STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+    __context__.SourceCodeLine = 1696;
     if ( Functions.TestForTrue  ( ( SYS.VTC[ IVTCSEL ].ICONTENTSRC)  ) ) 
         {
-        __context__.SourceCodeLine = 1695;
+        __context__.SourceCodeLine = 1696;
         STEMP  .UpdateValue ( LIST [ 1] . ITEM [ SYS.VTC[ IVTCSEL ].ICONTENTSRC] . SGLOBALNAME  ) ; 
         }
     
-    __context__.SourceCodeLine = 1696;
+    __context__.SourceCodeLine = 1697;
     VTC_CONTENTSHARE_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
     
     }
@@ -2997,22 +2997,22 @@ object VTC_CTRL_SEL_OnPush_3 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1709;
+        __context__.SourceCodeLine = 1710;
         SYS . IVTCSEL = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1711;
+        __context__.SourceCodeLine = 1712;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)3; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             {
-            __context__.SourceCodeLine = 1711;
+            __context__.SourceCodeLine = 1712;
             VTC_CTRL_SEL_FB [ I]  .Value = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 1711;
+            __context__.SourceCodeLine = 1712;
             }
         
-        __context__.SourceCodeLine = 1712;
+        __context__.SourceCodeLine = 1713;
         VTC_CTRL_SEL_FB [ SYS.IVTCSEL]  .Value = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1714;
+        __context__.SourceCodeLine = 1715;
         FUPDATEVTC (  __context__ , (ushort)( SYS.IVTCSEL )) ; 
         
         
@@ -3037,31 +3037,31 @@ object CAM_SENDTOVTC_OnPush_4 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
         
         
-        __context__.SourceCodeLine = 1724;
+        __context__.SourceCodeLine = 1725;
         IVTC = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1727;
-        ISRCGUID = (ushort) ( 0 ) ; 
         __context__.SourceCodeLine = 1728;
+        ISRCGUID = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 1729;
         STEMP  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
-        __context__.SourceCodeLine = 1731;
+        __context__.SourceCodeLine = 1732;
         if ( Functions.TestForTrue  ( ( SYS.ICAMSEL)  ) ) 
             { 
-            __context__.SourceCodeLine = 1733;
-            ISRCGUID = (ushort) ( SYS.CAM.IGUID[ SYS.ICAMSEL ] ) ; 
             __context__.SourceCodeLine = 1734;
+            ISRCGUID = (ushort) ( SYS.CAM.IGUID[ SYS.ICAMSEL ] ) ; 
+            __context__.SourceCodeLine = 1735;
             STEMP  .UpdateValue ( LIST [ 1] . ITEM [ SYS.CAM.IGUID[ SYS.ICAMSEL ]] . SGLOBALNAME  ) ; 
             } 
         
-        __context__.SourceCodeLine = 1737;
+        __context__.SourceCodeLine = 1738;
         SYS . VTC [ IVTC] . ICAMSELECT = (ushort) ( ISRCGUID ) ; 
-        __context__.SourceCodeLine = 1739;
-        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ IVTC ].IVINGUID[ 1 ] ), (ushort)( SYS.VTC[ IVTC ].ICAMSELECT )) ; 
         __context__.SourceCodeLine = 1740;
-        VTC_CAMSELECT_NAME__DOLLAR__ [ IVTC]  .UpdateValue ( STEMP  ) ; 
+        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ IVTC ].IVINGUID[ 1 ] ), (ushort)( SYS.VTC[ IVTC ].ICAMSELECT )) ; 
         __context__.SourceCodeLine = 1741;
+        VTC_CAMSELECT_NAME__DOLLAR__ [ IVTC]  .UpdateValue ( STEMP  ) ; 
+        __context__.SourceCodeLine = 1742;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IVTC == SYS.IVTCSEL))  ) ) 
             {
-            __context__.SourceCodeLine = 1741;
+            __context__.SourceCodeLine = 1742;
             VTC_CAMSELECT_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( STEMP  ) ; 
             }
         
@@ -3082,13 +3082,13 @@ object CAM_FOLDEDCTRL_OnChange_5 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1748;
+        __context__.SourceCodeLine = 1749;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (SYS.UI.ISUB == 2))  ) ) 
             { 
-            __context__.SourceCodeLine = 1750;
+            __context__.SourceCodeLine = 1751;
             if ( Functions.TestForTrue  ( ( SYS.ICAMSEL)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1752;
+                __context__.SourceCodeLine = 1753;
                 CAM_FOLDEDCMD [ SYS.ICAMSEL]  .Value = (ushort) ( CAM_FOLDEDCTRL  .UshortValue ) ; 
                 } 
             
@@ -3108,37 +3108,37 @@ private void FMTRXTAKE (  SplusExecutionContext __context__, ushort ITYPE )
     ushort I = 0;
     
     
-    __context__.SourceCodeLine = 1768;
+    __context__.SourceCodeLine = 1769;
     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ITYPE == 2) ) || Functions.TestForTrue ( Functions.BoolToInt (ITYPE == 4) )) ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1770;
+        __context__.SourceCodeLine = 1771;
         if ( Functions.TestForTrue  ( ( LIST[ (ITYPE - 1) ].IITEMSELECTEDLAST)  ) ) 
             { 
-            __context__.SourceCodeLine = 1772;
+            __context__.SourceCodeLine = 1773;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)FHIGHESTLISTINDEX( __context__ , (ushort)( ITYPE ) , (ushort)( 0 ) ); 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 1774;
+                __context__.SourceCodeLine = 1775;
                 if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ I ].IFB)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1776;
+                    __context__.SourceCodeLine = 1777;
                     if ( Functions.TestForTrue  ( ( Functions.Not( LIST[ ITYPE ].ITEM[ I ].IISVIRTUAL ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1776;
+                        __context__.SourceCodeLine = 1777;
                         FMTRXSENDROUTE (  __context__ , (ushort)( ITYPE ), (ushort)( I ), (ushort)( LIST[ (ITYPE - 1) ].IITEMSELECTEDLAST )) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1777;
+                        __context__.SourceCodeLine = 1778;
                         FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( I ), (ushort)( LIST[ (ITYPE - 1) ].IITEMSELECTEDLAST )) ; 
                         }
                     
                     } 
                 
-                __context__.SourceCodeLine = 1772;
+                __context__.SourceCodeLine = 1773;
                 } 
             
             } 
@@ -3153,34 +3153,34 @@ private void FMTRXCLEARROUTES (  SplusExecutionContext __context__, ushort ITYPE
     ushort I = 0;
     
     
-    __context__.SourceCodeLine = 1788;
+    __context__.SourceCodeLine = 1789;
     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ITYPE == 2) ) || Functions.TestForTrue ( Functions.BoolToInt (ITYPE == 4) )) ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1790;
+        __context__.SourceCodeLine = 1791;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)FHIGHESTLISTINDEX( __context__ , (ushort)( ITYPE ) , (ushort)( 0 ) ); 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1792;
+            __context__.SourceCodeLine = 1793;
             if ( Functions.TestForTrue  ( ( LIST[ ITYPE ].ITEM[ I ].IFB)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1794;
+                __context__.SourceCodeLine = 1795;
                 if ( Functions.TestForTrue  ( ( Functions.Not( LIST[ ITYPE ].ITEM[ I ].IISVIRTUAL ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1794;
+                    __context__.SourceCodeLine = 1795;
                     FMTRXSENDROUTE (  __context__ , (ushort)( ITYPE ), (ushort)( I ), (ushort)( 0 )) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1795;
+                    __context__.SourceCodeLine = 1796;
                     FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( I ), (ushort)( 0 )) ; 
                     }
                 
                 } 
             
-            __context__.SourceCodeLine = 1790;
+            __context__.SourceCodeLine = 1791;
             } 
         
         } 
@@ -3196,9 +3196,9 @@ object MTRX_TAKE_ALL_OnPush_6 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1811;
-        FMTRXTAKE (  __context__ , (ushort)( 2 )) ; 
         __context__.SourceCodeLine = 1812;
+        FMTRXTAKE (  __context__ , (ushort)( 2 )) ; 
+        __context__.SourceCodeLine = 1813;
         FMTRXTAKE (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3217,7 +3217,7 @@ object MTRX_TAKE_VIDEO_OnPush_7 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1817;
+        __context__.SourceCodeLine = 1818;
         FMTRXTAKE (  __context__ , (ushort)( 2 )) ; 
         
         
@@ -3236,7 +3236,7 @@ object MTRX_TAKE_AUDIO_OnPush_8 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1822;
+        __context__.SourceCodeLine = 1823;
         FMTRXTAKE (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3255,13 +3255,13 @@ object MTRX_DESELECT_ALL_OnPush_9 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1827;
-        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 1 )) ; 
         __context__.SourceCodeLine = 1828;
-        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 2 )) ; 
+        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 1 )) ; 
         __context__.SourceCodeLine = 1829;
-        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 3 )) ; 
+        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 2 )) ; 
         __context__.SourceCodeLine = 1830;
+        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 3 )) ; 
+        __context__.SourceCodeLine = 1831;
         FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3280,9 +3280,9 @@ object MTRX_DESELECT_VIDEO_OnPush_10 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1834;
-        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 1 )) ; 
         __context__.SourceCodeLine = 1835;
+        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 1 )) ; 
+        __context__.SourceCodeLine = 1836;
         FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 2 )) ; 
         
         
@@ -3301,9 +3301,9 @@ object MTRX_DESELECT_AUDIO_OnPush_11 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1839;
-        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 3 )) ; 
         __context__.SourceCodeLine = 1840;
+        FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 3 )) ; 
+        __context__.SourceCodeLine = 1841;
         FCONFIGURELISTFBRESETALL (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3322,9 +3322,9 @@ object MTRX_SELECT_ALL_OnPush_12 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1844;
-        FCONFIGURELISTFBSETVISIBLEITEMS (  __context__ , (ushort)( 2 )) ; 
         __context__.SourceCodeLine = 1845;
+        FCONFIGURELISTFBSETVISIBLEITEMS (  __context__ , (ushort)( 2 )) ; 
+        __context__.SourceCodeLine = 1846;
         FCONFIGURELISTFBSETVISIBLEITEMS (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3343,7 +3343,7 @@ object MTRX_SELECT_ALL_VIDEO_OnPush_13 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1849;
+        __context__.SourceCodeLine = 1850;
         FCONFIGURELISTFBSETVISIBLEITEMS (  __context__ , (ushort)( 2 )) ; 
         
         
@@ -3362,7 +3362,7 @@ object MTRX_SELECT_ALL_AUDIO_OnPush_14 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1853;
+        __context__.SourceCodeLine = 1854;
         FCONFIGURELISTFBSETVISIBLEITEMS (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3381,9 +3381,9 @@ object MTRX_CLEAR_ROUTE_ALL_OnPush_15 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1857;
-        FMTRXCLEARROUTES (  __context__ , (ushort)( 2 )) ; 
         __context__.SourceCodeLine = 1858;
+        FMTRXCLEARROUTES (  __context__ , (ushort)( 2 )) ; 
+        __context__.SourceCodeLine = 1859;
         FMTRXCLEARROUTES (  __context__ , (ushort)( 4 )) ; 
         
         
@@ -3410,20 +3410,20 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
         ushort IERR = 0;
         
         
-        __context__.SourceCodeLine = 1871;
-        IERR = (ushort) ( 10000 ) ; 
         __context__.SourceCodeLine = 1872;
-        ILIST = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        IERR = (ushort) ( 10000 ) ; 
         __context__.SourceCodeLine = 1873;
+        ILIST = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1874;
         IINDEX = (ushort) ( LIST_ITEMCLICKED[ ILIST ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1875;
+        __context__.SourceCodeLine = 1876;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ILIST >= 5 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ILIST <= 8 ) )) ) ) && Functions.TestForTrue ( IINDEX )) ))  ) ) 
             {
-            __context__.SourceCodeLine = 1875;
+            __context__.SourceCodeLine = 1876;
             IINDEX = (ushort) ( FILTER[ ILIST ].ITEM[ IINDEX ].ILISTTOGLOBAL ) ; 
             }
         
-        __context__.SourceCodeLine = 1877;
+        __context__.SourceCodeLine = 1878;
         
             {
             int __SPLS_TMPVAR__SWTCH_7__ = ((int)ILIST);
@@ -3431,55 +3431,55 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 1) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1879;
+                    __context__.SourceCodeLine = 1880;
                     FCONFIGURELISTFBMUTEX (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 2) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1880;
+                    __context__.SourceCodeLine = 1881;
                     FCONFIGURELISTFBTOGGLE (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 3) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1881;
+                    __context__.SourceCodeLine = 1882;
                     FCONFIGURELISTFBMUTEX (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 4) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1882;
+                    __context__.SourceCodeLine = 1883;
                     FCONFIGURELISTFBTOGGLE (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 5) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1883;
+                    __context__.SourceCodeLine = 1884;
                     IERR = (ushort) ( FCONFIGUREFILTERFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 6) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1884;
+                    __context__.SourceCodeLine = 1885;
                     IERR = (ushort) ( FCONFIGUREFILTERFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 7) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1885;
+                    __context__.SourceCodeLine = 1886;
                     IERR = (ushort) ( FCONFIGUREFILTERFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 8) ) ) ) 
                     {
-                    __context__.SourceCodeLine = 1886;
+                    __context__.SourceCodeLine = 1887;
                     IERR = (ushort) ( FCONFIGUREFILTERFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
                     }
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 11) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 1889;
+                    __context__.SourceCodeLine = 1890;
                     
                         {
                         int __SPLS_TMPVAR__SWTCH_8__ = ((int)SYS.UI.ISUB);
@@ -3491,109 +3491,109 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 2) ) ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1894;
+                                __context__.SourceCodeLine = 1895;
                                 IINDEX = (ushort) ( FCONFIGURELISTFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
-                                __context__.SourceCodeLine = 1896;
+                                __context__.SourceCodeLine = 1897;
                                 if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 1898;
-                                    ROOMS_LIST_SELECTEDROOM__DOLLAR__  .UpdateValue ( ROOM [ IINDEX] . SROOMNAME  ) ; 
                                     __context__.SourceCodeLine = 1899;
+                                    ROOMS_LIST_SELECTEDROOM__DOLLAR__  .UpdateValue ( ROOM [ IINDEX] . SROOMNAME  ) ; 
+                                    __context__.SourceCodeLine = 1900;
                                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                                     ushort __FN_FOREND_VAL__1 = (ushort)SYS.CAM.INUMOFCAMS; 
                                     int __FN_FORSTEP_VAL__1 = (int)1; 
                                     for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                                         { 
-                                        __context__.SourceCodeLine = 1902;
+                                        __context__.SourceCodeLine = 1903;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (LIST[ 1 ].ITEM[ SYS.CAM.IGUID[ I ] ].IRMASS == IINDEX))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1902;
+                                            __context__.SourceCodeLine = 1903;
                                             LIST [ 12] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1903;
+                                            __context__.SourceCodeLine = 1904;
                                             LIST [ 12] . ITEM [ I] . IVIS = (ushort) ( 0 ) ; 
                                             }
                                         
-                                        __context__.SourceCodeLine = 1899;
+                                        __context__.SourceCodeLine = 1900;
                                         } 
                                     
                                     } 
                                 
                                 else 
                                     { 
-                                    __context__.SourceCodeLine = 1908;
-                                    ROOMS_LIST_SELECTEDROOM__DOLLAR__  .UpdateValue ( ""  ) ; 
                                     __context__.SourceCodeLine = 1909;
+                                    ROOMS_LIST_SELECTEDROOM__DOLLAR__  .UpdateValue ( ""  ) ; 
+                                    __context__.SourceCodeLine = 1910;
                                     ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                                     ushort __FN_FOREND_VAL__2 = (ushort)SYS.CAM.INUMOFCAMS; 
                                     int __FN_FORSTEP_VAL__2 = (int)1; 
                                     for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
                                         {
-                                        __context__.SourceCodeLine = 1909;
+                                        __context__.SourceCodeLine = 1910;
                                         LIST [ 12] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                                        __context__.SourceCodeLine = 1909;
+                                        __context__.SourceCodeLine = 1910;
                                         }
                                     
                                     } 
                                 
-                                __context__.SourceCodeLine = 1911;
+                                __context__.SourceCodeLine = 1912;
                                 FUPDATELISTVIS (  __context__ , (ushort)( 12 ), (ushort)( 0 )) ; 
                                 } 
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 3) ) ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1915;
+                                __context__.SourceCodeLine = 1916;
                                 FCONFIGURELISTFBMUTEX (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
-                                __context__.SourceCodeLine = 1917;
+                                __context__.SourceCodeLine = 1918;
                                 if ( Functions.TestForTrue  ( ( SYS.IVTCSEL)  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 1919;
-                                    IPREVIOUSROOM = (ushort) ( SYS.VTC[ SYS.IVTCSEL ].IROOMRES ) ; 
                                     __context__.SourceCodeLine = 1920;
-                                    SYS . VTC [ SYS.IVTCSEL] . IROOMRES = (ushort) ( IINDEX ) ; 
+                                    IPREVIOUSROOM = (ushort) ( SYS.VTC[ SYS.IVTCSEL ].IROOMRES ) ; 
                                     __context__.SourceCodeLine = 1921;
+                                    SYS . VTC [ SYS.IVTCSEL] . IROOMRES = (ushort) ( IINDEX ) ; 
+                                    __context__.SourceCodeLine = 1922;
                                     if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1921;
+                                        __context__.SourceCodeLine = 1922;
                                         ROOM [ IINDEX] . IVTCASSIGNMENT = (ushort) ( SYS.IVTCSEL ) ; 
                                         }
                                     
-                                    __context__.SourceCodeLine = 1922;
+                                    __context__.SourceCodeLine = 1923;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IPREVIOUSROOM ) && Functions.TestForTrue ( Functions.Not( IINDEX ) )) ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1922;
+                                        __context__.SourceCodeLine = 1923;
                                         ROOM [ IPREVIOUSROOM] . IVTCASSIGNMENT = (ushort) ( 0 ) ; 
                                         }
                                     
-                                    __context__.SourceCodeLine = 1925;
+                                    __context__.SourceCodeLine = 1926;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( IPREVIOUSROOM ) ) && Functions.TestForTrue ( Functions.Not( IINDEX ) )) ))  ) ) 
                                         { 
                                         } 
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1930;
+                                        __context__.SourceCodeLine = 1931;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IPREVIOUSROOM == IINDEX))  ) ) 
                                             { 
                                             } 
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1935;
+                                            __context__.SourceCodeLine = 1936;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IPREVIOUSROOM ) && Functions.TestForTrue ( Functions.BoolToInt (IPREVIOUSROOM != IINDEX) )) ))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 1938;
+                                                __context__.SourceCodeLine = 1939;
                                                 Functions.Pulse ( 10, VTC_ENDALLCALLS [ SYS.IVTCSEL] ) ; 
-                                                __context__.SourceCodeLine = 1940;
-                                                FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IPREVIOUSROOM ].IVIRTUALVDSTGUID[ 5 ] ), (ushort)( 0 )) ; 
                                                 __context__.SourceCodeLine = 1941;
+                                                FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IPREVIOUSROOM ].IVIRTUALVDSTGUID[ 5 ] ), (ushort)( 0 )) ; 
+                                                __context__.SourceCodeLine = 1942;
                                                 FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IPREVIOUSROOM ].IVIRTUALVDSTGUID[ 6 ] ), (ushort)( 0 )) ; 
-                                                __context__.SourceCodeLine = 1943;
-                                                FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( 0 )) ; 
                                                 __context__.SourceCodeLine = 1944;
+                                                FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( 0 )) ; 
+                                                __context__.SourceCodeLine = 1945;
                                                 FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 2 ] ), (ushort)( 0 )) ; 
                                                 } 
                                             
@@ -3601,29 +3601,29 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                                         
                                         }
                                     
-                                    __context__.SourceCodeLine = 1948;
+                                    __context__.SourceCodeLine = 1949;
                                     if ( Functions.TestForTrue  ( ( Functions.Not( IINDEX ))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 1951;
+                                        __context__.SourceCodeLine = 1952;
                                         Functions.Pulse ( 10, VTC_ENDALLCALLS [ SYS.IVTCSEL] ) ; 
-                                        __context__.SourceCodeLine = 1953;
-                                        VTC_ROOMRES_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( ""  ) ; 
                                         __context__.SourceCodeLine = 1954;
+                                        VTC_ROOMRES_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( ""  ) ; 
+                                        __context__.SourceCodeLine = 1955;
                                         VTC_ROOMRES_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( ""  ) ; 
                                         } 
                                     
                                     else 
                                         { 
-                                        __context__.SourceCodeLine = 1959;
-                                        VTC_ROOMRES_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( ROOM [ IINDEX] . SROOMNAME  ) ; 
                                         __context__.SourceCodeLine = 1960;
+                                        VTC_ROOMRES_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( ROOM [ IINDEX] . SROOMNAME  ) ; 
+                                        __context__.SourceCodeLine = 1961;
                                         VTC_ROOMRES_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( ROOM [ IINDEX] . SROOMNAME  ) ; 
-                                        __context__.SourceCodeLine = 1962;
-                                        FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IINDEX ].IVIRTUALVDSTGUID[ 5 ] ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVOUTGUID[ 1 ] )) ; 
                                         __context__.SourceCodeLine = 1963;
+                                        FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IINDEX ].IVIRTUALVDSTGUID[ 5 ] ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVOUTGUID[ 1 ] )) ; 
+                                        __context__.SourceCodeLine = 1964;
                                         if ( Functions.TestForTrue  ( ( SYS.VTC[ SYS.IVTCSEL ].IDUALDISPLAY)  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 1965;
+                                            __context__.SourceCodeLine = 1966;
                                             FMTRXSENDROUTEVIRTUAL (  __context__ , (ushort)( ROOM[ IINDEX ].IVIRTUALVDSTGUID[ 6 ] ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVOUTGUID[ 2 ] )) ; 
                                             } 
                                         
@@ -3642,11 +3642,11 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 12) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 1975;
-                    IINDEX = (ushort) ( FCONFIGURELISTFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
                     __context__.SourceCodeLine = 1976;
+                    IINDEX = (ushort) ( FCONFIGURELISTFBMUTEX( __context__ , (ushort)( ILIST ) , (ushort)( IINDEX ) ) ) ; 
+                    __context__.SourceCodeLine = 1977;
                     SYS . ICAMSEL = (ushort) ( IINDEX ) ; 
-                    __context__.SourceCodeLine = 1978;
+                    __context__.SourceCodeLine = 1979;
                     
                         {
                         int __SPLS_TMPVAR__SWTCH_9__ = ((int)SYS.UI.ISUB);
@@ -3658,37 +3658,37 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_9__ == ( 2) ) ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1983;
+                                __context__.SourceCodeLine = 1984;
                                 FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.IVDSTPANELGUID ), (ushort)( SYS.CAM.IGUID[ IINDEX ] )) ; 
                                 } 
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_9__ == ( 3) ) ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1987;
+                                __context__.SourceCodeLine = 1988;
                                 if ( Functions.TestForTrue  ( ( SYS.IVTCSEL)  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 1989;
+                                    __context__.SourceCodeLine = 1990;
                                     if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 1991;
-                                        SYS . VTC [ SYS.IVTCSEL] . ICAMSELECT = (ushort) ( SYS.CAM.IGUID[ IINDEX ] ) ; 
                                         __context__.SourceCodeLine = 1992;
-                                        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( SYS.CAM.IGUID[ IINDEX ] )) ; 
+                                        SYS . VTC [ SYS.IVTCSEL] . ICAMSELECT = (ushort) ( SYS.CAM.IGUID[ IINDEX ] ) ; 
                                         __context__.SourceCodeLine = 1993;
-                                        VTC_CAMSELECT_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( LIST [ 1] . ITEM [ SYS.CAM.IGUID[ IINDEX ]] . SGLOBALNAME  ) ; 
+                                        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( SYS.CAM.IGUID[ IINDEX ] )) ; 
                                         __context__.SourceCodeLine = 1994;
+                                        VTC_CAMSELECT_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( LIST [ 1] . ITEM [ SYS.CAM.IGUID[ IINDEX ]] . SGLOBALNAME  ) ; 
+                                        __context__.SourceCodeLine = 1995;
                                         VTC_CAMSELECT_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( LIST [ 1] . ITEM [ SYS.CAM.IGUID[ IINDEX ]] . SGLOBALNAME  ) ; 
                                         } 
                                     
                                     else 
                                         { 
-                                        __context__.SourceCodeLine = 1998;
-                                        SYS . VTC [ SYS.IVTCSEL] . ICAMSELECT = (ushort) ( 0 ) ; 
                                         __context__.SourceCodeLine = 1999;
-                                        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( 0 )) ; 
+                                        SYS . VTC [ SYS.IVTCSEL] . ICAMSELECT = (ushort) ( 0 ) ; 
                                         __context__.SourceCodeLine = 2000;
-                                        VTC_CAMSELECT_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+                                        FMTRXSENDROUTE (  __context__ , (ushort)( 2 ), (ushort)( SYS.VTC[ SYS.IVTCSEL ].IVINGUID[ 1 ] ), (ushort)( 0 )) ; 
                                         __context__.SourceCodeLine = 2001;
+                                        VTC_CAMSELECT_NAME__DOLLAR__ [ SYS.IVTCSEL]  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
+                                        __context__.SourceCodeLine = 2002;
                                         VTC_CAMSELECT_NAME__DOLLAR___SEL [ 1]  .UpdateValue ( SYS . SBLANKSRCTEXT  ) ; 
                                         } 
                                     
@@ -3708,10 +3708,10 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
             }
             
         
-        __context__.SourceCodeLine = 2008;
+        __context__.SourceCodeLine = 2009;
         if ( Functions.TestForTrue  ( ( IERR)  ) ) 
             { 
-            __context__.SourceCodeLine = 2010;
+            __context__.SourceCodeLine = 2011;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_10__ = ((int)ILIST);
@@ -3719,25 +3719,25 @@ object LIST_ITEMCLICKED_OnChange_16 ( Object __EventInfo__ )
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 5) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 2012;
+                        __context__.SourceCodeLine = 2013;
                         FCONFIGUREFILTER (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 6) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 2013;
+                        __context__.SourceCodeLine = 2014;
                         FCONFIGUREGROUP (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 7) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 2014;
+                        __context__.SourceCodeLine = 2015;
                         FCONFIGUREFILTER (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 8) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 2015;
+                        __context__.SourceCodeLine = 2016;
                         FCONFIGUREGROUP (  __context__ , (ushort)( ILIST ), (ushort)( IINDEX )) ; 
                         }
                     
@@ -3770,14 +3770,14 @@ object DATAINIT_RX__DOLLAR___OnChange_17 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 20000, this );
         
         
-        __context__.SourceCodeLine = 2025;
+        __context__.SourceCodeLine = 2026;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__ ))  ) ) 
             { 
-            __context__.SourceCodeLine = 2027;
-            STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__ )  ) ; 
             __context__.SourceCodeLine = 2028;
+            STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__ )  ) ; 
+            __context__.SourceCodeLine = 2029;
             FPROCESSINIT (  __context__ , STEMP) ; 
-            __context__.SourceCodeLine = 2025;
+            __context__.SourceCodeLine = 2026;
             } 
         
         
@@ -3797,7 +3797,7 @@ object UI_PAGE_OnPush_18 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 2038;
+        __context__.SourceCodeLine = 2039;
         SYS . UI . IPAGE = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         
         
@@ -3816,7 +3816,7 @@ object UI_SUB_OnPush_19 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 2043;
+        __context__.SourceCodeLine = 2044;
         SYS . UI . ISUB = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         
         
@@ -3839,72 +3839,72 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 2062;
+        __context__.SourceCodeLine = 2063;
         SYS . SBLANKSRCTEXT  .UpdateValue ( "---"  ) ; 
-        __context__.SourceCodeLine = 2064;
-        SYS . VTC [ 1] . SUNITNAME  .UpdateValue ( "Cisco SX80 Unit01"  ) ; 
         __context__.SourceCodeLine = 2065;
-        SYS . VTC [ 2] . SUNITNAME  .UpdateValue ( "Cisco SX80 Unit02"  ) ; 
+        SYS . VTC [ 1] . SUNITNAME  .UpdateValue ( "Cisco SX80 Unit01"  ) ; 
         __context__.SourceCodeLine = 2066;
+        SYS . VTC [ 2] . SUNITNAME  .UpdateValue ( "Cisco SX80 Unit02"  ) ; 
+        __context__.SourceCodeLine = 2067;
         SYS . VTC [ 3] . SUNITNAME  .UpdateValue ( "Cisco SX80 Unit03"  ) ; 
-        __context__.SourceCodeLine = 2068;
-        LIST [ 1] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2069;
-        LIST [ 2] . INUMOFTEXTCOLUMNS = (ushort) ( 2 ) ; 
+        LIST [ 1] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2070;
-        LIST [ 3] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
+        LIST [ 2] . INUMOFTEXTCOLUMNS = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 2071;
+        LIST [ 3] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 2072;
         LIST [ 4] . INUMOFTEXTCOLUMNS = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 2073;
-        LIST [ 1] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2074;
-        LIST [ 2] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 1] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2075;
-        LIST [ 3] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 2] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2076;
-        LIST [ 4] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 3] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2077;
-        LIST [ 5] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 4] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2078;
-        LIST [ 7] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 5] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2079;
-        LIST [ 12] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        LIST [ 7] . ILISTUSESVIS = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2080;
+        LIST [ 12] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 2081;
         LIST [ 13] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 2082;
-        FILTER [ 6] . IMEMBERLISTFINDEX = (ushort) ( 5 ) ; 
         __context__.SourceCodeLine = 2083;
+        FILTER [ 6] . IMEMBERLISTFINDEX = (ushort) ( 5 ) ; 
+        __context__.SourceCodeLine = 2084;
         FILTER [ 8] . IMEMBERLISTFINDEX = (ushort) ( 7 ) ; 
-        __context__.SourceCodeLine = 2085;
-        FILTER [ 5] . IMEMBERLISTVINDEX = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 2086;
+        FILTER [ 5] . IMEMBERLISTVINDEX = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 2087;
         FILTER [ 5] . IMEMBERLISTAINDEX = (ushort) ( 3 ) ; 
-        __context__.SourceCodeLine = 2088;
-        FILTER [ 7] . IMEMBERLISTVINDEX = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 2089;
+        FILTER [ 7] . IMEMBERLISTVINDEX = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 2090;
         FILTER [ 7] . IMEMBERLISTAINDEX = (ushort) ( 4 ) ; 
-        __context__.SourceCodeLine = 2091;
+        __context__.SourceCodeLine = 2092;
         WaitForInitializationComplete ( ) ; 
-        __context__.SourceCodeLine = 2093;
+        __context__.SourceCodeLine = 2094;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)2; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 2096;
+            __context__.SourceCodeLine = 2097;
             LIST_NUMOFITEMS [ I]  .Value = (ushort) ( 350 ) ; 
-            __context__.SourceCodeLine = 2093;
+            __context__.SourceCodeLine = 2094;
             } 
         
-        __context__.SourceCodeLine = 2098;
+        __context__.SourceCodeLine = 2099;
         ushort __FN_FORSTART_VAL__2 = (ushort) ( 3 ) ;
         ushort __FN_FOREND_VAL__2 = (ushort)4; 
         int __FN_FORSTEP_VAL__2 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
             { 
-            __context__.SourceCodeLine = 2101;
+            __context__.SourceCodeLine = 2102;
             LIST_NUMOFITEMS [ I]  .Value = (ushort) ( 400 ) ; 
-            __context__.SourceCodeLine = 2098;
+            __context__.SourceCodeLine = 2099;
             } 
         
         
