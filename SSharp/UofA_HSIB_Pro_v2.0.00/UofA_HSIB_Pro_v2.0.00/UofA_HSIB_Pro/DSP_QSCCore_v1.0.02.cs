@@ -75,9 +75,9 @@ namespace PWCSharpPro
         /// <param name="_volumeName">A name for the signal e.g. Program Audio</param>
         /// <param name="_volNamedControl">The Named Control for this volume level</param>
         /// <param name="_muteNamedControl">The Named control for this volume mute control</param>
-        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl)
+        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType)
         {
-            RegisterSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, 6.0f, -20.0f, 0.0f);
+            RegisterSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, 6.0f, -20.0f, 0.0f);
         }
 
         public void RegisterPreset(uint _signal, string _presetName)
@@ -103,9 +103,9 @@ namespace PWCSharpPro
         /// <param name="_max">The maximum level in dB of the level</param>
         /// <param name="_min">Theminimum levelin Db of the level</param>
         /// <param name="_defaultLevel">The level in dB to set the level upon default called</param>
-        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, float _max, float _min, float _defaultLevel)
+        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel)
         {
-            dSPQSCSignals[_signal] = new DSPQSCSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _max, _min, _defaultLevel);
+            dSPQSCSignals[_signal] = new DSPQSCSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, _max, _min, _defaultLevel);
         }
 
         public void RecallPreset(uint _signal)
@@ -490,17 +490,21 @@ namespace PWCSharpPro
         public string VolumeName;
         public string VolNamedControl;
         public string MuteNamedControl;
+        public string RteNamedControl;
+        public int PointType;
         public float MaxLevel;
         public float MinLevel;
         public float DefaultLevel;
         public uint Guid;
 
-        public DSPQSCSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, float _max, float _min, float _defaultLevel)
+        public DSPQSCSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel)
         {
             Guid = _signal;
             VolumeName = _volumeName;
             VolNamedControl = _volNamedControl;
             MuteNamedControl = _muteNamedControl;
+            RteNamedControl = _rteNamedControl;
+            PointType = _pointType;
             MaxLevel = _max;
             MinLevel = _min;
             DefaultLevel = _defaultLevel;

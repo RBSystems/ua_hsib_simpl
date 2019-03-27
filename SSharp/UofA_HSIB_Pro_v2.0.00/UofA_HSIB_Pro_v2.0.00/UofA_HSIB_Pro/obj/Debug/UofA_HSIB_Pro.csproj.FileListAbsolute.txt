@@ -29,7 +29,6 @@ C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Workin
 C:\Users\schan\Dropbox (Level 3 Audio Visual)\PROGRAMMING\zzzz - Samson's Working Folder\L3AV\3392 - UofA- HSIB\Program\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.dll
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.pdb
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpSQLHelperInterface.dll
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.dll
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb

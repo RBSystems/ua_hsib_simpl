@@ -399,7 +399,8 @@ namespace UofA_HSIB_Pro
                 string name = "";
                 string vol = "";
                 string mute = "";
-
+                int pointType = 0;
+                string rte = "";
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
                 {
@@ -410,26 +411,36 @@ namespace UofA_HSIB_Pro
 
                     switch (key.ToUpper())
                     {
-                        case ("GLOBAL_NAME"):
+                        case ("LOCAL_NAME"):
                             {
                                 name = value;
                                 break;
                             }
-                        case ("CMD_VOL"):
+                        case ("NAMED_CONTROL_GAIN"):
                             {
                                 vol = value;
                                 break;
                             }
-                        case ("CMD_MUTE"):
+                        case ("NAMED_CONTROL_MUTE"):
                             {
                                 mute = value;
+                                break;
+                            }
+                        case ("NAMED_CONTROL_RTE"):
+                            {
+                                rte = value;
+                                break;
+                            }
+                        case ("POINT_TYPE"):
+                            {
+                                pointType = Convert.ToInt32(value);
                                 break;
                             }
                     }
                 }
                 #endregion
 
-                controlSystem.DSPQSC.RegisterSignal(guid, name, vol, mute);
+                controlSystem.DSPQSC.RegisterSignal(guid, name, vol, mute, rte, pointType);
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].MuteNamedControl); }
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "ACK"));
