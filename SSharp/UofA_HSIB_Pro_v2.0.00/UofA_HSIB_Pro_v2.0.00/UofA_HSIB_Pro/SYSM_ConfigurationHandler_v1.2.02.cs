@@ -708,7 +708,7 @@ namespace UofA_HSIB_Pro
                 }
                 ConfigStrings[(int)Method.ConfigureImageProcessor, args.Sig.Number] = args.Sig.StringValue;
 
-                int id = (int)args.Sig.Number % 50;
+                int id = (int)args.Sig.Number % 100;
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configuring Image processor {1} with {2}...", CLASSID, id, args.Sig.StringValue); }
                 controlSystem.IMGPTvOne[id] = new IMGP_TVOne();
                 controlSystem.IMGPTvOne[id].Name = args.Sig.StringValue.Split('|')[0];
@@ -875,7 +875,7 @@ namespace UofA_HSIB_Pro
                 throw;
             }
         }
-    }
+    } 
 
     /// <summary>
     /// 
