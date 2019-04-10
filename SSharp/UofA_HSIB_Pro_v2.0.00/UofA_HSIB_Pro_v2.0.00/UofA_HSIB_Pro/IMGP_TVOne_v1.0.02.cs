@@ -208,6 +208,7 @@ namespace PWCSharpPro
         /// <param name="_message"></param>
         private void processSingleMessage(string _message)
         {
+            /*
             try
             {
                 CrestronConsole.PrintLine("{0} 000*** _message: {1}", CLASSID, _message);
@@ -246,6 +247,8 @@ namespace PWCSharpPro
             {
                 CrestronConsole.PrintLine("{0} 003!!! processSingleMessage() Exception: {1}", CLASSID, e);
             }
+            */
+
         }
 
         public void ClearBuffer()
