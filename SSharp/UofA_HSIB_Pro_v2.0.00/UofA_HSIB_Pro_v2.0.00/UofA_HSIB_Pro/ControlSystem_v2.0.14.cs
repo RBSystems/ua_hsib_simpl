@@ -382,11 +382,12 @@ namespace UofA_HSIB_Pro
                         if (IMGPTvOneClients[index].ClientStatus == SocketStatus.SOCKET_STATUS_CONNECTED)
                         {
                             //if (TxRxdebug) { CrestronConsole.PrintLine("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command); }
-                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> login(admin,adminpw)[cr]", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
-                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
+                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> login(admin,adminpw)[cr]", "IMGP", IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
+                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> {3}", "IMGP", IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
                             
+                            String loginData = String.Format("login(admin,adminpw)\r\n");
 
-                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(String.Format("login(admin,adminpw)\r\n")), _command.Length);
+                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(loginData), loginData.Length);
                             IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
                             
                             new CTimer(DisconnectSocket, IMGPTvOneClients[index], 1000);
