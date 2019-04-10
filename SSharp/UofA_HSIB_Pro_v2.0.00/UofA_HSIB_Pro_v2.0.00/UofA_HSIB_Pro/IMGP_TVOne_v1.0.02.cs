@@ -211,24 +211,23 @@ namespace PWCSharpPro
             try
             {
                 CrestronConsole.PrintLine("{0} 000*** _message: {1}", CLASSID, _message);
-                //if (_message.Contains(@"Please login. Use 'login(username,password)'") || _message.Contains(@"!Error -129 : UNAUTHORISED - Not Logged In"))
-                //{ 
-                //    Login("admin", "adminpw");
-                //}
-                //else if (_message.Contains("!Done Preset.Take"))
-                //{//!Done Preset.Take = 4
-                //    if (_message.Split(' ').Length == 4)
-                //    {
-                //    int preset = Convert.ToInt32(_message.Split(' ')[3]);
-                //    CurrentPreset = preset;
-                //    }
-                //}
-                //else if (_message.Contains(@"Preset.Take"))
+                if (_message.Contains(@"Please login. Use 'login(username,password)'") || _message.Contains(@"!Error -129 : UNAUTHORISED - Not Logged In"))
+                { 
+                    //Login("admin", "adminpw");
+                    //handling login elsewhere
+                }
+
                 
-                //commented these out for now because i changed the socket send to always send the login info before every command
-                //It's not a problem if we attempt to log in while already logged in.
+                if (_message.Contains("!Done Preset.Take"))
+                {//!Done Preset.Take = 4
+                    if (_message.Split(' ').Length == 4)
+                    {
+                    int preset = Convert.ToInt32(_message.Split(' ')[3]);
+                    CurrentPreset = preset;
+                    }
+                }
                 
-                if (_message.Contains(@"Preset.Take"))
+                else if (_message.Contains(@"Preset.Take"))
                 {//Preset.Take = 10 
                     if (_message.Split(' ').Length == 3)
                     {
