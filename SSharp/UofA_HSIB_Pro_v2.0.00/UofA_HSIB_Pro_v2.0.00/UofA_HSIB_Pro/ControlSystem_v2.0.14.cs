@@ -375,12 +375,20 @@ namespace UofA_HSIB_Pro
                             IMGPTvOneClients[index].ConnectToServer();
                         }
 
+                        //Thread.Sleep(100);
+                        //Because we are now disconnecting after each command, we may need to delay the command send to ensure
+                        //that the server is ready
+
                         if (IMGPTvOneClients[index].ClientStatus == SocketStatus.SOCKET_STATUS_CONNECTED)
                         {
                             //if (TxRxdebug) { CrestronConsole.PrintLine("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command); }
+                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> login(admin,adminpw)[cr]", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
                             if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
-                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
+                            
 
+                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(String.Format("login(admin,adminpw)\r\n")), _command.Length);
+                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
+                            
                             new CTimer(DisconnectSocket, IMGPTvOneClients[index], 1000);
                             return;
                         }

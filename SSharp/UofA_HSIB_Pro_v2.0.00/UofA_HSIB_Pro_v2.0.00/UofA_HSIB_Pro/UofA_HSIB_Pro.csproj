@@ -105,7 +105,7 @@
     <Compile Include="DPLY_SonyLCD_RS232C_v1.0.01.cs" />
     <Compile Include="DPLY_SonyProjector_LAN_v1.0.02.cs" />
     <Compile Include="DSP_QSCCore_v1.0.02.cs" />
-    <Compile Include="IMGP_TVOne_v1.0.01.cs" />
+    <Compile Include="IMGP_TVOne_v1.0.02.cs" />
     <Compile Include="LGHT_Lutron_v2.0.00.cs" />
     <Compile Include="MTRX_EvertzQuartz_v1.0.05.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
