@@ -381,7 +381,7 @@ namespace UofA_HSIB_Pro
                             if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
                             IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
 
-                            new CTimer(DisconnectSocket, RLYGlobalCacheClients[index], 1000);
+                            new CTimer(DisconnectSocket, IMGPTvOneClients[index], 1000);
                             return;
                         }
                         else
