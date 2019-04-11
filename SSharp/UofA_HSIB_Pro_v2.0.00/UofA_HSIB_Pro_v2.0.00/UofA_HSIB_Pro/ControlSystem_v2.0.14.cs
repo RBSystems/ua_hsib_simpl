@@ -381,16 +381,8 @@ namespace UofA_HSIB_Pro
 
                         if (IMGPTvOneClients[index].ClientStatus == SocketStatus.SOCKET_STATUS_CONNECTED)
                         {
-                            //if (TxRxdebug) { CrestronConsole.PrintLine("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command); }
-                            if (TxRxdebug) 
-                            { 
-                                CrestronConsole.PrintLine("IMGP_{0}:{1}: >>> login(admin,adminpw)[crlf]", IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber);
-                                CrestronConsole.PrintLine("IMGP_{0}:{1}: >>> {2}", IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command);
-                            }
+                            if (TxRxdebug) { new Thread(Print, string.Format("{0}_{1}:{2}: >>> {3}", RLY_GlobalCache.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
                             
-                            String loginData = String.Format("login(admin,adminpw)\r\n");
-
-                            IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(loginData), loginData.Length);
                             IMGPTvOneClients[index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
                             
                             new CTimer(DisconnectSocket, IMGPTvOneClients[index], 500);

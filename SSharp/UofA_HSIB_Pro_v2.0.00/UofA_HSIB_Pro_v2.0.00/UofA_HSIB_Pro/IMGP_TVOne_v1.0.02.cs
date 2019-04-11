@@ -115,12 +115,13 @@ namespace PWCSharpPro
             }
         }
 
+        /*
         public void Login(string _username, string _password)
         {
             string command = string.Format("login({0},{1})\n", _username, _password);
             sendCommand(command);
         }
-
+        */
         private char calculateChecksum(string _command)
         {
             try
@@ -147,10 +148,12 @@ namespace PWCSharpPro
         /// <param name="_command"></param>
         private void sendCommand(string _command)
         {
-            if (debug) { CrestronConsole.PrintLine("{0} 000>>> {1}", CLASSID, _command); }
+            //just re-log in at every command
+            string command = String.Format("login(admin,adminpw)\r\n{0}", _command);
+            if (debug) { CrestronConsole.PrintLine("{0} 000>>> {1}", CLASSID, command); }
             if (OnCommandToSend != null)
             {
-                OnCommandToSend(this, _command);
+                OnCommandToSend(this, command);
             }
             //rxTimer.Reset(300, 300);
             //pollTimer.Reset(10000, 10000);
@@ -186,16 +189,16 @@ namespace PWCSharpPro
         {
             try
             {                
-                while (rxData.Contains("\x0A"))
-                {
-                    if (debug) { CrestronConsole.PrintLine("{0} 000<<< {1}", CLASSID, rxData); }
+                //while (rxData.Contains("\x0A"))
+                //{
+                    //if (debug) { CrestronConsole.PrintLine("{0} 000<<< {1}", CLASSID, rxData); }
 
-                    int delimiterPos = rxData.IndexOf("\x0A");
-                    string message = rxData.Substring(0, delimiterPos + 1);
+                    //int delimiterPos = rxData.IndexOf("\x0A");
+                    //string message = rxData.Substring(0, delimiterPos + 1);
                     //rxData = rxData.Remove(delimiterPos + 1);
-                    rxData = rxData.Substring(delimiterPos + 1, rxData.Length - delimiterPos - 1);
-                    processSingleMessage(message);
-                }
+                    //rxData = rxData.Substring(delimiterPos + 1, rxData.Length - delimiterPos - 1);
+                    //processSingleMessage(message);
+                //}
             }
             catch (Exception e)
             {
