@@ -94,15 +94,18 @@ namespace PWCSharpPro
 
         public override void PowerOn()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            CrestronConsole.PrintLine("CAM_Sony attempting to command powerOn, but this is not supported");
         }
         public override void PowerOff()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            CrestronConsole.PrintLine("CAM_Sony attempting to command powerOff, but this is not supported");
         }
         public override void TogglePower()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            CrestronConsole.PrintLine("CAM_Sony attempting to command powerTog, but this is not supported");
         }
 
         public override void MoveCamera(Move _move)
@@ -189,6 +192,14 @@ namespace PWCSharpPro
             if (OnCommandToSend != null)
             {
                 OnCommandToSend(this, _command);
+            }
+        }
+
+        private void sendCommand(string _command, int _iter)
+        {
+            for (int i = 1; i <= _iter; i++)
+            {
+                sendCommand(_command);
             }
         }
 
