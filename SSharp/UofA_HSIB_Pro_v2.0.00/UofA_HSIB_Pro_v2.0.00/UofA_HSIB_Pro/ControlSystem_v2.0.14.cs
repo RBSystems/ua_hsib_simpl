@@ -1013,7 +1013,7 @@ namespace UofA_HSIB_Pro
         {
             if (debug) { CrestronConsole.PrintLine("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine); }
             Logger.LogEntry(string.Format("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine), CLASSID, false);
-
+               /*
             if (args.DeviceOnLine == true)
             {
                 foreach(ThreeSeriesTcpIpEthernetIntersystemCommunications eisc in eiscs)
@@ -1027,6 +1027,7 @@ namespace UofA_HSIB_Pro
                     }
                 }
             }
+                */
         }
 
         /// <summary>
