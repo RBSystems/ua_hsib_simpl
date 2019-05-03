@@ -280,14 +280,19 @@ namespace PWCSharpPro
         /// </summary>
         /// <param name="_signal">The fader to manipulate. 1 - 30</param>
         public override void MuteOn(uint _signal)
-        {
+        {          
             if (dSPQSCSignals[(int)_signal] != null)
             {
                 if (OnCommandToSend != null)
                 {
                     isMuted[_signal] = true;
-                    string command = string.Format("csp {0} 1\x0A", dSPQSCSignals[_signal].MuteNamedControl);
-                    OnCommandToSend(this, command);
+
+                    //if point type is an audio/mute control (1 or 2)
+                    if (dSPQSCSignals[(int)_signal].PointType < 3)
+                        OnCommandToSend(this, string.Format("csp {0} 1\x0A", dSPQSCSignals[_signal].MuteNamedControl));
+                    //else the point type is 3, which is a room-local router for selecting PGM audio
+                    else
+                        OnCommandToSend(this, string.Format("csp {0} 1\x0a", dSPQSCSignals[_signal].RteNamedControl));
                 }
             }
         }

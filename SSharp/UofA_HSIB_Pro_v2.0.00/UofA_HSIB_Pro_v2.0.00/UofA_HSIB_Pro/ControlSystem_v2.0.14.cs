@@ -934,13 +934,13 @@ namespace UofA_HSIB_Pro
             CrestronConsole.PrintLine("{0} *** Matrix Inputs configured are as follows:", CLASSID);
             foreach (KeyValuePair<int, MTRXSignalInfo> signal in mtrxSignals.Inputs)
             {
-                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, Number: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
+                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
             }
 
             CrestronConsole.PrintLine("\n{0} *** Matrix Outputs configured are as follows:", CLASSID);
             foreach (KeyValuePair<int, MTRXSignalInfo> signal in mtrxSignals.Outputs)
             {
-                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, Number: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
+                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
             }
             CrestronConsole.PrintLine("{0} *** End of Matrix Signal configuration Dump", CLASSID);
         }
