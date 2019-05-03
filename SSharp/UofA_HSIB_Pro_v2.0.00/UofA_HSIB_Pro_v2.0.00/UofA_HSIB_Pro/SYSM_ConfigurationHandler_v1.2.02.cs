@@ -136,6 +136,7 @@ namespace UofA_HSIB_Pro
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configuring Matrix Input with {1}...", CLASSID, args.Sig.StringValue); }
 
+
                 string[] keyValues = ReturnTidiedKeyValuePairs(args);
 
                 int guid = (int)args.Sig.Number % 700;
@@ -850,12 +851,19 @@ namespace UofA_HSIB_Pro
         {
             try
             {
+                string configTemp = "";
                 string configuration = args.Sig.StringValue;
                 configuration = configuration.Trim('{', '}', ' ');              // Removes leading and trailing curly brackets
                 if (configuration.Contains(':'))
                 {
                     configuration = configuration.Split(':')[1];                    // Remove the header DPLY;guid=01:
                 }
+                while (configuration.Contains("]"))
+                {
+                    configuration.Remove(0, configuration.IndexOf("["));
+                    configTemp += configuration.Substring(0, configuration.IndexOf("]") - 1);
+                }
+                configuration = configTemp;
                 configuration = configuration.Trim(' ');                        // Remove leading and trailing spaces
                 configuration = configuration.Replace(", ", ",");               // Remove spaces after commas
                 string[] keyValues;
