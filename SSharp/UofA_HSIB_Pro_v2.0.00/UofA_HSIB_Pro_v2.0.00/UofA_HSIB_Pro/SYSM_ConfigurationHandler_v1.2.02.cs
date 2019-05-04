@@ -860,6 +860,8 @@ namespace UofA_HSIB_Pro
                 }
                 while (configuration.Contains("]"))
                 {
+                    CrestronConsole.PrintLine("~~~~~{1}   {0}", configuration.Substring(0, configuration.IndexOf("]")+1), args.Sig.Number);
+                    CrestronConsole.PrintLine("\n");
                     configuration.Remove(0, configuration.IndexOf("[") + 1);
                     configTemp += configuration.Substring(0, configuration.IndexOf("]"));
                     configuration.Remove(0, configuration.IndexOf("]") + 1);
@@ -877,6 +879,9 @@ namespace UofA_HSIB_Pro
                 {
                     keyValues = configuration.Split(',');
                 }
+
+                configuration = "";
+                configTemp = "";
                 return keyValues;
             }
             catch (Exception e)
