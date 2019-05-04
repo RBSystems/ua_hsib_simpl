@@ -866,8 +866,8 @@ namespace UofA_HSIB_Pro
                 }
 
                 configuration = configTemp;
-                CrestronConsole.PrintLine("{0} configuration=     {1}", args.Sig.Number, configuration);
                 configuration = configuration.Trim(' ');                        // Remove leading and trailing spaces
+                configuration = configuration.Replace("  ", " ");               // Remove spaces after commas
                 configuration = configuration.Replace(", ", ",");               // Remove spaces after commas
                 string[] keyValues;
                 if (configuration.Contains('~'))
