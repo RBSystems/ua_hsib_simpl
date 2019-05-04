@@ -862,6 +862,7 @@ namespace UofA_HSIB_Pro
                 {
                     configuration.Remove(0, configuration.IndexOf("["));
                     configTemp += configuration.Substring(0, configuration.IndexOf("]") - 1);
+                    configuration.Remove(0, configuration.IndexOf("]"));
                 }
                 configuration = configTemp;
                 configuration = configuration.Trim(' ');                        // Remove leading and trailing spaces
