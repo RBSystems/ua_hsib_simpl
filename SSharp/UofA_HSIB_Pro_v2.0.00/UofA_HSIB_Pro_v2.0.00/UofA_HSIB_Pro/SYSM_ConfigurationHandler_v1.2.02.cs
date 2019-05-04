@@ -862,9 +862,9 @@ namespace UofA_HSIB_Pro
                 {
                     CrestronConsole.PrintLine("~~~~~{1}   {0}", configuration.Substring(0, configuration.IndexOf("]")+1), args.Sig.Number);
                     CrestronConsole.PrintLine("\n");
-                    configuration.Remove(0, configuration.IndexOf("[") + 1);
+                    configuration = configuration.Remove(0, configuration.IndexOf("[") + 1);
                     configTemp += configuration.Substring(0, configuration.IndexOf("]"));
-                    configuration.Remove(0, configuration.IndexOf("]") + 1);
+                    configuration = configuration.Remove(0, configuration.IndexOf("]") + 1);
                 }
 
                 configuration = configTemp;
