@@ -860,14 +860,13 @@ namespace UofA_HSIB_Pro
                 }
                 while (configuration.Contains("]"))
                 {
-                    CrestronConsole.PrintLine("~~~~~{1}   {0}", configuration.Substring(0, configuration.IndexOf("]")+1), args.Sig.Number);
-                    CrestronConsole.PrintLine("\n");
                     configuration = configuration.Remove(0, configuration.IndexOf("[") + 1);
                     configTemp += configuration.Substring(0, configuration.IndexOf("]"));
                     configuration = configuration.Remove(0, configuration.IndexOf("]") + 1);
                 }
 
                 configuration = configTemp;
+                CrestronConsole.PrintLine("{0} configuration=     {1}", args.Sig.Number, configuration);
                 configuration = configuration.Trim(' ');                        // Remove leading and trailing spaces
                 configuration = configuration.Replace(", ", ",");               // Remove spaces after commas
                 string[] keyValues;
