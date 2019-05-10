@@ -61,6 +61,8 @@ namespace UofA_HSIB_Pro
         ControlSystem controlSystem;
         public ConfigPacer Pacer;
 
+        
+
         public SYSM_ConfigurationHandler(ControlSystem controlSystem)
         {
             this.controlSystem = controlSystem;
@@ -856,9 +858,9 @@ namespace UofA_HSIB_Pro
                 configuration = configuration.Trim('{', '}', ' ');              // Removes leading and trailing curly brackets
                 if (configuration.Contains(':'))
                 {
-                    configuration = configuration.Split(':')[1];                    // Remove the header DPLY;guid=01:
+                    configuration = configuration.Split(':')[1];                // Remove the header DPLY;guid=01:
                 }
-                while (configuration.Contains("]"))
+                while (configuration.Contains("]"))                             // Remove sq bracket sub categorization [ ]
                 {
                     configuration = configuration.Remove(0, configuration.IndexOf("[") + 1);
                     configTemp += configuration.Substring(0, configuration.IndexOf("]"));
