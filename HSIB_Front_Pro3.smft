@@ -1,0 +1,37 @@
+<Device Model="PRO3" Name="PRO3.">
+   <Network Type="Cresnet" Id="04">
+      <Device Model="GLS-PART-CN" DeviceId="20" Name="S.x_PART01 305_306"/>
+      <Device Model="GLS-PART-CN" DeviceId="21" Name="S.x_PART02 320_321"/>
+      <Device Model="GLS-PART-CN" DeviceId="22" Name="S.x_PART03 322_323"/>
+      <Device Model="GLS-PART-CN" DeviceId="23" Name="S.x_PART04 442_443"/>
+      <Device Model="GLS-PART-CN" DeviceId="24" Name="S.x_PART05 444_445"/>
+      <Device Model="GLS-PART-CN" DeviceId="25" Name="S.x_PART06 531_532"/>
+      <Device Model="GLS-PART-CN" DeviceId="26" Name="S.x_PART07 640_642"/>
+   </Network>
+   <Network Type="Ethernet" Id="05">
+      <Device Model="DM-DGE-200-C" DeviceId="1F" Name="S.x BioComm"/>
+      <Device Model="DM-DGE-200-C" DeviceId="20" Name="S.01"/>
+      <Device Model="DM-DGE-200-C" DeviceId="21" Name="S.02"/>
+      <Device Model="DM-DGE-200-C" DeviceId="22" Name="S.03"/>
+      <Device Model="DM-DGE-200-C" DeviceId="23" Name="S.04"/>
+      <Device Model="DM-DGE-200-C" DeviceId="24" Name="S.05"/>
+      <Device Model="DM-DGE-200-C" DeviceId="25" Name="S.06"/>
+      <Device Model="DM-DGE-200-C" DeviceId="26" Name="S.07"/>
+      <Device Model="DM-DGE-200-C" DeviceId="27" Name="S.08"/>
+      <Device Model="DM-DGE-200-C" DeviceId="28" Name="S.09"/>
+      <Device Model="DM-DGE-200-C" DeviceId="29" Name="S.10"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2A" Name="S.11"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2B" Name="S.12"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2C" Name="S.13"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2D" Name="S.14"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2E" Name="S.15"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2F" Name="S.16 --Do Not Overwrite All"/>
+      <Device Model="DM-DGE-200-C" DeviceId="30" Name="S.17 --Do Not Overwrite All"/>
+      <Device Model="DM-DGE-200-C" DeviceId="31" Name="S.18"/>
+      <Device Model="DM-DGE-200-C" DeviceId="32" Name="S.19"/>
+      <Device Model="DM-DGE-200-C" DeviceId="36" Name="S.23 Forum"/>
+      <Device Model="CEN-CI3-1" DeviceId="70" Name="ACC 2A-1 (Forum)"/>
+      <Device Model="CEN-CI3-1" DeviceId="71" Name="ACC 2A-2 (Forum)"/>
+      <Device Model="CEN-CI3-1" DeviceId="72" Name="ACC 8A-1 (8th Floor)"/>
+   </Network>
+</Device>
