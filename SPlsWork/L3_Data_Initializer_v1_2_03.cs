@@ -327,12 +327,12 @@ namespace UserModule_L3_DATA_INITIALIZER_V1_2_03
                 } 
             
             __context__.SourceCodeLine = 359;
-            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_103__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_103___Callback ) ;
+            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_199__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_199___Callback ) ;
             
             return 0; // default return value (none specified in module)
             }
             
-        public void __SPLS_TMPVAR__WAITLABEL_103___CallbackFn( object stateInfo )
+        public void __SPLS_TMPVAR__WAITLABEL_199___CallbackFn( object stateInfo )
         {
         
             try
@@ -564,11 +564,11 @@ object DATAINSERT__DOLLAR___OnChange_1 ( Object __EventInfo__ )
         if ( Functions.TestForTrue  ( ( SEND_FINALIZE_DATA  .Value)  ) ) 
             { 
             __context__.SourceCodeLine = 508;
-            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_104__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_104___Callback ) ;
+            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_200__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_200___Callback ) ;
             } 
         
         __context__.SourceCodeLine = 514;
-        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_105__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_105___Callback ) ;
+        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_201__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_201___Callback ) ;
         
         
     }
@@ -578,7 +578,7 @@ object DATAINSERT__DOLLAR___OnChange_1 ( Object __EventInfo__ )
     
 }
 
-public void __SPLS_TMPVAR__WAITLABEL_104___CallbackFn( object stateInfo )
+public void __SPLS_TMPVAR__WAITLABEL_200___CallbackFn( object stateInfo )
 {
 
     try
@@ -599,7 +599,7 @@ public void __SPLS_TMPVAR__WAITLABEL_104___CallbackFn( object stateInfo )
     
 }
 
-public void __SPLS_TMPVAR__WAITLABEL_105___CallbackFn( object stateInfo )
+public void __SPLS_TMPVAR__WAITLABEL_201___CallbackFn( object stateInfo )
 {
 
     try
@@ -760,7 +760,7 @@ public override object FunctionMain (  object __obj__ )
         else 
             {
             __context__.SourceCodeLine = 566;
-            ILINEDELAY = (ushort) ( 20 ) ; 
+            ILINEDELAY = (ushort) ( 5 ) ; 
             }
         
         __context__.SourceCodeLine = 568;
@@ -876,9 +876,9 @@ public override void LogosSplusInitialize()
     FINALIZEDELIMITER__DOLLAR__ = new StringParameter( FINALIZEDELIMITER__DOLLAR____Parameter__, this );
     m_ParameterList.Add( FINALIZEDELIMITER__DOLLAR____Parameter__, FINALIZEDELIMITER__DOLLAR__ );
     
-    __SPLS_TMPVAR__WAITLABEL_103___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_103___CallbackFn );
-    __SPLS_TMPVAR__WAITLABEL_104___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_104___CallbackFn );
-    __SPLS_TMPVAR__WAITLABEL_105___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_105___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_199___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_199___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_200___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_200___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_201___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_201___CallbackFn );
     
     LINE_DELAY.OnAnalogChange.Add( new InputChangeHandlerWrapper( LINE_DELAY_OnChange_0, false ) );
     for( uint i = 0; i < 1000; i++ )
@@ -904,9 +904,9 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INITIALIZER_V1_2_03 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_103___Callback;
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_104___Callback;
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_105___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_199___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_200___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_201___Callback;
 
 
 const uint ENABLE__DigitalInput__ = 0;

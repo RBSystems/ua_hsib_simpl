@@ -66,8 +66,6 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         InOutArray<Crestron.Logos.SplusObjects.AnalogInput> MTRX_MACRO2_DST;
         InOutArray<Crestron.Logos.SplusObjects.AnalogInput> MTRX_ADMINVSRC_CLICKED;
         InOutArray<Crestron.Logos.SplusObjects.AnalogInput> MTRX_ADMINVDST_CLICKED;
-        InOutArray<Crestron.Logos.SplusObjects.AnalogInput> DSP_MICS_CLICKED;
-        InOutArray<Crestron.Logos.SplusObjects.AnalogInput> DSP_LINE_CLICKED;
         InOutArray<Crestron.Logos.SplusObjects.BufferInput> FROM_GLOBAL_RX__DOLLAR___1;
         InOutArray<Crestron.Logos.SplusObjects.BufferInput> FROM_GLOBAL_RX__DOLLAR___2;
         InOutArray<Crestron.Logos.SplusObjects.DigitalOutput> RC_ON_FB;
@@ -103,14 +101,14 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private ushort FISCHARPRINTABLE (  SplusExecutionContext __context__, ushort ITEMP ) 
             { 
             
-            __context__.SourceCodeLine = 332;
+            __context__.SourceCodeLine = 337;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ITEMP >= 33 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ITEMP <= 126 ) )) ))  ) ) 
                 {
-                __context__.SourceCodeLine = 332;
+                __context__.SourceCodeLine = 337;
                 return (ushort)( 1) ; 
                 }
             
-            __context__.SourceCodeLine = 333;
+            __context__.SourceCodeLine = 338;
             return (ushort)( 0) ; 
             
             }
@@ -125,65 +123,65 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPC  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1, this );
             
             
-            __context__.SourceCodeLine = 342;
+            __context__.SourceCodeLine = 347;
             if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Length( STEMP ) ))  ) ) 
                 {
-                __context__.SourceCodeLine = 342;
+                __context__.SourceCodeLine = 347;
                 return ( "" ) ; 
                 }
             
-            __context__.SourceCodeLine = 344;
+            __context__.SourceCodeLine = 349;
             SDATA  .UpdateValue ( STEMP  ) ; 
-            __context__.SourceCodeLine = 345;
+            __context__.SourceCodeLine = 350;
             ITEMPC = (ushort) ( Functions.GetC( SDATA ) ) ; 
-            __context__.SourceCodeLine = 346;
+            __context__.SourceCodeLine = 351;
             while ( Functions.TestForTrue  ( ( Functions.Not( FISCHARPRINTABLE( __context__ , (ushort)( ITEMPC ) ) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 348;
+                __context__.SourceCodeLine = 353;
                 if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Length( SDATA ) ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 348;
+                    __context__.SourceCodeLine = 353;
                     return ( "" ) ; 
                     }
                 
-                __context__.SourceCodeLine = 349;
+                __context__.SourceCodeLine = 354;
                 ITEMPC = (ushort) ( Functions.GetC( SDATA ) ) ; 
-                __context__.SourceCodeLine = 346;
+                __context__.SourceCodeLine = 351;
                 } 
             
-            __context__.SourceCodeLine = 351;
+            __context__.SourceCodeLine = 356;
             SDATA  .UpdateValue ( Functions.Chr (  (int) ( ITEMPC ) ) + SDATA  ) ; 
-            __context__.SourceCodeLine = 352;
+            __context__.SourceCodeLine = 357;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( Functions.Length( SDATA ) <= 1 ))  ) ) 
                 {
-                __context__.SourceCodeLine = 352;
+                __context__.SourceCodeLine = 357;
                 return ( SDATA ) ; 
                 }
             
-            __context__.SourceCodeLine = 354;
+            __context__.SourceCodeLine = 359;
             STEMPC  .UpdateValue ( Functions.Right ( SDATA ,  (int) ( 1 ) )  ) ; 
-            __context__.SourceCodeLine = 355;
+            __context__.SourceCodeLine = 360;
             ITEMPC = (ushort) ( Functions.GetC( STEMPC ) ) ; 
-            __context__.SourceCodeLine = 356;
+            __context__.SourceCodeLine = 361;
             while ( Functions.TestForTrue  ( ( Functions.Not( FISCHARPRINTABLE( __context__ , (ushort)( ITEMPC ) ) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 358;
+                __context__.SourceCodeLine = 363;
                 if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Length( SDATA ) ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 358;
+                    __context__.SourceCodeLine = 363;
                     return ( "" ) ; 
                     }
                 
-                __context__.SourceCodeLine = 359;
+                __context__.SourceCodeLine = 364;
                 SDATA  .UpdateValue ( Functions.Left ( SDATA ,  (int) ( (Functions.Length( SDATA ) - 1) ) )  ) ; 
-                __context__.SourceCodeLine = 360;
+                __context__.SourceCodeLine = 365;
                 STEMPC  .UpdateValue ( Functions.Right ( SDATA ,  (int) ( 1 ) )  ) ; 
-                __context__.SourceCodeLine = 361;
+                __context__.SourceCodeLine = 366;
                 ITEMPC = (ushort) ( Functions.GetC( STEMPC ) ) ; 
-                __context__.SourceCodeLine = 356;
+                __context__.SourceCodeLine = 361;
                 } 
             
-            __context__.SourceCodeLine = 364;
+            __context__.SourceCodeLine = 369;
             return ( SDATA ) ; 
             
             }
@@ -194,23 +192,23 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort ICOUNT = 0;
             
             
-            __context__.SourceCodeLine = 370;
+            __context__.SourceCodeLine = 375;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 372;
+                __context__.SourceCodeLine = 377;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IFB ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE )) ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 372;
+                    __context__.SourceCodeLine = 377;
                     ICOUNT = (ushort) ( (ICOUNT + 1) ) ; 
                     }
                 
-                __context__.SourceCodeLine = 370;
+                __context__.SourceCodeLine = 375;
                 } 
             
-            __context__.SourceCodeLine = 375;
+            __context__.SourceCodeLine = 380;
             return (ushort)( ICOUNT) ; 
             
             }
@@ -218,7 +216,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private ushort FOTHERROOM (  SplusExecutionContext __context__, ushort IROOM ) 
             { 
             
-            __context__.SourceCodeLine = 380;
+            __context__.SourceCodeLine = 385;
             return (ushort)( (3 - IROOM)) ; 
             
             }
@@ -226,25 +224,25 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FCOPYIO (  SplusExecutionContext __context__, ushort IFROMROOM , ushort IFROMINDEX , ushort ITOROOM , ushort ITOINDEX , ushort ILIST ) 
             { 
             
-            __context__.SourceCodeLine = 385;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IITEMACTIVE = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IITEMACTIVE ) ; 
-            __context__.SourceCodeLine = 386;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . SGLOBALNAME  .UpdateValue ( ROOM [ IFROMROOM] . LIST [ ILIST] . ITEM [ IFROMINDEX] . SGLOBALNAME  ) ; 
-            __context__.SourceCodeLine = 387;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . SLOCALNAME  .UpdateValue ( ROOM [ IFROMROOM] . LIST [ ILIST] . ITEM [ IFROMINDEX] . SLOCALNAME  ) ; 
-            __context__.SourceCodeLine = 388;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IRMASS = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IRMASS ) ; 
-            __context__.SourceCodeLine = 389;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IGUID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IGUID ) ; 
             __context__.SourceCodeLine = 390;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IFUNCTIONID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IFUNCTIONID ) ; 
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IITEMACTIVE = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IITEMACTIVE ) ; 
             __context__.SourceCodeLine = 391;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IFILTERID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IFILTERID ) ; 
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . SGLOBALNAME  .UpdateValue ( ROOM [ IFROMROOM] . LIST [ ILIST] . ITEM [ IFROMINDEX] . SGLOBALNAME  ) ; 
             __context__.SourceCodeLine = 392;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IISVIRTUAL = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IISVIRTUAL ) ; 
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . SLOCALNAME  .UpdateValue ( ROOM [ IFROMROOM] . LIST [ ILIST] . ITEM [ IFROMINDEX] . SLOCALNAME  ) ; 
             __context__.SourceCodeLine = 393;
-            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IVLINK = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IVLINK ) ; 
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IRMASS = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IRMASS ) ; 
+            __context__.SourceCodeLine = 394;
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IGUID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IGUID ) ; 
             __context__.SourceCodeLine = 395;
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IFUNCTIONID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IFUNCTIONID ) ; 
+            __context__.SourceCodeLine = 396;
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IFILTERID = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IFILTERID ) ; 
+            __context__.SourceCodeLine = 397;
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IISVIRTUAL = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IISVIRTUAL ) ; 
+            __context__.SourceCodeLine = 398;
+            ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IVLINK = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IVLINK ) ; 
+            __context__.SourceCodeLine = 400;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_1__ = ((int)ILIST);
@@ -252,9 +250,9 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_1__ == ( 2) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 399;
+                        __context__.SourceCodeLine = 404;
                         ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . IROUTEDSRC = (ushort) ( ROOM[ IFROMROOM ].LIST[ ILIST ].ITEM[ IFROMINDEX ].IROUTEDSRC ) ; 
-                        __context__.SourceCodeLine = 400;
+                        __context__.SourceCodeLine = 405;
                         ROOM [ ITOROOM] . LIST [ ILIST] . ITEM [ ITOINDEX] . SROUTEDSRC  .UpdateValue ( ROOM [ IFROMROOM] . LIST [ ILIST] . ITEM [ IFROMINDEX] . SROUTEDSRC  ) ; 
                         } 
                     
@@ -269,7 +267,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FSENDLISTFB (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST , CrestronString SDATA ) 
             { 
             
-            __context__.SourceCodeLine = 412;
+            __context__.SourceCodeLine = 417;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_2__ = ((int)ILIST);
@@ -277,37 +275,37 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 1) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 414;
+                        __context__.SourceCodeLine = 419;
                         MTRX_ADMINVSRC_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 2) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 415;
+                        __context__.SourceCodeLine = 420;
                         MTRX_ADMINVDST_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 3) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 416;
+                        __context__.SourceCodeLine = 421;
                         DSP_MICS_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 4) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 417;
+                        __context__.SourceCodeLine = 422;
                         DSP_LINE_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 5) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 418;
+                        __context__.SourceCodeLine = 423;
                         MTRX_MACRO_SRC_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 6) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 419;
+                        __context__.SourceCodeLine = 424;
                         MTRX_MACRO_DST_FB__DOLLAR__ [ IROOM]  .UpdateValue ( SDATA  ) ; 
                         }
                     
@@ -322,7 +320,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FUPDATELISTNUMOFITEMS (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST ) 
             { 
             
-            __context__.SourceCodeLine = 425;
+            __context__.SourceCodeLine = 430;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_3__ = ((int)ILIST);
@@ -330,25 +328,25 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 1) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 427;
+                        __context__.SourceCodeLine = 432;
                         MTRX_ADMINVSRC_NUMOFITEMS [ IROOM]  .Value = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 2) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 428;
+                        __context__.SourceCodeLine = 433;
                         MTRX_ADMINVDST_NUMOFITEMS [ IROOM]  .Value = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 3) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 429;
+                        __context__.SourceCodeLine = 434;
                         DSP_MICS_NUMOFITEMS [ IROOM]  .Value = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 4) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 430;
+                        __context__.SourceCodeLine = 435;
                         DSP_LINE_NUMOFITEMS [ IROOM]  .Value = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS ) ; 
                         }
                     
@@ -369,41 +367,41 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 443;
+            __context__.SourceCodeLine = 448;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ILISTUSESFB)  ) ) 
                 { 
-                __context__.SourceCodeLine = 445;
+                __context__.SourceCodeLine = 450;
                 STEMP  .UpdateValue ( "{ListButtonFB:"  ) ; 
-                __context__.SourceCodeLine = 446;
+                __context__.SourceCodeLine = 451;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IINDEX ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 448;
+                    __context__.SourceCodeLine = 453;
                     MakeString ( STEMP , "{0}{1:d}={2:d},;}}", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IFB) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 452;
+                    __context__.SourceCodeLine = 457;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 454;
+                        __context__.SourceCodeLine = 459;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                             {
-                            __context__.SourceCodeLine = 454;
+                            __context__.SourceCodeLine = 459;
                             MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IFB) ; 
                             }
                         
-                        __context__.SourceCodeLine = 452;
+                        __context__.SourceCodeLine = 457;
                         } 
                     
-                    __context__.SourceCodeLine = 456;
+                    __context__.SourceCodeLine = 461;
                     STEMP  .UpdateValue ( STEMP + "|;}"  ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 458;
+                __context__.SourceCodeLine = 463;
                 FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
                 } 
             
@@ -419,46 +417,46 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 467;
+            __context__.SourceCodeLine = 472;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ILISTUSESVIS)  ) ) 
                 { 
-                __context__.SourceCodeLine = 469;
+                __context__.SourceCodeLine = 474;
                 STEMP  .UpdateValue ( "{ListVisFB:"  ) ; 
-                __context__.SourceCodeLine = 470;
+                __context__.SourceCodeLine = 475;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IINDEX ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE )) ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 470;
+                    __context__.SourceCodeLine = 475;
                     MakeString ( STEMP , "{0}{1:d}={2:d},;}}", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVIS) ; 
                     }
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 473;
+                    __context__.SourceCodeLine = 478;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 475;
+                        __context__.SourceCodeLine = 480;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                             {
-                            __context__.SourceCodeLine = 475;
+                            __context__.SourceCodeLine = 480;
                             MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVIS) ; 
                             }
                         
-                        __context__.SourceCodeLine = 473;
+                        __context__.SourceCodeLine = 478;
                         } 
                     
-                    __context__.SourceCodeLine = 477;
+                    __context__.SourceCodeLine = 482;
                     STEMP  .UpdateValue ( STEMP + "|;}"  ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 479;
+                __context__.SourceCodeLine = 484;
                 FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
-                __context__.SourceCodeLine = 480;
+                __context__.SourceCodeLine = 485;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ILIST == 1))  ) ) 
                     {
-                    __context__.SourceCodeLine = 480;
+                    __context__.SourceCodeLine = 485;
                     FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 5 ), STEMP) ; 
                     }
                 
@@ -476,41 +474,41 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 490;
+            __context__.SourceCodeLine = 495;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ILISTUSESICON)  ) ) 
                 { 
-                __context__.SourceCodeLine = 492;
+                __context__.SourceCodeLine = 497;
                 STEMP  .UpdateValue ( "{ListIconFB:"  ) ; 
-                __context__.SourceCodeLine = 493;
+                __context__.SourceCodeLine = 498;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IINDEX ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 495;
+                    __context__.SourceCodeLine = 500;
                     MakeString ( STEMP , "{0}{1:d}={2:d},;}}", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IICON) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 499;
+                    __context__.SourceCodeLine = 504;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 501;
+                        __context__.SourceCodeLine = 506;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                             {
-                            __context__.SourceCodeLine = 501;
+                            __context__.SourceCodeLine = 506;
                             MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IICON) ; 
                             }
                         
-                        __context__.SourceCodeLine = 499;
+                        __context__.SourceCodeLine = 504;
                         } 
                     
-                    __context__.SourceCodeLine = 503;
+                    __context__.SourceCodeLine = 508;
                     STEMP  .UpdateValue ( STEMP + "|;}"  ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 505;
+                __context__.SourceCodeLine = 510;
                 FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
                 } 
             
@@ -526,93 +524,93 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 514;
+            __context__.SourceCodeLine = 519;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ILISTUSESTEXT)  ) ) 
                 { 
-                __context__.SourceCodeLine = 516;
+                __context__.SourceCodeLine = 521;
                 STEMP  .UpdateValue ( "{ListTextFB:"  ) ; 
-                __context__.SourceCodeLine = 517;
+                __context__.SourceCodeLine = 522;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IINDEX ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 519;
+                    __context__.SourceCodeLine = 524;
                     STEMP  .UpdateValue ( STEMP + Functions.ItoA (  (int) ( IINDEX ) ) + "="  ) ; 
-                    __context__.SourceCodeLine = 520;
+                    __context__.SourceCodeLine = 525;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].INUMOFTEXTCOLUMNS; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( J  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (J  >= __FN_FORSTART_VAL__1) && (J  <= __FN_FOREND_VAL__1) ) : ( (J  <= __FN_FORSTART_VAL__1) && (J  >= __FN_FOREND_VAL__1) ) ; J  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 522;
+                        __context__.SourceCodeLine = 527;
                         MakeString ( STEMP , "{0}{1},", STEMP , ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ J ] ) ; 
-                        __context__.SourceCodeLine = 520;
+                        __context__.SourceCodeLine = 525;
                         } 
                     
-                    __context__.SourceCodeLine = 524;
+                    __context__.SourceCodeLine = 529;
                     STEMP  .UpdateValue ( STEMP + "|;}"  ) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 528;
+                    __context__.SourceCodeLine = 533;
                     ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__2 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
                     int __FN_FORSTEP_VAL__2 = (int)1; 
                     for ( IINDEX  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__2) && (IINDEX  <= __FN_FOREND_VAL__2) ) : ( (IINDEX  <= __FN_FORSTART_VAL__2) && (IINDEX  >= __FN_FOREND_VAL__2) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__2) 
                         { 
-                        __context__.SourceCodeLine = 530;
+                        __context__.SourceCodeLine = 535;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 532;
+                            __context__.SourceCodeLine = 537;
                             STEMP  .UpdateValue ( STEMP + Functions.ItoA (  (int) ( IINDEX ) ) + "="  ) ; 
-                            __context__.SourceCodeLine = 533;
+                            __context__.SourceCodeLine = 538;
                             ushort __FN_FORSTART_VAL__3 = (ushort) ( 1 ) ;
                             ushort __FN_FOREND_VAL__3 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].INUMOFTEXTCOLUMNS; 
                             int __FN_FORSTEP_VAL__3 = (int)1; 
                             for ( J  = __FN_FORSTART_VAL__3; (__FN_FORSTEP_VAL__3 > 0)  ? ( (J  >= __FN_FORSTART_VAL__3) && (J  <= __FN_FOREND_VAL__3) ) : ( (J  <= __FN_FORSTART_VAL__3) && (J  >= __FN_FOREND_VAL__3) ) ; J  += (ushort)__FN_FORSTEP_VAL__3) 
                                 { 
-                                __context__.SourceCodeLine = 535;
+                                __context__.SourceCodeLine = 540;
                                 MakeString ( STEMP , "{0}{1},", STEMP , ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ J ] ) ; 
-                                __context__.SourceCodeLine = 533;
+                                __context__.SourceCodeLine = 538;
                                 } 
                             
-                            __context__.SourceCodeLine = 537;
+                            __context__.SourceCodeLine = 542;
                             STEMP  .UpdateValue ( STEMP + "|"  ) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 539;
+                        __context__.SourceCodeLine = 544;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( Functions.Length( STEMP ) > 850 ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 541;
+                            __context__.SourceCodeLine = 546;
                             STEMP  .UpdateValue ( STEMP + ";}"  ) ; 
-                            __context__.SourceCodeLine = 542;
+                            __context__.SourceCodeLine = 547;
                             FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
-                            __context__.SourceCodeLine = 543;
+                            __context__.SourceCodeLine = 548;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ILIST == 1))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 543;
+                                __context__.SourceCodeLine = 548;
                                 FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 5 ), STEMP) ; 
                                 }
                             
-                            __context__.SourceCodeLine = 544;
+                            __context__.SourceCodeLine = 549;
                             STEMP  .UpdateValue ( "{ListTextFB:"  ) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 528;
+                        __context__.SourceCodeLine = 533;
                         } 
                     
-                    __context__.SourceCodeLine = 547;
+                    __context__.SourceCodeLine = 552;
                     STEMP  .UpdateValue ( STEMP + ";}"  ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 549;
+                __context__.SourceCodeLine = 554;
                 if ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMP ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 551;
+                    __context__.SourceCodeLine = 556;
                     FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
-                    __context__.SourceCodeLine = 552;
+                    __context__.SourceCodeLine = 557;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ILIST == 1))  ) ) 
                         {
-                        __context__.SourceCodeLine = 552;
+                        __context__.SourceCodeLine = 557;
                         FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 5 ), STEMP) ; 
                         }
                     
@@ -626,13 +624,13 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FUPDATELISTALL (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST , ushort IINDEX ) 
             { 
             
-            __context__.SourceCodeLine = 560;
+            __context__.SourceCodeLine = 565;
             FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( IINDEX )) ; 
-            __context__.SourceCodeLine = 561;
+            __context__.SourceCodeLine = 566;
             FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( IINDEX )) ; 
-            __context__.SourceCodeLine = 562;
+            __context__.SourceCodeLine = 567;
             FUPDATELISTICON (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( IINDEX )) ; 
-            __context__.SourceCodeLine = 563;
+            __context__.SourceCodeLine = 568;
             FUPDATELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( IINDEX )) ; 
             
             }
@@ -640,37 +638,37 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FCONFIGURELISTVIS (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST , ushort IINDEX ) 
             { 
             
-            __context__.SourceCodeLine = 574;
+            __context__.SourceCodeLine = 579;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 { 
-                __context__.SourceCodeLine = 576;
+                __context__.SourceCodeLine = 581;
                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISRCITEM)  ) ) 
                     {
-                    __context__.SourceCodeLine = 576;
+                    __context__.SourceCodeLine = 581;
                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( SYS.IRCSTATE ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 577;
+                    __context__.SourceCodeLine = 582;
                     if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISVIRTUAL)  ) ) 
                         {
-                        __context__.SourceCodeLine = 577;
+                        __context__.SourceCodeLine = 582;
                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVLINK ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 578;
+                        __context__.SourceCodeLine = 583;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                             {
-                            __context__.SourceCodeLine = 578;
+                            __context__.SourceCodeLine = 583;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 579;
+                            __context__.SourceCodeLine = 584;
                             ; 
                             }
                         
@@ -682,40 +680,40 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             
             else 
                 { 
-                __context__.SourceCodeLine = 583;
+                __context__.SourceCodeLine = 588;
                 ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                 ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
                 int __FN_FORSTEP_VAL__1 = (int)1; 
                 for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                     { 
-                    __context__.SourceCodeLine = 585;
+                    __context__.SourceCodeLine = 590;
                     if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISRCITEM)  ) ) 
                         {
-                        __context__.SourceCodeLine = 585;
+                        __context__.SourceCodeLine = 590;
                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( SYS.IRCSTATE ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 586;
+                        __context__.SourceCodeLine = 591;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISVIRTUAL)  ) ) 
                             {
-                            __context__.SourceCodeLine = 586;
+                            __context__.SourceCodeLine = 591;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVLINK ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 587;
+                            __context__.SourceCodeLine = 592;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                                 {
-                                __context__.SourceCodeLine = 587;
+                                __context__.SourceCodeLine = 592;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 588;
+                                __context__.SourceCodeLine = 593;
                                 ; 
                                 }
                             
@@ -723,45 +721,45 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                         
                         }
                     
-                    __context__.SourceCodeLine = 583;
+                    __context__.SourceCodeLine = 588;
                     } 
                 
                 } 
             
-            __context__.SourceCodeLine = 592;
+            __context__.SourceCodeLine = 597;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ILIST == 1))  ) ) 
                 { 
-                __context__.SourceCodeLine = 594;
+                __context__.SourceCodeLine = 599;
                 if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 596;
+                    __context__.SourceCodeLine = 601;
                     if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISRCITEM)  ) ) 
                         {
-                        __context__.SourceCodeLine = 596;
+                        __context__.SourceCodeLine = 601;
                         ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( SYS.IRCSTATE ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 597;
+                        __context__.SourceCodeLine = 602;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISVIRTUAL)  ) ) 
                             {
-                            __context__.SourceCodeLine = 597;
+                            __context__.SourceCodeLine = 602;
                             ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVLINK ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 598;
+                            __context__.SourceCodeLine = 603;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                                 {
-                                __context__.SourceCodeLine = 598;
+                                __context__.SourceCodeLine = 603;
                                 ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 599;
+                                __context__.SourceCodeLine = 604;
                                 ; 
                                 }
                             
@@ -773,40 +771,40 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 603;
+                    __context__.SourceCodeLine = 608;
                     ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__2 = (ushort)ROOM[ IROOM ].LIST[ 5 ].IMAXNUMITEMS; 
                     int __FN_FORSTEP_VAL__2 = (int)1; 
                     for ( IINDEX  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__2) && (IINDEX  <= __FN_FOREND_VAL__2) ) : ( (IINDEX  <= __FN_FORSTART_VAL__2) && (IINDEX  >= __FN_FOREND_VAL__2) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__2) 
                         { 
-                        __context__.SourceCodeLine = 605;
+                        __context__.SourceCodeLine = 610;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISRCITEM)  ) ) 
                             {
-                            __context__.SourceCodeLine = 605;
+                            __context__.SourceCodeLine = 610;
                             ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( SYS.IRCSTATE ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 606;
+                            __context__.SourceCodeLine = 611;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISVIRTUAL)  ) ) 
                                 {
-                                __context__.SourceCodeLine = 606;
+                                __context__.SourceCodeLine = 611;
                                 ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IVLINK ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 607;
+                                __context__.SourceCodeLine = 612;
                                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IITEMACTIVE)  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 607;
+                                    __context__.SourceCodeLine = 612;
                                     ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . IVIS = (ushort) ( 1 ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 608;
+                                    __context__.SourceCodeLine = 613;
                                     ; 
                                     }
                                 
@@ -814,7 +812,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                             
                             }
                         
-                        __context__.SourceCodeLine = 603;
+                        __context__.SourceCodeLine = 608;
                         } 
                     
                     } 
@@ -827,10 +825,10 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FCONFIGURELISTTEXT (  SplusExecutionContext __context__, ushort IROOM , ushort ILIST , ushort IINDEX ) 
             { 
             
-            __context__.SourceCodeLine = 616;
+            __context__.SourceCodeLine = 621;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 { 
-                __context__.SourceCodeLine = 618;
+                __context__.SourceCodeLine = 623;
                 
                     {
                     int __SPLS_TMPVAR__SWTCH_4__ = ((int)ILIST);
@@ -838,17 +836,17 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                         { 
                         if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 1) ) ) ) 
                             { 
-                            __context__.SourceCodeLine = 622;
+                            __context__.SourceCodeLine = 627;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ 1 ]  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
-                            __context__.SourceCodeLine = 623;
+                            __context__.SourceCodeLine = 628;
                             ROOM [ IROOM] . LIST [ 5] . ITEM [ IINDEX] . STEXT [ 1 ]  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
                             } 
                         
                         else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 2) ) ) ) 
                             { 
-                            __context__.SourceCodeLine = 627;
+                            __context__.SourceCodeLine = 632;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ 1 ]  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
-                            __context__.SourceCodeLine = 628;
+                            __context__.SourceCodeLine = 633;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ 2 ]  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SROUTEDSRC  ) ; 
                             } 
                         
@@ -862,10 +860,10 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                         
                         else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 5) ) ) ) 
                             { 
-                            __context__.SourceCodeLine = 640;
+                            __context__.SourceCodeLine = 645;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( IINDEX <= ROOM[ IROOM ].LIST[ 5 ].IMAXNUMITEMS ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 642;
+                                __context__.SourceCodeLine = 647;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . STEXT [ 1 ]  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
                                 } 
                             
@@ -886,20 +884,20 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 653;
+            __context__.SourceCodeLine = 658;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 655;
+                __context__.SourceCodeLine = 660;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (I != ISKIPINDEX))  ) ) 
                     {
-                    __context__.SourceCodeLine = 655;
+                    __context__.SourceCodeLine = 660;
                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IFB = (ushort) ( IVAL ) ; 
                     }
                 
-                __context__.SourceCodeLine = 653;
+                __context__.SourceCodeLine = 658;
                 } 
             
             
@@ -910,9 +908,9 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 663;
+            __context__.SourceCodeLine = 668;
             ROOM [ IROOM] . MACRO [ IMACRO] . ISTATE = (ushort) ( ISRC ) ; 
-            __context__.SourceCodeLine = 664;
+            __context__.SourceCodeLine = 669;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_5__ = ((int)IROOM);
@@ -920,13 +918,13 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 668;
+                        __context__.SourceCodeLine = 673;
                         MTRX_MACRO1_SRC_FB [ IMACRO]  .Value = (ushort) ( ISRC ) ; 
                         } 
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 2) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 672;
+                        __context__.SourceCodeLine = 677;
                         MTRX_MACRO2_SRC_FB [ IMACRO]  .Value = (ushort) ( ISRC ) ; 
                         } 
                     
@@ -947,31 +945,31 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
             
             
-            __context__.SourceCodeLine = 682;
+            __context__.SourceCodeLine = 687;
             STEMP  .UpdateValue ( "{ListButtonFB:"  ) ; 
-            __context__.SourceCodeLine = 683;
+            __context__.SourceCodeLine = 688;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)10; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 685;
+                __context__.SourceCodeLine = 690;
                 IFB = (ushort) ( 0 ) ; 
-                __context__.SourceCodeLine = 686;
+                __context__.SourceCodeLine = 691;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ROOM[ IROOM ].ICAMSEL == I))  ) ) 
                     {
-                    __context__.SourceCodeLine = 686;
+                    __context__.SourceCodeLine = 691;
                     IFB = (ushort) ( 1 ) ; 
                     }
                 
-                __context__.SourceCodeLine = 688;
+                __context__.SourceCodeLine = 693;
                 MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)I, (ushort)IFB) ; 
-                __context__.SourceCodeLine = 683;
+                __context__.SourceCodeLine = 688;
                 } 
             
-            __context__.SourceCodeLine = 691;
+            __context__.SourceCodeLine = 696;
             MakeString ( STEMP , "{0}|;}}", STEMP ) ; 
-            __context__.SourceCodeLine = 693;
+            __context__.SourceCodeLine = 698;
             CAM_FB__DOLLAR__ [ IROOM]  .UpdateValue ( STEMP  ) ; 
             
             }
@@ -984,22 +982,22 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
             
             
-            __context__.SourceCodeLine = 701;
+            __context__.SourceCodeLine = 706;
             STEMP  .UpdateValue ( "{ListVisFB:"  ) ; 
-            __context__.SourceCodeLine = 702;
+            __context__.SourceCodeLine = 707;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)10; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 704;
+                __context__.SourceCodeLine = 709;
                 MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)I, (ushort)ROOM[ IROOM ].CAM[ I ].IVIS) ; 
-                __context__.SourceCodeLine = 702;
+                __context__.SourceCodeLine = 707;
                 } 
             
-            __context__.SourceCodeLine = 707;
+            __context__.SourceCodeLine = 712;
             MakeString ( STEMP , "{0}|;}}", STEMP ) ; 
-            __context__.SourceCodeLine = 708;
+            __context__.SourceCodeLine = 713;
             CAM_FB__DOLLAR__ [ IROOM]  .UpdateValue ( STEMP  ) ; 
             
             }
@@ -1007,7 +1005,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FUSBTAKE (  SplusExecutionContext __context__, ushort IROOM , ushort IDSTGUID , ushort ISRCGUID ) 
             { 
             
-            __context__.SourceCodeLine = 721;
+            __context__.SourceCodeLine = 726;
             MakeString ( TO_MST_TX__DOLLAR__ [ IROOM] , "{{USB_RTE; iGUIDdst={0:d}: iGUIDsrc={1:d}|}}", (ushort)IDSTGUID, (ushort)ISRCGUID) ; 
             
             }
@@ -1015,7 +1013,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FMTRXTAKE (  SplusExecutionContext __context__, ushort IROOM , ushort IDSTGUID , ushort ISRCGUID ) 
             { 
             
-            __context__.SourceCodeLine = 729;
+            __context__.SourceCodeLine = 734;
             MakeString ( TO_MST_TX__DOLLAR__ [ IROOM] , "{{MTRX_V_RTE; iGUIDdst={0:d}: iGUIDsrc={1:d}|}}", (ushort)IDSTGUID, (ushort)ISRCGUID) ; 
             
             }
@@ -1023,16 +1021,16 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FUPDATECONFMONITORRTE (  SplusExecutionContext __context__, ushort IROOM , ushort ISRCGUID ) 
             { 
             
-            __context__.SourceCodeLine = 743;
+            __context__.SourceCodeLine = 748;
             if ( Functions.TestForTrue  ( ( Functions.Not( ISRCGUID ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 745;
+                __context__.SourceCodeLine = 750;
                 Trace( "Room - fUpdateConfMonitorRte called with iSrcGUID=0. fix this!") ; 
-                __context__.SourceCodeLine = 746;
+                __context__.SourceCodeLine = 751;
                 ISRCGUID = (ushort) ( 350 ) ; 
                 } 
             
-            __context__.SourceCodeLine = 748;
+            __context__.SourceCodeLine = 753;
             FMTRXTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ 50 ].IGUID ), (ushort)( ISRCGUID )) ; 
             
             }
@@ -1042,9 +1040,9 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 764;
+            __context__.SourceCodeLine = 769;
             Trace( "NodeMST - in fUpdateMacroSrc: iRoom={0:d}, iMacro={1:d}, iSrc={2:d}, iDiscreteMacroMode={3:d}", (ushort)IROOM, (ushort)IMACRO, (ushort)ISRC, (ushort)ROOM[ IROOM ].IDISCRETEMACROMODE) ; 
-            __context__.SourceCodeLine = 767;
+            __context__.SourceCodeLine = 772;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_6__ = ((int)ROOM[ IROOM ].IDISCRETEMACROMODE);
@@ -1052,20 +1050,20 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 0) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 772;
+                        __context__.SourceCodeLine = 777;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IMACRO == 1))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 774;
+                            __context__.SourceCodeLine = 779;
                             ROOM [ IROOM] . MACRO [ IMACRO] . ISTATE = (ushort) ( ISRC ) ; 
-                            __context__.SourceCodeLine = 775;
+                            __context__.SourceCodeLine = 780;
                             FSETLISTMACROFB (  __context__ , (ushort)( IROOM ), (ushort)( IMACRO ), (ushort)( ISRC )) ; 
-                            __context__.SourceCodeLine = 776;
+                            __context__.SourceCodeLine = 781;
                             FUPDATECONFMONITORRTE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ISRC ].IGUID )) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 780;
+                            __context__.SourceCodeLine = 785;
                             Trace( "NodeMST - attempting to use a Macro Src set other than [1] while discrete_macro_mode is disabled") ; 
                             } 
                         
@@ -1073,23 +1071,23 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 785;
+                        __context__.SourceCodeLine = 790;
                         ROOM [ IROOM] . MACRO [ IMACRO] . ISTATE = (ushort) ( ISRC ) ; 
-                        __context__.SourceCodeLine = 786;
+                        __context__.SourceCodeLine = 791;
                         FSETLISTMACROFB (  __context__ , (ushort)( IROOM ), (ushort)( IMACRO ), (ushort)( ISRC )) ; 
-                        __context__.SourceCodeLine = 787;
+                        __context__.SourceCodeLine = 792;
                         FUPDATECONFMONITORRTE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ISRC ].IGUID )) ; 
-                        __context__.SourceCodeLine = 789;
+                        __context__.SourceCodeLine = 794;
                         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].MACRO[ IMACRO ].INUMOFDST; 
                         int __FN_FORSTEP_VAL__1 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                             { 
-                            __context__.SourceCodeLine = 791;
+                            __context__.SourceCodeLine = 796;
                             FMTRXTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ ROOM[ IROOM ].MACRO[ IMACRO ].IDSTLIST[ I ] ].IGUID ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ISRC ].IGUID )) ; 
-                            __context__.SourceCodeLine = 794;
+                            __context__.SourceCodeLine = 799;
                             FUSBTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ ROOM[ IROOM ].MACRO[ IMACRO ].IDSTLIST[ I ] ].IGUID ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ISRC ].IGUID )) ; 
-                            __context__.SourceCodeLine = 789;
+                            __context__.SourceCodeLine = 794;
                             } 
                         
                         } 
@@ -1110,7 +1108,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
             
             
-            __context__.SourceCodeLine = 823;
+            __context__.SourceCodeLine = 828;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_7__ = ((int)ROOM[ IROOM ].IMACROTAKEMODE);
@@ -1118,18 +1116,18 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 0) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 827;
+                        __context__.SourceCodeLine = 832;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].MACRO[ 1 ].ISTATE)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 829;
+                            __context__.SourceCodeLine = 834;
                             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                             ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].MACRO[ IMACRODST ].INUMOFDST; 
                             int __FN_FORSTEP_VAL__1 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                                 { 
-                                __context__.SourceCodeLine = 831;
+                                __context__.SourceCodeLine = 836;
                                 FMTRXTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ ROOM[ IROOM ].MACRO[ IMACRODST ].IDSTLIST[ I ] ].IGUID ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ROOM[ IROOM ].MACRO[ 1 ].ISTATE ].IGUID )) ; 
-                                __context__.SourceCodeLine = 829;
+                                __context__.SourceCodeLine = 834;
                                 } 
                             
                             } 
@@ -1138,11 +1136,11 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 839;
+                        __context__.SourceCodeLine = 844;
                         ROOM [ IROOM] . MACRO [ IMACRODST] . IFB = (ushort) ( Functions.Not( ROOM[ IROOM ].MACRO[ IMACRODST ].IFB ) ) ; 
-                        __context__.SourceCodeLine = 840;
+                        __context__.SourceCodeLine = 845;
                         MakeString ( STEMP , "{{ListButtonFB;{0:d}={1:d},|", (ushort)IMACRODST, (ushort)ROOM[ IROOM ].MACRO[ IMACRODST ].IFB) ; 
-                        __context__.SourceCodeLine = 841;
+                        __context__.SourceCodeLine = 846;
                         FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 6 ), STEMP) ; 
                         } 
                     
@@ -1162,7 +1160,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             V  = new ushort[ 3 ];
             
             
-            __context__.SourceCodeLine = 851;
+            __context__.SourceCodeLine = 856;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_8__ = ((int)ITYPE);
@@ -1170,136 +1168,136 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 856;
+                        __context__.SourceCodeLine = 861;
                         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__1 = (ushort)2; 
                         int __FN_FORSTEP_VAL__1 = (int)1; 
                         for ( IROOM  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IROOM  >= __FN_FORSTART_VAL__1) && (IROOM  <= __FN_FOREND_VAL__1) ) : ( (IROOM  <= __FN_FORSTART_VAL__1) && (IROOM  >= __FN_FOREND_VAL__1) ) ; IROOM  += (ushort)__FN_FORSTEP_VAL__1) 
                             { 
-                            __context__.SourceCodeLine = 858;
+                            __context__.SourceCodeLine = 863;
                             V [ IROOM] = (ushort) ( ROOM[ IROOM ].LIST[ 1 ].ITEM[ 4 ].IVLINK ) ; 
-                            __context__.SourceCodeLine = 856;
+                            __context__.SourceCodeLine = 861;
                             } 
                         
-                        __context__.SourceCodeLine = 861;
+                        __context__.SourceCodeLine = 866;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( V[ 2 ] ) && Functions.TestForTrue ( Functions.Not( V[ 1 ] ) )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 863;
+                            __context__.SourceCodeLine = 868;
                             FCOPYIO (  __context__ , (ushort)( 2 ), (ushort)( 4 ), (ushort)( 1 ), (ushort)( 4 ), (ushort)( 1 )) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 867;
+                            __context__.SourceCodeLine = 872;
                             FCOPYIO (  __context__ , (ushort)( 1 ), (ushort)( 4 ), (ushort)( 2 ), (ushort)( 4 ), (ushort)( 1 )) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 871;
+                        __context__.SourceCodeLine = 876;
                         ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__2 = (ushort)2; 
                         int __FN_FORSTEP_VAL__2 = (int)1; 
                         for ( IROOM  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (IROOM  >= __FN_FORSTART_VAL__2) && (IROOM  <= __FN_FOREND_VAL__2) ) : ( (IROOM  <= __FN_FORSTART_VAL__2) && (IROOM  >= __FN_FOREND_VAL__2) ) ; IROOM  += (ushort)__FN_FORSTEP_VAL__2) 
                             { 
-                            __context__.SourceCodeLine = 873;
+                            __context__.SourceCodeLine = 878;
                             V [ IROOM] = (ushort) ( ROOM[ IROOM ].LIST[ 1 ].ITEM[ 5 ].IVLINK ) ; 
-                            __context__.SourceCodeLine = 871;
+                            __context__.SourceCodeLine = 876;
                             } 
                         
-                        __context__.SourceCodeLine = 876;
+                        __context__.SourceCodeLine = 881;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ROOM[ 2 ].IVTCALLOCATION ) && Functions.TestForTrue ( Functions.Not( ROOM[ 1 ].IVTCALLOCATION ) )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 878;
+                            __context__.SourceCodeLine = 883;
                             FCOPYIO (  __context__ , (ushort)( 2 ), (ushort)( 5 ), (ushort)( 1 ), (ushort)( 5 ), (ushort)( 1 )) ; 
-                            __context__.SourceCodeLine = 879;
+                            __context__.SourceCodeLine = 884;
                             FCOPYIO (  __context__ , (ushort)( 2 ), (ushort)( 6 ), (ushort)( 1 ), (ushort)( 6 ), (ushort)( 1 )) ; 
-                            __context__.SourceCodeLine = 881;
+                            __context__.SourceCodeLine = 886;
                             ROOM [ 1] . IVTCALLOCATION = (ushort) ( ROOM[ 2 ].IVTCALLOCATION ) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 885;
+                            __context__.SourceCodeLine = 890;
                             FCOPYIO (  __context__ , (ushort)( 1 ), (ushort)( 5 ), (ushort)( 2 ), (ushort)( 5 ), (ushort)( 1 )) ; 
-                            __context__.SourceCodeLine = 886;
+                            __context__.SourceCodeLine = 891;
                             FCOPYIO (  __context__ , (ushort)( 1 ), (ushort)( 6 ), (ushort)( 2 ), (ushort)( 5 ), (ushort)( 1 )) ; 
-                            __context__.SourceCodeLine = 888;
+                            __context__.SourceCodeLine = 893;
                             ROOM [ 2] . IVTCALLOCATION = (ushort) ( ROOM[ 1 ].IVTCALLOCATION ) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 892;
+                        __context__.SourceCodeLine = 897;
                         ushort __FN_FORSTART_VAL__3 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__3 = (ushort)2; 
                         int __FN_FORSTEP_VAL__3 = (int)1; 
                         for ( IROOM  = __FN_FORSTART_VAL__3; (__FN_FORSTEP_VAL__3 > 0)  ? ( (IROOM  >= __FN_FORSTART_VAL__3) && (IROOM  <= __FN_FOREND_VAL__3) ) : ( (IROOM  <= __FN_FORSTART_VAL__3) && (IROOM  >= __FN_FOREND_VAL__3) ) ; IROOM  += (ushort)__FN_FORSTEP_VAL__3) 
                             { 
-                            __context__.SourceCodeLine = 894;
+                            __context__.SourceCodeLine = 899;
                             FUPDATECAMFB (  __context__ , (ushort)( IROOM )) ; 
-                            __context__.SourceCodeLine = 895;
+                            __context__.SourceCodeLine = 900;
                             ushort __FN_FORSTART_VAL__4 = (ushort) ( 4 ) ;
                             ushort __FN_FOREND_VAL__4 = (ushort)6; 
                             int __FN_FORSTEP_VAL__4 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__4; (__FN_FORSTEP_VAL__4 > 0)  ? ( (I  >= __FN_FORSTART_VAL__4) && (I  <= __FN_FOREND_VAL__4) ) : ( (I  <= __FN_FORSTART_VAL__4) && (I  >= __FN_FOREND_VAL__4) ) ; I  += (ushort)__FN_FORSTEP_VAL__4) 
                                 { 
-                                __context__.SourceCodeLine = 897;
+                                __context__.SourceCodeLine = 902;
                                 ROOM [ IROOM] . CAM [ I] . IVIS = (ushort) ( ROOM[ IROOM ].CAM[ I ].ICAMACTIVE ) ; 
-                                __context__.SourceCodeLine = 895;
+                                __context__.SourceCodeLine = 900;
                                 } 
                             
-                            __context__.SourceCodeLine = 899;
+                            __context__.SourceCodeLine = 904;
                             FUPDATECAMVIS (  __context__ , (ushort)( IROOM )) ; 
-                            __context__.SourceCodeLine = 892;
+                            __context__.SourceCodeLine = 897;
                             } 
                         
                         } 
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 0) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 904;
+                        __context__.SourceCodeLine = 909;
                         SYS . IRCSTATE = (ushort) ( 0 ) ; 
-                        __context__.SourceCodeLine = 906;
+                        __context__.SourceCodeLine = 911;
                         ushort __FN_FORSTART_VAL__5 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__5 = (ushort)2; 
                         int __FN_FORSTEP_VAL__5 = (int)1; 
                         for ( IROOM  = __FN_FORSTART_VAL__5; (__FN_FORSTEP_VAL__5 > 0)  ? ( (IROOM  >= __FN_FORSTART_VAL__5) && (IROOM  <= __FN_FOREND_VAL__5) ) : ( (IROOM  <= __FN_FORSTART_VAL__5) && (IROOM  >= __FN_FOREND_VAL__5) ) ; IROOM  += (ushort)__FN_FORSTEP_VAL__5) 
                             { 
-                            __context__.SourceCodeLine = 908;
+                            __context__.SourceCodeLine = 913;
                             ushort __FN_FORSTART_VAL__6 = (ushort) ( 4 ) ;
                             ushort __FN_FOREND_VAL__6 = (ushort)6; 
                             int __FN_FORSTEP_VAL__6 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__6; (__FN_FORSTEP_VAL__6 > 0)  ? ( (I  >= __FN_FORSTART_VAL__6) && (I  <= __FN_FOREND_VAL__6) ) : ( (I  <= __FN_FORSTART_VAL__6) && (I  >= __FN_FOREND_VAL__6) ) ; I  += (ushort)__FN_FORSTEP_VAL__6) 
                                 { 
-                                __context__.SourceCodeLine = 910;
+                                __context__.SourceCodeLine = 915;
                                 ROOM [ IROOM] . LIST [ 1] . ITEM [ I] . IVLINK = (ushort) ( 0 ) ; 
-                                __context__.SourceCodeLine = 908;
+                                __context__.SourceCodeLine = 913;
                                 } 
                             
-                            __context__.SourceCodeLine = 906;
+                            __context__.SourceCodeLine = 911;
                             } 
                         
-                        __context__.SourceCodeLine = 915;
+                        __context__.SourceCodeLine = 920;
                         ushort __FN_FORSTART_VAL__7 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__7 = (ushort)2; 
                         int __FN_FORSTEP_VAL__7 = (int)1; 
                         for ( IROOM  = __FN_FORSTART_VAL__7; (__FN_FORSTEP_VAL__7 > 0)  ? ( (IROOM  >= __FN_FORSTART_VAL__7) && (IROOM  <= __FN_FOREND_VAL__7) ) : ( (IROOM  <= __FN_FORSTART_VAL__7) && (IROOM  >= __FN_FOREND_VAL__7) ) ; IROOM  += (ushort)__FN_FORSTEP_VAL__7) 
                             { 
-                            __context__.SourceCodeLine = 917;
+                            __context__.SourceCodeLine = 922;
                             ROOM [ IROOM] . ICAMSEL = (ushort) ( 1 ) ; 
-                            __context__.SourceCodeLine = 918;
+                            __context__.SourceCodeLine = 923;
                             FUPDATECAMFB (  __context__ , (ushort)( IROOM )) ; 
-                            __context__.SourceCodeLine = 919;
+                            __context__.SourceCodeLine = 924;
                             ushort __FN_FORSTART_VAL__8 = (ushort) ( 4 ) ;
                             ushort __FN_FOREND_VAL__8 = (ushort)6; 
                             int __FN_FORSTEP_VAL__8 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__8; (__FN_FORSTEP_VAL__8 > 0)  ? ( (I  >= __FN_FORSTART_VAL__8) && (I  <= __FN_FOREND_VAL__8) ) : ( (I  <= __FN_FORSTART_VAL__8) && (I  >= __FN_FOREND_VAL__8) ) ; I  += (ushort)__FN_FORSTEP_VAL__8) 
                                 { 
-                                __context__.SourceCodeLine = 921;
+                                __context__.SourceCodeLine = 926;
                                 ROOM [ IROOM] . CAM [ I] . IVIS = (ushort) ( 0 ) ; 
-                                __context__.SourceCodeLine = 919;
+                                __context__.SourceCodeLine = 924;
                                 } 
                             
-                            __context__.SourceCodeLine = 923;
+                            __context__.SourceCodeLine = 928;
                             FUPDATECAMVIS (  __context__ , (ushort)( IROOM )) ; 
-                            __context__.SourceCodeLine = 915;
+                            __context__.SourceCodeLine = 920;
                             } 
                         
                         } 
@@ -1309,21 +1307,21 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                 }
                 
             
-            __context__.SourceCodeLine = 929;
+            __context__.SourceCodeLine = 934;
             ushort __FN_FORSTART_VAL__9 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__9 = (ushort)2; 
             int __FN_FORSTEP_VAL__9 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__9; (__FN_FORSTEP_VAL__9 > 0)  ? ( (I  >= __FN_FORSTART_VAL__9) && (I  <= __FN_FOREND_VAL__9) ) : ( (I  <= __FN_FORSTART_VAL__9) && (I  >= __FN_FOREND_VAL__9) ) ; I  += (ushort)__FN_FORSTEP_VAL__9) 
                 { 
-                __context__.SourceCodeLine = 931;
+                __context__.SourceCodeLine = 936;
                 FCONFIGURELISTVIS (  __context__ , (ushort)( I ), (ushort)( 1 ), (ushort)( 0 )) ; 
-                __context__.SourceCodeLine = 932;
+                __context__.SourceCodeLine = 937;
                 FCONFIGURELISTVIS (  __context__ , (ushort)( I ), (ushort)( 2 ), (ushort)( 0 )) ; 
-                __context__.SourceCodeLine = 933;
+                __context__.SourceCodeLine = 938;
                 FUPDATELISTVIS (  __context__ , (ushort)( I ), (ushort)( 1 ), (ushort)( 0 )) ; 
-                __context__.SourceCodeLine = 934;
+                __context__.SourceCodeLine = 939;
                 FUPDATELISTVIS (  __context__ , (ushort)( I ), (ushort)( 2 ), (ushort)( 0 )) ; 
-                __context__.SourceCodeLine = 929;
+                __context__.SourceCodeLine = 934;
                 } 
             
             
@@ -1336,11 +1334,11 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort J = 0;
             
             
-            __context__.SourceCodeLine = 948;
+            __context__.SourceCodeLine = 953;
             IOTHERROOM = (ushort) ( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ) ; 
-            __context__.SourceCodeLine = 950;
+            __context__.SourceCodeLine = 955;
             FUPDATELISTNUMOFITEMS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST )) ; 
-            __context__.SourceCodeLine = 952;
+            __context__.SourceCodeLine = 957;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_9__ = ((int)ILIST);
@@ -1348,160 +1346,160 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_9__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 961;
+                        __context__.SourceCodeLine = 966;
                         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__1 = (ushort)3; 
                         int __FN_FORSTEP_VAL__1 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                             { 
-                            __context__.SourceCodeLine = 965;
-                            ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                            __context__.SourceCodeLine = 966;
-                            FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
-                            __context__.SourceCodeLine = 968;
-                            FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( IOTHERROOM ), (ushort)( (I + 6) ), (ushort)( ILIST )) ; 
-                            __context__.SourceCodeLine = 969;
-                            ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + 6)] . IISRCITEM = (ushort) ( 1 ) ; 
                             __context__.SourceCodeLine = 970;
-                            FCONFIGURELISTTEXT (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( (I + 6) )) ; 
+                            ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
+                            __context__.SourceCodeLine = 971;
+                            FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
+                            __context__.SourceCodeLine = 973;
+                            FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( IOTHERROOM ), (ushort)( (I + 6) ), (ushort)( ILIST )) ; 
                             __context__.SourceCodeLine = 974;
+                            ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + 6)] . IISRCITEM = (ushort) ( 1 ) ; 
+                            __context__.SourceCodeLine = 975;
+                            FCONFIGURELISTTEXT (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( (I + 6) )) ; 
+                            __context__.SourceCodeLine = 979;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ (I + 3)] . IVIS = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ (I + 3) ].IVLINK ) ; 
-                            __context__.SourceCodeLine = 961;
+                            __context__.SourceCodeLine = 966;
                             } 
                         
-                        __context__.SourceCodeLine = 976;
+                        __context__.SourceCodeLine = 981;
                         ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__2 = (ushort)(10 / 2); 
                         int __FN_FORSTEP_VAL__2 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
                             { 
-                            __context__.SourceCodeLine = 979;
+                            __context__.SourceCodeLine = 984;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ (I + 20) ].IITEMACTIVE)  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 982;
-                                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ (I + 20)] . IVIS = (ushort) ( 1 ) ; 
-                                __context__.SourceCodeLine = 983;
-                                FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( (I + 20) )) ; 
-                                __context__.SourceCodeLine = 985;
-                                FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( (I + 20) ), (ushort)( IOTHERROOM ), (ushort)( ((I + 20) + (10 / 2)) ), (ushort)( ILIST )) ; 
-                                __context__.SourceCodeLine = 986;
-                                ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + 23)] . IISRCITEM = (ushort) ( 1 ) ; 
                                 __context__.SourceCodeLine = 987;
+                                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ (I + 20)] . IVIS = (ushort) ( 1 ) ; 
+                                __context__.SourceCodeLine = 988;
+                                FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( (I + 20) )) ; 
+                                __context__.SourceCodeLine = 990;
+                                FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( (I + 20) ), (ushort)( IOTHERROOM ), (ushort)( ((I + 20) + (10 / 2)) ), (ushort)( ILIST )) ; 
+                                __context__.SourceCodeLine = 991;
+                                ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + 23)] . IISRCITEM = (ushort) ( 1 ) ; 
+                                __context__.SourceCodeLine = 992;
                                 FCONFIGURELISTTEXT (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( ((I + 20) + (10 / 2)) )) ; 
                                 } 
                             
-                            __context__.SourceCodeLine = 976;
+                            __context__.SourceCodeLine = 981;
                             } 
                         
-                        __context__.SourceCodeLine = 990;
+                        __context__.SourceCodeLine = 995;
                         ushort __FN_FORSTART_VAL__3 = (ushort) ( 10 ) ;
                         ushort __FN_FOREND_VAL__3 = (ushort)20; 
                         int __FN_FORSTEP_VAL__3 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__3; (__FN_FORSTEP_VAL__3 > 0)  ? ( (I  >= __FN_FORSTART_VAL__3) && (I  <= __FN_FOREND_VAL__3) ) : ( (I  <= __FN_FORSTART_VAL__3) && (I  >= __FN_FOREND_VAL__3) ) ; I  += (ushort)__FN_FORSTEP_VAL__3) 
                             { 
-                            __context__.SourceCodeLine = 992;
+                            __context__.SourceCodeLine = 997;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE)  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 994;
+                                __context__.SourceCodeLine = 999;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                                __context__.SourceCodeLine = 995;
+                                __context__.SourceCodeLine = 1000;
                                 FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
                                 } 
                             
-                            __context__.SourceCodeLine = 990;
+                            __context__.SourceCodeLine = 995;
                             } 
                         
-                        __context__.SourceCodeLine = 998;
+                        __context__.SourceCodeLine = 1003;
                         ushort __FN_FORSTART_VAL__4 = (ushort) ( 31 ) ;
                         ushort __FN_FOREND_VAL__4 = (ushort)50; 
                         int __FN_FORSTEP_VAL__4 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__4; (__FN_FORSTEP_VAL__4 > 0)  ? ( (I  >= __FN_FORSTART_VAL__4) && (I  <= __FN_FOREND_VAL__4) ) : ( (I  <= __FN_FORSTART_VAL__4) && (I  >= __FN_FOREND_VAL__4) ) ; I  += (ushort)__FN_FORSTEP_VAL__4) 
                             { 
-                            __context__.SourceCodeLine = 1000;
+                            __context__.SourceCodeLine = 1005;
                             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE)  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1002;
+                                __context__.SourceCodeLine = 1007;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                                __context__.SourceCodeLine = 1003;
+                                __context__.SourceCodeLine = 1008;
                                 FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
                                 } 
                             
-                            __context__.SourceCodeLine = 998;
+                            __context__.SourceCodeLine = 1003;
                             } 
                         
-                        __context__.SourceCodeLine = 1006;
+                        __context__.SourceCodeLine = 1011;
                         ushort __FN_FORSTART_VAL__5 = (ushort) ( 1 ) ;
                         ushort __FN_FOREND_VAL__5 = (ushort)50; 
                         int __FN_FORSTEP_VAL__5 = (int)1; 
                         for ( I  = __FN_FORSTART_VAL__5; (__FN_FORSTEP_VAL__5 > 0)  ? ( (I  >= __FN_FORSTART_VAL__5) && (I  <= __FN_FOREND_VAL__5) ) : ( (I  <= __FN_FORSTART_VAL__5) && (I  >= __FN_FOREND_VAL__5) ) ; I  += (ushort)__FN_FORSTEP_VAL__5) 
                             { 
-                            __context__.SourceCodeLine = 1008;
+                            __context__.SourceCodeLine = 1013;
                             if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 1010;
+                                __context__.SourceCodeLine = 1015;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 0 ) ; 
                                 } 
                             
-                            __context__.SourceCodeLine = 1006;
+                            __context__.SourceCodeLine = 1011;
                             } 
                         
                         } 
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_9__ == ( 2) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 1016;
+                        __context__.SourceCodeLine = 1021;
                         if ( Functions.TestForTrue  ( ( SYS.IISRCPAIR)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1021;
+                            __context__.SourceCodeLine = 1026;
                             ushort __FN_FORSTART_VAL__6 = (ushort) ( 1 ) ;
                             ushort __FN_FOREND_VAL__6 = (ushort)(60 / 2); 
                             int __FN_FORSTEP_VAL__6 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__6; (__FN_FORSTEP_VAL__6 > 0)  ? ( (I  >= __FN_FORSTART_VAL__6) && (I  <= __FN_FOREND_VAL__6) ) : ( (I  <= __FN_FORSTART_VAL__6) && (I  >= __FN_FOREND_VAL__6) ) ; I  += (ushort)__FN_FORSTEP_VAL__6) 
                                 { 
-                                __context__.SourceCodeLine = 1023;
+                                __context__.SourceCodeLine = 1028;
                                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE)  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 1026;
-                                    ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                                    __context__.SourceCodeLine = 1027;
-                                    FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
-                                    __context__.SourceCodeLine = 1029;
-                                    FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( IOTHERROOM ), (ushort)( (I + (60 / 2)) ), (ushort)( ILIST )) ; 
-                                    __context__.SourceCodeLine = 1030;
-                                    ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + (60 / 2))] . IISRCITEM = (ushort) ( 1 ) ; 
                                     __context__.SourceCodeLine = 1031;
+                                    ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
+                                    __context__.SourceCodeLine = 1032;
+                                    FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
+                                    __context__.SourceCodeLine = 1034;
+                                    FCOPYIO (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( IOTHERROOM ), (ushort)( (I + (60 / 2)) ), (ushort)( ILIST )) ; 
+                                    __context__.SourceCodeLine = 1035;
+                                    ROOM [ IOTHERROOM] . LIST [ ILIST] . ITEM [ (I + (60 / 2))] . IISRCITEM = (ushort) ( 1 ) ; 
+                                    __context__.SourceCodeLine = 1036;
                                     FCONFIGURELISTTEXT (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( (I + (60 / 2)) )) ; 
                                     } 
                                 
-                                __context__.SourceCodeLine = 1021;
+                                __context__.SourceCodeLine = 1026;
                                 } 
                             
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 1037;
+                            __context__.SourceCodeLine = 1042;
                             ushort __FN_FORSTART_VAL__7 = (ushort) ( 1 ) ;
                             ushort __FN_FOREND_VAL__7 = (ushort)50; 
                             int __FN_FORSTEP_VAL__7 = (int)1; 
                             for ( I  = __FN_FORSTART_VAL__7; (__FN_FORSTEP_VAL__7 > 0)  ? ( (I  >= __FN_FORSTART_VAL__7) && (I  <= __FN_FOREND_VAL__7) ) : ( (I  <= __FN_FORSTART_VAL__7) && (I  >= __FN_FOREND_VAL__7) ) ; I  += (ushort)__FN_FORSTEP_VAL__7) 
                                 { 
-                                __context__.SourceCodeLine = 1039;
+                                __context__.SourceCodeLine = 1044;
                                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ I ].IITEMACTIVE)  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 1041;
+                                    __context__.SourceCodeLine = 1046;
                                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 1 ) ; 
-                                    __context__.SourceCodeLine = 1042;
+                                    __context__.SourceCodeLine = 1047;
                                     FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( I )) ; 
                                     } 
                                 
                                 else 
                                     { 
-                                    __context__.SourceCodeLine = 1046;
+                                    __context__.SourceCodeLine = 1051;
                                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ I] . IVIS = (ushort) ( 0 ) ; 
                                     } 
                                 
-                                __context__.SourceCodeLine = 1037;
+                                __context__.SourceCodeLine = 1042;
                                 } 
                             
                             } 
@@ -1510,9 +1508,9 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_9__ == ( 13) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 1054;
+                        __context__.SourceCodeLine = 1059;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . IOTHERROOMACTIVE = (ushort) ( 1 ) ; 
-                        __context__.SourceCodeLine = 1055;
+                        __context__.SourceCodeLine = 1060;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . IOTHERROOMGUID = (ushort) ( ROOM[ IROOM ].IROOMGUID ) ; 
                         } 
                     
@@ -1521,13 +1519,13 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                 }
                 
             
-            __context__.SourceCodeLine = 1059;
+            __context__.SourceCodeLine = 1064;
             FCONFIGURELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( 0 )) ; 
-            __context__.SourceCodeLine = 1060;
+            __context__.SourceCodeLine = 1065;
             FUPDATELISTALL (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( 0 )) ; 
-            __context__.SourceCodeLine = 1062;
+            __context__.SourceCodeLine = 1067;
             FCONFIGURELISTVIS (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( 0 )) ; 
-            __context__.SourceCodeLine = 1063;
+            __context__.SourceCodeLine = 1068;
             FUPDATELISTALL (  __context__ , (ushort)( IOTHERROOM ), (ushort)( ILIST ), (ushort)( 0 )) ; 
             
             }
@@ -1542,35 +1540,35 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPSRC  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
             
             
-            __context__.SourceCodeLine = 1076;
+            __context__.SourceCodeLine = 1081;
             STEMPDATA  .UpdateValue ( STEMPLINE  ) ; 
-            __context__.SourceCodeLine = 1077;
-            STEMPGUID  .UpdateValue ( Functions.Remove ( "," , STEMPDATA )  ) ; 
-            __context__.SourceCodeLine = 1078;
-            STEMPSRC  .UpdateValue ( Functions.Left ( STEMPDATA ,  (int) ( (Functions.Find( "," , STEMPDATA ) - 1) ) )  ) ; 
-            __context__.SourceCodeLine = 1079;
-            STRASH  .UpdateValue ( Functions.Remove ( "src_name=" , STEMPSRC )  ) ; 
             __context__.SourceCodeLine = 1082;
-            ROOM [ IROOM] . LIST [ 2] . ITEM [ ILOCALINDEX] . IROUTEDSRC = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+            STEMPGUID  .UpdateValue ( Functions.Remove ( "," , STEMPDATA )  ) ; 
             __context__.SourceCodeLine = 1083;
-            ROOM [ IROOM] . LIST [ 2] . ITEM [ ILOCALINDEX] . SROUTEDSRC  .UpdateValue ( STEMPSRC  ) ; 
+            STEMPSRC  .UpdateValue ( Functions.Left ( STEMPDATA ,  (int) ( (Functions.Find( "," , STEMPDATA ) - 1) ) )  ) ; 
             __context__.SourceCodeLine = 1084;
-            FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
-            __context__.SourceCodeLine = 1085;
-            FUPDATELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
+            STRASH  .UpdateValue ( Functions.Remove ( "src_name=" , STEMPSRC )  ) ; 
+            __context__.SourceCodeLine = 1087;
+            ROOM [ IROOM] . LIST [ 2] . ITEM [ ILOCALINDEX] . IROUTEDSRC = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
             __context__.SourceCodeLine = 1088;
+            ROOM [ IROOM] . LIST [ 2] . ITEM [ ILOCALINDEX] . SROUTEDSRC  .UpdateValue ( STEMPSRC  ) ; 
+            __context__.SourceCodeLine = 1089;
+            FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
+            __context__.SourceCodeLine = 1090;
+            FUPDATELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
+            __context__.SourceCodeLine = 1093;
             if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1090;
+                __context__.SourceCodeLine = 1095;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( ILOCALINDEX >= 1 ) ) && Functions.TestForTrue ( Functions.BoolToInt ( ILOCALINDEX <= 20 ) )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1092;
+                    __context__.SourceCodeLine = 1097;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . LIST [ 2] . ITEM [ (ILOCALINDEX + 20)] . IROUTEDSRC = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
-                    __context__.SourceCodeLine = 1093;
+                    __context__.SourceCodeLine = 1098;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . LIST [ 2] . ITEM [ (ILOCALINDEX + 20)] . SROUTEDSRC  .UpdateValue ( STEMPSRC  ) ; 
-                    __context__.SourceCodeLine = 1094;
+                    __context__.SourceCodeLine = 1099;
                     FCONFIGURELISTTEXT (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
-                    __context__.SourceCodeLine = 1095;
+                    __context__.SourceCodeLine = 1100;
                     FUPDATELISTTEXT (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( 2 ), (ushort)( ILOCALINDEX )) ; 
                     } 
                 
@@ -1593,95 +1591,95 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPKEY  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
             
             
-            __context__.SourceCodeLine = 1106;
+            __context__.SourceCodeLine = 1111;
             SDATA  .UpdateValue ( SLINE  ) ; 
-            __context__.SourceCodeLine = 1108;
+            __context__.SourceCodeLine = 1113;
             while ( Functions.TestForTrue  ( ( Functions.Find( "=" , SDATA ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1110;
+                __context__.SourceCodeLine = 1115;
                 STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , SDATA )  ) ; 
-                __context__.SourceCodeLine = 1112;
+                __context__.SourceCodeLine = 1117;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "name" , STEMPKEY ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1114;
+                    __context__.SourceCodeLine = 1119;
                     ROOM [ IROOM] . MACRO [ IMACRO] . SNAME  .UpdateValue ( Functions.Left ( SDATA ,  (int) ( (Functions.Find( "," , SDATA ) - 1) ) )  ) ; 
-                    __context__.SourceCodeLine = 1115;
+                    __context__.SourceCodeLine = 1120;
                     STRASH  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
                     } 
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1117;
+                    __context__.SourceCodeLine = 1122;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "primary" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1117;
+                        __context__.SourceCodeLine = 1122;
                         ROOM [ IROOM] . MACRO [ IMACRO] . IPRIMARYDST = (ushort) ( Functions.Atoi( SDATA ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1118;
+                        __context__.SourceCodeLine = 1123;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "usb" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1118;
+                            __context__.SourceCodeLine = 1123;
                             ROOM [ IROOM] . MACRO [ IMACRO] . IUSB = (ushort) ( Functions.Atoi( SDATA ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1119;
+                            __context__.SourceCodeLine = 1124;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "cam_dst" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1119;
+                                __context__.SourceCodeLine = 1124;
                                 ROOM [ IROOM] . MACRO [ IMACRO] . ICAMDST = (ushort) ( Functions.Atoi( SDATA ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1120;
+                                __context__.SourceCodeLine = 1125;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "pgm_audio" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1120;
+                                    __context__.SourceCodeLine = 1125;
                                     ROOM [ IROOM] . MACRO [ IMACRO] . IPGMAUDIO = (ushort) ( Functions.Atoi( SDATA ) ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1121;
+                                    __context__.SourceCodeLine = 1126;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "list" , STEMPKEY ))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 1123;
+                                        __context__.SourceCodeLine = 1128;
                                         I = (ushort) ( 0 ) ; 
-                                        __context__.SourceCodeLine = 1124;
+                                        __context__.SourceCodeLine = 1129;
                                         STEMP  .UpdateValue ( Functions.Remove ( ")" , SDATA )  ) ; 
-                                        __context__.SourceCodeLine = 1125;
+                                        __context__.SourceCodeLine = 1130;
                                         while ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMP ))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 1127;
+                                            __context__.SourceCodeLine = 1132;
                                             I = (ushort) ( (I + 1) ) ; 
-                                            __context__.SourceCodeLine = 1128;
-                                            ROOM [ IROOM] . MACRO [ IMACRO] . IDSTLIST [ I] = (ushort) ( Functions.Atoi( STEMP ) ) ; 
-                                            __context__.SourceCodeLine = 1129;
-                                            STRASH  .UpdateValue ( Functions.Remove ( "," , STEMP )  ) ; 
-                                            __context__.SourceCodeLine = 1125;
-                                            } 
-                                        
-                                        __context__.SourceCodeLine = 1131;
-                                        if ( Functions.TestForTrue  ( ( Functions.Atoi( STEMP ))  ) ) 
-                                            { 
                                             __context__.SourceCodeLine = 1133;
-                                            I = (ushort) ( (I + 1) ) ; 
-                                            __context__.SourceCodeLine = 1134;
                                             ROOM [ IROOM] . MACRO [ IMACRO] . IDSTLIST [ I] = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                            __context__.SourceCodeLine = 1134;
+                                            STRASH  .UpdateValue ( Functions.Remove ( "," , STEMP )  ) ; 
+                                            __context__.SourceCodeLine = 1130;
                                             } 
                                         
                                         __context__.SourceCodeLine = 1136;
+                                        if ( Functions.TestForTrue  ( ( Functions.Atoi( STEMP ))  ) ) 
+                                            { 
+                                            __context__.SourceCodeLine = 1138;
+                                            I = (ushort) ( (I + 1) ) ; 
+                                            __context__.SourceCodeLine = 1139;
+                                            ROOM [ IROOM] . MACRO [ IMACRO] . IDSTLIST [ I] = (ushort) ( Functions.Atoi( STEMP ) ) ; 
+                                            } 
+                                        
+                                        __context__.SourceCodeLine = 1141;
                                         ROOM [ IROOM] . MACRO [ IMACRO] . INUMOFDST = (ushort) ( I ) ; 
                                         } 
                                     
                                     else 
                                         { 
-                                        __context__.SourceCodeLine = 1140;
+                                        __context__.SourceCodeLine = 1145;
                                         Trace( "NodeMST - fProcessMacro - error parsing macro, {0}", SLINE ) ; 
                                         } 
                                     
@@ -1695,7 +1693,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     }
                 
-                __context__.SourceCodeLine = 1108;
+                __context__.SourceCodeLine = 1113;
                 } 
             
             
@@ -1719,141 +1717,141 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 1157;
+            __context__.SourceCodeLine = 1162;
             STEMPLINE  .UpdateValue ( STEMP  ) ; 
-            __context__.SourceCodeLine = 1160;
+            __context__.SourceCodeLine = 1165;
             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1161;
+            __context__.SourceCodeLine = 1166;
             ROOM [ IROOM] . LIST [ ILIST] . IMAXNUMITEMS = (ushort) ( Functions.Max( IINDEX , ROOM[ IROOM ].LIST[ ILIST ].IMAXNUMITEMS ) ) ; 
-            __context__.SourceCodeLine = 1164;
+            __context__.SourceCodeLine = 1169;
             while ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMPLINE ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1166;
+                __context__.SourceCodeLine = 1171;
                 STEMPPAIR  .UpdateValue ( Functions.Remove ( "," , STEMPLINE )  ) ; 
-                __context__.SourceCodeLine = 1167;
+                __context__.SourceCodeLine = 1172;
                 STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPPAIR )  ) ; 
-                __context__.SourceCodeLine = 1168;
+                __context__.SourceCodeLine = 1173;
                 STEMPVALUE  .UpdateValue ( Functions.Left ( STEMPPAIR ,  (int) ( (Functions.Length( STEMPPAIR ) - 1) ) )  ) ; 
-                __context__.SourceCodeLine = 1170;
+                __context__.SourceCodeLine = 1175;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "global_name" , STEMPKEY ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1170;
+                    __context__.SourceCodeLine = 1175;
                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  .UpdateValue ( STEMPVALUE  ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1171;
+                    __context__.SourceCodeLine = 1176;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_name" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1171;
+                        __context__.SourceCodeLine = 1176;
                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  .UpdateValue ( STEMPVALUE  ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1172;
+                        __context__.SourceCodeLine = 1177;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "guid" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1172;
+                            __context__.SourceCodeLine = 1177;
                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IGUID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1173;
+                            __context__.SourceCodeLine = 1178;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "function" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1173;
+                                __context__.SourceCodeLine = 1178;
                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IFUNCTIONID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1174;
+                                __context__.SourceCodeLine = 1179;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "sys_preset" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1174;
+                                    __context__.SourceCodeLine = 1179;
                                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . ISYSPRESET = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1175;
+                                    __context__.SourceCodeLine = 1180;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_camera" , STEMPKEY ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1175;
+                                        __context__.SourceCodeLine = 1180;
                                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IISCAMERA = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1176;
+                                        __context__.SourceCodeLine = 1181;
                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "cam_localid" , STEMPKEY ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1176;
+                                            __context__.SourceCodeLine = 1181;
                                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . ICAMLOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1177;
+                                            __context__.SourceCodeLine = 1182;
                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "cam_global" , STEMPKEY ))  ) ) 
                                                 {
-                                                __context__.SourceCodeLine = 1177;
+                                                __context__.SourceCodeLine = 1182;
                                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . ICAMGUID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                 }
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 1179;
+                                                __context__.SourceCodeLine = 1184;
                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_display" , STEMPKEY ))  ) ) 
                                                     {
-                                                    __context__.SourceCodeLine = 1179;
+                                                    __context__.SourceCodeLine = 1184;
                                                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IISDISPLAY = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                     }
                                                 
                                                 else 
                                                     {
-                                                    __context__.SourceCodeLine = 1180;
+                                                    __context__.SourceCodeLine = 1185;
                                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "display_localid" , STEMPKEY ))  ) ) 
                                                         {
-                                                        __context__.SourceCodeLine = 1180;
+                                                        __context__.SourceCodeLine = 1185;
                                                         ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IDISPLAYLOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                         }
                                                     
                                                     else 
                                                         {
-                                                        __context__.SourceCodeLine = 1181;
+                                                        __context__.SourceCodeLine = 1186;
                                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "display_global" , STEMPKEY ))  ) ) 
                                                             {
-                                                            __context__.SourceCodeLine = 1181;
+                                                            __context__.SourceCodeLine = 1186;
                                                             ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IDISPLAYGUID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                             }
                                                         
                                                         else 
                                                             {
-                                                            __context__.SourceCodeLine = 1182;
+                                                            __context__.SourceCodeLine = 1187;
                                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "virtual" , STEMPKEY ))  ) ) 
                                                                 {
-                                                                __context__.SourceCodeLine = 1182;
+                                                                __context__.SourceCodeLine = 1187;
                                                                 ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IISVIRTUAL = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                 }
                                                             
                                                             else 
                                                                 {
-                                                                __context__.SourceCodeLine = 1183;
+                                                                __context__.SourceCodeLine = 1188;
                                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "usb_mac" , STEMPKEY ))  ) ) 
                                                                     {
-                                                                    __context__.SourceCodeLine = 1183;
+                                                                    __context__.SourceCodeLine = 1188;
                                                                     ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . IISUSB = (ushort) ( 1 ) ; 
                                                                     }
                                                                 
                                                                 else 
                                                                     { 
-                                                                    __context__.SourceCodeLine = 1187;
+                                                                    __context__.SourceCodeLine = 1192;
                                                                     Trace( "NodeMST - fProcessLine - didn't catch key:   GUID={0:d}, {1}{2}", (ushort)IINDEX, STEMPKEY , STEMPVALUE ) ; 
-                                                                    __context__.SourceCodeLine = 1188;
+                                                                    __context__.SourceCodeLine = 1193;
                                                                     IERR = (ushort) ( 1 ) ; 
                                                                     } 
                                                                 
@@ -1881,60 +1879,60 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     }
                 
-                __context__.SourceCodeLine = 1164;
+                __context__.SourceCodeLine = 1169;
                 } 
             
-            __context__.SourceCodeLine = 1192;
+            __context__.SourceCodeLine = 1197;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID)  ) ) 
                 {
-                __context__.SourceCodeLine = 1192;
+                __context__.SourceCodeLine = 1197;
                 ROOM [ IROOM] . LIST [ ILIST] . IGLOBALTOLOCAL [ ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID] = (ushort) ( IINDEX ) ; 
                 }
             
-            __context__.SourceCodeLine = 1194;
+            __context__.SourceCodeLine = 1199;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISCAMERA)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1198;
-                ICAM = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ICAMLOCALID ) ; 
-                __context__.SourceCodeLine = 1199;
-                ROOM [ IROOM] . CAM [ ICAM] . ICAMGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ICAMGUID ) ; 
-                __context__.SourceCodeLine = 1200;
-                ROOM [ IROOM] . CAM [ ICAM] . ICAMACTIVE = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1201;
-                ROOM [ IROOM] . CAM [ ICAM] . IVIS = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1202;
-                ROOM [ IROOM] . CAM [ ICAM] . IVSRCLOCALID = (ushort) ( IINDEX ) ; 
                 __context__.SourceCodeLine = 1203;
-                ROOM [ IROOM] . CAM [ ICAM] . IVSRCGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
+                ICAM = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ICAMLOCALID ) ; 
+                __context__.SourceCodeLine = 1204;
+                ROOM [ IROOM] . CAM [ ICAM] . ICAMGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ICAMGUID ) ; 
                 __context__.SourceCodeLine = 1205;
-                ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
+                ROOM [ IROOM] . CAM [ ICAM] . ICAMACTIVE = (ushort) ( 1 ) ; 
                 __context__.SourceCodeLine = 1206;
-                ROOM [ IROOM] . CAM [ ICAM] . SLOCALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
+                ROOM [ IROOM] . CAM [ ICAM] . IVIS = (ushort) ( 1 ) ; 
+                __context__.SourceCodeLine = 1207;
+                ROOM [ IROOM] . CAM [ ICAM] . IVSRCLOCALID = (ushort) ( IINDEX ) ; 
                 __context__.SourceCodeLine = 1208;
-                ROOM [ IROOM] . CAM [ ICAM] . ISYSPRESET = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ISYSPRESET ) ; 
+                ROOM [ IROOM] . CAM [ ICAM] . IVSRCGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
+                __context__.SourceCodeLine = 1210;
+                ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
                 __context__.SourceCodeLine = 1211;
-                MakeString ( CAM_FB__DOLLAR__ [ IROOM] , "{{ListVisFB:{0:d}=1,|; ListTextFB:{1:d}={2},|;}}", (ushort)ICAM, (ushort)ICAM, ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME ) ; 
+                ROOM [ IROOM] . CAM [ ICAM] . SLOCALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
                 __context__.SourceCodeLine = 1213;
+                ROOM [ IROOM] . CAM [ ICAM] . ISYSPRESET = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ISYSPRESET ) ; 
+                __context__.SourceCodeLine = 1216;
+                MakeString ( CAM_FB__DOLLAR__ [ IROOM] , "{{ListVisFB:{0:d}=1,|; ListTextFB:{1:d}={2},|;}}", (ushort)ICAM, (ushort)ICAM, ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME ) ; 
+                __context__.SourceCodeLine = 1218;
                 if ( Functions.TestForTrue  ( ( SYS.IISRCPAIR)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1215;
+                    __context__.SourceCodeLine = 1220;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . CAM [ (ICAM + 3)] . ICAMACTIVE = (ushort) ( 1 ) ; 
-                    __context__.SourceCodeLine = 1216;
+                    __context__.SourceCodeLine = 1221;
                     MakeString ( CAM_FB__DOLLAR__ [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] , "{{ListTextFB:{0:d}={1},|;}}", (ushort)(ICAM + 3), ROOM [ IROOM] . CAM [ ICAM] . SGLOBALNAME ) ; 
-                    __context__.SourceCodeLine = 1218;
+                    __context__.SourceCodeLine = 1223;
                     if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1220;
+                        __context__.SourceCodeLine = 1225;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . CAM [ (ICAM + 3)] . IVIS = (ushort) ( 1 ) ; 
-                        __context__.SourceCodeLine = 1221;
+                        __context__.SourceCodeLine = 1226;
                         MakeString ( CAM_FB__DOLLAR__ [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] , "{{ListVisFB:{0:d}=1,|;}}", (ushort)(ICAM + 3)) ; 
                         } 
                     
-                    __context__.SourceCodeLine = 1223;
+                    __context__.SourceCodeLine = 1228;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . CAM [ (ICAM + 3)] . ICAMGUID = (ushort) ( ROOM[ IROOM ].CAM[ ICAM ].ICAMGUID ) ; 
-                    __context__.SourceCodeLine = 1224;
+                    __context__.SourceCodeLine = 1229;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . CAM [ (ICAM + 3)] . IVSRCLOCALID = (ushort) ( ROOM[ IROOM ].CAM[ ICAM ].IVSRCLOCALID ) ; 
-                    __context__.SourceCodeLine = 1225;
+                    __context__.SourceCodeLine = 1230;
                     ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . CAM [ (ICAM + 3)] . IVSRCGUID = (ushort) ( ROOM[ IROOM ].CAM[ ICAM ].IVSRCGUID ) ; 
                     } 
                 
@@ -1942,50 +1940,50 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             
             else 
                 {
-                __context__.SourceCodeLine = 1228;
+                __context__.SourceCodeLine = 1233;
                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IISDISPLAY)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1231;
-                    IDISPLAY = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IDISPLAYLOCALID ) ; 
-                    __context__.SourceCodeLine = 1232;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IDISPLAYGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IDISPLAYGUID ) ; 
-                    __context__.SourceCodeLine = 1233;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IDISPLAYACTIVE = (ushort) ( 1 ) ; 
-                    __context__.SourceCodeLine = 1234;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVIS = (ushort) ( 1 ) ; 
-                    __context__.SourceCodeLine = 1235;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTLOCALID = (ushort) ( IINDEX ) ; 
                     __context__.SourceCodeLine = 1236;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
+                    IDISPLAY = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IDISPLAYLOCALID ) ; 
+                    __context__.SourceCodeLine = 1237;
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IDISPLAYGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IDISPLAYGUID ) ; 
                     __context__.SourceCodeLine = 1238;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IDISPLAYACTIVE = (ushort) ( 1 ) ; 
                     __context__.SourceCodeLine = 1239;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SLOCALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVIS = (ushort) ( 1 ) ; 
+                    __context__.SourceCodeLine = 1240;
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTLOCALID = (ushort) ( IINDEX ) ; 
                     __context__.SourceCodeLine = 1241;
-                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . ISYSPRESET = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ISYSPRESET ) ; 
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . IVDSTGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].IGUID ) ; 
                     __context__.SourceCodeLine = 1243;
-                    MakeString ( DISPLAY_FB__DOLLAR__ [ IROOM] , "{{ListVisFB:{0:d}=1,|; ListTextFB:{1:d}={2},|;}}", (ushort)IDISPLAY, (ushort)IDISPLAY, ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME ) ; 
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SGLOBALNAME  ) ; 
+                    __context__.SourceCodeLine = 1244;
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SLOCALNAME  .UpdateValue ( ROOM [ IROOM] . LIST [ ILIST] . ITEM [ IINDEX] . SLOCALNAME  ) ; 
                     __context__.SourceCodeLine = 1246;
+                    ROOM [ IROOM] . DISPLAY [ IDISPLAY] . ISYSPRESET = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ IINDEX ].ISYSPRESET ) ; 
+                    __context__.SourceCodeLine = 1248;
+                    MakeString ( DISPLAY_FB__DOLLAR__ [ IROOM] , "{{ListVisFB:{0:d}=1,|; ListTextFB:{1:d}={2},|;}}", (ushort)IDISPLAY, (ushort)IDISPLAY, ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME ) ; 
+                    __context__.SourceCodeLine = 1251;
                     if ( Functions.TestForTrue  ( ( SYS.IISRCPAIR)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1248;
+                        __context__.SourceCodeLine = 1253;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . DISPLAY [ (IDISPLAY + (60 / 2))] . IDISPLAYACTIVE = (ushort) ( 1 ) ; 
-                        __context__.SourceCodeLine = 1250;
+                        __context__.SourceCodeLine = 1255;
                         MakeString ( DISPLAY_FB__DOLLAR__ [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] , "{{ListTextFB:{0:d}={1},|;}}", (ushort)(IDISPLAY + (60 / 2)), ROOM [ IROOM] . DISPLAY [ IDISPLAY] . SGLOBALNAME ) ; 
-                        __context__.SourceCodeLine = 1252;
+                        __context__.SourceCodeLine = 1257;
                         if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1254;
+                            __context__.SourceCodeLine = 1259;
                             ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . DISPLAY [ (IDISPLAY + (60 / 2))] . IVIS = (ushort) ( 1 ) ; 
-                            __context__.SourceCodeLine = 1255;
+                            __context__.SourceCodeLine = 1260;
                             MakeString ( DISPLAY_FB__DOLLAR__ [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] , "{{ListVisFB:{0:d}=1,|;}}", (ushort)(IDISPLAY + (60 / 2))) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 1257;
+                        __context__.SourceCodeLine = 1262;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . DISPLAY [ (IDISPLAY + (60 / 2))] . IDISPLAYGUID = (ushort) ( ROOM[ IROOM ].DISPLAY[ IDISPLAY ].IDISPLAYGUID ) ; 
-                        __context__.SourceCodeLine = 1258;
+                        __context__.SourceCodeLine = 1263;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . DISPLAY [ (IDISPLAY + (60 / 2))] . IVDSTLOCALID = (ushort) ( ROOM[ IROOM ].DISPLAY[ IDISPLAY ].IVDSTLOCALID ) ; 
-                        __context__.SourceCodeLine = 1259;
+                        __context__.SourceCodeLine = 1264;
                         ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . DISPLAY [ (IDISPLAY + (60 / 2))] . IVDSTGUID = (ushort) ( ROOM[ IROOM ].DISPLAY[ IDISPLAY ].IVDSTGUID ) ; 
                         } 
                     
@@ -2006,71 +2004,71 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPKEY  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
             
             
-            __context__.SourceCodeLine = 1268;
+            __context__.SourceCodeLine = 1273;
             SDATA  .UpdateValue ( STEMPLINE  ) ; 
-            __context__.SourceCodeLine = 1270;
+            __context__.SourceCodeLine = 1275;
             if ( Functions.TestForTrue  ( ( Functions.Find( "=" , SDATA ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1272;
+                __context__.SourceCodeLine = 1277;
                 ROOM [ IROOM] . IROOMACTIVE = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1273;
+                __context__.SourceCodeLine = 1278;
                 ROOM [ IROOM] . IROOMGUID = (ushort) ( IGLOBALROOMNUM ) ; 
                 } 
             
-            __context__.SourceCodeLine = 1275;
+            __context__.SourceCodeLine = 1280;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (IROOM == 2) ) && Functions.TestForTrue ( ROOM[ IROOM ].IROOMGUID )) ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1275;
+                __context__.SourceCodeLine = 1280;
                 SYS . IISRCPAIR = (ushort) ( 1 ) ; 
                 }
             
-            __context__.SourceCodeLine = 1277;
+            __context__.SourceCodeLine = 1282;
             while ( Functions.TestForTrue  ( ( Functions.Find( "," , SDATA ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1279;
+                __context__.SourceCodeLine = 1284;
                 STEMPKV  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
-                __context__.SourceCodeLine = 1280;
+                __context__.SourceCodeLine = 1285;
                 STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPKV )  ) ; 
-                __context__.SourceCodeLine = 1281;
+                __context__.SourceCodeLine = 1286;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room_name" , STEMPKEY ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1281;
+                    __context__.SourceCodeLine = 1286;
                     ROOM [ IROOM] . SROOMNAME  .UpdateValue ( OTRIMSTRING . TrimThis (  STEMPKV  .ToSimplSharpString() )  ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1282;
+                    __context__.SourceCodeLine = 1287;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room_num" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1282;
+                        __context__.SourceCodeLine = 1287;
                         ROOM [ IROOM] . IBLDGROOMNUM = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1283;
+                        __context__.SourceCodeLine = 1288;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "discrete_macro_mode" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1283;
+                            __context__.SourceCodeLine = 1288;
                             ROOM [ IROOM] . IDISCRETEMACROMODE = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1284;
+                            __context__.SourceCodeLine = 1289;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "macro_take_mode" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1284;
+                                __context__.SourceCodeLine = 1289;
                                 ROOM [ IROOM] . IMACROTAKEMODE = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1285;
+                                __context__.SourceCodeLine = 1290;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "use_src_list_mode" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1285;
+                                    __context__.SourceCodeLine = 1290;
                                     ROOM [ IROOM] . IUSESRCLISTMODE = (ushort) ( Functions.Atoi( STEMPKV ) ) ; 
                                     }
                                 
@@ -2082,12 +2080,12 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     }
                 
-                __context__.SourceCodeLine = 1277;
+                __context__.SourceCodeLine = 1282;
                 } 
             
-            __context__.SourceCodeLine = 1287;
+            __context__.SourceCodeLine = 1292;
             ROOMNAME__DOLLAR___OUT [ IROOM]  .UpdateValue ( ROOM [ IROOM] . SROOMNAME  ) ; 
-            __context__.SourceCodeLine = 1288;
+            __context__.SourceCodeLine = 1293;
             MakeString ( ROOM [ IROOM] . SROOMNAMESHORT , "Rm {0:d}", (ushort)ROOM[ IROOM ].IBLDGROOMNUM) ; 
             
             }
@@ -2104,15 +2102,15 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             SDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
             
             
-            __context__.SourceCodeLine = 1298;
-            Trace( "in fProcessVLink - iRoom = {0:d}, iLocalIndex = {1:d}, sData = {2}", (ushort)IROOM, (ushort)ILOCALINDEX, STEMPLINE ) ; 
-            __context__.SourceCodeLine = 1299;
-            SDATA  .UpdateValue ( STEMPLINE  ) ; 
-            __context__.SourceCodeLine = 1300;
-            IVLINK = (ushort) ( Functions.Atoi( SDATA ) ) ; 
-            __context__.SourceCodeLine = 1301;
-            STRASH  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
             __context__.SourceCodeLine = 1303;
+            Trace( "in fProcessVLink - iRoom = {0:d}, iLocalIndex = {1:d}, sData = {2}", (ushort)IROOM, (ushort)ILOCALINDEX, STEMPLINE ) ; 
+            __context__.SourceCodeLine = 1304;
+            SDATA  .UpdateValue ( STEMPLINE  ) ; 
+            __context__.SourceCodeLine = 1305;
+            IVLINK = (ushort) ( Functions.Atoi( SDATA ) ) ; 
+            __context__.SourceCodeLine = 1306;
+            STRASH  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
+            __context__.SourceCodeLine = 1308;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_10__ = ((int)ITYPE);
@@ -2120,25 +2118,25 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 15) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 1305;
+                        __context__.SourceCodeLine = 1310;
                         ILIST = (ushort) ( 1 ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 16) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 1306;
+                        __context__.SourceCodeLine = 1311;
                         ILIST = (ushort) ( 2 ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 17) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 1307;
+                        __context__.SourceCodeLine = 1312;
                         ILIST = (ushort) ( 3 ) ; 
                         }
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_10__ == ( 18) ) ) ) 
                         {
-                        __context__.SourceCodeLine = 1308;
+                        __context__.SourceCodeLine = 1313;
                         ILIST = (ushort) ( 4 ) ; 
                         }
                     
@@ -2147,44 +2145,44 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                 }
                 
             
-            __context__.SourceCodeLine = 1311;
+            __context__.SourceCodeLine = 1316;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ ILOCALINDEX ].IISVIRTUAL)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1313;
-                IOLDGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ ILOCALINDEX ].IVLINK ) ; 
-                __context__.SourceCodeLine = 1316;
-                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . IVLINK = (ushort) ( IVLINK ) ; 
-                __context__.SourceCodeLine = 1317;
-                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . IGUID = (ushort) ( IVLINK ) ; 
                 __context__.SourceCodeLine = 1318;
-                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . SGLOBALNAME  .UpdateValue ( Functions.Left ( SDATA ,  (int) ( (Functions.Find( "|" , SDATA ) - 1) ) )  ) ; 
-                __context__.SourceCodeLine = 1319;
-                ROOM [ IROOM] . LIST [ ILIST] . IGLOBALTOLOCAL [ IVLINK] = (ushort) ( ILOCALINDEX ) ; 
+                IOLDGUID = (ushort) ( ROOM[ IROOM ].LIST[ ILIST ].ITEM[ ILOCALINDEX ].IVLINK ) ; 
+                __context__.SourceCodeLine = 1321;
+                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . IVLINK = (ushort) ( IVLINK ) ; 
                 __context__.SourceCodeLine = 1322;
-                FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( ILOCALINDEX )) ; 
+                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . IGUID = (ushort) ( IVLINK ) ; 
                 __context__.SourceCodeLine = 1323;
+                ROOM [ IROOM] . LIST [ ILIST] . ITEM [ ILOCALINDEX] . SGLOBALNAME  .UpdateValue ( Functions.Left ( SDATA ,  (int) ( (Functions.Find( "|" , SDATA ) - 1) ) )  ) ; 
+                __context__.SourceCodeLine = 1324;
+                ROOM [ IROOM] . LIST [ ILIST] . IGLOBALTOLOCAL [ IVLINK] = (ushort) ( ILOCALINDEX ) ; 
+                __context__.SourceCodeLine = 1327;
+                FCONFIGURELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( ILOCALINDEX )) ; 
+                __context__.SourceCodeLine = 1328;
                 FUPDATELISTTEXT (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( ILOCALINDEX )) ; 
-                __context__.SourceCodeLine = 1325;
+                __context__.SourceCodeLine = 1330;
                 FCONFIGURELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( ILOCALINDEX )) ; 
-                __context__.SourceCodeLine = 1326;
+                __context__.SourceCodeLine = 1331;
                 FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( ILOCALINDEX )) ; 
-                __context__.SourceCodeLine = 1329;
+                __context__.SourceCodeLine = 1334;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IOLDGUID ) && Functions.TestForTrue ( Functions.BoolToInt (IOLDGUID != IVLINK) )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1331;
+                    __context__.SourceCodeLine = 1336;
                     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                     ushort __FN_FOREND_VAL__1 = (ushort)50; 
                     int __FN_FORSTEP_VAL__1 = (int)1; 
                     for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                         { 
-                        __context__.SourceCodeLine = 1333;
+                        __context__.SourceCodeLine = 1338;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ROOM[ IROOM ].LIST[ 2 ].ITEM[ I ].IROUTEDSRC == IOLDGUID))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1335;
+                            __context__.SourceCodeLine = 1340;
                             FMTRXTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ I ].IGUID ), (ushort)( IVLINK )) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 1331;
+                        __context__.SourceCodeLine = 1336;
                         } 
                     
                     } 
@@ -2193,7 +2191,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             
             else 
                 { 
-                __context__.SourceCodeLine = 1342;
+                __context__.SourceCodeLine = 1347;
                 Trace( "NodeMST - in fProcessVLink - attempting to change the GUID of a list item that is not virtual, room={0:d}, list={1:d}, item={2:d}", (ushort)IROOM, (ushort)ILIST, (ushort)ILOCALINDEX) ; 
                 } 
             
@@ -2217,84 +2215,84 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
             
             
-            __context__.SourceCodeLine = 1358;
+            __context__.SourceCodeLine = 1363;
             STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
-            __context__.SourceCodeLine = 1360;
+            __context__.SourceCodeLine = 1365;
             STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
-            __context__.SourceCodeLine = 1362;
+            __context__.SourceCodeLine = 1367;
             ITYPE = (ushort) ( Functions.Atoi( STEMPHEADER ) ) ; 
-            __context__.SourceCodeLine = 1364;
+            __context__.SourceCodeLine = 1369;
             while ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMPDATA ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1366;
+                __context__.SourceCodeLine = 1371;
                 STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
-                __context__.SourceCodeLine = 1367;
+                __context__.SourceCodeLine = 1372;
                 if ( Functions.TestForTrue  ( ( Functions.Find( "COMPLETE" , STEMPLINE ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1367;
+                    __context__.SourceCodeLine = 1372;
                     FPROCESSFINALIZE (  __context__ , (ushort)( IROOM ), (ushort)( ITYPE )) ; 
                     }
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 1370;
+                    __context__.SourceCodeLine = 1375;
                     if ( Functions.TestForTrue  ( ( Functions.Find( ";" , STEMPLINE ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1370;
+                        __context__.SourceCodeLine = 1375;
                         STRASH  .UpdateValue ( Functions.Remove ( ";" , STEMPLINE )  ) ; 
                         }
                     
-                    __context__.SourceCodeLine = 1371;
+                    __context__.SourceCodeLine = 1376;
                     ILOCALINDEX = (ushort) ( Functions.Atoi( Functions.Remove( ":" , STEMPLINE ) ) ) ; 
-                    __context__.SourceCodeLine = 1373;
+                    __context__.SourceCodeLine = 1378;
                     if ( Functions.TestForTrue  ( ( ILOCALINDEX)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1375;
+                        __context__.SourceCodeLine = 1380;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( ITYPE <= 4 ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 1375;
+                            __context__.SourceCodeLine = 1380;
                             FPROCESSLINE (  __context__ , (ushort)( IROOM ), (ushort)( ITYPE ), (ushort)( ILOCALINDEX ), STEMPLINE) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1376;
+                            __context__.SourceCodeLine = 1381;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 10))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1376;
+                                __context__.SourceCodeLine = 1381;
                                 FPROCESSVROUTE (  __context__ , (ushort)( IROOM ), (ushort)( ILOCALINDEX ), STEMPLINE) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1377;
+                                __context__.SourceCodeLine = 1382;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 11))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1377;
+                                    __context__.SourceCodeLine = 1382;
                                     FPROCESSMACRO (  __context__ , (ushort)( IROOM ), (ushort)( ILOCALINDEX ), STEMPLINE) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1378;
+                                    __context__.SourceCodeLine = 1383;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 13))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1378;
+                                        __context__.SourceCodeLine = 1383;
                                         FPROCESSROOMS (  __context__ , (ushort)( IROOM ), (ushort)( ILOCALINDEX ), STEMPLINE) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1379;
+                                        __context__.SourceCodeLine = 1384;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ITYPE == 15))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1379;
+                                            __context__.SourceCodeLine = 1384;
                                             FPROCESSVLINK (  __context__ , (ushort)( ITYPE ), (ushort)( IROOM ), (ushort)( ILOCALINDEX ), STEMPLINE) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1380;
+                                            __context__.SourceCodeLine = 1385;
                                             Trace( "NodeMST - fProcessData - didn't catch iLocalIndex") ; 
                                             }
                                         
@@ -2310,13 +2308,13 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1382;
+                        __context__.SourceCodeLine = 1387;
                         Trace( "NodeMST - fProcessData - iLocalIndex=0.    {0} iLocalID={1:d};{2}", STEMPHEADER , (ushort)ILOCALINDEX, STEMPLINE ) ; 
                         }
                     
                     } 
                 
-                __context__.SourceCodeLine = 1364;
+                __context__.SourceCodeLine = 1369;
                 } 
             
             
@@ -2327,37 +2325,37 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 1398;
+            __context__.SourceCodeLine = 1403;
             if ( Functions.TestForTrue  ( ( Functions.Not( IINDEX ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 1400;
+                __context__.SourceCodeLine = 1405;
                 ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                 ushort __FN_FOREND_VAL__1 = (ushort)(60 / 2); 
                 int __FN_FORSTEP_VAL__1 = (int)1; 
                 for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                     { 
-                    __context__.SourceCodeLine = 1402;
+                    __context__.SourceCodeLine = 1407;
                     if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].DISPLAY[ I ].IDISPLAYACTIVE)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1404;
+                        __context__.SourceCodeLine = 1409;
                         ROOM [ IROOM] . DISPLAY [ I] . IDISPLAYPOWERSTATE = (ushort) ( ISTATE ) ; 
-                        __context__.SourceCodeLine = 1405;
+                        __context__.SourceCodeLine = 1410;
                         MakeString ( TO_MST_TX__DOLLAR__ [ IROOM] , "{{DPLY_CMD;guid={0:d},power={1:d},|;}}", (ushort)ROOM[ IROOM ].DISPLAY[ I ].IDISPLAYGUID, (ushort)ISTATE) ; 
                         } 
                     
-                    __context__.SourceCodeLine = 1400;
+                    __context__.SourceCodeLine = 1405;
                     } 
                 
                 } 
             
             else 
                 { 
-                __context__.SourceCodeLine = 1411;
+                __context__.SourceCodeLine = 1416;
                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].DISPLAY[ IINDEX ].IDISPLAYACTIVE)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1413;
+                    __context__.SourceCodeLine = 1418;
                     ROOM [ IROOM] . DISPLAY [ IINDEX] . IDISPLAYPOWERSTATE = (ushort) ( ISTATE ) ; 
-                    __context__.SourceCodeLine = 1414;
+                    __context__.SourceCodeLine = 1419;
                     MakeString ( TO_MST_TX__DOLLAR__ [ IROOM] , "{{DPLY_CMD;guid={0:d},power={1:d},|;}}", (ushort)ROOM[ IROOM ].DISPLAY[ IINDEX ].IDISPLAYGUID, (ushort)ISTATE) ; 
                     } 
                 
@@ -2369,14 +2367,14 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FCAMCMDSEND (  SplusExecutionContext __context__, ushort IROOM , ushort IGUID , CrestronString SCMD ) 
             { 
             
-            __context__.SourceCodeLine = 1421;
+            __context__.SourceCodeLine = 1426;
             if ( Functions.TestForTrue  ( ( Functions.Not( IGUID ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1421;
+                __context__.SourceCodeLine = 1426;
                 IGUID = (ushort) ( ROOM[ IROOM ].CAM[ ROOM[ IROOM ].ICAMSEL ].ICAMGUID ) ; 
                 }
             
-            __context__.SourceCodeLine = 1422;
+            __context__.SourceCodeLine = 1427;
             MakeString ( TO_MST_TX__DOLLAR__ [ IROOM] , "{{CAM_CTRL; guid={0:d}: cmd={1}", (ushort)IGUID, SCMD ) ; 
             
             }
@@ -2384,24 +2382,24 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FCAMPOWER (  SplusExecutionContext __context__, ushort IROOM , ushort IINDEX , ushort ISTATE ) 
             { 
             
-            __context__.SourceCodeLine = 1427;
+            __context__.SourceCodeLine = 1432;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1429;
+                __context__.SourceCodeLine = 1434;
                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].CAM[ IINDEX ].ICAMACTIVE)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1431;
+                    __context__.SourceCodeLine = 1436;
                     ROOM [ IROOM] . CAM [ IINDEX] . ICAMPOWERSTATE = (ushort) ( ISTATE ) ; 
-                    __context__.SourceCodeLine = 1432;
+                    __context__.SourceCodeLine = 1437;
                     if ( Functions.TestForTrue  ( ( ISTATE)  ) ) 
                         {
-                        __context__.SourceCodeLine = 1432;
+                        __context__.SourceCodeLine = 1437;
                         FCAMCMDSEND (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].CAM[ IINDEX ].ICAMGUID ), "poweron") ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1433;
+                        __context__.SourceCodeLine = 1438;
                         FCAMCMDSEND (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].CAM[ IINDEX ].ICAMGUID ), "poweroff") ; 
                         }
                     
@@ -2411,33 +2409,33 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             
             else 
                 { 
-                __context__.SourceCodeLine = 1439;
+                __context__.SourceCodeLine = 1444;
                 ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                 ushort __FN_FOREND_VAL__1 = (ushort)3; 
                 int __FN_FORSTEP_VAL__1 = (int)1; 
                 for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                     { 
-                    __context__.SourceCodeLine = 1441;
+                    __context__.SourceCodeLine = 1446;
                     if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].CAM[ IINDEX ].ICAMACTIVE)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1443;
+                        __context__.SourceCodeLine = 1448;
                         ROOM [ IROOM] . CAM [ IINDEX] . ICAMPOWERSTATE = (ushort) ( ISTATE ) ; 
-                        __context__.SourceCodeLine = 1444;
+                        __context__.SourceCodeLine = 1449;
                         if ( Functions.TestForTrue  ( ( ISTATE)  ) ) 
                             {
-                            __context__.SourceCodeLine = 1444;
+                            __context__.SourceCodeLine = 1449;
                             FCAMCMDSEND (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].CAM[ IINDEX ].ICAMGUID ), "poweron") ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1445;
+                            __context__.SourceCodeLine = 1450;
                             FCAMCMDSEND (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].CAM[ IINDEX ].ICAMGUID ), "poweroff") ; 
                             }
                         
                         } 
                     
-                    __context__.SourceCodeLine = 1439;
+                    __context__.SourceCodeLine = 1444;
                     } 
                 
                 } 
@@ -2448,21 +2446,21 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
         private void FSYSTEMPOWER (  SplusExecutionContext __context__, ushort IROOM , ushort ISTATE ) 
             { 
             
-            __context__.SourceCodeLine = 1454;
+            __context__.SourceCodeLine = 1459;
             FDISPLAYPOWER (  __context__ , (ushort)( IROOM ), (ushort)( 0 ), (ushort)( ISTATE )) ; 
-            __context__.SourceCodeLine = 1455;
+            __context__.SourceCodeLine = 1460;
             if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
                 {
-                __context__.SourceCodeLine = 1455;
+                __context__.SourceCodeLine = 1460;
                 FDISPLAYPOWER (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( 0 ), (ushort)( ISTATE )) ; 
                 }
             
-            __context__.SourceCodeLine = 1456;
+            __context__.SourceCodeLine = 1461;
             FCAMPOWER (  __context__ , (ushort)( IROOM ), (ushort)( 0 ), (ushort)( ISTATE )) ; 
-            __context__.SourceCodeLine = 1457;
+            __context__.SourceCodeLine = 1462;
             if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
                 {
-                __context__.SourceCodeLine = 1457;
+                __context__.SourceCodeLine = 1462;
                 FCAMPOWER (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( 0 ), (ushort)( ISTATE )) ; 
                 }
             
@@ -2474,30 +2472,30 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 1474;
+            __context__.SourceCodeLine = 1479;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)2; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 1476;
+                __context__.SourceCodeLine = 1481;
                 if ( Functions.TestForTrue  ( ( ISTATE)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1478;
+                    __context__.SourceCodeLine = 1483;
                     RC_OFF_FB [ I]  .Value = (ushort) ( 0 ) ; 
-                    __context__.SourceCodeLine = 1479;
+                    __context__.SourceCodeLine = 1484;
                     RC_ON_FB [ I]  .Value = (ushort) ( 1 ) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 1483;
+                    __context__.SourceCodeLine = 1488;
                     RC_ON_FB [ I]  .Value = (ushort) ( 0 ) ; 
-                    __context__.SourceCodeLine = 1484;
+                    __context__.SourceCodeLine = 1489;
                     RC_OFF_FB [ I]  .Value = (ushort) ( 1 ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 1474;
+                __context__.SourceCodeLine = 1479;
                 } 
             
             
@@ -2508,30 +2506,30 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort I = 0;
             
             
-            __context__.SourceCodeLine = 1493;
+            __context__.SourceCodeLine = 1498;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)2; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 1495;
+                __context__.SourceCodeLine = 1500;
                 if ( Functions.TestForTrue  ( ( ISTATE)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1497;
+                    __context__.SourceCodeLine = 1502;
                     PARTSENSE_DISABLE_FB [ I]  .Value = (ushort) ( 0 ) ; 
-                    __context__.SourceCodeLine = 1498;
+                    __context__.SourceCodeLine = 1503;
                     PARTSENSE_ENABLE_FB [ I]  .Value = (ushort) ( 1 ) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 1502;
+                    __context__.SourceCodeLine = 1507;
                     PARTSENSE_ENABLE_FB [ I]  .Value = (ushort) ( 0 ) ; 
-                    __context__.SourceCodeLine = 1503;
+                    __context__.SourceCodeLine = 1508;
                     PARTSENSE_DISABLE_FB [ I]  .Value = (ushort) ( 1 ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 1493;
+                __context__.SourceCodeLine = 1498;
                 } 
             
             
@@ -2548,11 +2546,11 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
                 ushort J = 0;
                 
                 
-                __context__.SourceCodeLine = 1517;
+                __context__.SourceCodeLine = 1522;
                 SYS . IRCSTATE = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1518;
+                __context__.SourceCodeLine = 1523;
                 FUPDATERC_STATE_FB (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
-                __context__.SourceCodeLine = 1519;
+                __context__.SourceCodeLine = 1524;
                 FUPDATERC (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
                 
                 
@@ -2574,11 +2572,11 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_70
             ushort J = 0;
             
             
-            __context__.SourceCodeLine = 1526;
+            __context__.SourceCodeLine = 1531;
             SYS . IRCSTATE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 1527;
+            __context__.SourceCodeLine = 1532;
             FUPDATERC_STATE_FB (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
-            __context__.SourceCodeLine = 1528;
+            __context__.SourceCodeLine = 1533;
             FUPDATERC (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
             
             
@@ -2600,11 +2598,11 @@ object RC_TOG_OnPush_2 ( Object __EventInfo__ )
         ushort J = 0;
         
         
-        __context__.SourceCodeLine = 1535;
+        __context__.SourceCodeLine = 1540;
         SYS . IRCSTATE = (ushort) ( Functions.Not( SYS.IRCSTATE ) ) ; 
-        __context__.SourceCodeLine = 1536;
+        __context__.SourceCodeLine = 1541;
         FUPDATERC_STATE_FB (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
-        __context__.SourceCodeLine = 1537;
+        __context__.SourceCodeLine = 1542;
         FUPDATERC (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
         
         
@@ -2625,14 +2623,14 @@ object PARTSENSESIGNAL_OnChange_3 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1544;
+        __context__.SourceCodeLine = 1549;
         if ( Functions.TestForTrue  ( ( SYS.IPARTITIONENABLED)  ) ) 
             { 
-            __context__.SourceCodeLine = 1546;
+            __context__.SourceCodeLine = 1551;
             SYS . IRCSTATE = (ushort) ( PARTSENSESIGNAL[ 1 ] .Value ) ; 
-            __context__.SourceCodeLine = 1547;
+            __context__.SourceCodeLine = 1552;
             FUPDATERC_STATE_FB (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
-            __context__.SourceCodeLine = 1548;
+            __context__.SourceCodeLine = 1553;
             FUPDATERC (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
             } 
         
@@ -2655,18 +2653,18 @@ object PARTSENSE_ENABLE_OnPush_4 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1555;
+        __context__.SourceCodeLine = 1560;
         SYS . IPARTITIONENABLED = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1557;
+        __context__.SourceCodeLine = 1562;
         FUPDATERC_ENABLE_FB (  __context__ , (ushort)( SYS.IPARTITIONENABLED )) ; 
-        __context__.SourceCodeLine = 1559;
+        __context__.SourceCodeLine = 1564;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (PARTSENSESIGNAL[ 1 ] .Value != SYS.IRCSTATE))  ) ) 
             { 
-            __context__.SourceCodeLine = 1561;
+            __context__.SourceCodeLine = 1566;
             SYS . IRCSTATE = (ushort) ( PARTSENSESIGNAL[ 1 ] .Value ) ; 
-            __context__.SourceCodeLine = 1562;
+            __context__.SourceCodeLine = 1567;
             FUPDATERC_STATE_FB (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
-            __context__.SourceCodeLine = 1563;
+            __context__.SourceCodeLine = 1568;
             FUPDATERC (  __context__ , (ushort)( SYS.IRCSTATE )) ; 
             } 
         
@@ -2689,9 +2687,9 @@ object PARTSENSE_DISABLE_OnPush_5 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1570;
+        __context__.SourceCodeLine = 1575;
         SYS . IPARTITIONENABLED = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1572;
+        __context__.SourceCodeLine = 1577;
         FUPDATERC_ENABLE_FB (  __context__ , (ushort)( SYS.IPARTITIONENABLED )) ; 
         
         
@@ -2712,24 +2710,24 @@ object SYS_POWERON_OnPush_6 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1578;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1580;
-        Functions.Pulse ( 10, SYS_POWERON_GO [ I] ) ; 
-        __context__.SourceCodeLine = 1581;
-        ROOM [ I] . ISYSPOWERSTATE = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1583;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1585;
+        Functions.Pulse ( 10, SYS_POWERON_GO [ I] ) ; 
+        __context__.SourceCodeLine = 1586;
+        ROOM [ I] . ISYSPOWERSTATE = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1588;
         if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
             { 
-            __context__.SourceCodeLine = 1585;
+            __context__.SourceCodeLine = 1590;
             Trace( "-------------- Sys_PowerOn, iRoom = {0:d}", (ushort)I) ; 
-            __context__.SourceCodeLine = 1587;
+            __context__.SourceCodeLine = 1592;
             Functions.Pulse ( 10, SYS_POWERON_GO [ FOTHERROOM( __context__ , (ushort)( I ) )] ) ; 
-            __context__.SourceCodeLine = 1588;
+            __context__.SourceCodeLine = 1593;
             ROOM [ FOTHERROOM( __context__ , (ushort)( I ) )] . ISYSPOWERSTATE = (ushort) ( 1 ) ; 
             } 
         
-        __context__.SourceCodeLine = 1591;
+        __context__.SourceCodeLine = 1596;
         FSYSTEMPOWER (  __context__ , (ushort)( I ), (ushort)( ROOM[ I ].ISYSPOWERSTATE )) ; 
         
         
@@ -2750,24 +2748,24 @@ object SYS_POWEROFF_OnPush_7 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1597;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1599;
-        Functions.Pulse ( 10, SYS_POWEROFF_GO [ I] ) ; 
-        __context__.SourceCodeLine = 1600;
-        ROOM [ I] . ISYSPOWERSTATE = (ushort) ( 0 ) ; 
         __context__.SourceCodeLine = 1602;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1604;
+        Functions.Pulse ( 10, SYS_POWEROFF_GO [ I] ) ; 
+        __context__.SourceCodeLine = 1605;
+        ROOM [ I] . ISYSPOWERSTATE = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 1607;
         if ( Functions.TestForTrue  ( ( SYS.IRCSTATE)  ) ) 
             { 
-            __context__.SourceCodeLine = 1604;
+            __context__.SourceCodeLine = 1609;
             Trace( "-------------- Sys_PowerOff, iRoom = {0:d}", (ushort)I) ; 
-            __context__.SourceCodeLine = 1606;
+            __context__.SourceCodeLine = 1611;
             Functions.Pulse ( 10, SYS_POWEROFF_GO [ FOTHERROOM( __context__ , (ushort)( I ) )] ) ; 
-            __context__.SourceCodeLine = 1607;
+            __context__.SourceCodeLine = 1612;
             ROOM [ FOTHERROOM( __context__ , (ushort)( I ) )] . ISYSPOWERSTATE = (ushort) ( 0 ) ; 
             } 
         
-        __context__.SourceCodeLine = 1610;
+        __context__.SourceCodeLine = 1615;
         FSYSTEMPOWER (  __context__ , (ushort)( I ), (ushort)( ROOM[ I ].ISYSPOWERSTATE )) ; 
         
         
@@ -2790,38 +2788,38 @@ object SYS_PRESET_OnChange_8 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1625;
+        __context__.SourceCodeLine = 1630;
         IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1626;
+        __context__.SourceCodeLine = 1631;
         ISYSPRESET = (ushort) ( SYS_PRESET[ IROOM ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1628;
+        __context__.SourceCodeLine = 1633;
         if ( Functions.TestForTrue  ( ( ISYSPRESET)  ) ) 
             { 
-            __context__.SourceCodeLine = 1630;
+            __context__.SourceCodeLine = 1635;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)60; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 1632;
+                __context__.SourceCodeLine = 1637;
                 if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].DISPLAY[ I ].IDISPLAYACTIVE)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1634;
+                    __context__.SourceCodeLine = 1639;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].DISPLAY[ I ].ISYSPRESET == ISYSPRESET) ) || Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].DISPLAY[ I ].ISYSPRESET == 9) )) ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1636;
+                        __context__.SourceCodeLine = 1641;
                         FDISPLAYPOWER (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( 1 )) ; 
                         } 
                     
                     else 
                         { 
-                        __context__.SourceCodeLine = 1640;
+                        __context__.SourceCodeLine = 1645;
                         FDISPLAYPOWER (  __context__ , (ushort)( IROOM ), (ushort)( I ), (ushort)( 0 )) ; 
                         } 
                     
                     } 
                 
-                __context__.SourceCodeLine = 1630;
+                __context__.SourceCodeLine = 1635;
                 } 
             
             } 
@@ -2847,27 +2845,27 @@ object MTRX_TAKE_OnPush_9 ( Object __EventInfo__ )
         ushort ISRC = 0;
         
         
-        __context__.SourceCodeLine = 1654;
+        __context__.SourceCodeLine = 1659;
         IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1656;
+        __context__.SourceCodeLine = 1661;
         ISRC = (ushort) ( ROOM[ IROOM ].LIST[ 1 ].IITEMSELECTED ) ; 
-        __context__.SourceCodeLine = 1657;
+        __context__.SourceCodeLine = 1662;
         if ( Functions.TestForTrue  ( ( FGETNUMITEMSSELECTED( __context__ , (ushort)( IROOM ) , (ushort)( 2 ) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1659;
+            __context__.SourceCodeLine = 1664;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].LIST[ 2 ].IMAXNUMITEMS; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( IDST  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IDST  >= __FN_FORSTART_VAL__1) && (IDST  <= __FN_FOREND_VAL__1) ) : ( (IDST  <= __FN_FORSTART_VAL__1) && (IDST  >= __FN_FOREND_VAL__1) ) ; IDST  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 1661;
+                __context__.SourceCodeLine = 1666;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ROOM[ IROOM ].LIST[ 2 ].ITEM[ IDST ].IFB ) && Functions.TestForTrue ( ROOM[ IROOM ].LIST[ 2 ].ITEM[ IDST ].IITEMACTIVE )) ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1663;
+                    __context__.SourceCodeLine = 1668;
                     FMTRXTAKE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 2 ].ITEM[ IDST ].IGUID ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ ISRC ].IGUID )) ; 
                     } 
                 
-                __context__.SourceCodeLine = 1659;
+                __context__.SourceCodeLine = 1664;
                 } 
             
             } 
@@ -2891,21 +2889,21 @@ object MTRX_CLEAR_OnPush_10 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 1672;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1674;
-        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( 0 ), (ushort)( 0 )) ; 
-        __context__.SourceCodeLine = 1675;
-        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( 0 )) ; 
         __context__.SourceCodeLine = 1677;
-        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 ), (ushort)( 0 )) ; 
-        __context__.SourceCodeLine = 1678;
-        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 )) ; 
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1679;
+        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( 0 ), (ushort)( 0 )) ; 
         __context__.SourceCodeLine = 1680;
-        ROOM [ IROOM] . LIST [ 1] . IITEMSELECTED = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1681;
-        ROOM [ IROOM] . LIST [ 2] . INUMOFITEMSSELECTED = (ushort) ( 0 ) ; 
+        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( 0 )) ; 
+        __context__.SourceCodeLine = 1682;
+        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 ), (ushort)( 0 )) ; 
         __context__.SourceCodeLine = 1683;
+        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 )) ; 
+        __context__.SourceCodeLine = 1685;
+        ROOM [ IROOM] . LIST [ 1] . IITEMSELECTED = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 1686;
+        ROOM [ IROOM] . LIST [ 2] . INUMOFITEMSSELECTED = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 1688;
         FUPDATECONFMONITORRTE (  __context__ , (ushort)( IROOM ), (ushort)( 0 )) ; 
         
         
@@ -2926,13 +2924,13 @@ object MTRX_SELALL_OnPush_11 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 1690;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1692;
-        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 ), (ushort)( 1 )) ; 
-        __context__.SourceCodeLine = 1693;
-        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 )) ; 
         __context__.SourceCodeLine = 1695;
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1697;
+        FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 ), (ushort)( 1 )) ; 
+        __context__.SourceCodeLine = 1698;
+        FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( 0 )) ; 
+        __context__.SourceCodeLine = 1700;
         ROOM [ IROOM] . LIST [ 2] . INUMOFITEMSSELECTED = (ushort) ( FGETNUMITEMSSELECTED( __context__ , (ushort)( IROOM ) , (ushort)( 2 ) ) ) ; 
         
         
@@ -2954,35 +2952,35 @@ object MTRX_ADMINVSRC_CLICKED_OnChange_12 ( Object __EventInfo__ )
         ushort IINDEX = 0;
         
         
-        __context__.SourceCodeLine = 1701;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1702;
-        IINDEX = (ushort) ( MTRX_ADMINVSRC_CLICKED[ IROOM ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1705;
-        ROOM [ IROOM] . LIST [ 1] . ITEM [ IINDEX] . IFB = (ushort) ( Functions.Not( ROOM[ IROOM ].LIST[ 1 ].ITEM[ IINDEX ].IFB ) ) ; 
         __context__.SourceCodeLine = 1706;
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1707;
+        IINDEX = (ushort) ( MTRX_ADMINVSRC_CLICKED[ IROOM ] .UshortValue ) ; 
+        __context__.SourceCodeLine = 1710;
+        ROOM [ IROOM] . LIST [ 1] . ITEM [ IINDEX] . IFB = (ushort) ( Functions.Not( ROOM[ IROOM ].LIST[ 1 ].ITEM[ IINDEX ].IFB ) ) ; 
+        __context__.SourceCodeLine = 1711;
         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].LIST[ 1 ].ITEM[ IINDEX ].IFB)  ) ) 
             {
-            __context__.SourceCodeLine = 1706;
+            __context__.SourceCodeLine = 1711;
             ROOM [ IROOM] . LIST [ 1] . IITEMSELECTED = (ushort) ( IINDEX ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1707;
+            __context__.SourceCodeLine = 1712;
             ROOM [ IROOM] . LIST [ 1] . IITEMSELECTED = (ushort) ( 0 ) ; 
             }
         
-        __context__.SourceCodeLine = 1708;
+        __context__.SourceCodeLine = 1713;
         FSETLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( IINDEX ), (ushort)( 0 )) ; 
-        __context__.SourceCodeLine = 1709;
+        __context__.SourceCodeLine = 1714;
         FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( 0 )) ; 
-        __context__.SourceCodeLine = 1712;
+        __context__.SourceCodeLine = 1717;
         FUPDATECONFMONITORRTE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].LIST[ 1 ].ITEM[ IINDEX ].IGUID )) ; 
-        __context__.SourceCodeLine = 1715;
+        __context__.SourceCodeLine = 1720;
         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].IUSESRCLISTMODE)  ) ) 
             {
-            __context__.SourceCodeLine = 1715;
+            __context__.SourceCodeLine = 1720;
             FUPDATEMACROSRC (  __context__ , (ushort)( IROOM ), (ushort)( 1 ), (ushort)( IINDEX )) ; 
             }
         
@@ -3006,13 +3004,13 @@ object MTRX_ADMINVDST_CLICKED_OnChange_13 ( Object __EventInfo__ )
         ushort IINDEX = 0;
         
         
-        __context__.SourceCodeLine = 1722;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1723;
-        IINDEX = (ushort) ( MTRX_ADMINVDST_CLICKED[ IROOM ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1726;
-        ROOM [ IROOM] . LIST [ 2] . ITEM [ IINDEX] . IFB = (ushort) ( Functions.Not( ROOM[ IROOM ].LIST[ 2 ].ITEM[ IINDEX ].IFB ) ) ; 
         __context__.SourceCodeLine = 1727;
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1728;
+        IINDEX = (ushort) ( MTRX_ADMINVDST_CLICKED[ IROOM ] .UshortValue ) ; 
+        __context__.SourceCodeLine = 1731;
+        ROOM [ IROOM] . LIST [ 2] . ITEM [ IINDEX] . IFB = (ushort) ( Functions.Not( ROOM[ IROOM ].LIST[ 2 ].ITEM[ IINDEX ].IFB ) ) ; 
+        __context__.SourceCodeLine = 1732;
         FUPDATELISTFB (  __context__ , (ushort)( IROOM ), (ushort)( 2 ), (ushort)( IINDEX )) ; 
         
         
@@ -3036,13 +3034,13 @@ object MTRX_MACRO1_SRC_OnChange_14 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1733;
+        __context__.SourceCodeLine = 1738;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1734;
+        __context__.SourceCodeLine = 1739;
         IMACRO = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1735;
+        __context__.SourceCodeLine = 1740;
         ISRC = (ushort) ( MTRX_MACRO1_SRC[ IMACRO ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1737;
+        __context__.SourceCodeLine = 1742;
         FUPDATEMACROSRC (  __context__ , (ushort)( IROOM ), (ushort)( IMACRO ), (ushort)( ISRC )) ; 
         
         
@@ -3066,13 +3064,13 @@ object MTRX_MACRO2_SRC_OnChange_15 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1742;
+        __context__.SourceCodeLine = 1747;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1743;
+        __context__.SourceCodeLine = 1748;
         IMACRO = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1744;
+        __context__.SourceCodeLine = 1749;
         ISRC = (ushort) ( MTRX_MACRO2_SRC[ IMACRO ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1746;
+        __context__.SourceCodeLine = 1751;
         FUPDATEMACROSRC (  __context__ , (ushort)( IROOM ), (ushort)( IMACRO ), (ushort)( ISRC )) ; 
         
         
@@ -3095,11 +3093,11 @@ object MTRX_MACRO1_DST_OnChange_16 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1752;
+        __context__.SourceCodeLine = 1757;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1753;
+        __context__.SourceCodeLine = 1758;
         IDST = (ushort) ( MTRX_MACRO1_DST[ 1 ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1755;
+        __context__.SourceCodeLine = 1760;
         FUPDATEMACRODST (  __context__ , (ushort)( IROOM ), (ushort)( IDST )) ; 
         
         
@@ -3122,11 +3120,11 @@ object MTRX_MACRO2_DST_OnChange_17 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 1760;
+        __context__.SourceCodeLine = 1765;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1761;
+        __context__.SourceCodeLine = 1766;
         IDST = (ushort) ( MTRX_MACRO2_DST[ 1 ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1763;
+        __context__.SourceCodeLine = 1768;
         FUPDATEMACRODST (  __context__ , (ushort)( IROOM ), (ushort)( IDST )) ; 
         
         
@@ -3145,7 +3143,7 @@ object CAM_TILT_UP_OnPush_18 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1775;
+        __context__.SourceCodeLine = 1780;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "up") ; 
         
         
@@ -3164,7 +3162,7 @@ object CAM_TILT_DN_OnPush_19 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1779;
+        __context__.SourceCodeLine = 1784;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "down") ; 
         
         
@@ -3183,7 +3181,7 @@ object CAM_PAN_LEFT_OnPush_20 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1783;
+        __context__.SourceCodeLine = 1788;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "left") ; 
         
         
@@ -3202,7 +3200,7 @@ object CAM_PAN_RIGHT_OnPush_21 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1787;
+        __context__.SourceCodeLine = 1792;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "right") ; 
         
         
@@ -3221,7 +3219,7 @@ object CAM_ZOOM_TIGHT_OnPush_22 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1791;
+        __context__.SourceCodeLine = 1796;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "zoomin") ; 
         
         
@@ -3240,7 +3238,7 @@ object CAM_ZOOM_WIDE_OnPush_23 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1795;
+        __context__.SourceCodeLine = 1800;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "zoomout") ; 
         
         
@@ -3293,7 +3291,7 @@ object CAM_POWER_ON_OnPush_26 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1807;
+        __context__.SourceCodeLine = 1812;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "poweron") ; 
         
         
@@ -3312,7 +3310,7 @@ object CAM_POWER_OFF_OnPush_27 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1811;
+        __context__.SourceCodeLine = 1816;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "poweroff") ; 
         
         
@@ -3331,7 +3329,7 @@ object CAM_TILT_UP_OnRelease_28 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 1816;
+        __context__.SourceCodeLine = 1821;
         FCAMCMDSEND (  __context__ , (ushort)( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ), (ushort)( 0 ), "stop") ; 
         
         
@@ -3357,13 +3355,13 @@ object CAM_SELECT_OnChange_29 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
         
         
-        __context__.SourceCodeLine = 1824;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1825;
-        ROOM [ IROOM] . ICAMSEL = (ushort) ( CAM_SELECT[ IROOM ] .UshortValue ) ; 
-        __context__.SourceCodeLine = 1827;
-        FUPDATECAMFB (  __context__ , (ushort)( IROOM )) ; 
         __context__.SourceCodeLine = 1829;
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 1830;
+        ROOM [ IROOM] . ICAMSEL = (ushort) ( CAM_SELECT[ IROOM ] .UshortValue ) ; 
+        __context__.SourceCodeLine = 1832;
+        FUPDATECAMFB (  __context__ , (ushort)( IROOM )) ; 
+        __context__.SourceCodeLine = 1834;
         FUPDATECONFMONITORRTE (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].CAM[ ROOM[ IROOM ].ICAMSEL ].IVSRCGUID )) ; 
         
         
@@ -3385,14 +3383,14 @@ object FROM_GLOBAL_RX__DOLLAR___1_OnChange_30 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
         
         
-        __context__.SourceCodeLine = 1844;
+        __context__.SourceCodeLine = 1849;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , FROM_GLOBAL_RX__DOLLAR___1[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1846;
+            __context__.SourceCodeLine = 1851;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , FROM_GLOBAL_RX__DOLLAR___1 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1847;
+            __context__.SourceCodeLine = 1852;
             FPROCESSDATA (  __context__ , (ushort)( 1 ), STEMP) ; 
-            __context__.SourceCodeLine = 1844;
+            __context__.SourceCodeLine = 1849;
             } 
         
         
@@ -3415,14 +3413,14 @@ object FROM_GLOBAL_RX__DOLLAR___2_OnChange_31 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
         
         
-        __context__.SourceCodeLine = 1855;
+        __context__.SourceCodeLine = 1860;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , FROM_GLOBAL_RX__DOLLAR___2[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1857;
+            __context__.SourceCodeLine = 1862;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , FROM_GLOBAL_RX__DOLLAR___2 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1858;
+            __context__.SourceCodeLine = 1863;
             FPROCESSDATA (  __context__ , (ushort)( 2 ), STEMP) ; 
-            __context__.SourceCodeLine = 1855;
+            __context__.SourceCodeLine = 1860;
             } 
         
         
@@ -3444,143 +3442,143 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 1869;
+        __context__.SourceCodeLine = 1874;
         WaitForInitializationComplete ( ) ; 
-        __context__.SourceCodeLine = 1871;
+        __context__.SourceCodeLine = 1876;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)2; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1873;
+            __context__.SourceCodeLine = 1878;
             ushort __FN_FORSTART_VAL__2 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__2 = (ushort)2; 
             int __FN_FORSTEP_VAL__2 = (int)1; 
             for ( L  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (L  >= __FN_FORSTART_VAL__2) && (L  <= __FN_FOREND_VAL__2) ) : ( (L  <= __FN_FORSTART_VAL__2) && (L  >= __FN_FOREND_VAL__2) ) ; L  += (ushort)__FN_FORSTEP_VAL__2) 
                 { 
-                __context__.SourceCodeLine = 1875;
+                __context__.SourceCodeLine = 1880;
                 ushort __FN_FORSTART_VAL__3 = (ushort) ( 4 ) ;
                 ushort __FN_FOREND_VAL__3 = (ushort)6; 
                 int __FN_FORSTEP_VAL__3 = (int)1; 
                 for ( J  = __FN_FORSTART_VAL__3; (__FN_FORSTEP_VAL__3 > 0)  ? ( (J  >= __FN_FORSTART_VAL__3) && (J  <= __FN_FOREND_VAL__3) ) : ( (J  <= __FN_FORSTART_VAL__3) && (J  >= __FN_FOREND_VAL__3) ) ; J  += (ushort)__FN_FORSTEP_VAL__3) 
                     { 
-                    __context__.SourceCodeLine = 1877;
+                    __context__.SourceCodeLine = 1882;
                     ROOM [ I] . LIST [ L] . ITEM [ J] . IISVIRTUAL = (ushort) ( 1 ) ; 
-                    __context__.SourceCodeLine = 1875;
+                    __context__.SourceCodeLine = 1880;
                     } 
                 
-                __context__.SourceCodeLine = 1873;
+                __context__.SourceCodeLine = 1878;
                 } 
             
-            __context__.SourceCodeLine = 1871;
+            __context__.SourceCodeLine = 1876;
             } 
         
-        __context__.SourceCodeLine = 1882;
+        __context__.SourceCodeLine = 1887;
         ushort __FN_FORSTART_VAL__4 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__4 = (ushort)2; 
         int __FN_FORSTEP_VAL__4 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__4; (__FN_FORSTEP_VAL__4 > 0)  ? ( (I  >= __FN_FORSTART_VAL__4) && (I  <= __FN_FOREND_VAL__4) ) : ( (I  <= __FN_FORSTART_VAL__4) && (I  >= __FN_FOREND_VAL__4) ) ; I  += (ushort)__FN_FORSTEP_VAL__4) 
             { 
-            __context__.SourceCodeLine = 1884;
-            ROOM [ I] . LIST [ 1] . IMAXNUMITEMS = (ushort) ( 30 ) ; 
-            __context__.SourceCodeLine = 1885;
-            ROOM [ I] . LIST [ 1] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1886;
-            ROOM [ I] . LIST [ 1] . ILISTUSESFB = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1887;
-            ROOM [ I] . LIST [ 1] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1888;
-            ROOM [ I] . LIST [ 1] . ILISTUSESICON = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1889;
-            ROOM [ I] . LIST [ 1] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 1] . IMAXNUMITEMS = (ushort) ( 30 ) ; 
+            __context__.SourceCodeLine = 1890;
+            ROOM [ I] . LIST [ 1] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1891;
-            ROOM [ I] . LIST [ 2] . IMAXNUMITEMS = (ushort) ( 30 ) ; 
+            ROOM [ I] . LIST [ 1] . ILISTUSESFB = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1892;
-            ROOM [ I] . LIST [ 2] . INUMOFTEXTCOLUMNS = (ushort) ( 2 ) ; 
+            ROOM [ I] . LIST [ 1] . ILISTUSESVIS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1893;
-            ROOM [ I] . LIST [ 2] . ILISTUSESFB = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 1] . ILISTUSESICON = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1894;
-            ROOM [ I] . LIST [ 2] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1895;
-            ROOM [ I] . LIST [ 2] . ILISTUSESICON = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 1] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1896;
-            ROOM [ I] . LIST [ 2] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 2] . IMAXNUMITEMS = (ushort) ( 30 ) ; 
+            __context__.SourceCodeLine = 1897;
+            ROOM [ I] . LIST [ 2] . INUMOFTEXTCOLUMNS = (ushort) ( 2 ) ; 
             __context__.SourceCodeLine = 1898;
-            ROOM [ I] . LIST [ 3] . IMAXNUMITEMS = (ushort) ( 24 ) ; 
+            ROOM [ I] . LIST [ 2] . ILISTUSESFB = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1899;
-            ROOM [ I] . LIST [ 3] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 2] . ILISTUSESVIS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1900;
-            ROOM [ I] . LIST [ 3] . ILISTUSESFB = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 2] . ILISTUSESICON = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1901;
-            ROOM [ I] . LIST [ 3] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1902;
-            ROOM [ I] . LIST [ 3] . ILISTUSESICON = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 2] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1903;
-            ROOM [ I] . LIST [ 3] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 3] . IMAXNUMITEMS = (ushort) ( 24 ) ; 
+            __context__.SourceCodeLine = 1904;
+            ROOM [ I] . LIST [ 3] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1905;
-            ROOM [ I] . LIST [ 4] . IMAXNUMITEMS = (ushort) ( 15 ) ; 
+            ROOM [ I] . LIST [ 3] . ILISTUSESFB = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1906;
-            ROOM [ I] . LIST [ 4] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 3] . ILISTUSESVIS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1907;
-            ROOM [ I] . LIST [ 4] . ILISTUSESFB = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 3] . ILISTUSESICON = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1908;
-            ROOM [ I] . LIST [ 4] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1909;
-            ROOM [ I] . LIST [ 4] . ILISTUSESICON = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 3] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1910;
-            ROOM [ I] . LIST [ 4] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 4] . IMAXNUMITEMS = (ushort) ( 15 ) ; 
+            __context__.SourceCodeLine = 1911;
+            ROOM [ I] . LIST [ 4] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1912;
-            ROOM [ I] . LIST [ 5] . IMAXNUMITEMS = (ushort) ( 9 ) ; 
+            ROOM [ I] . LIST [ 4] . ILISTUSESFB = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1913;
-            ROOM [ I] . LIST [ 5] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 4] . ILISTUSESVIS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1914;
-            ROOM [ I] . LIST [ 5] . ILISTUSESFB = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 4] . ILISTUSESICON = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 1915;
-            ROOM [ I] . LIST [ 5] . ILISTUSESVIS = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1916;
-            ROOM [ I] . LIST [ 5] . ILISTUSESICON = (ushort) ( 0 ) ; 
+            ROOM [ I] . LIST [ 4] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1917;
-            ROOM [ I] . LIST [ 5] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            ROOM [ I] . LIST [ 5] . IMAXNUMITEMS = (ushort) ( 9 ) ; 
+            __context__.SourceCodeLine = 1918;
+            ROOM [ I] . LIST [ 5] . INUMOFTEXTCOLUMNS = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1919;
+            ROOM [ I] . LIST [ 5] . ILISTUSESFB = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1920;
+            ROOM [ I] . LIST [ 5] . ILISTUSESVIS = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1921;
+            ROOM [ I] . LIST [ 5] . ILISTUSESICON = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 1922;
+            ROOM [ I] . LIST [ 5] . ILISTUSESTEXT = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1924;
             ushort __FN_FORSTART_VAL__5 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__5 = (ushort)9; 
             int __FN_FORSTEP_VAL__5 = (int)1; 
             for ( J  = __FN_FORSTART_VAL__5; (__FN_FORSTEP_VAL__5 > 0)  ? ( (J  >= __FN_FORSTART_VAL__5) && (J  <= __FN_FOREND_VAL__5) ) : ( (J  <= __FN_FORSTART_VAL__5) && (J  >= __FN_FOREND_VAL__5) ) ; J  += (ushort)__FN_FORSTEP_VAL__5) 
                 { 
-                __context__.SourceCodeLine = 1921;
+                __context__.SourceCodeLine = 1926;
                 ROOM [ I] . LIST [ 5] . ITEM [ J] . IITEMACTIVE = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1922;
+                __context__.SourceCodeLine = 1927;
                 ROOM [ I] . LIST [ 5] . ITEM [ (J + 20)] . IITEMACTIVE = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 1919;
+                __context__.SourceCodeLine = 1924;
                 } 
             
-            __context__.SourceCodeLine = 1882;
+            __context__.SourceCodeLine = 1887;
             } 
         
-        __context__.SourceCodeLine = 1926;
+        __context__.SourceCodeLine = 1931;
         SYS . IPARTITIONENABLED = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1927;
+        __context__.SourceCodeLine = 1932;
         ushort __FN_FORSTART_VAL__6 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__6 = (ushort)2; 
         int __FN_FORSTEP_VAL__6 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__6; (__FN_FORSTEP_VAL__6 > 0)  ? ( (I  >= __FN_FORSTART_VAL__6) && (I  <= __FN_FOREND_VAL__6) ) : ( (I  <= __FN_FORSTART_VAL__6) && (I  >= __FN_FOREND_VAL__6) ) ; I  += (ushort)__FN_FORSTEP_VAL__6) 
             { 
-            __context__.SourceCodeLine = 1929;
+            __context__.SourceCodeLine = 1934;
             PARTSENSE_ENABLE_FB [ I]  .Value = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1930;
+            __context__.SourceCodeLine = 1935;
             if ( Functions.TestForTrue  ( ( PARTSENSESIGNAL[ 1 ] .Value)  ) ) 
                 {
-                __context__.SourceCodeLine = 1930;
+                __context__.SourceCodeLine = 1935;
                 RC_OFF_FB [ I]  .Value = (ushort) ( 1 ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1931;
+                __context__.SourceCodeLine = 1936;
                 RC_ON_FB [ I]  .Value = (ushort) ( 1 ) ; 
                 }
             
-            __context__.SourceCodeLine = 1927;
+            __context__.SourceCodeLine = 1932;
             } 
         
         
@@ -3877,20 +3875,6 @@ public override void LogosSplusInitialize()
     {
         MTRX_ADMINVDST_CLICKED[i+1] = new Crestron.Logos.SplusObjects.AnalogInput( MTRX_ADMINVDST_CLICKED__AnalogSerialInput__ + i, MTRX_ADMINVDST_CLICKED__AnalogSerialInput__, this );
         m_AnalogInputList.Add( MTRX_ADMINVDST_CLICKED__AnalogSerialInput__ + i, MTRX_ADMINVDST_CLICKED[i+1] );
-    }
-    
-    DSP_MICS_CLICKED = new InOutArray<AnalogInput>( 2, this );
-    for( uint i = 0; i < 2; i++ )
-    {
-        DSP_MICS_CLICKED[i+1] = new Crestron.Logos.SplusObjects.AnalogInput( DSP_MICS_CLICKED__AnalogSerialInput__ + i, DSP_MICS_CLICKED__AnalogSerialInput__, this );
-        m_AnalogInputList.Add( DSP_MICS_CLICKED__AnalogSerialInput__ + i, DSP_MICS_CLICKED[i+1] );
-    }
-    
-    DSP_LINE_CLICKED = new InOutArray<AnalogInput>( 2, this );
-    for( uint i = 0; i < 2; i++ )
-    {
-        DSP_LINE_CLICKED[i+1] = new Crestron.Logos.SplusObjects.AnalogInput( DSP_LINE_CLICKED__AnalogSerialInput__ + i, DSP_LINE_CLICKED__AnalogSerialInput__, this );
-        m_AnalogInputList.Add( DSP_LINE_CLICKED__AnalogSerialInput__ + i, DSP_LINE_CLICKED[i+1] );
     }
     
     MTRX_MACRO1_SRC_FB = new InOutArray<AnalogOutput>( 5, this );
@@ -4201,10 +4185,8 @@ const uint MTRX_MACRO1_DST__AnalogSerialInput__ = 16;
 const uint MTRX_MACRO2_DST__AnalogSerialInput__ = 17;
 const uint MTRX_ADMINVSRC_CLICKED__AnalogSerialInput__ = 18;
 const uint MTRX_ADMINVDST_CLICKED__AnalogSerialInput__ = 20;
-const uint DSP_MICS_CLICKED__AnalogSerialInput__ = 22;
-const uint DSP_LINE_CLICKED__AnalogSerialInput__ = 24;
-const uint FROM_GLOBAL_RX__DOLLAR___1__AnalogSerialInput__ = 26;
-const uint FROM_GLOBAL_RX__DOLLAR___2__AnalogSerialInput__ = 27;
+const uint FROM_GLOBAL_RX__DOLLAR___1__AnalogSerialInput__ = 22;
+const uint FROM_GLOBAL_RX__DOLLAR___2__AnalogSerialInput__ = 23;
 const uint RC_ON_FB__DigitalOutput__ = 0;
 const uint RC_OFF_FB__DigitalOutput__ = 2;
 const uint PARTSENSE_ENABLE_FB__DigitalOutput__ = 4;
