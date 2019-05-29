@@ -1,0 +1,94 @@
+﻿//SOURCES
+filter_type=source, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm
+filter_type=source, filter_id=2, group_id=1, filter_name=Aux Inputs, group_name=BioComm
+filter_type=source, filter_id=50, group_id=1, filter_name=Cisco VTC, group_name=BioComm
+filter_type=source, filter_id=51, group_id=1, filter_name=Cisco VTC, group_name=BioComm
+filter_type=source, filter_id=52, group_id=1, filter_name=Cisco VTC, group_name=BioComm
+filter_type=source, filter_id=4, group_id=1, filter_name=L3AV, group_name=BioComm
+filter_type=source, filter_id=5, group_id=1, filter_name=Monitors, group_name=BioComm
+filter_type=source, filter_id=6, group_id=1, filter_name=TriCaster 5A-1, group_name=BioComm
+filter_type=source, filter_id=7, group_id=1, filter_name=TriCaster 5A-2, group_name=Classrooms
+filter_type=source, filter_id=8, group_id=2, filter_name=Room 305, group_name=Classrooms
+filter_type=source, filter_id=9, group_id=2, filter_name=Room 306, group_name=Classrooms
+filter_type=source, filter_id=10, group_id=2, filter_name=Room 320, group_name=Classrooms
+filter_type=source, filter_id=11, group_id=2, filter_name=Room 321, group_name=Classrooms
+filter_type=source, filter_id=12, group_id=2, filter_name=Room 322, group_name=Classrooms
+filter_type=source, filter_id=13, group_id=2, filter_name=Room 323, group_name=Classrooms
+filter_type=source, filter_id=14, group_id=2, filter_name=Room 442, group_name=Classrooms
+filter_type=source, filter_id=15, group_id=2, filter_name=Room 443, group_name=Classrooms
+filter_type=source, filter_id=16, group_id=2, filter_name=Room 444, group_name=Classrooms
+filter_type=source, filter_id=17, group_id=2, filter_name=Room 445, group_name=Classrooms
+filter_type=source, filter_id=18, group_id=2, filter_name=Room 531, group_name=Classrooms
+filter_type=source, filter_id=19, group_id=2, filter_name=Room 532, group_name=Classrooms
+filter_type=source, filter_id=20, group_id=2, filter_name=Room 567, group_name=Classrooms
+filter_type=source, filter_id=21, group_id=2, filter_name=Room 640, group_name=Classrooms
+filter_type=source, filter_id=22, group_id=2, filter_name=Room 642, group_name=Classrooms
+filter_type=source, filter_id=23, group_id=2, filter_name=Room 727, group_name=Classrooms
+filter_type=source, filter_id=24, group_id=2, filter_name=Room 855, group_name=Classrooms
+filter_type=source, filter_id=25, group_id=2, filter_name=Room 880, group_name=Filming Studio
+filter_type=source, filter_id=26, group_id=3, filter_name=Aux Inputs, group_name=Forum
+filter_type=source, filter_id=27, group_id=4, filter_name=Aux Box, group_name=Forum
+filter_type=source, filter_id=28, group_id=4, filter_name=Cameras, group_name=Forum
+filter_type=source, filter_id=29, group_id=4, filter_name=Content, group_name=Forum
+filter_type=source, filter_id=30, group_id=4, filter_name=Mix Cart, group_name=Forum
+filter_type=source, filter_id=31, group_id=4, filter_name=Podium, group_name=Forum
+filter_type=source, filter_id=32, group_id=4, filter_name=TriCaster 2A-1, group_name=Forum
+filter_type=source, filter_id=33, group_id=4, filter_name=TriCaster NC1 2A-2, group_name=Forum
+filter_type=source, filter_id=34, group_id=4, filter_name=TriCaster NC1 5A-3, group_name=Forum
+filter_type=source, filter_id=35, group_id=4, filter_name=TriCaster NC1 5A-4, group_name=SimDeck
+filter_type=source, filter_id=36, group_id=6, filter_name=Aux Box, group_name=SimDeck
+filter_type=source, filter_id=37, group_id=7, filter_name=Cameras, group_name=SimDeck
+filter_type=source, filter_id=38, group_id=8, filter_name=Control Room, group_name=SimDeck
+filter_type=source, filter_id=39, group_id=9, filter_name=SimDeck, group_name=Remote Classrooms
+
+
+//DESTINATIONS
+filter_type=dest, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm
+filter_type=dest, filter_id=2, group_id=1, filter_name=Capture Stations, group_name=BioComm
+filter_type=dest, filter_id=4, group_id=1, filter_name=KVM, group_name=BioComm
+filter_type=dest, filter_id=5, group_id=1, filter_name=Matrox Record, group_name=BioComm
+filter_type=dest, filter_id=6, group_id=1, filter_name=Monitors, group_name=BioComm
+filter_type=dest, filter_id=7, group_id=1, filter_name=TriCaster 5A-1, group_name=BioComm
+filter_type=dest, filter_id=8, group_id=1, filter_name=TriCaster 5A-2, group_name=BioComm
+filter_type=dest, filter_id=9, group_id=1, filter_name=TriCaster NC1 5A-3, group_name=BioComm
+filter_type=dest, filter_id=10, group_id=1, filter_name=TriCaster NC1 5A-4, group_name=BioComm
+filter_type=dest, filter_id=50, group_id=1, filter_name=Cisco VTC 1, group_name=BioComm
+filter_type=dest, filter_id=51, group_id=1, filter_name=Cisco VTC 2, group_name=BioComm
+filter_type=dest, filter_id=52, group_id=1, filter_name=Cisco VTC 3, group_name=BioComm
+filter_type=dest, filter_id=11, group_id=2, filter_name=Room 305, group_name=Classrooms
+filter_type=dest, filter_id=12, group_id=2, filter_name=Room 306, group_name=Classrooms
+filter_type=dest, filter_id=13, group_id=2, filter_name=Room 320, group_name=Classrooms
+filter_type=dest, filter_id=14, group_id=2, filter_name=Room 321, group_name=Classrooms
+filter_type=dest, filter_id=15, group_id=2, filter_name=Room 322, group_name=Classrooms
+filter_type=dest, filter_id=16, group_id=2, filter_name=Room 323, group_name=Classrooms
+filter_type=dest, filter_id=17, group_id=2, filter_name=Room 442, group_name=Classrooms
+filter_type=dest, filter_id=18, group_id=2, filter_name=Room 443, group_name=Classrooms
+filter_type=dest, filter_id=19, group_id=2, filter_name=Room 444, group_name=Classrooms
+filter_type=dest, filter_id=20, group_id=2, filter_name=Room 445, group_name=Classrooms
+filter_type=dest, filter_id=21, group_id=2, filter_name=Room 531, group_name=Classrooms
+filter_type=dest, filter_id=22, group_id=2, filter_name=Room 532, group_name=Classrooms
+filter_type=dest, filter_id=23, group_id=2, filter_name=Room 567, group_name=Classrooms
+filter_type=dest, filter_id=24, group_id=2, filter_name=Room 640, group_name=Classrooms
+filter_type=dest, filter_id=25, group_id=2, filter_name=Room 642, group_name=Classrooms
+filter_type=dest, filter_id=26, group_id=2, filter_name=Room 727, group_name=Classrooms
+filter_type=dest, filter_id=27, group_id=2, filter_name=Room 855, group_name=Classrooms
+filter_type=dest, filter_id=28, group_id=2, filter_name=Room 880, group_name=Classrooms
+filter_type=dest, filter_id=29, group_id=3, filter_name=Aux Outs, group_name=Filming Studio
+filter_type=dest, filter_id=30, group_id=4, filter_name=Aux Box, group_name=Forum
+filter_type=dest, filter_id=31, group_id=4, filter_name=Control, group_name=Forum
+filter_type=dest, filter_id=32, group_id=4, filter_name=KVM, group_name=Forum
+filter_type=dest, filter_id=33, group_id=4, filter_name=LED Content, group_name=Forum
+filter_type=dest, filter_id=34, group_id=4, filter_name=Mix Cart, group_name=Forum
+filter_type=dest, filter_id=35, group_id=4, filter_name=Podium, group_name=Forum
+filter_type=dest, filter_id=36, group_id=4, filter_name=PROJ Content, group_name=Forum
+filter_type=dest, filter_id=37, group_id=4, filter_name=Record/Stream, group_name=Forum
+filter_type=dest, filter_id=38, group_id=4, filter_name=Soffit Displays, group_name=Forum
+filter_type=dest, filter_id=39, group_id=4, filter_name=Soft Codec, group_name=Forum
+filter_type=dest, filter_id=40, group_id=4, filter_name=TriCaster 2A-1, group_name=Forum
+filter_type=dest, filter_id=41, group_id=4, filter_name=TriCaster NC1 2A-2, group_name=Forum
+filter_type=dest, filter_id=42, group_id=5, filter_name=Aux Box, group_name=SimDeck
+filter_type=dest, filter_id=43, group_id=6, filter_name=Control Room, group_name=SimDeck
+filter_type=dest, filter_id=44, group_id=7, filter_name=SimDeck, group_name=SimDeck
+filter_type=dest, filter_id=45, group_id=8, filter_name=TBD, group_name=Remote Classrooms
+//filter_type=dest, filter_id=, group_id=, filter_name=Room 305, group_name=Aux Sends
+//filter_type=dest, filter_id=, group_id=, filter_name=Room 306, group_name=Aux Sends
