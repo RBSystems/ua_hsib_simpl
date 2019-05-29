@@ -261,15 +261,36 @@ namespace PWCSharpPro
         {
             if (dSPQSCSignals[(int)_signal] != null)
             {
-                if (Debug) { CrestronConsole.PrintLine("{0}: *** Settting Volume {1} {2} to {3}dB", CLASSID, _signal, dSPQSCSignals[(int)_signal].VolumeName, _volume); }
-                if (OnCommandToSend != null)
+                if (dSPQSCSignals[(int)_signal].PointType == 3) //pgm audio router
                 {
-                    currentVolumes[_signal] = _volume;
-
-                    string command = getVolumeCommand(_signal);
-                    if (command != "")
+                    if ((int)_volume == 0)                                  //none
                     {
-                        OnCommandToSend(this, command);
+                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                    }
+                    else if ((int)_volume >= 1 && (int)_volume <= 4)        //local sources
+                    {
+                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, (int)_volume));
+                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                    }
+                    else                                                    //remote aux source (and anything else that gets added)
+                    {
+                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl,(int)_volume));
+                    }
+                }
+                else                                            //vol control
+                {
+                    if (Debug) { CrestronConsole.PrintLine("{0}: *** Settting Volume {1} {2} to {3}dB", CLASSID, _signal, dSPQSCSignals[(int)_signal].VolumeName, _volume); }
+                    if (OnCommandToSend != null)
+                    {
+                        currentVolumes[_signal] = _volume;
+
+                        string command = getVolumeCommand(_signal);
+                        if (command != "")
+                        {
+                            OnCommandToSend(this, command);
+                        }
                     }
                 }
             }

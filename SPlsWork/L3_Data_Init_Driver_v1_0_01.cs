@@ -179,7 +179,7 @@ public override object FunctionMain (  object __obj__ )
         __context__.SourceCodeLine = 129;
         IINDEX = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 131;
-        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_60__" , DELAY_TIME  .Value , __SPLS_TMPVAR__WAITLABEL_60___Callback ) ;
+        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_294__" , DELAY_TIME  .Value , __SPLS_TMPVAR__WAITLABEL_294___Callback ) ;
         
         
     }
@@ -188,7 +188,7 @@ public override object FunctionMain (  object __obj__ )
     return __obj__;
     }
     
-public void __SPLS_TMPVAR__WAITLABEL_60___CallbackFn( object stateInfo )
+public void __SPLS_TMPVAR__WAITLABEL_294___CallbackFn( object stateInfo )
 {
 
     try
@@ -234,8 +234,8 @@ public override void LogosSplusInitialize()
     STOP = new Crestron.Logos.SplusObjects.DigitalInput( STOP__DigitalInput__, this );
     m_DigitalInputList.Add( STOP__DigitalInput__, STOP );
     
-    DONE = new InOutArray<DigitalInput>( 100, this );
-    for( uint i = 0; i < 100; i++ )
+    DONE = new InOutArray<DigitalInput>( 20, this );
+    for( uint i = 0; i < 20; i++ )
     {
         DONE[i+1] = new Crestron.Logos.SplusObjects.DigitalInput( DONE__DigitalInput__ + i, DONE__DigitalInput__, this );
         m_DigitalInputList.Add( DONE__DigitalInput__ + i, DONE[i+1] );
@@ -247,8 +247,8 @@ public override void LogosSplusInitialize()
     DONE_FB = new Crestron.Logos.SplusObjects.DigitalOutput( DONE_FB__DigitalOutput__, this );
     m_DigitalOutputList.Add( DONE_FB__DigitalOutput__, DONE_FB );
     
-    TRIG = new InOutArray<DigitalOutput>( 100, this );
-    for( uint i = 0; i < 100; i++ )
+    TRIG = new InOutArray<DigitalOutput>( 20, this );
+    for( uint i = 0; i < 20; i++ )
     {
         TRIG[i+1] = new Crestron.Logos.SplusObjects.DigitalOutput( TRIG__DigitalOutput__ + i, this );
         m_DigitalOutputList.Add( TRIG__DigitalOutput__ + i, TRIG[i+1] );
@@ -260,11 +260,11 @@ public override void LogosSplusInitialize()
     DELAY_TIME = new UShortParameter( DELAY_TIME__Parameter__, this );
     m_ParameterList.Add( DELAY_TIME__Parameter__, DELAY_TIME );
     
-    __SPLS_TMPVAR__WAITLABEL_60___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_60___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_294___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_294___CallbackFn );
     
     START.OnDigitalPush.Add( new InputChangeHandlerWrapper( START_OnPush_0, false ) );
     STOP.OnDigitalPush.Add( new InputChangeHandlerWrapper( STOP_OnPush_1, false ) );
-    for( uint i = 0; i < 100; i++ )
+    for( uint i = 0; i < 20; i++ )
         DONE[i+1].OnDigitalPush.Add( new InputChangeHandlerWrapper( DONE_OnPush_2, false ) );
         
     
@@ -283,7 +283,7 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INIT_DRIVER_V1_0_01 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_60___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_294___Callback;
 
 
 const uint DISABLE__DigitalInput__ = 0;
