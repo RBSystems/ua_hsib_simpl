@@ -155,27 +155,32 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             { 
             
             __context__.SourceCodeLine = 293;
-            
-                {
-                int __SPLS_TMPVAR__SWTCH_1__ = ((int)IROOM);
+            if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ILIST == 1) ) || Functions.TestForTrue ( Functions.BoolToInt (ILIST == 2) )) ))  ) ) 
+                { 
+                __context__.SourceCodeLine = 295;
                 
-                    { 
-                    if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_1__ == ( 1) ) ) ) 
-                        {
-                        __context__.SourceCodeLine = 295;
-                        LIST_FB__DOLLAR__1 [ ILIST]  .UpdateValue ( SDATA  ) ; 
-                        }
+                    {
+                    int __SPLS_TMPVAR__SWTCH_1__ = ((int)IROOM);
                     
-                    else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_1__ == ( 2) ) ) ) 
-                        {
-                        __context__.SourceCodeLine = 296;
-                        LIST_FB__DOLLAR__2 [ ILIST]  .UpdateValue ( SDATA  ) ; 
-                        }
+                        { 
+                        if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_1__ == ( 1) ) ) ) 
+                            {
+                            __context__.SourceCodeLine = 297;
+                            LIST_FB__DOLLAR__1 [ ILIST]  .UpdateValue ( SDATA  ) ; 
+                            }
+                        
+                        else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_1__ == ( 2) ) ) ) 
+                            {
+                            __context__.SourceCodeLine = 298;
+                            LIST_FB__DOLLAR__2 [ ILIST]  .UpdateValue ( SDATA  ) ; 
+                            }
+                        
+                        } 
+                        
+                    }
                     
-                    } 
-                    
-                }
                 
+                } 
             
             
             }
@@ -189,33 +194,33 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             
             
-            __context__.SourceCodeLine = 305;
+            __context__.SourceCodeLine = 308;
             STEMP  .UpdateValue ( "{ListVisFB:"  ) ; 
-            __context__.SourceCodeLine = 306;
+            __context__.SourceCodeLine = 309;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 {
-                __context__.SourceCodeLine = 306;
+                __context__.SourceCodeLine = 309;
                 MakeString ( STEMP , "{0}{1:d}={2:d},;}}", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].POINT[ IINDEX ].ILISTITEMVIS[ ILIST ]) ; 
                 }
             
             else 
                 { 
-                __context__.SourceCodeLine = 309;
+                __context__.SourceCodeLine = 312;
                 ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                 ushort __FN_FOREND_VAL__1 = (ushort)50; 
                 int __FN_FORSTEP_VAL__1 = (int)1; 
                 for ( IINDEX  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (IINDEX  >= __FN_FORSTART_VAL__1) && (IINDEX  <= __FN_FOREND_VAL__1) ) : ( (IINDEX  <= __FN_FORSTART_VAL__1) && (IINDEX  >= __FN_FOREND_VAL__1) ) ; IINDEX  += (ushort)__FN_FORSTEP_VAL__1) 
                     { 
-                    __context__.SourceCodeLine = 311;
+                    __context__.SourceCodeLine = 314;
                     MakeString ( STEMP , "{0}{1:d}={2:d},", STEMP , (ushort)IINDEX, (ushort)ROOM[ IROOM ].POINT[ IINDEX ].ILISTITEMVIS[ ILIST ]) ; 
-                    __context__.SourceCodeLine = 309;
+                    __context__.SourceCodeLine = 312;
                     } 
                 
-                __context__.SourceCodeLine = 313;
+                __context__.SourceCodeLine = 316;
                 MakeString ( STEMP , "{0};|}}", STEMP ) ; 
                 } 
             
-            __context__.SourceCodeLine = 315;
+            __context__.SourceCodeLine = 318;
             FSENDLISTFB (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), STEMP) ; 
             
             }
@@ -228,22 +233,22 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             SVOLFB  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 10, this );
             
             
-            __context__.SourceCodeLine = 329;
+            __context__.SourceCodeLine = 332;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IVOLRANGE)  ) ) 
                 {
-                __context__.SourceCodeLine = 329;
+                __context__.SourceCodeLine = 332;
                 IVOLFB = (ushort) ( (((ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE - ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMIN) * IVOLFBRANGE[ IROOM ]) / ROOM[ IROOM ].POINT[ IINDEX ].IVOLRANGE) ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 333;
+                __context__.SourceCodeLine = 336;
                 return (ushort)( 1) ; 
                 }
             
-            __context__.SourceCodeLine = 334;
+            __context__.SourceCodeLine = 337;
             MakeString ( SVOLFB , "{0:d}.0dB", (short)ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE) ; 
-            __context__.SourceCodeLine = 335;
+            __context__.SourceCodeLine = 338;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_2__ = ((int)IROOM);
@@ -251,16 +256,16 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 339;
+                        __context__.SourceCodeLine = 342;
                         DSPVOLGAUGEFB1 [ IINDEX]  .Value = (ushort) ( IVOLFB ) ; 
-                        __context__.SourceCodeLine = 340;
-                        DSPVOLDBFB__DOLLAR__1 [ IINDEX]  .UpdateValue ( SVOLFB  ) ; 
-                        __context__.SourceCodeLine = 341;
-                        DSPVOLDB1 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE ) ; 
                         __context__.SourceCodeLine = 343;
+                        DSPVOLDBFB__DOLLAR__1 [ IINDEX]  .UpdateValue ( SVOLFB  ) ; 
+                        __context__.SourceCodeLine = 344;
+                        DSPVOLDB1 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE ) ; 
+                        __context__.SourceCodeLine = 346;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 345;
+                            __context__.SourceCodeLine = 348;
                             FIXEDVOLGAUGEFB1 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( IVOLFB ) ; 
                             } 
                         
@@ -268,16 +273,16 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 2) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 350;
+                        __context__.SourceCodeLine = 353;
                         DSPVOLGAUGEFB2 [ IINDEX]  .Value = (ushort) ( IVOLFB ) ; 
-                        __context__.SourceCodeLine = 351;
-                        DSPVOLDBFB__DOLLAR__2 [ IINDEX]  .UpdateValue ( SVOLFB  ) ; 
-                        __context__.SourceCodeLine = 352;
-                        DSPVOLDB2 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE ) ; 
                         __context__.SourceCodeLine = 354;
+                        DSPVOLDBFB__DOLLAR__2 [ IINDEX]  .UpdateValue ( SVOLFB  ) ; 
+                        __context__.SourceCodeLine = 355;
+                        DSPVOLDB2 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE ) ; 
+                        __context__.SourceCodeLine = 357;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 356;
+                            __context__.SourceCodeLine = 359;
                             FIXEDVOLGAUGEFB2 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( IVOLFB ) ; 
                             } 
                         
@@ -295,7 +300,7 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
         private void FSETMUTEFB (  SplusExecutionContext __context__, ushort IROOM , ushort IINDEX ) 
             { 
             
-            __context__.SourceCodeLine = 364;
+            __context__.SourceCodeLine = 367;
             
                 {
                 int __SPLS_TMPVAR__SWTCH_3__ = ((int)IROOM);
@@ -303,16 +308,16 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                     { 
                     if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 1) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 368;
-                        DSPMUTEFB1 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
-                        __context__.SourceCodeLine = 369;
-                        DSPMUTENOTFB1 [ IINDEX]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
                         __context__.SourceCodeLine = 371;
+                        DSPMUTEFB1 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
+                        __context__.SourceCodeLine = 372;
+                        DSPMUTENOTFB1 [ IINDEX]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
+                        __context__.SourceCodeLine = 374;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 373;
+                            __context__.SourceCodeLine = 376;
                             FIXEDMUTEFB1 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
-                            __context__.SourceCodeLine = 374;
+                            __context__.SourceCodeLine = 377;
                             FIXEDMUTENOTFB1 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
                             } 
                         
@@ -320,16 +325,16 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 2) ) ) ) 
                         { 
-                        __context__.SourceCodeLine = 379;
-                        DSPMUTEFB2 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
-                        __context__.SourceCodeLine = 380;
-                        DSPMUTENOTFB2 [ IINDEX]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
                         __context__.SourceCodeLine = 382;
+                        DSPMUTEFB2 [ IINDEX]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
+                        __context__.SourceCodeLine = 383;
+                        DSPMUTENOTFB2 [ IINDEX]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
+                        __context__.SourceCodeLine = 385;
                         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID)  ) ) 
                             { 
-                            __context__.SourceCodeLine = 384;
+                            __context__.SourceCodeLine = 387;
                             FIXEDMUTEFB2 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ; 
-                            __context__.SourceCodeLine = 385;
+                            __context__.SourceCodeLine = 388;
                             FIXEDMUTENOTFB2 [ ROOM[ IROOM ].POINT[ IINDEX ].IFIXEDID]  .Value = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ IINDEX ].IMUTESTATE ) ) ; 
                             } 
                         
@@ -346,7 +351,7 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
         private short FCHECKBOUNDS (  SplusExecutionContext __context__, ushort IROOM , ushort IINDEX , short SIVAL ) 
             { 
             
-            __context__.SourceCodeLine = 393;
+            __context__.SourceCodeLine = 396;
             return (short)( Functions.SMin( Functions.SMax( SIVAL , ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMIN ) , ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMAX )) ; 
             
             }
@@ -364,9 +369,9 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 10, this );
             
             
-            __context__.SourceCodeLine = 402;
+            __context__.SourceCodeLine = 405;
             MakeString ( SVOLCMDVALUE , "{0:d}.0dB", (short)ROOM[ IROOM ].POINT[ IINDEX ].SIVOLSTATE) ; 
-            __context__.SourceCodeLine = 404;
+            __context__.SourceCodeLine = 407;
             FSETVOLFB (  __context__ , (ushort)( IROOM ), (ushort)( IINDEX )) ; 
             
             }
@@ -382,7 +387,7 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 10, this );
             
             
-            __context__.SourceCodeLine = 413;
+            __context__.SourceCodeLine = 416;
             FSETMUTEFB (  __context__ , (ushort)( IROOM ), (ushort)( IINDEX )) ; 
             
             }
@@ -394,34 +399,34 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             ushort L = 0;
             
             
-            __context__.SourceCodeLine = 420;
+            __context__.SourceCodeLine = 423;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ROOM[ IROOM ].POINT[ I ].IGROUP ) && Functions.TestForTrue ( RC_STATE  .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 422;
+                __context__.SourceCodeLine = 425;
                 K = (ushort) ( ROOM[ IROOM ].POINT[ I ].IGROUP ) ; 
-                __context__.SourceCodeLine = 423;
+                __context__.SourceCodeLine = 426;
                 ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
                 ushort __FN_FOREND_VAL__1 = (ushort)ROOM[ IROOM ].GROUP[ K ].INUMOFMEMBERS; 
                 int __FN_FORSTEP_VAL__1 = (int)1; 
                 for ( L  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (L  >= __FN_FORSTART_VAL__1) && (L  <= __FN_FOREND_VAL__1) ) : ( (L  <= __FN_FORSTART_VAL__1) && (L  >= __FN_FOREND_VAL__1) ) ; L  += (ushort)__FN_FORSTEP_VAL__1) 
                     { 
-                    __context__.SourceCodeLine = 425;
+                    __context__.SourceCodeLine = 428;
                     J = (ushort) ( ROOM[ IROOM ].GROUP[ K ].IGROUPMEMBERS[ L ] ) ; 
-                    __context__.SourceCodeLine = 426;
+                    __context__.SourceCodeLine = 429;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol" , STYPE ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 428;
+                        __context__.SourceCodeLine = 431;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BVOLISDISABLED ) ) && Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ) )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 430;
+                            __context__.SourceCodeLine = 433;
                             ROOM [ IROOM] . POINT [ J] . SIVOLSTATE = (short) ( FCHECKBOUNDS( __context__ , (ushort)( IROOM ) , (ushort)( J ) , (short)( ROOM[ IROOM ].POINT[ I ].SIVOLSTATE ) ) ) ; 
-                            __context__.SourceCodeLine = 431;
+                            __context__.SourceCodeLine = 434;
                             FSENDVOL (  __context__ , (ushort)( IROOM ), (ushort)( J )) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 435;
+                            __context__.SourceCodeLine = 438;
                             Trace( "Node_DSP: Point[{0:d}] Volume control is disabled. Group Vol command blocked at this control Point.", (ushort)J) ; 
                             } 
                         
@@ -429,21 +434,21 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 439;
+                        __context__.SourceCodeLine = 442;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute" , STYPE ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 441;
+                            __context__.SourceCodeLine = 444;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BMUTEISDISABLED ) ) && Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ) )) ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 443;
+                                __context__.SourceCodeLine = 446;
                                 ROOM [ IROOM] . POINT [ J] . IMUTESTATE = (ushort) ( ROOM[ IROOM ].POINT[ I ].IMUTESTATE ) ; 
-                                __context__.SourceCodeLine = 444;
+                                __context__.SourceCodeLine = 447;
                                 FSENDMUTE (  __context__ , (ushort)( IROOM ), (ushort)( J )) ; 
                                 } 
                             
                             else 
                                 { 
-                                __context__.SourceCodeLine = 448;
+                                __context__.SourceCodeLine = 451;
                                 Trace( "Node_DSP: Point[{0:d}] Mute control is disabled. Group Mute command blocked at this control Point.", (ushort)J) ; 
                                 } 
                             
@@ -451,26 +456,26 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                         
                         }
                     
-                    __context__.SourceCodeLine = 423;
+                    __context__.SourceCodeLine = 426;
                     } 
                 
                 } 
             
             else 
                 { 
-                __context__.SourceCodeLine = 456;
+                __context__.SourceCodeLine = 459;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol" , STYPE ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 456;
+                    __context__.SourceCodeLine = 459;
                     FSENDVOL (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 457;
+                    __context__.SourceCodeLine = 460;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute" , STYPE ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 457;
+                        __context__.SourceCodeLine = 460;
                         FSENDMUTE (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
                         }
                     
@@ -484,33 +489,33 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
         private void FDEFAULTPOINT (  SplusExecutionContext __context__, ushort IROOM , ushort I ) 
             { 
             
-            __context__.SourceCodeLine = 463;
+            __context__.SourceCodeLine = 466;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLDEFAULTISDISABLED ) ) && Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ) )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 465;
+                __context__.SourceCodeLine = 468;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( ROOM[ IROOM ].POINT[ I ].SIVOLDEFAULT ) ; 
-                __context__.SourceCodeLine = 466;
+                __context__.SourceCodeLine = 469;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
                 } 
             
             else 
                 {
-                __context__.SourceCodeLine = 468;
+                __context__.SourceCodeLine = 471;
                 Trace( "NodeDSP - fDefaultPoint - Room[iRoom].Point {0:d}, {1}: attempted to default a disabled volume field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
                 }
             
-            __context__.SourceCodeLine = 469;
+            __context__.SourceCodeLine = 472;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEDEFAULTISDISABLED ) ) && Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ) )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 471;
+                __context__.SourceCodeLine = 474;
                 ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( ROOM[ IROOM ].POINT[ I ].IMUTEDEFAULT ) ; 
-                __context__.SourceCodeLine = 472;
+                __context__.SourceCodeLine = 475;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
                 } 
             
             else 
                 {
-                __context__.SourceCodeLine = 474;
+                __context__.SourceCodeLine = 477;
                 Trace( "NodeDSP - fDefaultPoint - Point {0:d}, {1}: attempted to default a disabled mute field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
                 }
             
@@ -529,24 +534,24 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
                 ushort IROOM = 0;
                 
                 
-                __context__.SourceCodeLine = 486;
-                I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-                __context__.SourceCodeLine = 487;
-                IROOM = (ushort) ( 1 ) ; 
                 __context__.SourceCodeLine = 489;
+                I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+                __context__.SourceCodeLine = 490;
+                IROOM = (ushort) ( 1 ) ; 
+                __context__.SourceCodeLine = 492;
                 if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 491;
+                    __context__.SourceCodeLine = 494;
                     J = (ushort) ( ((INSERT2BYTE1[ I ] .UshortValue * ROOM[ IROOM ].POINT[ I ].IVOLRANGE) / IVOLFBRANGE[ IROOM ]) ) ; 
-                    __context__.SourceCodeLine = 492;
+                    __context__.SourceCodeLine = 495;
                     ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( (J + ROOM[ IROOM ].POINT[ I ].SIVOLMIN) ) ; 
-                    __context__.SourceCodeLine = 493;
+                    __context__.SourceCodeLine = 496;
                     FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
                     } 
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 495;
+                    __context__.SourceCodeLine = 498;
                     Trace( "NodeDSP - Insert2Byte - Point {0:d}, {1}: attempted to change a disabled vol field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
                     }
                 
@@ -571,24 +576,24 @@ namespace UserModule_L3_UA_HSIB_NODEDSP_V1_0_72
             ushort IROOM = 0;
             
             
-            __context__.SourceCodeLine = 501;
-            I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-            __context__.SourceCodeLine = 502;
-            IROOM = (ushort) ( 2 ) ; 
             __context__.SourceCodeLine = 504;
+            I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+            __context__.SourceCodeLine = 505;
+            IROOM = (ushort) ( 2 ) ; 
+            __context__.SourceCodeLine = 507;
             if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 506;
+                __context__.SourceCodeLine = 509;
                 J = (ushort) ( ((INSERT2BYTE2[ I ] .UshortValue * ROOM[ IROOM ].POINT[ I ].IVOLRANGE) / IVOLFBRANGE[ IROOM ]) ) ; 
-                __context__.SourceCodeLine = 507;
+                __context__.SourceCodeLine = 510;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( (J + ROOM[ IROOM ].POINT[ I ].SIVOLMIN) ) ; 
-                __context__.SourceCodeLine = 508;
+                __context__.SourceCodeLine = 511;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
                 } 
             
             else 
                 {
-                __context__.SourceCodeLine = 510;
+                __context__.SourceCodeLine = 513;
                 Trace( "NodeDSP - Insert2Byte - Point {0:d}, {1}: attempted to change a disabled vol field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
                 }
             
@@ -614,22 +619,22 @@ object INSERTDB1_OnChange_2 ( Object __EventInfo__ )
         short SIINSERTDB = 0;
         
         
-        __context__.SourceCodeLine = 518;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 519;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 521;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 522;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 524;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 523;
+            __context__.SourceCodeLine = 526;
             ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( FCHECKBOUNDS( __context__ , (ushort)( IROOM ) , (ushort)( I ) , (short)( INSERTDB1[ I ] .ShortValue ) ) ) ; 
-            __context__.SourceCodeLine = 524;
+            __context__.SourceCodeLine = 527;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 526;
+            __context__.SourceCodeLine = 529;
             Trace( "NodeDSP - InsertDB - Point {0:d}, {1}: attempted to change a disabled vol field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
             }
         
@@ -655,22 +660,22 @@ object INSERTDB2_OnChange_3 ( Object __EventInfo__ )
         short SIINSERTDB = 0;
         
         
-        __context__.SourceCodeLine = 533;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 534;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 536;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 537;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 539;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 538;
+            __context__.SourceCodeLine = 541;
             ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( FCHECKBOUNDS( __context__ , (ushort)( IROOM ) , (ushort)( I ) , (short)( INSERTDB2[ I ] .ShortValue ) ) ) ; 
-            __context__.SourceCodeLine = 539;
+            __context__.SourceCodeLine = 542;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 541;
+            __context__.SourceCodeLine = 544;
             Trace( "NodeDSP - InsertDB - Point {0:d}, {1}: attempted to change a disabled vol field", (ushort)I, ROOM [ IROOM] . POINT [ I] . SGLOBALNAME ) ; 
             }
         
@@ -694,11 +699,11 @@ object DEFAULTPOINT1_OnPush_4 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 548;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 549;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 551;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 552;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 554;
         FDEFAULTPOINT (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
         
         
@@ -720,11 +725,11 @@ object DEFAULTPOINT2_OnPush_5 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 557;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 558;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 560;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 561;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 563;
         FDEFAULTPOINT (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
         
         
@@ -753,56 +758,56 @@ object DEFAULTPOINTALL_OnPush_6 ( Object __EventInfo__ )
         STEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
         
         
-        __context__.SourceCodeLine = 570;
-        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 572;
-        I = (ushort) ( 0 ) ; 
         __context__.SourceCodeLine = 573;
+        IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 575;
+        I = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 576;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)50; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 575;
+            __context__.SourceCodeLine = 578;
             if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ I ].IITEMACTIVE)  ) ) 
                 { 
-                __context__.SourceCodeLine = 577;
+                __context__.SourceCodeLine = 580;
                 if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IGROUP ))  ) ) 
                     { 
-                    __context__.SourceCodeLine = 579;
+                    __context__.SourceCodeLine = 582;
                     FDEFAULTPOINT (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 583;
+                    __context__.SourceCodeLine = 586;
                     J = (ushort) ( ROOM[ IROOM ].POINT[ I ].IGROUP ) ; 
-                    __context__.SourceCodeLine = 584;
+                    __context__.SourceCodeLine = 587;
                     MakeString ( STEMP , ":{0:d};", (short)J) ; 
-                    __context__.SourceCodeLine = 585;
+                    __context__.SourceCodeLine = 588;
                     if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Find( STEMP , STEMP2 ) ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 587;
+                        __context__.SourceCodeLine = 590;
                         STEMP2  .UpdateValue ( STEMP2 + STEMP  ) ; 
-                        __context__.SourceCodeLine = 588;
+                        __context__.SourceCodeLine = 591;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J <= 50 ) ) && Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ J ].IGROUP == J) )) ) ) && Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BVOLISDISABLED ) ) || Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BMUTEISDISABLED ) )) ) )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 590;
+                            __context__.SourceCodeLine = 593;
                             FDEFAULTPOINT (  __context__ , (ushort)( IROOM ), (ushort)( J )) ; 
-                            __context__.SourceCodeLine = 591;
+                            __context__.SourceCodeLine = 594;
                             Trace( "Node_DSP: DefaultPointAll just propagated Point[{0:d}], which passed the gauntlet.", (short)J) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 595;
+                            __context__.SourceCodeLine = 598;
                             FDEFAULTPOINT (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
                             } 
                         
-                        __context__.SourceCodeLine = 597;
+                        __context__.SourceCodeLine = 600;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ROOM[ IROOM ].POINT[ I ].BVOLDEFAULTISDISABLED ) || Functions.TestForTrue ( ROOM[ IROOM ].POINT[ I ].BMUTEDEFAULTISDISABLED )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 599;
+                            __context__.SourceCodeLine = 602;
                             Trace( "Node_DSP: DefaultPointAll just propagated Point[{0:d}] to group number {1:d}d. This Point has a disabled VolDefault or MuteDefault. Just an FYI.", (short)I, (short)ROOM[ IROOM ].POINT[ I ].IGROUP) ; 
                             } 
                         
@@ -816,7 +821,7 @@ object DEFAULTPOINTALL_OnPush_6 ( Object __EventInfo__ )
                 
                 } 
             
-            __context__.SourceCodeLine = 573;
+            __context__.SourceCodeLine = 576;
             } 
         
         
@@ -846,53 +851,53 @@ object RC_STATE_OnPush_7 ( Object __EventInfo__ )
         STEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
         
         
-        __context__.SourceCodeLine = 618;
+        __context__.SourceCodeLine = 621;
         if ( Functions.TestForTrue  ( ( Functions.Not( IGROUPSEM ))  ) ) 
             { 
-            __context__.SourceCodeLine = 620;
-            IGROUPSEM = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 621;
-            Functions.Delay (  (int) ( 100 ) ) ; 
             __context__.SourceCodeLine = 623;
+            IGROUPSEM = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 624;
+            Functions.Delay (  (int) ( 100 ) ) ; 
+            __context__.SourceCodeLine = 626;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)50; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 625;
+                __context__.SourceCodeLine = 628;
                 if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IGROUP ))  ) ) 
                     { 
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 631;
-                    J = (ushort) ( ROOM[ IROOM ].POINT[ I ].IGROUP ) ; 
-                    __context__.SourceCodeLine = 632;
-                    MakeString ( STEMP , ":{0:d};", (short)J) ; 
                     __context__.SourceCodeLine = 634;
+                    J = (ushort) ( ROOM[ IROOM ].POINT[ I ].IGROUP ) ; 
+                    __context__.SourceCodeLine = 635;
+                    MakeString ( STEMP , ":{0:d};", (short)J) ; 
+                    __context__.SourceCodeLine = 637;
                     if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Find( STEMP , STEMP2 ) ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 636;
+                        __context__.SourceCodeLine = 639;
                         STEMP2  .UpdateValue ( STEMP2 + STEMP  ) ; 
-                        __context__.SourceCodeLine = 637;
+                        __context__.SourceCodeLine = 640;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J <= 50 ) ) && Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ J ].IGROUP == J) )) ) ) && Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BVOLISDISABLED ) ) || Functions.TestForTrue ( Functions.Not( ROOM[ IROOM ].POINT[ J ].BMUTEISDISABLED ) )) ) )) ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 639;
+                            __context__.SourceCodeLine = 642;
                             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( J ), "vol") ; 
-                            __context__.SourceCodeLine = 640;
+                            __context__.SourceCodeLine = 643;
                             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( J ), "mute") ; 
-                            __context__.SourceCodeLine = 641;
+                            __context__.SourceCodeLine = 644;
                             Trace( "Node_DSP: Group update just propagated Point[{0:d}] with group number {1:d}. Passed the gauntlet.", (short)J, (ushort)ROOM[ IROOM ].POINT[ J ].IGROUP) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 646;
+                            __context__.SourceCodeLine = 649;
                             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                            __context__.SourceCodeLine = 647;
+                            __context__.SourceCodeLine = 650;
                             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
-                            __context__.SourceCodeLine = 648;
+                            __context__.SourceCodeLine = 651;
                             Trace( "Node_DSP: Group update just propagated Point[{0:d}] with group number {1:d} based on the Point being the lowest index in the group.", (short)I, (ushort)ROOM[ IROOM ].POINT[ I ].IGROUP) ; 
                             } 
                         
@@ -904,27 +909,27 @@ object RC_STATE_OnPush_7 ( Object __EventInfo__ )
                     
                     } 
                 
-                __context__.SourceCodeLine = 623;
+                __context__.SourceCodeLine = 626;
                 } 
             
-            __context__.SourceCodeLine = 658;
+            __context__.SourceCodeLine = 661;
             ushort __FN_FORSTART_VAL__2 = (ushort) ( 26 ) ;
             ushort __FN_FOREND_VAL__2 = (ushort)50; 
             int __FN_FORSTEP_VAL__2 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__2; (__FN_FORSTEP_VAL__2 > 0)  ? ( (I  >= __FN_FORSTART_VAL__2) && (I  <= __FN_FOREND_VAL__2) ) : ( (I  <= __FN_FORSTART_VAL__2) && (I  >= __FN_FOREND_VAL__2) ) ; I  += (ushort)__FN_FORSTEP_VAL__2) 
                 { 
-                __context__.SourceCodeLine = 660;
-                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( ROOM[ IROOM ].POINT[ I ].IPOINTTYPE ), (ushort)( I )) ; 
-                __context__.SourceCodeLine = 661;
-                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( FOTHERLIST( __context__ , (ushort)( ROOM[ IROOM ].POINT[ I ].IPOINTTYPE ) ) ), (ushort)( I )) ; 
-                __context__.SourceCodeLine = 662;
-                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( ROOM[ FOTHERROOM( __context__ , (ushort)( IROOM ) ) ].POINT[ I ].IPOINTTYPE ), (ushort)( I )) ; 
                 __context__.SourceCodeLine = 663;
+                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( ROOM[ IROOM ].POINT[ I ].IPOINTTYPE ), (ushort)( I )) ; 
+                __context__.SourceCodeLine = 664;
+                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( FOTHERLIST( __context__ , (ushort)( ROOM[ IROOM ].POINT[ I ].IPOINTTYPE ) ) ), (ushort)( I )) ; 
+                __context__.SourceCodeLine = 665;
+                FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( ROOM[ FOTHERROOM( __context__ , (ushort)( IROOM ) ) ].POINT[ I ].IPOINTTYPE ), (ushort)( I )) ; 
+                __context__.SourceCodeLine = 666;
                 FUPDATELISTVIS (  __context__ , (ushort)( 1 ), (ushort)( FOTHERLIST( __context__ , (ushort)( ROOM[ FOTHERROOM( __context__ , (ushort)( IROOM ) ) ].POINT[ I ].IPOINTTYPE ) ) ), (ushort)( I )) ; 
-                __context__.SourceCodeLine = 658;
+                __context__.SourceCodeLine = 661;
                 } 
             
-            __context__.SourceCodeLine = 666;
+            __context__.SourceCodeLine = 669;
             IGROUPSEM = (ushort) ( 0 ) ; 
             } 
         
@@ -949,46 +954,46 @@ object DSPVOLUP1_OnPush_8 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 673;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 674;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 676;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 677;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 679;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 678;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-            __context__.SourceCodeLine = 679;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 680;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 681;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
+            __context__.SourceCodeLine = 682;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 683;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 684;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( DSPVOLUP1[ I ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 683;
+                __context__.SourceCodeLine = 686;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 684;
+                __context__.SourceCodeLine = 687;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 681;
+                __context__.SourceCodeLine = 684;
                 } 
             
-            __context__.SourceCodeLine = 686;
+            __context__.SourceCodeLine = 689;
             while ( Functions.TestForTrue  ( ( DSPVOLUP1[ I ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 688;
+                __context__.SourceCodeLine = 691;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-                __context__.SourceCodeLine = 689;
+                __context__.SourceCodeLine = 692;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 690;
+                __context__.SourceCodeLine = 693;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 686;
+                __context__.SourceCodeLine = 689;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 693;
+            __context__.SourceCodeLine = 696;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1013,46 +1018,46 @@ object DSPVOLUP2_OnPush_9 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 699;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 700;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 702;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 703;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 705;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 704;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-            __context__.SourceCodeLine = 705;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 706;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 707;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
+            __context__.SourceCodeLine = 708;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 709;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 710;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( DSPVOLUP2[ I ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 709;
+                __context__.SourceCodeLine = 712;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 710;
+                __context__.SourceCodeLine = 713;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 707;
+                __context__.SourceCodeLine = 710;
                 } 
             
-            __context__.SourceCodeLine = 712;
+            __context__.SourceCodeLine = 715;
             while ( Functions.TestForTrue  ( ( DSPVOLUP2[ I ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 714;
+                __context__.SourceCodeLine = 717;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-                __context__.SourceCodeLine = 715;
+                __context__.SourceCodeLine = 718;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 716;
+                __context__.SourceCodeLine = 719;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 712;
+                __context__.SourceCodeLine = 715;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 719;
+            __context__.SourceCodeLine = 722;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1077,46 +1082,46 @@ object DSPVOLDN1_OnPush_10 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 726;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 727;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 729;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 730;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 732;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 731;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-            __context__.SourceCodeLine = 732;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 733;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 734;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
+            __context__.SourceCodeLine = 735;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 736;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 737;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( DSPVOLDN1[ I ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 736;
+                __context__.SourceCodeLine = 739;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 737;
+                __context__.SourceCodeLine = 740;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 734;
+                __context__.SourceCodeLine = 737;
                 } 
             
-            __context__.SourceCodeLine = 739;
+            __context__.SourceCodeLine = 742;
             while ( Functions.TestForTrue  ( ( DSPVOLDN1[ I ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 741;
+                __context__.SourceCodeLine = 744;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-                __context__.SourceCodeLine = 742;
+                __context__.SourceCodeLine = 745;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 743;
+                __context__.SourceCodeLine = 746;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 739;
+                __context__.SourceCodeLine = 742;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 746;
+            __context__.SourceCodeLine = 749;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1141,46 +1146,46 @@ object DSPVOLDN2_OnPush_11 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 753;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 754;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 756;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 757;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 759;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 758;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-            __context__.SourceCodeLine = 759;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 760;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 761;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
+            __context__.SourceCodeLine = 762;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 763;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 764;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( DSPVOLDN2[ I ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 763;
+                __context__.SourceCodeLine = 766;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 764;
+                __context__.SourceCodeLine = 767;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 761;
+                __context__.SourceCodeLine = 764;
                 } 
             
-            __context__.SourceCodeLine = 766;
+            __context__.SourceCodeLine = 769;
             while ( Functions.TestForTrue  ( ( DSPVOLDN2[ I ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 768;
+                __context__.SourceCodeLine = 771;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-                __context__.SourceCodeLine = 769;
+                __context__.SourceCodeLine = 772;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 770;
+                __context__.SourceCodeLine = 773;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 766;
+                __context__.SourceCodeLine = 769;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 773;
+            __context__.SourceCodeLine = 776;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1204,22 +1209,22 @@ object DSPMUTETOG1_OnPush_12 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 781;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 782;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 784;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 785;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 787;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 786;
+            __context__.SourceCodeLine = 789;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IMUTESTATE ) ) ; 
-            __context__.SourceCodeLine = 787;
+            __context__.SourceCodeLine = 790;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 789;
+            __context__.SourceCodeLine = 792;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1243,22 +1248,22 @@ object DSPMUTETOG2_OnPush_13 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 797;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 798;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 800;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 801;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 803;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 802;
+            __context__.SourceCodeLine = 805;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IMUTESTATE ) ) ; 
-            __context__.SourceCodeLine = 803;
+            __context__.SourceCodeLine = 806;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 805;
+            __context__.SourceCodeLine = 808;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1282,22 +1287,22 @@ object DSPMUTEON1_OnPush_14 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 813;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 814;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 816;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 817;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 819;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 818;
+            __context__.SourceCodeLine = 821;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 819;
+            __context__.SourceCodeLine = 822;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 821;
+            __context__.SourceCodeLine = 824;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1321,22 +1326,22 @@ object DSPMUTEON2_OnPush_15 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 828;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 829;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 831;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 832;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 834;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 833;
+            __context__.SourceCodeLine = 836;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 834;
+            __context__.SourceCodeLine = 837;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 836;
+            __context__.SourceCodeLine = 839;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1360,22 +1365,22 @@ object DSPMUTEOFF1_OnPush_16 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 843;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 844;
-        IROOM = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 846;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 847;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 849;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 848;
+            __context__.SourceCodeLine = 851;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 849;
+            __context__.SourceCodeLine = 852;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 851;
+            __context__.SourceCodeLine = 854;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1399,22 +1404,22 @@ object DSPMUTEOFF2_OnPush_17 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 857;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 858;
-        IROOM = (ushort) ( 2 ) ; 
         __context__.SourceCodeLine = 860;
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 861;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 863;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 862;
+            __context__.SourceCodeLine = 865;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 863;
+            __context__.SourceCodeLine = 866;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 865;
+            __context__.SourceCodeLine = 868;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1437,24 +1442,24 @@ object PGM_RTE_OnChange_18 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 879;
+        __context__.SourceCodeLine = 882;
         IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 881;
+        __context__.SourceCodeLine = 884;
         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].PGMRTEINDEX)  ) ) 
             { 
-            __context__.SourceCodeLine = 883;
+            __context__.SourceCodeLine = 886;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IROOM == 1))  ) ) 
                 {
-                __context__.SourceCodeLine = 883;
+                __context__.SourceCodeLine = 886;
                 DSPVOLDB1 [ ROOM[ IROOM ].PGMRTEINDEX]  .Value = (ushort) ( PGM_RTE[ IROOM ] .UshortValue ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 884;
+                __context__.SourceCodeLine = 887;
                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IROOM == 2))  ) ) 
                     {
-                    __context__.SourceCodeLine = 884;
+                    __context__.SourceCodeLine = 887;
                     DSPVOLDB2 [ ROOM[ IROOM ].PGMRTEINDEX]  .Value = (ushort) ( PGM_RTE[ IROOM ] .UshortValue ) ; 
                     }
                 
@@ -1484,48 +1489,48 @@ object FIXEDVOLUP1_OnPush_19 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 893;
+        __context__.SourceCodeLine = 896;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 894;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
-        __context__.SourceCodeLine = 895;
-        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         __context__.SourceCodeLine = 897;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 898;
+        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 900;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 899;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-            __context__.SourceCodeLine = 900;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 901;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 902;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
+            __context__.SourceCodeLine = 903;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 904;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 905;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( FIXEDVOLUP1[ IFIXED ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 904;
+                __context__.SourceCodeLine = 907;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 905;
+                __context__.SourceCodeLine = 908;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 902;
+                __context__.SourceCodeLine = 905;
                 } 
             
-            __context__.SourceCodeLine = 907;
+            __context__.SourceCodeLine = 910;
             while ( Functions.TestForTrue  ( ( FIXEDVOLUP1[ IFIXED ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 909;
+                __context__.SourceCodeLine = 912;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-                __context__.SourceCodeLine = 910;
+                __context__.SourceCodeLine = 913;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 911;
+                __context__.SourceCodeLine = 914;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 907;
+                __context__.SourceCodeLine = 910;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 914;
+            __context__.SourceCodeLine = 917;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1551,48 +1556,48 @@ object FIXEDVOLUP2_OnPush_20 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 920;
+        __context__.SourceCodeLine = 923;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 921;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
-        __context__.SourceCodeLine = 922;
-        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         __context__.SourceCodeLine = 924;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 925;
+        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 927;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 926;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-            __context__.SourceCodeLine = 927;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 928;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 929;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
+            __context__.SourceCodeLine = 930;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 931;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 932;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( FIXEDVOLUP2[ IFIXED ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 931;
+                __context__.SourceCodeLine = 934;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 932;
+                __context__.SourceCodeLine = 935;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 929;
+                __context__.SourceCodeLine = 932;
                 } 
             
-            __context__.SourceCodeLine = 934;
+            __context__.SourceCodeLine = 937;
             while ( Functions.TestForTrue  ( ( FIXEDVOLUP2[ IFIXED ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 936;
+                __context__.SourceCodeLine = 939;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMin( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE + 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMAX ) ) ; 
-                __context__.SourceCodeLine = 937;
+                __context__.SourceCodeLine = 940;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 938;
+                __context__.SourceCodeLine = 941;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 934;
+                __context__.SourceCodeLine = 937;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 941;
+            __context__.SourceCodeLine = 944;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1618,48 +1623,48 @@ object FIXEDVOLDN1_OnPush_21 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 948;
+        __context__.SourceCodeLine = 951;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 949;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
-        __context__.SourceCodeLine = 950;
-        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         __context__.SourceCodeLine = 952;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 953;
+        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 955;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 954;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-            __context__.SourceCodeLine = 955;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 956;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 957;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
+            __context__.SourceCodeLine = 958;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 959;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 960;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( FIXEDVOLDN1[ IFIXED ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 959;
+                __context__.SourceCodeLine = 962;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 960;
+                __context__.SourceCodeLine = 963;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 957;
+                __context__.SourceCodeLine = 960;
                 } 
             
-            __context__.SourceCodeLine = 962;
+            __context__.SourceCodeLine = 965;
             while ( Functions.TestForTrue  ( ( FIXEDVOLDN1[ IFIXED ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 964;
+                __context__.SourceCodeLine = 967;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-                __context__.SourceCodeLine = 965;
+                __context__.SourceCodeLine = 968;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 966;
+                __context__.SourceCodeLine = 969;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 962;
+                __context__.SourceCodeLine = 965;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 969;
+            __context__.SourceCodeLine = 972;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1685,48 +1690,48 @@ object FIXEDVOLDN2_OnPush_22 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 976;
+        __context__.SourceCodeLine = 979;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 977;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
-        __context__.SourceCodeLine = 978;
-        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         __context__.SourceCodeLine = 980;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 981;
+        IFIXED = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 983;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BVOLISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 982;
-            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-            __context__.SourceCodeLine = 983;
-            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-            __context__.SourceCodeLine = 984;
-            J = (ushort) ( 0 ) ; 
             __context__.SourceCodeLine = 985;
+            ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
+            __context__.SourceCodeLine = 986;
+            FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
+            __context__.SourceCodeLine = 987;
+            J = (ushort) ( 0 ) ; 
+            __context__.SourceCodeLine = 988;
             while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( J < 25 ) ) && Functions.TestForTrue ( FIXEDVOLDN2[ IFIXED ] .Value )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 987;
+                __context__.SourceCodeLine = 990;
                 J = (ushort) ( (J + 1) ) ; 
-                __context__.SourceCodeLine = 988;
+                __context__.SourceCodeLine = 991;
                 Functions.Delay (  (int) ( 1 ) ) ; 
-                __context__.SourceCodeLine = 985;
+                __context__.SourceCodeLine = 988;
                 } 
             
-            __context__.SourceCodeLine = 990;
+            __context__.SourceCodeLine = 993;
             while ( Functions.TestForTrue  ( ( FIXEDVOLDN2[ IFIXED ] .Value)  ) ) 
                 { 
-                __context__.SourceCodeLine = 992;
+                __context__.SourceCodeLine = 995;
                 ROOM [ IROOM] . POINT [ I] . SIVOLSTATE = (short) ( Functions.SMax( (ROOM[ IROOM ].POINT[ I ].SIVOLSTATE - 1) , ROOM[ IROOM ].POINT[ I ].SIVOLMIN ) ) ; 
-                __context__.SourceCodeLine = 993;
+                __context__.SourceCodeLine = 996;
                 FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "vol") ; 
-                __context__.SourceCodeLine = 994;
+                __context__.SourceCodeLine = 997;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 990;
+                __context__.SourceCodeLine = 993;
                 } 
             
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 997;
+            __context__.SourceCodeLine = 1000;
             Trace( "Node_DSP: User attempmting to ramp vol on Point[{0:d}] which has disabled Volume controls.", (short)I) ; 
             }
         
@@ -1751,22 +1756,22 @@ object FIXEDMUTETOG1_OnPush_23 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1004;
-        IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1005;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1007;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1008;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1010;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1009;
+            __context__.SourceCodeLine = 1012;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IMUTESTATE ) ) ; 
-            __context__.SourceCodeLine = 1010;
+            __context__.SourceCodeLine = 1013;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1012;
+            __context__.SourceCodeLine = 1015;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1791,22 +1796,22 @@ object FIXEDMUTETOG2_OnPush_24 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1019;
-        IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1020;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1022;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 1023;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1025;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1024;
+            __context__.SourceCodeLine = 1027;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( Functions.Not( ROOM[ IROOM ].POINT[ I ].IMUTESTATE ) ) ; 
-            __context__.SourceCodeLine = 1025;
+            __context__.SourceCodeLine = 1028;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1027;
+            __context__.SourceCodeLine = 1030;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1831,22 +1836,22 @@ object FIXEDMUTEON1_OnPush_25 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1034;
-        IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1035;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1037;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1038;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1040;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1039;
+            __context__.SourceCodeLine = 1042;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1040;
+            __context__.SourceCodeLine = 1043;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1042;
+            __context__.SourceCodeLine = 1045;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1871,22 +1876,22 @@ object FIXEDMUTEON2_OnPush_26 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1048;
-        IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1049;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1051;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 1052;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1054;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1053;
+            __context__.SourceCodeLine = 1056;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1054;
+            __context__.SourceCodeLine = 1057;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1056;
+            __context__.SourceCodeLine = 1059;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1911,22 +1916,22 @@ object FIXEDMUTEOFF1_OnPush_27 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1062;
-        IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1063;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1065;
+        IROOM = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1066;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1068;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1067;
+            __context__.SourceCodeLine = 1070;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 1068;
+            __context__.SourceCodeLine = 1071;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1070;
+            __context__.SourceCodeLine = 1073;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1951,22 +1956,22 @@ object FIXEDMUTEOFF2_OnPush_28 ( Object __EventInfo__ )
         ushort IFIXED = 0;
         
         
-        __context__.SourceCodeLine = 1075;
-        IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1076;
-        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
         __context__.SourceCodeLine = 1078;
+        IROOM = (ushort) ( 2 ) ; 
+        __context__.SourceCodeLine = 1079;
+        I = (ushort) ( ROOM[ IROOM ].FIXEDTOLOCALID[ Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ] ) ; 
+        __context__.SourceCodeLine = 1081;
         if ( Functions.TestForTrue  ( ( Functions.Not( ROOM[ IROOM ].POINT[ I ].BMUTEISDISABLED ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1080;
+            __context__.SourceCodeLine = 1083;
             ROOM [ IROOM] . POINT [ I] . IMUTESTATE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 1081;
+            __context__.SourceCodeLine = 1084;
             FGROUPMANAGER (  __context__ , (ushort)( IROOM ), (ushort)( I ), "mute") ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 1083;
+            __context__.SourceCodeLine = 1086;
             Trace( "Node_DSP: User attempmting to affect mute on Point[{0:d}] which has disabled Mute controls.", (short)I) ; 
             }
         
@@ -1990,30 +1995,30 @@ object VOLFBRANGE_OnChange_29 ( Object __EventInfo__ )
         ushort IROOM = 0;
         
         
-        __context__.SourceCodeLine = 1099;
+        __context__.SourceCodeLine = 1102;
         IROOM = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 1101;
+        __context__.SourceCodeLine = 1104;
         if ( Functions.TestForTrue  ( ( VOLFBRANGE[ IROOM ] .UshortValue)  ) ) 
             {
-            __context__.SourceCodeLine = 1101;
+            __context__.SourceCodeLine = 1104;
             IVOLFBRANGE [ IROOM] = (ushort) ( VOLFBRANGE[ IROOM ] .UshortValue ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1102;
+            __context__.SourceCodeLine = 1105;
             IVOLFBRANGE [ IROOM] = (ushort) ( 936 ) ; 
             }
         
-        __context__.SourceCodeLine = 1104;
+        __context__.SourceCodeLine = 1107;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)50; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1106;
+            __context__.SourceCodeLine = 1109;
             FSETVOLFB (  __context__ , (ushort)( IROOM ), (ushort)( I )) ; 
-            __context__.SourceCodeLine = 1104;
+            __context__.SourceCodeLine = 1107;
             } 
         
         
@@ -2034,17 +2039,17 @@ private void FPROCESSLIST (  SplusExecutionContext __context__, ushort IROOM )
     STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
     
     
-    __context__.SourceCodeLine = 1126;
+    __context__.SourceCodeLine = 1129;
     ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
     ushort __FN_FOREND_VAL__1 = (ushort)2; 
     int __FN_FORSTEP_VAL__1 = (int)1; 
     for ( ILIST  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (ILIST  >= __FN_FORSTART_VAL__1) && (ILIST  <= __FN_FOREND_VAL__1) ) : ( (ILIST  <= __FN_FORSTART_VAL__1) && (ILIST  >= __FN_FOREND_VAL__1) ) ; ILIST  += (ushort)__FN_FORSTEP_VAL__1) 
         { 
-        __context__.SourceCodeLine = 1128;
+        __context__.SourceCodeLine = 1131;
         FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ILIST ), (ushort)( 0 )) ; 
-        __context__.SourceCodeLine = 1129;
+        __context__.SourceCodeLine = 1132;
         Functions.Delay (  (int) ( 10 ) ) ; 
-        __context__.SourceCodeLine = 1126;
+        __context__.SourceCodeLine = 1129;
         } 
     
     
@@ -2068,148 +2073,148 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort IROOM , u
     STEMPHEADER  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 100, this );
     
     
-    __context__.SourceCodeLine = 1144;
+    __context__.SourceCodeLine = 1147;
     STEMPLINE  .UpdateValue ( STEMPLINEARG  ) ; 
-    __context__.SourceCodeLine = 1146;
+    __context__.SourceCodeLine = 1149;
     while ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMPLINE ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1148;
+        __context__.SourceCodeLine = 1151;
         STEMPPAIR  .UpdateValue ( Functions.Remove ( "," , STEMPLINE )  ) ; 
-        __context__.SourceCodeLine = 1149;
-        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPPAIR )  ) ; 
-        __context__.SourceCodeLine = 1150;
-        STEMPVALUE  .UpdateValue ( Functions.Left ( STEMPPAIR ,  (int) ( (Functions.Length( STEMPPAIR ) - 1) ) )  ) ; 
         __context__.SourceCodeLine = 1152;
+        STEMPKEY  .UpdateValue ( Functions.Remove ( "=" , STEMPPAIR )  ) ; 
+        __context__.SourceCodeLine = 1153;
+        STEMPVALUE  .UpdateValue ( Functions.Left ( STEMPPAIR ,  (int) ( (Functions.Length( STEMPPAIR ) - 1) ) )  ) ; 
+        __context__.SourceCodeLine = 1155;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "global_name" , STEMPKEY ))  ) ) 
             {
-            __context__.SourceCodeLine = 1152;
+            __context__.SourceCodeLine = 1155;
             ROOM [ IROOM] . POINT [ IINDEX] . SGLOBALNAME  .UpdateValue ( STEMPVALUE  ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1153;
+            __context__.SourceCodeLine = 1156;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_name" , STEMPKEY ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1153;
+                __context__.SourceCodeLine = 1156;
                 ROOM [ IROOM] . POINT [ IINDEX] . SLOCALNAME  .UpdateValue ( STEMPVALUE  ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1154;
+                __context__.SourceCodeLine = 1157;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room" , STEMPKEY ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 1154;
+                    __context__.SourceCodeLine = 1157;
                     ROOM [ IROOM] . POINT [ IINDEX] . IRMASS = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 1155;
+                    __context__.SourceCodeLine = 1158;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "guid" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 1155;
+                        __context__.SourceCodeLine = 1158;
                         ROOM [ IROOM] . POINT [ IINDEX] . IGUID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 1156;
+                        __context__.SourceCodeLine = 1159;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "fixed_id" , STEMPKEY ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 1158;
+                            __context__.SourceCodeLine = 1161;
                             ROOM [ IROOM] . POINT [ IINDEX] . IFIXEDID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
-                            __context__.SourceCodeLine = 1159;
+                            __context__.SourceCodeLine = 1162;
                             ROOM [ IROOM] . FIXEDTOLOCALID [ Functions.Atoi( STEMPVALUE )] = (ushort) ( IINDEX ) ; 
                             } 
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 1161;
+                            __context__.SourceCodeLine = 1164;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "group" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 1161;
+                                __context__.SourceCodeLine = 1164;
                                 ROOM [ IROOM] . POINT [ IINDEX] . IGROUP = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 1162;
+                                __context__.SourceCodeLine = 1165;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_virtual" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 1162;
+                                    __context__.SourceCodeLine = 1165;
                                     ROOM [ IROOM] . POINT [ IINDEX] . IISVIRTUAL = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 1163;
+                                    __context__.SourceCodeLine = 1166;
                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_max" , STEMPKEY ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 1163;
+                                        __context__.SourceCodeLine = 1166;
                                         ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMAX = (short) ( Functions.Atosi( STEMPVALUE ) ) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 1164;
+                                        __context__.SourceCodeLine = 1167;
                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_min" , STEMPKEY ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 1164;
+                                            __context__.SourceCodeLine = 1167;
                                             ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMIN = (short) ( Functions.Atosi( STEMPVALUE ) ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 1165;
+                                            __context__.SourceCodeLine = 1168;
                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "default_vol" , STEMPKEY ))  ) ) 
                                                 {
-                                                __context__.SourceCodeLine = 1165;
+                                                __context__.SourceCodeLine = 1168;
                                                 ROOM [ IROOM] . POINT [ IINDEX] . SIVOLDEFAULT = (short) ( Functions.Atosi( STEMPVALUE ) ) ; 
                                                 }
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 1166;
+                                                __context__.SourceCodeLine = 1169;
                                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "default_mute" , STEMPKEY ))  ) ) 
                                                     {
-                                                    __context__.SourceCodeLine = 1166;
+                                                    __context__.SourceCodeLine = 1169;
                                                     ROOM [ IROOM] . POINT [ IINDEX] . IMUTEDEFAULT = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                     }
                                                 
                                                 else 
                                                     {
-                                                    __context__.SourceCodeLine = 1167;
+                                                    __context__.SourceCodeLine = 1170;
                                                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol_disabled" , STEMPKEY ))  ) ) 
                                                         {
-                                                        __context__.SourceCodeLine = 1167;
+                                                        __context__.SourceCodeLine = 1170;
                                                         ROOM [ IROOM] . POINT [ IINDEX] . BVOLISDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                         }
                                                     
                                                     else 
                                                         {
-                                                        __context__.SourceCodeLine = 1168;
+                                                        __context__.SourceCodeLine = 1171;
                                                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute_disabled" , STEMPKEY ))  ) ) 
                                                             {
-                                                            __context__.SourceCodeLine = 1168;
+                                                            __context__.SourceCodeLine = 1171;
                                                             ROOM [ IROOM] . POINT [ IINDEX] . BMUTEISDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                             }
                                                         
                                                         else 
                                                             {
-                                                            __context__.SourceCodeLine = 1169;
+                                                            __context__.SourceCodeLine = 1172;
                                                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "point_type" , STEMPKEY ))  ) ) 
                                                                 {
-                                                                __context__.SourceCodeLine = 1169;
+                                                                __context__.SourceCodeLine = 1172;
                                                                 ROOM [ IROOM] . POINT [ IINDEX] . IPOINTTYPE = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                 }
                                                             
                                                             else 
                                                                 { 
-                                                                __context__.SourceCodeLine = 1172;
+                                                                __context__.SourceCodeLine = 1175;
                                                                 IERR = (ushort) ( 1 ) ; 
-                                                                __context__.SourceCodeLine = 1173;
+                                                                __context__.SourceCodeLine = 1176;
                                                                 Trace( "NodeDSP - fProcessLine error - didn't catch key - type={0:d}, GUID={1:d}, key={2}, value={3}", (ushort)ITYPE, (ushort)IINDEX, STEMPKEY , STEMPVALUE ) ; 
                                                                 } 
                                                             
@@ -2239,48 +2244,48 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort IROOM , u
             
             }
         
-        __context__.SourceCodeLine = 1146;
+        __context__.SourceCodeLine = 1149;
         } 
     
-    __context__.SourceCodeLine = 1177;
+    __context__.SourceCodeLine = 1180;
     if ( Functions.TestForTrue  ( ( Functions.Not( IERR ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1180;
+        __context__.SourceCodeLine = 1183;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE == 3))  ) ) 
             {
-            __context__.SourceCodeLine = 1181;
+            __context__.SourceCodeLine = 1184;
             ROOM [ IROOM] . PGMRTEINDEX = (ushort) ( IINDEX ) ; 
             }
         
-        __context__.SourceCodeLine = 1184;
+        __context__.SourceCodeLine = 1187;
         ROOM [ IROOM] . POINT [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1185;
-        ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( (ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMAX - ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMIN) ) ; 
-        __context__.SourceCodeLine = 1186;
-        ROOM [ IROOM] . IINDEXPRIMARY [ IINDEX] = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1188;
-        ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . IINDEXRC [ (IINDEX + 25)] = (ushort) ( 1 ) ; 
+        ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( (ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMAX - ROOM[ IROOM ].POINT[ IINDEX ].SIVOLMIN) ) ; 
+        __context__.SourceCodeLine = 1189;
+        ROOM [ IROOM] . IINDEXPRIMARY [ IINDEX] = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 1191;
+        ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . IINDEXRC [ (IINDEX + 25)] = (ushort) ( 1 ) ; 
+        __context__.SourceCodeLine = 1194;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IVOLRANGE == 0) ) || Functions.TestForTrue ( Functions.BoolToInt ( ROOM[ IROOM ].POINT[ IINDEX ].IVOLRANGE > 50000 ) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1193;
+            __context__.SourceCodeLine = 1196;
             ROOM [ IROOM] . POINT [ IINDEX] . IITEMACTIVE = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 1195;
+            __context__.SourceCodeLine = 1198;
             Trace( "NodeDSP - error parsing iRoom={0:d}, iIndex={1:d} - iVolRange calculated to be zero", (ushort)IROOM, (ushort)IINDEX) ; 
             } 
         
-        __context__.SourceCodeLine = 1198;
+        __context__.SourceCodeLine = 1201;
         if ( Functions.TestForTrue  ( ( ROOM[ IROOM ].POINT[ IINDEX ].IGROUP)  ) ) 
             { 
-            __context__.SourceCodeLine = 1200;
+            __context__.SourceCodeLine = 1203;
             IGROUP = (ushort) ( ROOM[ IROOM ].POINT[ IINDEX ].IGROUP ) ; 
-            __context__.SourceCodeLine = 1202;
+            __context__.SourceCodeLine = 1205;
             ROOM [ IROOM] . GROUP [ IGROUP] . INUMOFMEMBERS = (ushort) ( (ROOM[ IROOM ].GROUP[ IGROUP ].INUMOFMEMBERS + 1) ) ; 
-            __context__.SourceCodeLine = 1204;
+            __context__.SourceCodeLine = 1207;
             ROOM [ IROOM] . GROUP [ IGROUP] . IGROUPMEMBERS [ ROOM[ IROOM ].GROUP[ IGROUP ].INUMOFMEMBERS] = (ushort) ( IINDEX ) ; 
             } 
         
-        __context__.SourceCodeLine = 1207;
+        __context__.SourceCodeLine = 1210;
         
             {
             int __SPLS_TMPVAR__SWTCH_4__ = ((int)IROOM);
@@ -2288,17 +2293,17 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort IROOM , u
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 1211;
+                    __context__.SourceCodeLine = 1214;
                     DSPPOINTNAME__DOLLAR__1 [ IINDEX]  .UpdateValue ( ROOM [ IROOM] . POINT [ IINDEX] . SGLOBALNAME  ) ; 
-                    __context__.SourceCodeLine = 1213;
+                    __context__.SourceCodeLine = 1216;
                     DSPPOINTNAME__DOLLAR__2 [ (IINDEX + 25)]  .UpdateValue ( ROOM [ IROOM] . POINT [ IINDEX] . SGLOBALNAME  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 1217;
+                    __context__.SourceCodeLine = 1220;
                     DSPPOINTNAME__DOLLAR__2 [ IINDEX]  .UpdateValue ( ROOM [ IROOM] . POINT [ IINDEX] . SGLOBALNAME  ) ; 
-                    __context__.SourceCodeLine = 1218;
+                    __context__.SourceCodeLine = 1221;
                     DSPPOINTNAME__DOLLAR__1 [ (IINDEX + 25)]  .UpdateValue ( ROOM [ IROOM] . POINT [ IINDEX] . SGLOBALNAME  ) ; 
                     } 
                 
@@ -2307,16 +2312,16 @@ private void FPROCESSLINE (  SplusExecutionContext __context__, ushort IROOM , u
             }
             
         
-        __context__.SourceCodeLine = 1222;
+        __context__.SourceCodeLine = 1225;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE == 1) ) || Functions.TestForTrue ( Functions.BoolToInt (ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE == 2) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1224;
-            ROOM [ IROOM] . POINT [ IINDEX] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 1225;
-            FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
-            __context__.SourceCodeLine = 1226;
-            ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . POINT [ (IINDEX + (50 / 2))] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 1227;
+            ROOM [ IROOM] . POINT [ IINDEX] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1228;
+            FUPDATELISTVIS (  __context__ , (ushort)( IROOM ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
+            __context__.SourceCodeLine = 1229;
+            ROOM [ FOTHERROOM( __context__ , (ushort)( IROOM ) )] . POINT [ (IINDEX + (50 / 2))] . ILISTITEMVIS [ ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE] = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 1230;
             FUPDATELISTVIS (  __context__ , (ushort)( FOTHERROOM( __context__ , (ushort)( IROOM ) ) ), (ushort)( ROOM[ IROOM ].POINT[ IINDEX ].IPOINTTYPE ), (ushort)( IINDEX )) ; 
             } 
         
@@ -2342,38 +2347,38 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
     STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
     
     
-    __context__.SourceCodeLine = 1242;
-    STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
-    __context__.SourceCodeLine = 1243;
-    STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
     __context__.SourceCodeLine = 1245;
+    STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
+    __context__.SourceCodeLine = 1246;
+    STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
+    __context__.SourceCodeLine = 1248;
     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_POINTS" , STEMPHEADER ))  ) ) 
         {
-        __context__.SourceCodeLine = 1245;
+        __context__.SourceCodeLine = 1248;
         ITYPE = (ushort) ( 1 ) ; 
         }
     
     else 
         {
-        __context__.SourceCodeLine = 1246;
+        __context__.SourceCodeLine = 1249;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_PRESETS" , STEMPHEADER ))  ) ) 
             {
-            __context__.SourceCodeLine = 1246;
+            __context__.SourceCodeLine = 1249;
             ITYPE = (ushort) ( 2 ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 1247;
+            __context__.SourceCodeLine = 1250;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "ROOMS" , STEMPHEADER ))  ) ) 
                 {
-                __context__.SourceCodeLine = 1247;
+                __context__.SourceCodeLine = 1250;
                 ITYPE = (ushort) ( 13 ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1248;
+                __context__.SourceCodeLine = 1251;
                 Trace( "NodeDSP - in fProcessInit - didn't catch header type - {0}", STEMPHEADER ) ; 
                 }
             
@@ -2381,30 +2386,30 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
         
         }
     
-    __context__.SourceCodeLine = 1250;
+    __context__.SourceCodeLine = 1253;
     while ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMPDATA ))  ) ) 
         { 
-        __context__.SourceCodeLine = 1252;
+        __context__.SourceCodeLine = 1255;
         STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
-        __context__.SourceCodeLine = 1253;
+        __context__.SourceCodeLine = 1256;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "complete" , STEMPLINE ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1255;
+            __context__.SourceCodeLine = 1258;
             Functions.Delay (  (int) ( 10 ) ) ; 
-            __context__.SourceCodeLine = 1256;
+            __context__.SourceCodeLine = 1259;
             FPROCESSLIST (  __context__ , (ushort)( IROOM )) ; 
             } 
         
         else 
             { 
-            __context__.SourceCodeLine = 1260;
-            STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
-            __context__.SourceCodeLine = 1261;
-            IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
             __context__.SourceCodeLine = 1263;
+            STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
+            __context__.SourceCodeLine = 1264;
+            IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+            __context__.SourceCodeLine = 1266;
             if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                 { 
-                __context__.SourceCodeLine = 1265;
+                __context__.SourceCodeLine = 1268;
                 
                     {
                     int __SPLS_TMPVAR__SWTCH_5__ = ((int)ITYPE);
@@ -2412,17 +2417,17 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
                         { 
                         if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 1) ) ) ) 
                             { 
-                            __context__.SourceCodeLine = 1269;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMAX = (short) ( 6 ) ; 
-                            __context__.SourceCodeLine = 1270;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
-                            __context__.SourceCodeLine = 1271;
-                            ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( 26 ) ; 
                             __context__.SourceCodeLine = 1272;
-                            ROOM [ IROOM] . POINT [ IINDEX] . IMUTEDEFAULT = (ushort) ( 0 ) ; 
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMAX = (short) ( 6 ) ; 
                             __context__.SourceCodeLine = 1273;
-                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLDEFAULT = (short) ( 0 ) ; 
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
+                            __context__.SourceCodeLine = 1274;
+                            ROOM [ IROOM] . POINT [ IINDEX] . IVOLRANGE = (ushort) ( 26 ) ; 
                             __context__.SourceCodeLine = 1275;
+                            ROOM [ IROOM] . POINT [ IINDEX] . IMUTEDEFAULT = (ushort) ( 0 ) ; 
+                            __context__.SourceCodeLine = 1276;
+                            ROOM [ IROOM] . POINT [ IINDEX] . SIVOLDEFAULT = (short) ( 0 ) ; 
+                            __context__.SourceCodeLine = 1278;
                             FPROCESSLINE (  __context__ , (ushort)( IROOM ), (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                             } 
                         
@@ -2435,13 +2440,13 @@ private void FPROCESSINIT (  SplusExecutionContext __context__, ushort IROOM , C
             
             else 
                 {
-                __context__.SourceCodeLine = 1281;
+                __context__.SourceCodeLine = 1284;
                 Trace( "NodeDSP - fProcessInit error, iIndex did not resolve -    {0} {1:d} {2}", STEMPHEADER , (ushort)IINDEX, STEMPLINE ) ; 
                 }
             
             } 
         
-        __context__.SourceCodeLine = 1250;
+        __context__.SourceCodeLine = 1253;
         } 
     
     
@@ -2461,16 +2466,16 @@ object DATAINIT_RX__DOLLAR__1_OnChange_30 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1200, this );
         
         
-        __context__.SourceCodeLine = 1298;
+        __context__.SourceCodeLine = 1301;
         IROOM = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1299;
+        __context__.SourceCodeLine = 1302;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__1[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1301;
+            __context__.SourceCodeLine = 1304;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__1 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1302;
+            __context__.SourceCodeLine = 1305;
             FPROCESSINIT (  __context__ , (ushort)( IROOM ), STEMP) ; 
-            __context__.SourceCodeLine = 1299;
+            __context__.SourceCodeLine = 1302;
             } 
         
         
@@ -2496,16 +2501,16 @@ object DATAINIT_RX__DOLLAR__2_OnChange_31 ( Object __EventInfo__ )
         STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1200, this );
         
         
-        __context__.SourceCodeLine = 1310;
+        __context__.SourceCodeLine = 1313;
         IROOM = (ushort) ( 2 ) ; 
-        __context__.SourceCodeLine = 1311;
+        __context__.SourceCodeLine = 1314;
         while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__2[ 1 ] ))  ) ) 
             { 
-            __context__.SourceCodeLine = 1313;
+            __context__.SourceCodeLine = 1316;
             STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__2 [ 1 ] )  ) ; 
-            __context__.SourceCodeLine = 1314;
+            __context__.SourceCodeLine = 1317;
             FPROCESSINIT (  __context__ , (ushort)( IROOM ), STEMP) ; 
-            __context__.SourceCodeLine = 1311;
+            __context__.SourceCodeLine = 1314;
             } 
         
         
@@ -2531,28 +2536,28 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 1331;
+        __context__.SourceCodeLine = 1334;
         WaitForInitializationComplete ( ) ; 
-        __context__.SourceCodeLine = 1333;
+        __context__.SourceCodeLine = 1336;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)2; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
-            __context__.SourceCodeLine = 1335;
+            __context__.SourceCodeLine = 1338;
             if ( Functions.TestForTrue  ( ( VOLFBRANGE[ I ] .UshortValue)  ) ) 
                 {
-                __context__.SourceCodeLine = 1335;
+                __context__.SourceCodeLine = 1338;
                 IVOLFBRANGE [ I] = (ushort) ( VOLFBRANGE[ I ] .UshortValue ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 1336;
+                __context__.SourceCodeLine = 1339;
                 IVOLFBRANGE [ I] = (ushort) ( 936 ) ; 
                 }
             
-            __context__.SourceCodeLine = 1333;
+            __context__.SourceCodeLine = 1336;
             } 
         
         

@@ -213,7 +213,7 @@ namespace UofA_HSIB_Pro
                 ErrorLog.Error("Error in InitializeSystem: {0}", e.Message);
             }
         }
-
+       
         /// <summary>
         /// Invoked when a module needs to send commands to a device to be sent to client or COM port
         /// </summary>
@@ -1122,5 +1122,6 @@ namespace UofA_HSIB_Pro
         public DPLY Controller = null;
         public TCPClient Client = null;
         public ComPort SerialPort = null;
+
     }
 }

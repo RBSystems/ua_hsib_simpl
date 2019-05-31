@@ -422,6 +422,13 @@ namespace UofA_HSIB_Pro
                         case ("NAMED_CONTROL_GAIN"):
                             {
                                 vol = value;
+                                mute = value.Replace("_volLevel", "_muteState");
+                                break;
+                            }
+                        case ("TAG_GAIN"):
+                            {
+                                vol = value;
+                                mute = value.Replace("_volLevel", "_muteState");
                                 break;
                             }
                         case ("NAMED_CONTROL_MUTE"):
@@ -429,7 +436,17 @@ namespace UofA_HSIB_Pro
                                 mute = value;
                                 break;
                             }
+                        case ("TAG_MUTE"):
+                            {
+                                mute = value;
+                                break;
+                            }
                         case ("NAMED_CONTROL_RTE"):
+                            {
+                                rte = value;
+                                break;
+                            }
+                        case ("TAG_RTE"):
                             {
                                 rte = value;
                                 break;
