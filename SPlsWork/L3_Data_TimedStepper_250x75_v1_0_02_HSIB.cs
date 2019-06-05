@@ -30,7 +30,7 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
         ushort ITCPCONNECTED = 0;
         ushort INEWCHANGEDURINGLOOP = 0;
         ushort ILOOPRUNNING = 0;
-        ushort [] ICHANGED;
+        ushort IINITIALIZED = 0;
         ushort INUMOFKEYS = 0;
         CrestronString STRASH;
         CrestronString [] SKEYS;
@@ -40,8 +40,6 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
             
             __context__.SourceCodeLine = 72;
             OUT__DOLLAR__ [ I]  .UpdateValue ( _SplusNVRAM.SDATA [ I ]  ) ; 
-            __context__.SourceCodeLine = 73;
-            ICHANGED [ I] = (ushort) ( 0 ) ; 
             
             }
             
@@ -72,7 +70,7 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
                     } 
                 
                 __context__.SourceCodeLine = 91;
-                if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( ICHANGED[ I ] ) && Functions.TestForTrue ( Functions.Length( _SplusNVRAM.SDATA[ I ] ) )) ))  ) ) 
+                if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( _SplusNVRAM.ICHANGED[ I ] ) && Functions.TestForTrue ( Functions.Length( _SplusNVRAM.SDATA[ I ] ) )) ))  ) ) 
                     { 
                     __context__.SourceCodeLine = 93;
                     FSEND (  __context__ , (ushort)( I )) ; 
@@ -128,45 +126,56 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
             CrestronString STEMPDATA;
             CrestronString STEMP1;
             CrestronString STEMPOUTPUT;
+            CrestronString SDIVCHAR;
             STEMPDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 500, this );
             STEMP1  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 500, this );
             STEMPOUTPUT  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 500, this );
+            SDIVCHAR  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 10, this );
             
             
             __context__.SourceCodeLine = 123;
             STEMPDATA  .UpdateValue ( SDATA  ) ; 
+            __context__.SourceCodeLine = 124;
+            SDIVCHAR  .UpdateValue ( ","  ) ; 
             __context__.SourceCodeLine = 125;
+            if ( Functions.TestForTrue  ( ( Functions.Find( "~" , STEMPDATA ))  ) ) 
+                {
+                __context__.SourceCodeLine = 125;
+                SDIVCHAR  .UpdateValue ( "~"  ) ; 
+                }
+            
+            __context__.SourceCodeLine = 127;
             ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
             ushort __FN_FOREND_VAL__1 = (ushort)INUMOFKEYS; 
             int __FN_FORSTEP_VAL__1 = (int)1; 
             for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
                 { 
-                __context__.SourceCodeLine = 127;
+                __context__.SourceCodeLine = 129;
                 IMARKER = (ushort) ( Functions.Find( SKEYS[ I ] , STEMPDATA ) ) ; 
-                __context__.SourceCodeLine = 128;
+                __context__.SourceCodeLine = 130;
                 if ( Functions.TestForTrue  ( ( IMARKER)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 130;
-                    MakeString ( STEMPOUTPUT , "{0}{1},", STEMPOUTPUT , Functions.Mid ( STEMPDATA ,  (int) ( IMARKER ) ,  (int) ( Functions.Find( "," , STEMPDATA , IMARKER ) ) ) ) ; 
-                    __context__.SourceCodeLine = 131;
-                    STEMP1  .UpdateValue ( Functions.Left ( STEMPDATA ,  (int) ( (IMARKER - 1) ) )  ) ; 
                     __context__.SourceCodeLine = 132;
-                    STRASH  .UpdateValue ( Functions.Remove ( Functions.Find( "," , STEMPDATA , IMARKER ), STEMPDATA )  ) ; 
+                    MakeString ( STEMPOUTPUT , "{0}{1},", STEMPOUTPUT , Functions.Mid ( STEMPDATA ,  (int) ( IMARKER ) ,  (int) ( (Functions.Find( SDIVCHAR , STEMPDATA , IMARKER ) - IMARKER) ) ) ) ; 
                     __context__.SourceCodeLine = 133;
+                    STEMP1  .UpdateValue ( Functions.Left ( STEMPDATA ,  (int) ( (IMARKER - 1) ) )  ) ; 
+                    __context__.SourceCodeLine = 134;
+                    STRASH  .UpdateValue ( Functions.Remove ( Functions.Find( SDIVCHAR , STEMPDATA , IMARKER ), STEMPDATA )  ) ; 
+                    __context__.SourceCodeLine = 135;
                     STEMPDATA  .UpdateValue ( STEMP1 + STEMPDATA  ) ; 
                     } 
                 
-                __context__.SourceCodeLine = 125;
+                __context__.SourceCodeLine = 127;
                 } 
             
-            __context__.SourceCodeLine = 137;
+            __context__.SourceCodeLine = 139;
             if ( Functions.TestForTrue  ( ( Functions.Length( STEMPOUTPUT ))  ) ) 
                 {
-                __context__.SourceCodeLine = 137;
+                __context__.SourceCodeLine = 139;
                 STEMPOUTPUT  .UpdateValue ( Functions.Left ( STEMPOUTPUT ,  (int) ( (Functions.Length( STEMPOUTPUT ) - 1) ) )  ) ; 
                 }
             
-            __context__.SourceCodeLine = 139;
+            __context__.SourceCodeLine = 141;
             return ( STEMPOUTPUT ) ; 
             
             }
@@ -179,13 +188,13 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
             {
                 SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
                 
-                __context__.SourceCodeLine = 146;
-                _SplusNVRAM.IINITIALIZED = (ushort) ( 1 ) ; 
-                __context__.SourceCodeLine = 147;
-                INITIALIZED_FB  .Value = (ushort) ( 1 ) ; 
+                __context__.SourceCodeLine = 148;
+                IINITIALIZED = (ushort) ( 1 ) ; 
                 __context__.SourceCodeLine = 149;
-                Trace( "TimedStepper - Initialized") ; 
+                INITIALIZED_FB  .Value = (ushort) ( 1 ) ; 
                 __context__.SourceCodeLine = 151;
+                Trace( "TimedStepper - Initialized") ; 
+                __context__.SourceCodeLine = 153;
                 FRUNLOOP (  __context__  ) ; 
                 
                 
@@ -204,14 +213,14 @@ namespace UserModule_L3_DATA_TIMEDSTEPPER_250X75_V1_0_02_HSIB
         {
             SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
             
-            __context__.SourceCodeLine = 158;
-            Trace( "TimedStepper - TCP_is_Connected push") ; 
-            __context__.SourceCodeLine = 159;
-            ITCPCONNECTED = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 160;
-            if ( Functions.TestForTrue  ( ( _SplusNVRAM.IINITIALIZED)  ) ) 
+            Trace( "TimedStepper - TCP_is_Connected push") ; 
+            __context__.SourceCodeLine = 161;
+            ITCPCONNECTED = (ushort) ( 1 ) ; 
+            __context__.SourceCodeLine = 162;
+            if ( Functions.TestForTrue  ( ( IINITIALIZED)  ) ) 
                 {
-                __context__.SourceCodeLine = 160;
+                __context__.SourceCodeLine = 162;
                 FRUNLOOP (  __context__  ) ; 
                 }
             
@@ -234,20 +243,20 @@ object TCP_IS_CONNECTED_OnRelease_2 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 166;
-        Trace( "TimedStepper - TCP_is_Connected release") ; 
         __context__.SourceCodeLine = 168;
+        Trace( "TimedStepper - TCP_is_Connected release") ; 
+        __context__.SourceCodeLine = 170;
         ushort __FN_FORSTART_VAL__1 = (ushort) ( 1 ) ;
         ushort __FN_FOREND_VAL__1 = (ushort)HIGHEST_INDEX  .Value; 
         int __FN_FORSTEP_VAL__1 = (int)1; 
         for ( I  = __FN_FORSTART_VAL__1; (__FN_FORSTEP_VAL__1 > 0)  ? ( (I  >= __FN_FORSTART_VAL__1) && (I  <= __FN_FOREND_VAL__1) ) : ( (I  <= __FN_FORSTART_VAL__1) && (I  >= __FN_FOREND_VAL__1) ) ; I  += (ushort)__FN_FORSTEP_VAL__1) 
             { 
+            __context__.SourceCodeLine = 172;
+            _SplusNVRAM.ICHANGED [ I] = (ushort) ( 1 ) ; 
             __context__.SourceCodeLine = 170;
-            ICHANGED [ I] = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 168;
             } 
         
-        __context__.SourceCodeLine = 172;
+        __context__.SourceCodeLine = 174;
         ITCPCONNECTED = (ushort) ( 0 ) ; 
         
         
@@ -266,7 +275,7 @@ object MANUAL_UPDATE_OnPush_3 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 177;
+        __context__.SourceCodeLine = 179;
         FRUNLOOP (  __context__  ) ; 
         
         
@@ -287,22 +296,22 @@ object IN__DOLLAR___OnChange_4 ( Object __EventInfo__ )
         ushort I = 0;
         
         
-        __context__.SourceCodeLine = 184;
-        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
         __context__.SourceCodeLine = 186;
-        ICHANGED [ I] = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 187;
-        _SplusNVRAM.SDATA [ I ]  .UpdateValue ( FFILTERKEYDATA (  __context__ , IN__DOLLAR__[ I ])  ) ; 
+        I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
+        __context__.SourceCodeLine = 188;
+        _SplusNVRAM.ICHANGED [ I] = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 189;
-        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ILOOPRUNNING ) ) && Functions.TestForTrue ( _SplusNVRAM.IINITIALIZED )) ))  ) ) 
+        _SplusNVRAM.SDATA [ I ]  .UpdateValue ( FFILTERKEYDATA (  __context__ , IN__DOLLAR__[ I ])  ) ; 
+        __context__.SourceCodeLine = 191;
+        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Not( ILOOPRUNNING ) ) && Functions.TestForTrue ( IINITIALIZED )) ))  ) ) 
             {
-            __context__.SourceCodeLine = 189;
+            __context__.SourceCodeLine = 191;
             FSEND (  __context__ , (ushort)( I )) ; 
             }
         
         else 
             { 
-            __context__.SourceCodeLine = 192;
+            __context__.SourceCodeLine = 194;
             INEWCHANGEDURINGLOOP = (ushort) ( 1 ) ; 
             } 
         
@@ -329,36 +338,27 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 201;
-        WaitForInitializationComplete ( ) ; 
         __context__.SourceCodeLine = 203;
-        I = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 204;
-        STEMPKEYS  .UpdateValue ( KEYS_TO_STORE  ) ; 
+        WaitForInitializationComplete ( ) ; 
         __context__.SourceCodeLine = 205;
+        I = (ushort) ( 0 ) ; 
+        __context__.SourceCodeLine = 206;
+        STEMPKEYS  .UpdateValue ( KEYS_TO_STORE  ) ; 
+        __context__.SourceCodeLine = 207;
         while ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.Find( "," , STEMPKEYS ) ) && Functions.TestForTrue ( Functions.BoolToInt ( I <= 30 ) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 207;
-            I = (ushort) ( (I + 1) ) ; 
-            __context__.SourceCodeLine = 208;
-            STEMP  .UpdateValue ( Functions.Remove ( "," , STEMPKEYS )  ) ; 
             __context__.SourceCodeLine = 209;
-            SKEYS [ I ]  .UpdateValue ( ST . StringTrim (  Functions.Left( STEMP , (int)( (Functions.Length( STEMP ) - 1) ) )  .ToSimplSharpString() )  ) ; 
-            __context__.SourceCodeLine = 205;
-            } 
-        
-        __context__.SourceCodeLine = 212;
-        STEMPKEYS  .UpdateValue ( ST . StringTrim (  STEMPKEYS  .ToSimplSharpString() )  ) ; 
-        __context__.SourceCodeLine = 213;
-        if ( Functions.TestForTrue  ( ( Functions.Length( STEMPKEYS ))  ) ) 
-            { 
-            __context__.SourceCodeLine = 215;
             I = (ushort) ( (I + 1) ) ; 
-            __context__.SourceCodeLine = 216;
-            SKEYS [ I ]  .UpdateValue ( ST . StringTrim (  STEMPKEYS  .ToSimplSharpString() )  ) ; 
+            __context__.SourceCodeLine = 210;
+            STEMP  .UpdateValue ( Functions.Remove ( "," , STEMPKEYS )  ) ; 
+            __context__.SourceCodeLine = 211;
+            SKEYS [ I ]  .UpdateValue ( ST . StringTrim (  Functions.Left( STEMP , (int)( (Functions.Length( STEMP ) - 1) ) )  .ToSimplSharpString() )  ) ; 
+            __context__.SourceCodeLine = 207;
             } 
         
-        __context__.SourceCodeLine = 219;
+        __context__.SourceCodeLine = 214;
+        STEMPKEYS  .UpdateValue ( ST . StringTrim (  STEMPKEYS  .ToSimplSharpString() )  ) ; 
+        __context__.SourceCodeLine = 215;
         INUMOFKEYS = (ushort) ( I ) ; 
         
         
@@ -372,7 +372,7 @@ public override object FunctionMain (  object __obj__ )
 public override void LogosSplusInitialize()
 {
     _SplusNVRAM = new SplusNVRAM( this );
-    ICHANGED  = new ushort[ 751 ];
+    _SplusNVRAM.ICHANGED  = new ushort[ 751 ];
     STRASH  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
     _SplusNVRAM.SDATA  = new CrestronString[ 251 ];
     for( uint i = 0; i < 251; i++ )
@@ -460,7 +460,7 @@ public class SplusNVRAM : SplusStructureBase
     public SplusNVRAM( SplusObject __caller__ ) : base( __caller__ ) {}
     
     [SplusStructAttribute(0, false, true)]
-            public ushort IINITIALIZED = 0;
+            public ushort [] ICHANGED;
             [SplusStructAttribute(1, false, true)]
             public CrestronString [] SDATA;
             
