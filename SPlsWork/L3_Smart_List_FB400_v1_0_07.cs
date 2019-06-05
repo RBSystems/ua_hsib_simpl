@@ -488,7 +488,7 @@ namespace UserModule_L3_SMART_LIST_FB400_V1_0_07
             m_StringOutputList.Add( TX__DOLLAR__1__AnalogSerialOutput__ + i, TX__DOLLAR__1[i+1] );
         }
         
-        RX__DOLLAR__ = new Crestron.Logos.SplusObjects.BufferInput( RX__DOLLAR____AnalogSerialInput__, 5000, this );
+        RX__DOLLAR__ = new Crestron.Logos.SplusObjects.BufferInput( RX__DOLLAR____AnalogSerialInput__, 10000, this );
         m_StringInputList.Add( RX__DOLLAR____AnalogSerialInput__, RX__DOLLAR__ );
         
         HIGHINDEX = new UShortParameter( HIGHINDEX__Parameter__, this );
