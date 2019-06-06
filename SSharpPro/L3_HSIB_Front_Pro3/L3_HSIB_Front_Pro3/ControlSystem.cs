@@ -77,7 +77,9 @@ namespace L3_HSIB_Front_Pro3
         {
             try
             {
+                //create data tables
                 Global_Data gData = new Global_Data(this);
+                //load each file
                 foreach (var f in data_files)
                 {
                     string file_location = path + f;
@@ -86,7 +88,6 @@ namespace L3_HSIB_Front_Pro3
                     try
                     {
                         file_data = File.ReadToEnd(file_location, enc.UTF8);
-
                         gData.InitData(f, file_data);
                     }
                     catch
