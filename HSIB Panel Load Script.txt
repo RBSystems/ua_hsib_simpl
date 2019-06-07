@@ -1,0 +1,83 @@
+//Crestron Toolbox Template Script File.
+
+[Header]
+// Global settings go here.
+// Add key to individual sections to override, otherwise these values will be used.
+DebugStrings=on
+AbortOnError=on
+ConcurrentSectionLimit=40
+GlobalReportFile=|$scriptpath||$scriptfilename|__ReportLog_|$date|_|$time|.log
+GlobalReportFileIncludeAll=on
+
+[Variables]
+//Predefined: $time $date $scriptfilename $scriptpath $scriptsection $scriptconnect $scriptindex $LF
+PanelFile_Lecture="C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\VTPro\HSIB_Lecture_DGE200_v1.0.70.vtz"
+Pro3IP="10.156.32.100"
+
+
+
+[305]
+Connect=auto 10.156.27.24
+
+DisplayListSend |PanelFile_Lecture|
+
+[306]
+Connect=auto 10.156.27.29
+
+DisplayListSend |PanelFile_Lecture|
+
+[320]
+Connect=auto 10.156.27.35
+
+DisplayListSend |PanelFile_Lecture|
+
+[321]
+Connect=auto 10.156.27.40
+
+DisplayListSend |PanelFile_Lecture|
+
+[322]
+Connect=auto 10.156.27.45
+
+DisplayListSend |PanelFile_Lecture|
+
+[323]
+Connect=auto 10.156.27.50
+
+DisplayListSend |PanelFile_Lecture|
+
+[442]
+Connect=auto 10.156.27.55
+
+DisplayListSend |PanelFile_Lecture|
+
+[443]
+Connect=auto 10.156.27.60
+
+DisplayListSend |PanelFile_Lecture|
+
+[444]
+Connect=auto 10.156.27.65
+
+DisplayListSend |PanelFile_Lecture|
+
+[445]
+Connect=auto 10.156.27.70
+
+DisplayListSend |PanelFile_Lecture|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

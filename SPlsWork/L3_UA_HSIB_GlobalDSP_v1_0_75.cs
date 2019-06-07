@@ -284,142 +284,142 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 250;
+                    __context__.SourceCodeLine = 251;
                     if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "room_ass" , STEMPKEY ))  ) ) 
                         {
-                        __context__.SourceCodeLine = 250;
+                        __context__.SourceCodeLine = 251;
                         LIST [ IINDEX] . IRMASS = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                         }
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 251;
+                        __context__.SourceCodeLine = 252;
                         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "local_index" , STEMPKEY ))  ) ) 
                             {
-                            __context__.SourceCodeLine = 251;
+                            __context__.SourceCodeLine = 252;
                             LIST [ IINDEX] . ILOCALID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                             }
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 252;
+                            __context__.SourceCodeLine = 253;
                             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "fixed_id" , STEMPKEY ))  ) ) 
                                 {
-                                __context__.SourceCodeLine = 252;
+                                __context__.SourceCodeLine = 253;
                                 LIST [ IINDEX] . IFIXEDID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                 }
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 253;
+                                __context__.SourceCodeLine = 254;
                                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "group" , STEMPKEY ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 253;
+                                    __context__.SourceCodeLine = 254;
                                     LIST [ IINDEX] . IGROUPID = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                     }
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 254;
-                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_virtual" , STEMPKEY ))  ) ) 
+                                    __context__.SourceCodeLine = 256;
+                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "tag_gain" , STEMPKEY ))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 254;
-                                        LIST [ IINDEX] . IISVIRTUAL = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                        __context__.SourceCodeLine = 256;
+                                        LIST [ IINDEX] . SGAINCMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                         }
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 255;
-                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_max" , STEMPKEY ))  ) ) 
+                                        __context__.SourceCodeLine = 257;
+                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "tag_mute" , STEMPKEY ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 255;
-                                            LIST [ IINDEX] . SIRANGEMAX = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                            __context__.SourceCodeLine = 257;
+                                            LIST [ IINDEX] . SMUTECMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                             }
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 256;
-                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_min" , STEMPKEY ))  ) ) 
+                                            __context__.SourceCodeLine = 258;
+                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "tag_rte" , STEMPKEY ))  ) ) 
                                                 {
-                                                __context__.SourceCodeLine = 256;
-                                                LIST [ IINDEX] . SIRANGEMIN = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                __context__.SourceCodeLine = 258;
+                                                LIST [ IINDEX] . SRTECMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
                                                 }
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 257;
-                                                if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol_default" , STEMPKEY ))  ) ) 
+                                                __context__.SourceCodeLine = 260;
+                                                if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "is_virtual" , STEMPKEY ))  ) ) 
                                                     {
-                                                    __context__.SourceCodeLine = 257;
-                                                    LIST [ IINDEX] . SIDEFAULTVOL = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                    __context__.SourceCodeLine = 260;
+                                                    LIST [ IINDEX] . IISVIRTUAL = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                     }
                                                 
                                                 else 
                                                     {
-                                                    __context__.SourceCodeLine = 258;
-                                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute_default" , STEMPKEY ))  ) ) 
+                                                    __context__.SourceCodeLine = 261;
+                                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_max" , STEMPKEY ))  ) ) 
                                                         {
-                                                        __context__.SourceCodeLine = 258;
-                                                        LIST [ IINDEX] . IDEFAULTMUTE = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                        __context__.SourceCodeLine = 261;
+                                                        LIST [ IINDEX] . SIRANGEMAX = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                         }
                                                     
                                                     else 
                                                         {
-                                                        __context__.SourceCodeLine = 259;
-                                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol_disabled" , STEMPKEY ))  ) ) 
+                                                        __context__.SourceCodeLine = 262;
+                                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "range_min" , STEMPKEY ))  ) ) 
                                                             {
-                                                            __context__.SourceCodeLine = 259;
-                                                            LIST [ IINDEX] . IVOLDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                            __context__.SourceCodeLine = 262;
+                                                            LIST [ IINDEX] . SIRANGEMIN = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                             }
                                                         
                                                         else 
                                                             {
-                                                            __context__.SourceCodeLine = 260;
-                                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute_disabled" , STEMPKEY ))  ) ) 
+                                                            __context__.SourceCodeLine = 263;
+                                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol_default" , STEMPKEY ))  ) ) 
                                                                 {
-                                                                __context__.SourceCodeLine = 260;
-                                                                LIST [ IINDEX] . IMUTEDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                                __context__.SourceCodeLine = 263;
+                                                                LIST [ IINDEX] . SIDEFAULTVOL = (short) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                 }
                                                             
                                                             else 
                                                                 {
-                                                                __context__.SourceCodeLine = 261;
-                                                                if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "point_type" , STEMPKEY ))  ) ) 
+                                                                __context__.SourceCodeLine = 264;
+                                                                if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute_default" , STEMPKEY ))  ) ) 
                                                                     {
-                                                                    __context__.SourceCodeLine = 261;
-                                                                    LIST [ IINDEX] . IPOINTTYPE = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
+                                                                    __context__.SourceCodeLine = 264;
+                                                                    LIST [ IINDEX] . IDEFAULTMUTE = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                     }
                                                                 
                                                                 else 
                                                                     {
-                                                                    __context__.SourceCodeLine = 262;
-                                                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "named_control_gain" , STEMPKEY ))  ) ) 
+                                                                    __context__.SourceCodeLine = 265;
+                                                                    if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "vol_disabled" , STEMPKEY ))  ) ) 
                                                                         {
-                                                                        __context__.SourceCodeLine = 262;
-                                                                        LIST [ IINDEX] . SGAINCMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
+                                                                        __context__.SourceCodeLine = 265;
+                                                                        LIST [ IINDEX] . IVOLDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                         }
                                                                     
                                                                     else 
                                                                         {
-                                                                        __context__.SourceCodeLine = 263;
-                                                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "named_control_mute" , STEMPKEY ))  ) ) 
+                                                                        __context__.SourceCodeLine = 266;
+                                                                        if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "mute_disabled" , STEMPKEY ))  ) ) 
                                                                             {
-                                                                            __context__.SourceCodeLine = 263;
-                                                                            LIST [ IINDEX] . SMUTECMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
+                                                                            __context__.SourceCodeLine = 266;
+                                                                            LIST [ IINDEX] . IMUTEDISABLED = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                             }
                                                                         
                                                                         else 
                                                                             {
-                                                                            __context__.SourceCodeLine = 264;
-                                                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "named_control_rte" , STEMPKEY ))  ) ) 
+                                                                            __context__.SourceCodeLine = 267;
+                                                                            if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "point_type" , STEMPKEY ))  ) ) 
                                                                                 {
-                                                                                __context__.SourceCodeLine = 264;
-                                                                                LIST [ IINDEX] . SRTECMDDATA  .UpdateValue ( FTRIMWHITESPACE (  __context__ , STEMPVALUE)  ) ; 
+                                                                                __context__.SourceCodeLine = 267;
+                                                                                LIST [ IINDEX] . IPOINTTYPE = (ushort) ( Functions.Atoi( STEMPVALUE ) ) ; 
                                                                                 }
                                                                             
                                                                             else 
                                                                                 { 
-                                                                                __context__.SourceCodeLine = 267;
+                                                                                __context__.SourceCodeLine = 270;
                                                                                 Trace( "GlobalDSP - fProcessLine error - didn't catch key - type={0:d}, GUID={1:d}, key={2}, value={3}", (ushort)ITYPE, (ushort)IINDEX, STEMPKEY , STEMPVALUE ) ; 
                                                                                 } 
                                                                             
@@ -458,28 +458,28 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
             __context__.SourceCodeLine = 242;
             } 
         
-        __context__.SourceCodeLine = 272;
+        __context__.SourceCodeLine = 275;
         if ( Functions.TestForTrue  ( ( Functions.Not( IERR ))  ) ) 
             { 
-            __context__.SourceCodeLine = 274;
+            __context__.SourceCodeLine = 277;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( LIST[ IINDEX ].IRMASS ) && Functions.TestForTrue ( LIST[ IINDEX ].IPOINTTYPE )) ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 277;
+                __context__.SourceCodeLine = 280;
                 MakeString ( LIST [ IINDEX] . SGLOBALNAME , "{0} {1}", ROOM [ LIST[ IINDEX ].IRMASS] . SROOMNAME , LIST [ IINDEX] . SLOCALNAME ) ; 
-                __context__.SourceCodeLine = 279;
+                __context__.SourceCodeLine = 282;
                 DSP_XREF [ (((LIST[ IINDEX ].IRMASS - 1) * 50) + LIST[ IINDEX ].ILOCALID)] = (ushort) ( IINDEX ) ; 
                 } 
             
-            __context__.SourceCodeLine = 282;
+            __context__.SourceCodeLine = 285;
             LIST [ IINDEX] . IITEMACTIVE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 283;
+            __context__.SourceCodeLine = 286;
             FHIGHESTLISTINDEX (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX )) ; 
-            __context__.SourceCodeLine = 284;
+            __context__.SourceCodeLine = 287;
             if ( Functions.TestForTrue  ( ( LIST[ IINDEX ].IRMASS)  ) ) 
                 { 
-                __context__.SourceCodeLine = 286;
+                __context__.SourceCodeLine = 289;
                 STEMPHEADER  .UpdateValue ( FGETDATAHEADER (  __context__ , (ushort)( ITYPE ))  ) ; 
-                __context__.SourceCodeLine = 287;
+                __context__.SourceCodeLine = 290;
                 MakeString ( TO_ROOM_TX__DOLLAR__ [ LIST[ IINDEX ].IRMASS] , "{{{0} LOCALID={1:d}: GUID={2:d}, global_name={3}, local_name={4}, fixed_id={5:d}, group_id={6:d}, is_virtual={7:d}, range_max={8:d}, range_min={9:d}, default_vol={10:d}, default_mute={11:d}, vol_disabled={12:d}, mute_disabled={13:d}, point_type={14:d}, |}}", STEMPHEADER , (ushort)LIST[ IINDEX ].ILOCALID, (ushort)IINDEX, LIST [ IINDEX] . SGLOBALNAME , LIST [ IINDEX] . SLOCALNAME , (ushort)LIST[ IINDEX ].IFIXEDID, (ushort)LIST[ IINDEX ].IGROUPID, (ushort)LIST[ IINDEX ].IISVIRTUAL, (short)LIST[ IINDEX ].SIRANGEMAX, (short)LIST[ IINDEX ].SIRANGEMIN, (short)LIST[ IINDEX ].SIDEFAULTVOL, (ushort)LIST[ IINDEX ].IDEFAULTMUTE, (ushort)LIST[ IINDEX ].IVOLDISABLED, (ushort)LIST[ IINDEX ].IMUTEDISABLED, (ushort)LIST[ IINDEX ].IPOINTTYPE) ; 
                 } 
             
@@ -501,16 +501,16 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
         SDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
         
         
-        __context__.SourceCodeLine = 313;
+        __context__.SourceCodeLine = 316;
         if ( Functions.TestForTrue  ( ( Functions.Find( "," , STEMPLINE ))  ) ) 
             { 
-            __context__.SourceCodeLine = 315;
-            SDATA  .UpdateValue ( STEMPLINE  ) ; 
-            __context__.SourceCodeLine = 316;
-            ROOM [ IINDEX] . SROOMNAME  .UpdateValue ( FTRIMWHITESPACE (  __context__ , Functions.Left( SDATA , (int)( (Functions.Find( "," , SDATA ) - 1) ) ))  ) ; 
-            __context__.SourceCodeLine = 317;
-            STRASH  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
             __context__.SourceCodeLine = 318;
+            SDATA  .UpdateValue ( STEMPLINE  ) ; 
+            __context__.SourceCodeLine = 319;
+            ROOM [ IINDEX] . SROOMNAME  .UpdateValue ( FTRIMWHITESPACE (  __context__ , Functions.Left( SDATA , (int)( (Functions.Find( "," , SDATA ) - 1) ) ))  ) ; 
+            __context__.SourceCodeLine = 320;
+            STRASH  .UpdateValue ( Functions.Remove ( "," , SDATA )  ) ; 
+            __context__.SourceCodeLine = 321;
             ROOM [ IINDEX] . IROOMNUM = (ushort) ( Functions.Atoi( SDATA ) ) ; 
             } 
         
@@ -534,38 +534,38 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
         STEMPLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 300, this );
         
         
-        __context__.SourceCodeLine = 335;
-        STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
-        __context__.SourceCodeLine = 336;
-        STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
         __context__.SourceCodeLine = 338;
+        STEMPDATA  .UpdateValue ( STEMPINITDATA  ) ; 
+        __context__.SourceCodeLine = 339;
+        STEMPHEADER  .UpdateValue ( Functions.Remove ( ";" , STEMPDATA )  ) ; 
+        __context__.SourceCodeLine = 341;
         if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_POINTS" , STEMPHEADER ))  ) ) 
             {
-            __context__.SourceCodeLine = 338;
+            __context__.SourceCodeLine = 341;
             ITYPE = (ushort) ( 1 ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 339;
+            __context__.SourceCodeLine = 342;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "DSP_PRESETS" , STEMPHEADER ))  ) ) 
                 {
-                __context__.SourceCodeLine = 339;
+                __context__.SourceCodeLine = 342;
                 ITYPE = (ushort) ( 2 ) ; 
                 }
             
             else 
                 {
-                __context__.SourceCodeLine = 340;
+                __context__.SourceCodeLine = 343;
                 if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "ROOMS" , STEMPHEADER ))  ) ) 
                     {
-                    __context__.SourceCodeLine = 340;
+                    __context__.SourceCodeLine = 343;
                     ITYPE = (ushort) ( 13 ) ; 
                     }
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 341;
+                    __context__.SourceCodeLine = 344;
                     Trace( "GlobalDSP - in fProcessInit - didn't catch header type - {0}", STEMPHEADER ) ; 
                     }
                 
@@ -573,30 +573,30 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
             
             }
         
-        __context__.SourceCodeLine = 343;
+        __context__.SourceCodeLine = 346;
         while ( Functions.TestForTrue  ( ( Functions.Find( "|" , STEMPDATA ))  ) ) 
             { 
-            __context__.SourceCodeLine = 345;
+            __context__.SourceCodeLine = 348;
             STEMPLINE  .UpdateValue ( Functions.Remove ( "|" , STEMPDATA )  ) ; 
-            __context__.SourceCodeLine = 346;
+            __context__.SourceCodeLine = 349;
             if ( Functions.TestForTrue  ( ( Functions.FindNoCase( "complete" , STEMPLINE ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 348;
+                __context__.SourceCodeLine = 351;
                 Functions.Delay (  (int) ( 10 ) ) ; 
-                __context__.SourceCodeLine = 349;
+                __context__.SourceCodeLine = 352;
                 FPROCESSLIST (  __context__ , (ushort)( ITYPE )) ; 
                 } 
             
             else 
                 { 
-                __context__.SourceCodeLine = 353;
-                STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
-                __context__.SourceCodeLine = 354;
-                IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
                 __context__.SourceCodeLine = 356;
+                STEMPGUID  .UpdateValue ( Functions.Remove ( ":" , STEMPLINE )  ) ; 
+                __context__.SourceCodeLine = 357;
+                IINDEX = (ushort) ( Functions.Atoi( STEMPGUID ) ) ; 
+                __context__.SourceCodeLine = 359;
                 if ( Functions.TestForTrue  ( ( IINDEX)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 358;
+                    __context__.SourceCodeLine = 361;
                     
                         {
                         int __SPLS_TMPVAR__SWTCH_2__ = ((int)ITYPE);
@@ -604,29 +604,29 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
                             { 
                             if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 1) ) ) ) 
                                 { 
-                                __context__.SourceCodeLine = 362;
-                                LIST [ IINDEX] . SIRANGEMAX = (short) ( 6 ) ; 
-                                __context__.SourceCodeLine = 363;
-                                LIST [ IINDEX] . SIRANGEMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
-                                __context__.SourceCodeLine = 364;
-                                LIST [ IINDEX] . IRANGETOTAL = (ushort) ( 26 ) ; 
                                 __context__.SourceCodeLine = 365;
-                                LIST [ IINDEX] . IDEFAULTMUTE = (ushort) ( 0 ) ; 
+                                LIST [ IINDEX] . SIRANGEMAX = (short) ( 6 ) ; 
                                 __context__.SourceCodeLine = 366;
-                                LIST [ IINDEX] . SIDEFAULTVOL = (short) ( 0 ) ; 
+                                LIST [ IINDEX] . SIRANGEMIN = (short) ( Functions.ToInteger( -( 20 ) ) ) ; 
+                                __context__.SourceCodeLine = 367;
+                                LIST [ IINDEX] . IRANGETOTAL = (ushort) ( 26 ) ; 
                                 __context__.SourceCodeLine = 368;
+                                LIST [ IINDEX] . IDEFAULTMUTE = (ushort) ( 0 ) ; 
+                                __context__.SourceCodeLine = 369;
+                                LIST [ IINDEX] . SIDEFAULTVOL = (short) ( 0 ) ; 
+                                __context__.SourceCodeLine = 371;
                                 FPROCESSLINE (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 } 
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 2) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 370;
+                                __context__.SourceCodeLine = 373;
                                 FPROCESSPRESET (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
                             else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 13) ) ) ) 
                                 {
-                                __context__.SourceCodeLine = 371;
+                                __context__.SourceCodeLine = 374;
                                 FPROCESSROOMS (  __context__ , (ushort)( ITYPE ), (ushort)( IINDEX ), STEMPLINE) ; 
                                 }
                             
@@ -639,13 +639,13 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
                 
                 else 
                     {
-                    __context__.SourceCodeLine = 374;
+                    __context__.SourceCodeLine = 377;
                     Trace( "GlobalDSP - fProcessInit error, iIndex did not resolve -    {0} {1:d} {2}", STEMPHEADER , (ushort)IINDEX, STEMPLINE ) ; 
                     }
                 
                 } 
             
-            __context__.SourceCodeLine = 343;
+            __context__.SourceCodeLine = 346;
             } 
         
         
@@ -664,14 +664,14 @@ namespace UserModule_L3_UA_HSIB_GLOBALDSP_V1_0_75
             STEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 50000, this );
             
             
-            __context__.SourceCodeLine = 392;
+            __context__.SourceCodeLine = 395;
             while ( Functions.TestForTrue  ( ( Functions.Find( "}" , DATAINIT_RX__DOLLAR__ ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 394;
+                __context__.SourceCodeLine = 397;
                 STEMP  .UpdateValue ( Functions.Gather ( "}" , DATAINIT_RX__DOLLAR__ )  ) ; 
-                __context__.SourceCodeLine = 395;
+                __context__.SourceCodeLine = 398;
                 FPROCESSINIT (  __context__ , STEMP) ; 
-                __context__.SourceCodeLine = 392;
+                __context__.SourceCodeLine = 395;
                 } 
             
             
@@ -695,7 +695,7 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 413;
+        __context__.SourceCodeLine = 416;
         WaitForInitializationComplete ( ) ; 
         
         

@@ -509,6 +509,7 @@ namespace UofA_HSIB_Pro
 
                 string[] keyValues = ReturnTidiedKeyValuePairs(args);
 
+                CrestronConsole.PrintLine("FuCK THIS STUPID SHIT  --- {0}", keyValues[0]);
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
                 {
@@ -517,6 +518,7 @@ namespace UofA_HSIB_Pro
                     string key = KeyValue.Split('=')[0];
                     string value = KeyValue.Split('=')[1];
 
+                    CrestronConsole.PrintLine("-----   {0}:{1}   -----", key, value);
                     switch (key.ToUpper())
                     {
                         case ("GLOBAL_NAME"):
@@ -536,6 +538,7 @@ namespace UofA_HSIB_Pro
                             }
                         case ("DEVICE_TYPE"):
                             {
+                                CrestronConsole.PrintLine("~~~~~~~~{0}", value.ToUpper());
                                 switch (value.ToUpper())        //device_type=[sony_lcd,sony_proj,lg_lcd,barco_lcd,Christie_lcd]
                                 {
                                     case ("SONY_LCD"):
@@ -574,10 +577,10 @@ namespace UofA_HSIB_Pro
                     }
                 }
                 #endregion
-
+                //if(name != null)    
                 display.Controller.Name = name;
-                display.Controller.Guid = (int)args.Sig.Number;
-
+                //display.Controller.Name = "myDisplayName";
+                //display.Controller.Guid = (int)args.Sig.Number;
                 #region Set Communications
                 if (comPort != 0)
                 {
@@ -595,6 +598,7 @@ namespace UofA_HSIB_Pro
                 }
                 else if (ip != "" && portNumber != -1)
                 {
+
                     display.Client = new TCPClient();
                     display.Client.AddressClientConnectedTo = ip;
                     display.Client.PortNumber = portNumber;
@@ -602,7 +606,6 @@ namespace UofA_HSIB_Pro
                 }
 
                 #endregion
-
                 #region Check if GUID exists. IF so remove it. Then add dislay to list.
                 if (controlSystem.DisplaysList.FindIndex(x => x.Guid == display.Guid) != -1)
                 {
@@ -629,6 +632,7 @@ namespace UofA_HSIB_Pro
                 }
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
                 #endregion
+
 
             }
             catch(Exception e)
@@ -877,14 +881,17 @@ namespace UofA_HSIB_Pro
                 {
                     configuration = configuration.Split(':')[1];                // Remove the header DPLY;guid=01:
                 }
-                while (configuration.Contains("]"))                             // Remove sq bracket sub categorization [ ]
+                if (configuration.Contains("]"))
                 {
-                    configuration = configuration.Remove(0, configuration.IndexOf("[") + 1);
-                    configTemp += configuration.Substring(0, configuration.IndexOf("]"));
-                    configuration = configuration.Remove(0, configuration.IndexOf("]") + 1);
-                }
+                    while (configuration.Contains("]"))                             // Remove sq bracket sub categorization [ ]
+                    {
+                        configuration = configuration.Remove(0, configuration.IndexOf("[") + 1);
+                        configTemp += configuration.Substring(0, configuration.IndexOf("]"));
+                        configuration = configuration.Remove(0, configuration.IndexOf("]") + 1);
+                    }
+                    configuration = configTemp;
 
-                configuration = configTemp;
+                }
                 configuration = configuration.Trim(' ');                        // Remove leading and trailing spaces
                 configuration = configuration.Replace("  ", " ");               // Remove spaces after commas
                 configuration = configuration.Replace(", ", ",");               // Remove spaces after commas
