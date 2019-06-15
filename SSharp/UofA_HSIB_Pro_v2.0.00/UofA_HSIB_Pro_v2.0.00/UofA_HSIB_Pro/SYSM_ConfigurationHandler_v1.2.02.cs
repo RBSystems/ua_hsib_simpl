@@ -58,7 +58,7 @@ namespace UofA_HSIB_Pro
         }
         private bool debug = true;
 
-        ControlSystem controlSystem;
+        public ControlSystem controlSystem;
         public ConfigPacer Pacer;
 
         
@@ -105,7 +105,7 @@ namespace UofA_HSIB_Pro
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix as {1} named {2} on IP {3}", CLASSID, controlSystem.MTRXEvertz.ToString(), controlSystem.MTRXEvertz.Name, controlSystem.MTRXEvertzClient.AddressClientConnectedTo); }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix as {1} named {2} on IP {3}", CLASSID, controlSystem.MTRXEvertz.ToString(), controlSystem.MTRXEvertz.Name, controlSystem.MTRXEvertzClient.AddressClientConnectedTo), CLASSID, false);                
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix as {1} named {2} on IP {3}", CLASSID, controlSystem.MTRXEvertz.ToString(), controlSystem.MTRXEvertz.Name, controlSystem.MTRXEvertzClient.AddressClientConnectedTo), CLASSID, false);                
             }
             catch
             {
@@ -175,7 +175,7 @@ namespace UofA_HSIB_Pro
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].SignalNumber); }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].SignalNumber), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].SignalNumber), CLASSID, false);
             }
             catch (Exception e)
             {
@@ -244,7 +244,7 @@ namespace UofA_HSIB_Pro
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber); }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber), CLASSID, false);
             }
             catch (Exception e)
             {
@@ -319,7 +319,7 @@ namespace UofA_HSIB_Pro
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom); };
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom), CLASSID, false);
             }
             catch
             {
@@ -350,7 +350,7 @@ namespace UofA_HSIB_Pro
                 ConfigStrings[(int)Method.ConfigureDSP, args.Sig.Number] = args.Sig.StringValue;
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configuring DSP with {1}...", CLASSID, args.Sig.StringValue); }
-                controlSystem.DSPQSC = new DSP_QSCCore();
+                controlSystem.DSPQSC = new DSP_QSCCore(this);
                 controlSystem.DSPQSC.OnCommandToSend += new DSP_QSCCore.CommandToSend(controlSystem.ModuleNeedsToSend);
                 controlSystem.DSPQSC.OnFeedbackUpdate += new DSP_QSCCore.FeedbackUpdate(controlSystem.ModuleHasUpdate);
                 controlSystem.DSPQSC.Name = args.Sig.StringValue.Split('|')[0];
@@ -363,7 +363,7 @@ namespace UofA_HSIB_Pro
                 //controlSystem.DSPIPAddress = args.Sig.StringValue.Split('|')[1];
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "  ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured DSP as {1} named {2} on IP {3}", CLASSID, controlSystem.DSPQSC.ToString(), controlSystem.DSPQSC.Name, controlSystem.DSPQSCClient.AddressClientConnectedTo), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured DSP as {1} named {2} on IP {3}", CLASSID, controlSystem.DSPQSC.ToString(), controlSystem.DSPQSC.Name, controlSystem.DSPQSCClient.AddressClientConnectedTo), CLASSID, false);
             }
             catch
             {
@@ -397,13 +397,13 @@ namespace UofA_HSIB_Pro
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configuring DSP Signal {1} with {2}...", CLASSID, args.Sig.Number, args.Sig.StringValue); }
 
                 string[] keyValues = ReturnTidiedKeyValuePairs(args);
-
                 uint guid = args.Sig.Number;
                 string name = "";
                 string vol = "";
                 string mute = "";
                 int pointType = 0;
                 string rte = "";
+                int sysID = 0;
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
                 {
@@ -411,7 +411,6 @@ namespace UofA_HSIB_Pro
 
                     string key = KeyValue.Split('=')[0];
                     string value = KeyValue.Split('=')[1];
-
                     switch (key.ToUpper())
                     {
                         case ("LOCAL_NAME"):
@@ -419,33 +418,20 @@ namespace UofA_HSIB_Pro
                                 name = value;
                                 break;
                             }
-                        case ("NAMED_CONTROL_GAIN"):
-                            {
-                                vol = value;
-                                mute = value.Replace("_volLevel", "_muteState");
-                                break;
-                            }
+
                         case ("TAG_GAIN"):
                             {
                                 vol = value;
-                                mute = value.Replace("_volLevel", "_muteState");
+                                //mute = value.Replace("_volLevel", "_muteState");
                                 break;
                             }
-                        case ("NAMED_CONTROL_MUTE"):
-                            {
-                                mute = value;
-                                break;
-                            }
+
                         case ("TAG_MUTE"):
                             {
                                 mute = value;
                                 break;
                             }
-                        case ("NAMED_CONTROL_RTE"):
-                            {
-                                rte = value;
-                                break;
-                            }
+
                         case ("TAG_RTE"):
                             {
                                 rte = value;
@@ -456,19 +442,24 @@ namespace UofA_HSIB_Pro
                                 pointType = Convert.ToInt32(value);
                                 break;
                             }
+                        case ("DSP_SYSTEM"):
+                            {
+                                sysID = Convert.ToInt32(value);
+                                break;
+                            }
                     }
                 }
                 #endregion
+                controlSystem.DSPQSC.RegisterSignal(guid, name, vol, mute, rte, pointType, sysID);
 
-                controlSystem.DSPQSC.RegisterSignal(guid, name, vol, mute, rte, pointType);
-
-                if (debug) { CrestronConsole.PrintLine("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].MuteNamedControl); }
+                if (debug) { CrestronConsole.PrintLine("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[(int)args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[(int)args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[(int)args.Sig.Number].MuteNamedControl); }
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].MuteNamedControl), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].MuteNamedControl), CLASSID, false);
             }
-            catch
+            catch (Exception e)
             {
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "NAK"));
+                CrestronConsole.PrintLine("~~~~~~~~ Catch args e: {0}", e.StackTrace);
             }
         }
 
@@ -623,12 +614,12 @@ namespace UofA_HSIB_Pro
                 if (display.Client != null)
                 {
                     CrestronConsole.PrintLine("{0} *** Configured Display {1} as {2} named {3} on IP {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.Client.AddressClientConnectedTo);
-                    controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on IP {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.Client.AddressClientConnectedTo), CLASSID, false);
+                    //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on IP {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.Client.AddressClientConnectedTo), CLASSID, false);
                 }
                 else if (display.SerialPort != null)
                 {
                     CrestronConsole.PrintLine("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID);
-                    controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID), CLASSID, false);
+                    //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID), CLASSID, false);
                 }
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
                 #endregion
@@ -708,7 +699,7 @@ namespace UofA_HSIB_Pro
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Relays {1} and {2} named {3} with IP {4}", CLASSID, Guid, Guid + 1, controlSystem.RLYGlobalCache[Guid].Name, controlSystem.RLYGlobalCacheClients[Guid].AddressClientConnectedTo); };
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.IgmpRlyPartLghtEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Relays {1} and {2} named {3} with IP {4}", CLASSID, Guid, Guid + 1, controlSystem.RLYGlobalCache[Guid].Name, controlSystem.RLYGlobalCacheClients[Guid].AddressClientConnectedTo), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Relays {1} and {2} named {3} with IP {4}", CLASSID, Guid, Guid + 1, controlSystem.RLYGlobalCache[Guid].Name, controlSystem.RLYGlobalCacheClients[Guid].AddressClientConnectedTo), CLASSID, false);
             }
             catch
             {
@@ -744,7 +735,7 @@ namespace UofA_HSIB_Pro
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Image processor {1} named {2} with IP {3}", CLASSID, id, controlSystem.IMGPTvOne[id].Name, controlSystem.IMGPTvOneClients[id].AddressClientConnectedTo); };
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.IgmpRlyPartLghtEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Image processor {1} named {2} with IP {3}", CLASSID, id, controlSystem.IMGPTvOne[id].Name, controlSystem.IMGPTvOneClients[id].AddressClientConnectedTo), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Image processor {1} named {2} with IP {3}", CLASSID, id, controlSystem.IMGPTvOne[id].Name, controlSystem.IMGPTvOneClients[id].AddressClientConnectedTo), CLASSID, false);
             }
             catch
             {
@@ -791,7 +782,7 @@ namespace UofA_HSIB_Pro
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Image processor {1} named {2} on COM {3}", CLASSID, id, controlSystem.LghtLutron[id].Name, port); };
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.IgmpRlyPartLghtEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Image processor {1} named {2} on COM {3}", CLASSID, id, controlSystem.LghtLutron[id].Name, port), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Image processor {1} named {2} on COM {3}", CLASSID, id, controlSystem.LghtLutron[id].Name, port), CLASSID, false);
             }
             catch
             {
@@ -845,7 +836,7 @@ namespace UofA_HSIB_Pro
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Lighting ID {1} named {2} with Lutron ID {3} on Lutron Device {4}", CLASSID, RoomGuid, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].Name, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].LutronID, Device); };
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.IgmpRlyPartLghtEiscIndices, args.Sig.Number, "ACK"));
-                controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Lighting ID {1} named {2} with Lutron ID {3} on Lutron Device {4}", CLASSID, RoomGuid, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].Name, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].LutronID, Device), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Lighting ID {1} named {2} with Lutron ID {3} on Lutron Device {4}", CLASSID, RoomGuid, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].Name, controlSystem.LghtLutron[Device].RoomSignals[RoomGuid].LutronID, Device), CLASSID, false);
             }
             catch
             {

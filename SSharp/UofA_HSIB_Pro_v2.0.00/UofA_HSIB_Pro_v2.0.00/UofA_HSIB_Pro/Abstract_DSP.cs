@@ -14,7 +14,7 @@ namespace PWCSharpPro
         protected const int numberSignals = 31;
         protected const int numberGroups = 21;
 
-        public enum FeedbackType { Volume, Mute, All };
+        public enum FeedbackType { Volume, Mute, All, Data };
         public enum Volume { Up, Down, Stop };
 
         public abstract bool SupportsTrueFeedback
@@ -53,6 +53,14 @@ namespace PWCSharpPro
             get
             {
                 return signalFollowGroups;
+            }
+        }  
+        protected string[] returnData = new string[numberSignals];
+        public string[] ReturnData
+        {
+            get
+            {
+                return returnData;
             }
         }
 

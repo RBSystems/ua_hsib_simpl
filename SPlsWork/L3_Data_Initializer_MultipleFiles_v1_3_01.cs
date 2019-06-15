@@ -236,6 +236,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             CrestronString SLOCALHEADER;
             CrestronString SLOCALLINE;
             CrestronString SFILELINE;
+            CrestronString SFILEPATHTEMP;
             SFILEDATA  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 50000, this );
             SFILEDATAREMAINDER  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 2000, this );
             SFILEPATH  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
@@ -243,6 +244,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             SLOCALHEADER  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             SLOCALLINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
             SFILELINE  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 1000, this );
+            SFILEPATHTEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 200, this );
             
             FILE_INFO FILEINFO;
             FILEINFO  = new FILE_INFO();
@@ -292,147 +294,167 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                     SFILEPATH  .UpdateValue ( FILEFOLDER__DOLLAR__ + FILENAME__DOLLAR__ [ IFILEINDEX ]  ) ; 
                     __context__.SourceCodeLine = 329;
                     SIERRFOUND = (short) ( FindFirstShared( SFILEPATH , ref FILEINFO ) ) ; 
-                    __context__.SourceCodeLine = 331;
+                    __context__.SourceCodeLine = 332;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( FindClose() < 0 ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 333;
-                        Trace( "DataInitializer - {0}, findclose failed, siErrFound={1:d}", LINEHEADER__DOLLAR__ , (short)SIERRFOUND) ; 
                         __context__.SourceCodeLine = 334;
-                        EndFileOperations ( ) ; 
+                        Trace( "DataInitializer - {0}, findclose failed, siErrFound={1:d}", LINEHEADER__DOLLAR__ , (short)SIERRFOUND) ; 
                         __context__.SourceCodeLine = 335;
+                        EndFileOperations ( ) ; 
+                        __context__.SourceCodeLine = 336;
                         return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                         } 
                     
-                    __context__.SourceCodeLine = 338;
+                    __context__.SourceCodeLine = 340;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (SIERRFOUND != 0))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 340;
-                        Trace( "DataInitializer - {0}, file not found: {1}", LINEHEADER__DOLLAR__ , SFILEPATH ) ; 
-                        __context__.SourceCodeLine = 341;
-                        EndFileOperations ( ) ; 
                         __context__.SourceCodeLine = 342;
+                        SFILEPATHTEMP  .UpdateValue ( "/ROMDISK/USER/MACROS/" + FILENAME__DOLLAR__ [ IFILEINDEX ]  ) ; 
+                        __context__.SourceCodeLine = 343;
+                        SIERRFOUND = (short) ( FindFirstShared( SFILEPATHTEMP , ref FILEINFO ) ) ; 
+                        __context__.SourceCodeLine = 346;
+                        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( FindClose() < 0 ))  ) ) 
+                            { 
+                            __context__.SourceCodeLine = 348;
+                            Trace( "DataInitializer - {0}, findclose failed, siErrFound={1:d}", LINEHEADER__DOLLAR__ , (short)SIERRFOUND) ; 
+                            __context__.SourceCodeLine = 349;
+                            EndFileOperations ( ) ; 
+                            __context__.SourceCodeLine = 350;
+                            return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
+                            } 
+                        
+                        } 
+                    
+                    __context__.SourceCodeLine = 355;
+                    if ( Functions.TestForTrue  ( ( Functions.BoolToInt (SIERRFOUND != 0))  ) ) 
+                        { 
+                        __context__.SourceCodeLine = 357;
+                        Trace( "DataInitializer - {0}, file not found: {1}", LINEHEADER__DOLLAR__ , SFILEPATH ) ; 
+                        __context__.SourceCodeLine = 358;
+                        EndFileOperations ( ) ; 
+                        __context__.SourceCodeLine = 359;
                         return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                         } 
                     
                     else 
                         { 
-                        __context__.SourceCodeLine = 347;
+                        __context__.SourceCodeLine = 364;
                         Trace( "DataInitializer - {0}, file found: {1} ", LINEHEADER__DOLLAR__ , FILEINFO .  Name ) ; 
-                        __context__.SourceCodeLine = 349;
+                        __context__.SourceCodeLine = 366;
                         SIERRFILEOPEN = (short) ( FileOpenShared( SFILEPATH ,(ushort) (0 | 16384) ) ) ; 
-                        __context__.SourceCodeLine = 350;
+                        __context__.SourceCodeLine = 367;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( SIERRFILEOPEN < 0 ))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 353;
+                            __context__.SourceCodeLine = 370;
                             Trace( "DataInitializer - {0}, fileopenshared failed: err code={1:d}, {2}", LINEHEADER__DOLLAR__ , (short)SIERRFILEHANDLE, SFILEPATH ) ; 
-                            __context__.SourceCodeLine = 354;
+                            __context__.SourceCodeLine = 371;
                             EndFileOperations ( ) ; 
-                            __context__.SourceCodeLine = 355;
+                            __context__.SourceCodeLine = 372;
                             return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                             } 
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 361;
+                            __context__.SourceCodeLine = 378;
                             SIERRFILESEEK = (short) ( FileSeek( (short)( SIERRFILEHANDLE ) , (uint)( 0 ) , (ushort)( 0 ) ) ) ; 
-                            __context__.SourceCodeLine = 362;
+                            __context__.SourceCodeLine = 379;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( SIERRFILESEEK < 0 ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 365;
+                                __context__.SourceCodeLine = 382;
                                 Trace( "DataInitializer - {0}, fileseek failed: err code={1:d}, {2}", LINEHEADER__DOLLAR__ , (short)SIERRFILESEEK, SFILEPATH ) ; 
-                                __context__.SourceCodeLine = 366;
+                                __context__.SourceCodeLine = 383;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (FileClose( (short)( SIERRFILEHANDLE ) ) != 0))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 366;
+                                    __context__.SourceCodeLine = 383;
                                     Trace( "DataInitializer - {0}, fileseek failed, fileclose() failed", LINEHEADER__DOLLAR__ ) ; 
                                     }
                                 
-                                __context__.SourceCodeLine = 367;
+                                __context__.SourceCodeLine = 384;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 367;
+                                    __context__.SourceCodeLine = 384;
                                     Trace( "DataInitializer - {0}, fileseek failed, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
                                     }
                                 
-                                __context__.SourceCodeLine = 368;
+                                __context__.SourceCodeLine = 385;
                                 return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                 } 
                             
-                            __context__.SourceCodeLine = 370;
+                            __context__.SourceCodeLine = 387;
                             SIERRFILEREAD = (short) ( 0 ) ; 
-                            __context__.SourceCodeLine = 372;
+                            __context__.SourceCodeLine = 389;
                             while ( Functions.TestForTrue  ( ( Functions.Not( IFILEEND ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 374;
+                                __context__.SourceCodeLine = 391;
                                 SIERRFILEREAD = (short) ( FileRead( (short)( SIERRFILEHANDLE ) , SFILEDATA , (ushort)( 8096 ) ) ) ; 
-                                __context__.SourceCodeLine = 376;
+                                __context__.SourceCodeLine = 393;
                                 SIFILEPOINTER = (int) ( FileSeek( (short)( SIERRFILEHANDLE ) , (uint)( 0 ) , (ushort)( 1 ) ) ) ; 
-                                __context__.SourceCodeLine = 377;
+                                __context__.SourceCodeLine = 394;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( SIFILEPOINTER >= FILEINFO.lSize ))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 377;
+                                    __context__.SourceCodeLine = 394;
                                     IFILEEND = (ushort) ( 1 ) ; 
                                     }
                                 
-                                __context__.SourceCodeLine = 379;
+                                __context__.SourceCodeLine = 396;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( SIERRFILEREAD < 0 ))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 381;
+                                    __context__.SourceCodeLine = 398;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (FileClose( (short)( SIERRFILEHANDLE ) ) != 0))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 381;
+                                        __context__.SourceCodeLine = 398;
                                         Trace( "DataInitializer - {0}, siErrFileRead < 0, fileclose() failed", LINEHEADER__DOLLAR__ ) ; 
                                         }
                                     
-                                    __context__.SourceCodeLine = 382;
+                                    __context__.SourceCodeLine = 399;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 382;
+                                        __context__.SourceCodeLine = 399;
                                         Trace( "DataInitializer - {0}, siErrFileRead < 0, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
                                         }
                                     
-                                    __context__.SourceCodeLine = 383;
+                                    __context__.SourceCodeLine = 400;
                                     return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                     } 
                                 
-                                __context__.SourceCodeLine = 386;
+                                __context__.SourceCodeLine = 403;
                                 SFILEDATA  .UpdateValue ( SFILEDATAREMAINDER + SFILEDATA  ) ; 
-                                __context__.SourceCodeLine = 387;
+                                __context__.SourceCodeLine = 404;
                                 SFILEDATAREMAINDER  .UpdateValue ( ""  ) ; 
-                                __context__.SourceCodeLine = 389;
+                                __context__.SourceCodeLine = 406;
                                 while ( Functions.TestForTrue  ( ( Functions.Length( SFILEDATA ))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 391;
+                                    __context__.SourceCodeLine = 408;
                                     if ( Functions.TestForTrue  ( ( Functions.Find( SFILELINEDELIMITER , SFILEDATA ))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 394;
+                                        __context__.SourceCodeLine = 411;
                                         SFILELINE  .UpdateValue ( Functions.Remove ( SFILELINEDELIMITER , SFILEDATA )  ) ; 
-                                        __context__.SourceCodeLine = 395;
+                                        __context__.SourceCodeLine = 412;
                                         SFILELINE  .UpdateValue ( Functions.Left ( SFILELINE ,  (int) ( (Functions.Length( SFILELINE ) - Functions.Length( SFILELINEDELIMITER )) ) )  ) ; 
-                                        __context__.SourceCodeLine = 396;
+                                        __context__.SourceCodeLine = 413;
                                         SFILELINE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , SFILELINE)  ) ; 
-                                        __context__.SourceCodeLine = 397;
+                                        __context__.SourceCodeLine = 414;
                                         if ( Functions.TestForTrue  ( ( Functions.Find( "//" , SFILELINE ))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 399;
+                                            __context__.SourceCodeLine = 416;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Find( "//" , SFILELINE ) == 1))  ) ) 
                                                 {
-                                                __context__.SourceCodeLine = 399;
+                                                __context__.SourceCodeLine = 416;
                                                 continue ; 
                                                 }
                                             
                                             else 
                                                 { 
-                                                __context__.SourceCodeLine = 402;
+                                                __context__.SourceCodeLine = 419;
                                                 SFILELINE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , Functions.Left( SFILELINE , (int)( (Functions.Find( "//" , SFILELINE ) - 1) ) ))  ) ; 
                                                 } 
                                             
                                             } 
                                         
-                                        __context__.SourceCodeLine = 405;
+                                        __context__.SourceCodeLine = 422;
                                         if ( Functions.TestForTrue  ( ( Functions.Not( Functions.Length( SFILELINE ) ))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 405;
+                                            __context__.SourceCodeLine = 422;
                                             continue ; 
                                             }
                                         
@@ -440,87 +462,87 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 408;
+                                        __context__.SourceCodeLine = 425;
                                         if ( Functions.TestForTrue  ( ( IFILEEND)  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 412;
+                                            __context__.SourceCodeLine = 429;
                                             INOMOREDELIMITERS = (ushort) ( 1 ) ; 
-                                            __context__.SourceCodeLine = 413;
+                                            __context__.SourceCodeLine = 430;
                                             SFILELINE  .UpdateValue ( FTRIMWHITESPACE (  __context__ , SFILEDATA)  ) ; 
-                                            __context__.SourceCodeLine = 414;
+                                            __context__.SourceCodeLine = 431;
                                             SFILEDATA  .UpdateValue ( ""  ) ; 
                                             } 
                                         
                                         else 
                                             { 
-                                            __context__.SourceCodeLine = 419;
+                                            __context__.SourceCodeLine = 436;
                                             SFILEDATAREMAINDER  .UpdateValue ( SFILEDATA  ) ; 
-                                            __context__.SourceCodeLine = 420;
+                                            __context__.SourceCodeLine = 437;
                                             SFILEDATA  .UpdateValue ( ""  ) ; 
-                                            __context__.SourceCodeLine = 421;
+                                            __context__.SourceCodeLine = 438;
                                             continue ; 
                                             } 
                                         
                                         }
                                     
-                                    __context__.SourceCodeLine = 424;
+                                    __context__.SourceCodeLine = 441;
                                     if ( Functions.TestForTrue  ( ( Functions.Length( SFILELINE ))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 428;
+                                        __context__.SourceCodeLine = 445;
                                         SLOCALLINE  .UpdateValue ( FGETLINEDATA (  __context__ , (ushort)( I ), SFILELINE)  ) ; 
-                                        __context__.SourceCodeLine = 431;
+                                        __context__.SourceCodeLine = 448;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (((Functions.Length( SDATATOSEND ) + Functions.Length( SLOCALLINE )) + Functions.Length( CLOSECHAR__DOLLAR__  )) + IINDEXINGLENGTH) >= MAX_BYTES_PER_SEND  .Value ))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 433;
+                                            __context__.SourceCodeLine = 450;
                                             MakeString ( SDATATOSEND , "{0}{1}", SDATATOSEND , CLOSECHAR__DOLLAR__ ) ; 
-                                            __context__.SourceCodeLine = 434;
+                                            __context__.SourceCodeLine = 451;
                                             MakeString ( TX__DOLLAR__ , "{0}", SDATATOSEND ) ; 
-                                            __context__.SourceCodeLine = 435;
+                                            __context__.SourceCodeLine = 452;
                                             MakeString ( SDATATOSEND , "{0} {1}", SLOCALHEADER , SLOCALLINE ) ; 
-                                            __context__.SourceCodeLine = 436;
+                                            __context__.SourceCodeLine = 453;
                                             if ( Functions.TestForTrue  ( ( IFILEEND)  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 438;
+                                                __context__.SourceCodeLine = 455;
                                                 MakeString ( TX__DOLLAR__ , "{0}{1}", SDATATOSEND , CLOSECHAR__DOLLAR__ ) ; 
-                                                __context__.SourceCodeLine = 439;
+                                                __context__.SourceCodeLine = 456;
                                                 break ; 
                                                 } 
                                             
-                                            __context__.SourceCodeLine = 441;
+                                            __context__.SourceCodeLine = 458;
                                             J = (ushort) ( 1 ) ; 
                                             } 
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 444;
+                                            __context__.SourceCodeLine = 461;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (J == MAX_LINES_PER_SEND  .Value))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 446;
+                                                __context__.SourceCodeLine = 463;
                                                 MakeString ( SDATATOSEND , "{0} {1}{2}", SDATATOSEND , SLOCALLINE , CLOSECHAR__DOLLAR__ ) ; 
-                                                __context__.SourceCodeLine = 447;
+                                                __context__.SourceCodeLine = 464;
                                                 MakeString ( TX__DOLLAR__ , "{0}", SDATATOSEND ) ; 
-                                                __context__.SourceCodeLine = 448;
+                                                __context__.SourceCodeLine = 465;
                                                 MakeString ( SDATATOSEND , "{0}", SLOCALHEADER ) ; 
-                                                __context__.SourceCodeLine = 449;
+                                                __context__.SourceCodeLine = 466;
                                                 J = (ushort) ( 0 ) ; 
                                                 } 
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 452;
+                                                __context__.SourceCodeLine = 469;
                                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IFILEEND ) && Functions.TestForTrue ( INOMOREDELIMITERS )) ))  ) ) 
                                                     { 
-                                                    __context__.SourceCodeLine = 454;
+                                                    __context__.SourceCodeLine = 471;
                                                     MakeString ( SDATATOSEND , "{0} {1}{2}", SDATATOSEND , SLOCALLINE , CLOSECHAR__DOLLAR__ ) ; 
-                                                    __context__.SourceCodeLine = 455;
+                                                    __context__.SourceCodeLine = 472;
                                                     MakeString ( TX__DOLLAR__ , "{0}", SDATATOSEND ) ; 
-                                                    __context__.SourceCodeLine = 456;
+                                                    __context__.SourceCodeLine = 473;
                                                     J = (ushort) ( 0 ) ; 
                                                     } 
                                                 
                                                 else 
                                                     { 
-                                                    __context__.SourceCodeLine = 460;
+                                                    __context__.SourceCodeLine = 477;
                                                     MakeString ( SDATATOSEND , "{0} {1}", SDATATOSEND , SLOCALLINE ) ; 
                                                     } 
                                                 
@@ -528,83 +550,83 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                                             
                                             }
                                         
-                                        __context__.SourceCodeLine = 464;
+                                        __context__.SourceCodeLine = 481;
                                         I = (ushort) ( (I + 1) ) ; 
-                                        __context__.SourceCodeLine = 465;
+                                        __context__.SourceCodeLine = 482;
                                         J = (ushort) ( (J + 1) ) ; 
                                         } 
                                     
-                                    __context__.SourceCodeLine = 389;
+                                    __context__.SourceCodeLine = 406;
                                     } 
                                 
-                                __context__.SourceCodeLine = 372;
+                                __context__.SourceCodeLine = 389;
                                 } 
                             
-                            __context__.SourceCodeLine = 470;
+                            __context__.SourceCodeLine = 487;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( SIERRFILEREAD < 0 ))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 474;
+                                __context__.SourceCodeLine = 491;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (FileClose( (short)( SIERRFILEHANDLE ) ) != 0))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 474;
+                                    __context__.SourceCodeLine = 491;
                                     Trace( "DataInitializer - {0}, siErrFileRead < 0, fileclose() failed", LINEHEADER__DOLLAR__ ) ; 
                                     }
                                 
-                                __context__.SourceCodeLine = 475;
+                                __context__.SourceCodeLine = 492;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                     {
-                                    __context__.SourceCodeLine = 475;
+                                    __context__.SourceCodeLine = 492;
                                     Trace( "DataInitializer - {0}, siErrFileRead < 0, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
                                     }
                                 
-                                __context__.SourceCodeLine = 476;
+                                __context__.SourceCodeLine = 493;
                                 return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                 } 
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 478;
+                                __context__.SourceCodeLine = 495;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (FileSeek( (short)( SIERRFILEHANDLE ) , (uint)( 0 ) , (ushort)( 0 ) ) != 0))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 480;
+                                    __context__.SourceCodeLine = 497;
                                     Trace( "DataInitializer - {0}, ending fileseek failed", LINEHEADER__DOLLAR__ ) ; 
-                                    __context__.SourceCodeLine = 481;
+                                    __context__.SourceCodeLine = 498;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                         {
-                                        __context__.SourceCodeLine = 481;
+                                        __context__.SourceCodeLine = 498;
                                         Trace( "DataInitializer - {0}, siErrFileRead < 0, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
                                         }
                                     
-                                    __context__.SourceCodeLine = 483;
+                                    __context__.SourceCodeLine = 500;
                                     return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                     } 
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 485;
+                                    __context__.SourceCodeLine = 502;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (FileClose( (short)( SIERRFILEHANDLE ) ) != 0))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 487;
+                                        __context__.SourceCodeLine = 504;
                                         Trace( "DataInitializer - {0}, ending fileclose, fileclose() failed", LINEHEADER__DOLLAR__ ) ; 
-                                        __context__.SourceCodeLine = 488;
+                                        __context__.SourceCodeLine = 505;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                             {
-                                            __context__.SourceCodeLine = 488;
+                                            __context__.SourceCodeLine = 505;
                                             Trace( "DataInitializer - {0}, siErrFileRead < 0, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
                                             }
                                         
-                                        __context__.SourceCodeLine = 490;
+                                        __context__.SourceCodeLine = 507;
                                         return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                         } 
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 492;
+                                        __context__.SourceCodeLine = 509;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (EndFileOperations() != 0))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 494;
+                                            __context__.SourceCodeLine = 511;
                                             Trace( "DataInitializer - {0}, ending endfileoperations, endfileoperations() failed", LINEHEADER__DOLLAR__ ) ; 
-                                            __context__.SourceCodeLine = 495;
+                                            __context__.SourceCodeLine = 512;
                                             return (short)( Functions.ToSignedInteger( -( 1 ) )) ; 
                                             } 
                                         
@@ -616,35 +638,35 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                             
                             } 
                         
-                        __context__.SourceCodeLine = 498;
+                        __context__.SourceCodeLine = 515;
                         Functions.Delay (  (int) ( 5 ) ) ; 
                         } 
                     
-                    __context__.SourceCodeLine = 501;
+                    __context__.SourceCodeLine = 518;
                     if ( Functions.TestForTrue  ( ( SEND_FINALIZE_DATA  .Value)  ) ) 
                         { 
-                        __context__.SourceCodeLine = 503;
-                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_10__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_10___Callback ) ;
+                        __context__.SourceCodeLine = 520;
+                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_33__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_33___Callback ) ;
                         } 
                     
                     } 
                 
                 else 
                     { 
-                    __context__.SourceCodeLine = 511;
+                    __context__.SourceCodeLine = 528;
                     Trace( "data_initializer_multipleFiles  {0}  - skipping index {1:d}", LINEHEADER__DOLLAR__ , (ushort)IFILEINDEX) ; 
                     } 
                 
                 __context__.SourceCodeLine = 305;
                 } 
             
-            __context__.SourceCodeLine = 515;
-            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_11__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_11___Callback ) ;
+            __context__.SourceCodeLine = 532;
+            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_34__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_34___Callback ) ;
             
             return 0; // default return value (none specified in module)
             }
             
-        public void __SPLS_TMPVAR__WAITLABEL_10___CallbackFn( object stateInfo )
+        public void __SPLS_TMPVAR__WAITLABEL_33___CallbackFn( object stateInfo )
         {
         
             try
@@ -654,7 +676,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                 __LocalWait__.RemoveFromList();
                 
             
-            __context__.SourceCodeLine = 505;
+            __context__.SourceCodeLine = 522;
             MakeString ( TX__DOLLAR__ , "{0}{1}{2} {3}{4} {5}", OPENCHAR__DOLLAR__ , LINEHEADER__DOLLAR__ , LINEHEADERDELIMITER__DOLLAR__ , FINALIZEDATA__DOLLAR__ , FINALIZEDELIMITER__DOLLAR__ , CLOSECHAR__DOLLAR__ ) ; 
             
         
@@ -665,7 +687,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             
         }
         
-    public void __SPLS_TMPVAR__WAITLABEL_11___CallbackFn( object stateInfo )
+    public void __SPLS_TMPVAR__WAITLABEL_34___CallbackFn( object stateInfo )
     {
     
         try
@@ -675,13 +697,13 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             __LocalWait__.RemoveFromList();
             
             
-            __context__.SourceCodeLine = 517;
+            __context__.SourceCodeLine = 534;
             BUSY_FB  .Value = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 518;
+            __context__.SourceCodeLine = 535;
             Functions.Pulse ( 10, DONE_PULSE ) ; 
-            __context__.SourceCodeLine = 519;
+            __context__.SourceCodeLine = 536;
             IDATAINITCOMPLETE = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 520;
+            __context__.SourceCodeLine = 537;
             FUPDATESTATUS (  __context__  ) ; 
             
         
@@ -697,16 +719,16 @@ private void FRUN (  SplusExecutionContext __context__ )
     short SIERR = 0;
     
     
-    __context__.SourceCodeLine = 528;
+    __context__.SourceCodeLine = 545;
     SIERR = (short) ( FPROCESSFILEDATA( __context__ ) ) ; 
-    __context__.SourceCodeLine = 529;
+    __context__.SourceCodeLine = 546;
     if ( Functions.TestForTrue  ( ( SIERR)  ) ) 
         { 
-        __context__.SourceCodeLine = 531;
+        __context__.SourceCodeLine = 548;
         STATUS__DOLLAR__  .UpdateValue ( "failed file-read"  ) ; 
-        __context__.SourceCodeLine = 532;
+        __context__.SourceCodeLine = 549;
         BUSY_FB  .Value = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 533;
+        __context__.SourceCodeLine = 550;
         Functions.Pulse ( 10, DONE_PULSE ) ; 
         } 
     
@@ -721,18 +743,18 @@ object INIT_TRIG_OnPush_0 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 539;
+        __context__.SourceCodeLine = 556;
         if ( Functions.TestForTrue  ( ( ENABLE  .Value)  ) ) 
             {
-            __context__.SourceCodeLine = 539;
+            __context__.SourceCodeLine = 556;
             FRUN (  __context__  ) ; 
             }
         
         else 
             { 
-            __context__.SourceCodeLine = 542;
+            __context__.SourceCodeLine = 559;
             IINITTRIGBUFFERED = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 543;
+            __context__.SourceCodeLine = 560;
             FUPDATESTATUS (  __context__  ) ; 
             } 
         
@@ -753,18 +775,18 @@ object ENABLE_OnChange_1 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 549;
+        __context__.SourceCodeLine = 566;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( IINITTRIGBUFFERED ) && Functions.TestForTrue ( ENABLE  .Value )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 551;
+            __context__.SourceCodeLine = 568;
             IINITTRIGBUFFERED = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 552;
+            __context__.SourceCodeLine = 569;
             FRUN (  __context__  ) ; 
             } 
         
         else 
             {
-            __context__.SourceCodeLine = 554;
+            __context__.SourceCodeLine = 571;
             FUPDATESTATUS (  __context__  ) ; 
             }
         
@@ -783,22 +805,22 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 568;
+        __context__.SourceCodeLine = 585;
         WaitForInitializationComplete ( ) ; 
-        __context__.SourceCodeLine = 570;
+        __context__.SourceCodeLine = 587;
         if ( Functions.TestForTrue  ( ( Functions.Not( Functions.CompareStrings( FILELINEDELIMITER__DOLLAR__  , "!!!!~~~~" ) ))  ) ) 
             {
-            __context__.SourceCodeLine = 570;
+            __context__.SourceCodeLine = 587;
             SFILELINEDELIMITER  .UpdateValue ( FILECUSTOMDELIMITER__DOLLAR__  ) ; 
             }
         
         else 
             {
-            __context__.SourceCodeLine = 571;
+            __context__.SourceCodeLine = 588;
             SFILELINEDELIMITER  .UpdateValue ( FILELINEDELIMITER__DOLLAR__  ) ; 
             }
         
-        __context__.SourceCodeLine = 574;
+        __context__.SourceCodeLine = 591;
         FUPDATESTATUS (  __context__  ) ; 
         
         
@@ -898,8 +920,8 @@ public override void LogosSplusInitialize()
         m_ParameterList.Add( FILENAME__DOLLAR____Parameter__ + i, FILENAME__DOLLAR__[i+1] );
     }
     
-    __SPLS_TMPVAR__WAITLABEL_10___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_10___CallbackFn );
-    __SPLS_TMPVAR__WAITLABEL_11___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_11___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_33___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_33___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_34___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_34___CallbackFn );
     
     INIT_TRIG.OnDigitalPush.Add( new InputChangeHandlerWrapper( INIT_TRIG_OnPush_0, false ) );
     ENABLE.OnDigitalChange.Add( new InputChangeHandlerWrapper( ENABLE_OnChange_1, false ) );
@@ -919,8 +941,8 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_10___Callback;
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_11___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_33___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_34___Callback;
 
 
 const uint ENABLE__DigitalInput__ = 0;

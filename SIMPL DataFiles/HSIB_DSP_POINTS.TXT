@@ -17,6 +17,20 @@
 //04=Privacy Mute
 //05=Room Combine Mute
 
+//Forum  – Control IP 10.156.24.61
+
+room_ass=23, point_type=1, local_index=1, local_name=Wireless Mic 01, tag_gain=FORUM_Wmic01_gain_volLevel, tag_mute=FORUM_Wmic01_gain_muteState, dsp_system=2,
+room_ass=23, point_type=1, local_index=2, local_name=Wireless Mic 02, tag_gain=FORUM_Wmic02_gain_volLevel, tag_mute=FORUM_Wmic02_gain_muteState, dsp_system=2,
+room_ass=23, point_type=1, local_index=3, local_name=Wireless Mic 03, tag_gain=FORUM_Wmic01_gain_volLevel, tag_mute=FORUM_Wmic03_gain_muteState, dsp_system=2,
+room_ass=23, point_type=1, local_index=4, local_name=Wireless Mic 04, tag_gain=FORUM_Wmic04_gain_volLevel, tag_mute=FORUM_Wmic04_gain_muteState, dsp_system=2,
+room_ass=23, point_type=1, local_index=5, local_name=Mobile Wireless Mic Mix, tag_gain=FORUM_MobileWmicMix_gain_volLevel, tag_mute=FORUM_MobileWmicMix_gain_muteState, dsp_system=2,
+room_ass=23, point_type=1, local_index=6, local_name=Podium Mic, tag_gain=FORUM_PodiumMic_gain_volLevel, tag_mute=FORUM_PodiumMic_gain_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=7, local_name=Program, tag_gain=FORUM_PGM_gain_volLevel, tag_mute=FORUM_PGM_gain_muteState, dsp_system=2,
+
+	//SOURCE ROUTING:
+	room_ass=23, point_type=3, local_index=8, local_name=Program, tag_rte=FORUM_PGM_Router, dsp_system=2,
+	
+
 //Room 305
 
 room_ass=01, point_type=1, local_index=1, local_name=Handheld, tag_gain=R305_Wmic01_gain_volLevel, tag_mute=R305_Wmic01_gain_muteState, 
@@ -126,74 +140,74 @@ room_ass=06, point_type=2, local_index=10, local_name=Room Combine Mute, group_i
 
 
 //Room 442,
-room_ass=07, point_type=1, local_index=1, local_name=Handheld, tag_gain=R442_Wmic01_gain_volLevel, tag_mute=R442_Wmic01_gain_muteState, 
-room_ass=07, point_type=1, local_index=2, local_name=LAV, tag_gain=R442_Wmic02_gain_volLevel, tag_mute=R442_Wmic02_gain_muteState,
-room_ass=07, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R442_Wmic03_gain_volLevel, tag_mute=R442_Wmic03_gain_muteState,
-room_ass=07, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R442_CMicMix_gain_volLevel, tag_mute=R442_CMicMix_gain_muteState,
+room_ass=07, point_type=1, local_index=1, local_name=Handheld, tag_gain=R442_Wmic01_gain_volLevel, tag_mute=R442_Wmic01_gain_muteState, dsp_system=2,
+room_ass=07, point_type=1, local_index=2, local_name=LAV, tag_gain=R442_Wmic02_gain_volLevel, tag_mute=R442_Wmic02_gain_muteState, dsp_system=2,
+room_ass=07, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R442_Wmic03_gain_volLevel, tag_mute=R442_Wmic03_gain_muteState, dsp_system=2,
+room_ass=07, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R442_CMicMix_gain_volLevel, tag_mute=R442_CMicMix_gain_muteState, dsp_system=2,
 
-room_ass=07, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R442_Privacy_muteState,
-room_ass=07, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R442_ConfRx_gain_volLevel, tag_mute=R442_ConfRx_gain_muteState,
-room_ass=07, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R442_VTC_Rx_gain_volLevel, tag_mute=R442_VTC_Rx_gain_muteState,
-room_ass=07, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R442_VTC_Tx_gain_volLevel, tag_mute=R442_VTC_Tx_gain_muteState,
-room_ass=07, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R442_PGM_gain_volLevel, tag_mute=R442_PGM_gain_muteState,
-room_ass=07, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R442_RC_gain_muteState,
+room_ass=07, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R442_Privacy_muteState, dsp_system=2,
+room_ass=07, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R442_ConfRx_gain_volLevel, tag_mute=R442_ConfRx_gain_muteState, dsp_system=2,
+room_ass=07, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R442_VTC_Rx_gain_volLevel, tag_mute=R442_VTC_Rx_gain_muteState, dsp_system=2,
+room_ass=07, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R442_VTC_Tx_gain_volLevel, tag_mute=R442_VTC_Tx_gain_muteState, dsp_system=2,
+room_ass=07, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R442_PGM_gain_volLevel, tag_mute=R442_PGM_gain_muteState, dsp_system=2,
+room_ass=07, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R442_RC_gain_muteState, dsp_system=2,
 
 	//SOURCE ROUTING:
-	room_ass=07, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R442_PGM_router,
+	room_ass=07, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R442_PGM_router, dsp_system=2,
 
 
 
 //Room 443,
-room_ass=08, point_type=1, local_index=1, local_name=Handheld, tag_gain=R443_Wmic01_gain_volLevel, tag_mute=R443_Wmic01_gain_muteState, 
-room_ass=08, point_type=1, local_index=2, local_name=LAV, tag_gain=R443_Wmic02_gain_volLevel, tag_mute=R443_Wmic02_gain_muteState,
-room_ass=08, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R443_Wmic03_gain_volLevel, tag_mute=R443_Wmic03_gain_muteState,
-room_ass=08, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R443_CMicMix_gain_volLevel, tag_mute=R443_CMicMix_gain_muteState,
+room_ass=08, point_type=1, local_index=1, local_name=Handheld, tag_gain=R443_Wmic01_gain_volLevel, tag_mute=R443_Wmic01_gain_muteState, dsp_system=2,
+room_ass=08, point_type=1, local_index=2, local_name=LAV, tag_gain=R443_Wmic02_gain_volLevel, tag_mute=R443_Wmic02_gain_muteState, dsp_system=2,
+room_ass=08, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R443_Wmic03_gain_volLevel, tag_mute=R443_Wmic03_gain_muteState, dsp_system=2,
+room_ass=08, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R443_CMicMix_gain_volLevel, tag_mute=R443_CMicMix_gain_muteState, dsp_system=2,
 
-room_ass=08, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R443_Privacy_muteState,
-room_ass=08, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R443_ConfRx_gain_volLevel, tag_mute=R443_ConfRx_gain_muteState,
-room_ass=08, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R443_VTC_Rx_gain_volLevel, tag_mute=R443_VTC_Rx_gain_muteState,
-room_ass=08, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R443_VTC_Tx_gain_volLevel, tag_mute=R443_VTC_Tx_gain_muteState,
-room_ass=08, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R443_PGM_gain_volLevel, tag_mute=R443_PGM_gain_muteState,
-room_ass=08, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R443_RC_gain_muteState,
+room_ass=08, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R443_Privacy_muteState, dsp_system=2,
+room_ass=08, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R443_ConfRx_gain_volLevel, tag_mute=R443_ConfRx_gain_muteState, dsp_system=2,
+room_ass=08, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R443_VTC_Rx_gain_volLevel, tag_mute=R443_VTC_Rx_gain_muteState, dsp_system=2,
+room_ass=08, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R443_VTC_Tx_gain_volLevel, tag_mute=R443_VTC_Tx_gain_muteState, dsp_system=2,
+room_ass=08, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R443_PGM_gain_volLevel, tag_mute=R443_PGM_gain_muteState, dsp_system=2,
+room_ass=08, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R443_RC_gain_muteState, dsp_system=2,
 
 	//SOURCE ROUTING:
-	room_ass=08, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R443_PGM_router,
+	room_ass=08, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R443_PGM_router, dsp_system=2,
 
 
 
 //Room 444,
-room_ass=09, point_type=1, local_index=1, local_name=Handheld, tag_gain=R444_Wmic01_gain_volLevel, tag_mute=R444_Wmic01_gain_muteState, 
-room_ass=09, point_type=1, local_index=2, local_name=LAV, tag_gain=R444_Wmic02_gain_volLevel, tag_mute=R444_Wmic02_gain_muteState,
-room_ass=09, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R444_Wmic03_gain_volLevel, tag_mute=R444_Wmic03_gain_muteState,
-room_ass=09, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R444_CMicMix_gain_volLevel, tag_mute=R444_CMicMix_gain_muteState,
+room_ass=09, point_type=1, local_index=1, local_name=Handheld, tag_gain=R444_Wmic01_gain_volLevel, tag_mute=R444_Wmic01_gain_muteState, dsp_system=2, 
+room_ass=09, point_type=1, local_index=2, local_name=LAV, tag_gain=R444_Wmic02_gain_volLevel, tag_mute=R444_Wmic02_gain_muteState, dsp_system=2,
+room_ass=09, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R444_Wmic03_gain_volLevel, tag_mute=R444_Wmic03_gain_muteState, dsp_system=2,
+room_ass=09, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R444_CMicMix_gain_volLevel, tag_mute=R444_CMicMix_gain_muteState, dsp_system=2,
 
-room_ass=09, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R444_Privacy_muteState,
-room_ass=09, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R444_ConfRx_gain_volLevel, tag_mute=R444_ConfRx_gain_muteState,
-room_ass=09, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R444_VTC_Rx_gain_volLevel, tag_mute=R444_VTC_Rx_gain_muteState,
-room_ass=09, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R444_VTC_Tx_gain_volLevel, tag_mute=R444_VTC_Tx_gain_muteState,
-room_ass=09, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R444_PGM_gain_volLevel, tag_mute=R444_PGM_gain_muteState,
-room_ass=09, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R444_RC_gain_muteState,
+room_ass=09, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R444_Privacy_muteState, dsp_system=2,
+room_ass=09, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R444_ConfRx_gain_volLevel, tag_mute=R444_ConfRx_gain_muteState, dsp_system=2,
+room_ass=09, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R444_VTC_Rx_gain_volLevel, tag_mute=R444_VTC_Rx_gain_muteState, dsp_system=2,
+room_ass=09, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R444_VTC_Tx_gain_volLevel, tag_mute=R444_VTC_Tx_gain_muteState, dsp_system=2,
+room_ass=09, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R444_PGM_gain_volLevel, tag_mute=R444_PGM_gain_muteState, dsp_system=2,
+room_ass=09, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R444_RC_gain_muteState, dsp_system=2,
 
 	//SOURCE ROUTING:
-	room_ass=09, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R444_PGM_router,
+	room_ass=09, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R444_PGM_router, dsp_system=2,
 
 
 
 //Room 445,
-room_ass=10, point_type=1, local_index=1, local_name=Handheld, tag_gain=R445_Wmic01_gain_volLevel, tag_mute=R445_Wmic01_gain_muteState, 
-room_ass=10, point_type=1, local_index=2, local_name=LAV, tag_gain=R445_Wmic02_gain_volLevel, tag_mute=R445_Wmic02_gain_muteState,
-room_ass=10, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R445_Wmic03_gain_volLevel, tag_mute=R445_Wmic03_gain_muteState,
-room_ass=10, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R445_CMicMix_gain_volLevel, tag_mute=R445_CMicMix_gain_muteState,
+room_ass=10, point_type=1, local_index=1, local_name=Handheld, tag_gain=R445_Wmic01_gain_volLevel, tag_mute=R445_Wmic01_gain_muteState, dsp_system=2,
+room_ass=10, point_type=1, local_index=2, local_name=LAV, tag_gain=R445_Wmic02_gain_volLevel, tag_mute=R445_Wmic02_gain_muteState, dsp_system=2,
+room_ass=10, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R445_Wmic03_gain_volLevel, tag_mute=R445_Wmic03_gain_muteState, dsp_system=2,
+room_ass=10, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R445_CMicMix_gain_volLevel, tag_mute=R445_CMicMix_gain_muteState, dsp_system=2,
 
-room_ass=10, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R445_Privacy_muteState,
-room_ass=10, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R445_ConfRx_gain_volLevel, tag_mute=R445_ConfRx_gain_muteState,
-room_ass=10, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R445_VTC_Rx_gain_volLevel, tag_mute=R445_VTC_Rx_gain_muteState,
-room_ass=10, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R445_VTC_Tx_gain_volLevel, tag_mute=R445_VTC_Tx_gain_muteState,
-room_ass=10, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R445_PGM_gain_volLevel, tag_mute=R445_PGM_gain_muteState,
-room_ass=10, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R445_RC_gain_muteState,
+room_ass=10, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R445_Privacy_muteState, dsp_system=2,
+room_ass=10, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R445_ConfRx_gain_volLevel, tag_mute=R445_ConfRx_gain_muteState, dsp_system=2,
+room_ass=10, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R445_VTC_Rx_gain_volLevel, tag_mute=R445_VTC_Rx_gain_muteState, dsp_system=2,
+room_ass=10, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R445_VTC_Tx_gain_volLevel, tag_mute=R445_VTC_Tx_gain_muteState, dsp_system=2,
+room_ass=10, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R445_PGM_gain_volLevel, tag_mute=R445_PGM_gain_muteState, dsp_system=2,
+room_ass=10, point_type=2, local_index=10, local_name=Room Combine Mute, group_id=05, tag_mute=R445_RC_gain_muteState, dsp_system=2,
 
 	//SOURCE ROUTING:
-	room_ass=10, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R445_PGM_router,
+	room_ass=10, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R445_PGM_router, dsp_system=2,
 
 
 

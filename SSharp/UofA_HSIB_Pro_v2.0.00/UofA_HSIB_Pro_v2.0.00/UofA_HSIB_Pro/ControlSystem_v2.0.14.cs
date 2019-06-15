@@ -78,8 +78,8 @@ namespace UofA_HSIB_Pro
         public SYSM_EISCHandler eiscHandler;
         public SYSM_ConfigurationHandler ConfigurationHandler;
         public Dictionary<ComPort, Object> DeviceForComPort;        // Holds which device is connected to which COM port
-        public SYSM_Logger Logger;
-        public SYSM_LogManager LogManager;
+        //public SYSM_Logger Logger;
+        //public SYSM_LogManager LogManager;
         #endregion
 
         #region Device Objects and Handlers
@@ -132,8 +132,8 @@ namespace UofA_HSIB_Pro
 
                 eiscHandler = new SYSM_EISCHandler(this);
                 ConfigurationHandler = new SYSM_ConfigurationHandler(this);
-                Logger = new SYSM_Logger(this);
-                LogManager = new SYSM_LogManager(Logger, this);
+                //Logger = new SYSM_Logger(this);
+                //LogManager = new SYSM_LogManager(Logger, this);
 
                 if (this.SupportsComPort)
                 {
@@ -175,7 +175,7 @@ namespace UofA_HSIB_Pro
                 }
 
                 CrestronConsole.PrintLine("Exiting Constructor");
-                Logger.LogEntry("Program Ready", CLASSID, false);
+                //Logger.LogEntry("Program Ready", CLASSID, false);
             }
             catch (Exception e)
             {
@@ -242,7 +242,7 @@ namespace UofA_HSIB_Pro
                 else
                 {
                     if (debug) { new Thread(Print, string.Format("{0}_{1}:{2}: !!! Not Connected", MTRX_EvertzQuartz.CLASSID, MTRXEvertzClient.AddressClientConnectedTo, MTRXEvertzClient.PortNumber, _command)); }
-                    Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", MTRX_EvertzQuartz.CLASSID, MTRXEvertzClient.AddressClientConnectedTo, MTRXEvertzClient.PortNumber, _command), CLASSID, false);
+                    //Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", MTRX_EvertzQuartz.CLASSID, MTRXEvertzClient.AddressClientConnectedTo, MTRXEvertzClient.PortNumber, _command), CLASSID, false);
                 }
                 return;
             }
@@ -266,7 +266,7 @@ namespace UofA_HSIB_Pro
                 else
                 {
                     if (debug) { new Thread(Print, string.Format("{0}_{1}:{2}: !!! Not Connected", DSP_QSCCore.CLASSID, DSPQSCClient.AddressClientConnectedTo, DSPQSCClient.PortNumber, _command)); }
-                    Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", DSP_QSCCore.CLASSID, DSPQSCClient.AddressClientConnectedTo, DSPQSCClient.PortNumber, _command), CLASSID, false);
+                    //Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", DSP_QSCCore.CLASSID, DSPQSCClient.AddressClientConnectedTo, DSPQSCClient.PortNumber, _command), CLASSID, false);
                 }
                 return;
             }
@@ -296,7 +296,7 @@ namespace UofA_HSIB_Pro
                     else
                     {
                         if (debug) { new Thread(Print, string.Format("{0}{1}_{2}:{3}: !!! Not Connected", DPLY.ABSCLASSID, display.Guid, display.Client.AddressClientConnectedTo, display.Client.PortNumber, _command)); }
-                        Logger.LogEntry(string.Format("{0}{1}_{2}:{3}: !!! Not Connected", DPLY.ABSCLASSID, display.Guid, display.Client.AddressClientConnectedTo, display.Client.PortNumber, _command), CLASSID, false);
+                        //Logger.LogEntry(string.Format("{0}{1}_{2}:{3}: !!! Not Connected", DPLY.ABSCLASSID, display.Guid, display.Client.AddressClientConnectedTo, display.Client.PortNumber, _command), CLASSID, false);
                         return;
                     }
                 }
@@ -337,7 +337,7 @@ namespace UofA_HSIB_Pro
                 else
                 {
                     if (debug) { new Thread(Print, string.Format("{0}_{1}:{2}: !!! Not Connected", RLY_GlobalCache.CLASSID, RLYGlobalCacheClients[index].AddressClientConnectedTo, RLYGlobalCacheClients[index].PortNumber, _command)); }
-                    Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", RLY_GlobalCache.CLASSID, RLYGlobalCacheClients[index].AddressClientConnectedTo, RLYGlobalCacheClients[index].PortNumber, _command), CLASSID, false);
+                    //Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", RLY_GlobalCache.CLASSID, RLYGlobalCacheClients[index].AddressClientConnectedTo, RLYGlobalCacheClients[index].PortNumber, _command), CLASSID, false);
                     return;
                 }
             }
@@ -355,7 +355,7 @@ namespace UofA_HSIB_Pro
                         if (err != SocketErrorCodes.SOCKET_OK)
                         {
                             CrestronConsole.PrintLine("{0}{1:D2}_{2}:{3}: !!! Send Error: {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, err);
-                            Logger.LogEntry(string.Format("{0}{1:D2}_{2}:{3}: !!! Send Error: {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, err), CLASSID, false);
+                            //Logger.LogEntry(string.Format("{0}{1:D2}_{2}:{3}: !!! Send Error: {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, err), CLASSID, false);
                         }
                         return;
                     }
@@ -391,7 +391,7 @@ namespace UofA_HSIB_Pro
                         else
                         {
                             if (debug) { new Thread(Print, string.Format("{0}_{1}:{2}: !!! Not Connected", IMGP_TVOne.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command)); }
-                            Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", IMGP_TVOne.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command), CLASSID, false);
+                            //Logger.LogEntry(string.Format("{0}_{1}:{2}: !!! Not Connected", IMGP_TVOne.CLASSID, IMGPTvOneClients[index].AddressClientConnectedTo, IMGPTvOneClients[index].PortNumber, _command), CLASSID, false);
                             return;
                         }
                     }
@@ -509,7 +509,7 @@ namespace UofA_HSIB_Pro
             catch (Exception e)
             {
                 CrestronConsole.PrintLine("TCP: ### TCPClientReceiveCallback: Exception {0}", e);
-                Logger.LogEntry(string.Format("TCP: ### TCPClientReceiveCallback: Exception {0}", e), CLASSID, false);
+                //Logger.LogEntry(string.Format("TCP: ### TCPClientReceiveCallback: Exception {0}", e), CLASSID, false);
                 myTCPClient.ReceiveDataAsync(TCPClientReceiveCallback);
             }
         }
@@ -528,12 +528,12 @@ namespace UofA_HSIB_Pro
                 {
                     myTCPClient.ReceiveDataAsync(TCPClientReceiveCallback);
                 }
-                Logger.LogEntry(string.Format("{0} *** TCP {1}_{2}: Status {3}", CLASSID, myTCPClient.AddressClientConnectedTo, myTCPClient.PortNumber, clientSocketStatus), CLASSID, true);
+                //Logger.LogEntry(string.Format("{0} *** TCP {1}_{2}: Status {3}", CLASSID, myTCPClient.AddressClientConnectedTo, myTCPClient.PortNumber, clientSocketStatus), CLASSID, true);
             }
             catch (Exception e)
             {
                 CrestronConsole.PrintLine("TCP: ### TCPClientSocketStatusChange(): Exception {0}", e);
-                Logger.LogEntry(string.Format("TCP: ### TCPClientSocketStatusChange(): Exception {0}", e), CLASSID, false);
+                //Logger.LogEntry(string.Format("TCP: ### TCPClientSocketStatusChange(): Exception {0}", e), CLASSID, false);
             }
         }
 
@@ -746,7 +746,7 @@ namespace UofA_HSIB_Pro
             catch (Exception e)
             {
                 CrestronConsole.PrintLine("{0} ### DebugEvertzSwitchCommand(): Exception caught: {1}", CLASSID, e);
-                Logger.LogEntry(string.Format("{0} ### DebugEvertzSwitchCommand(): Exception caught: {1}", CLASSID, e), CLASSID, false);
+                //Logger.LogEntry(string.Format("{0} ### DebugEvertzSwitchCommand(): Exception caught: {1}", CLASSID, e), CLASSID, false);
             }
         }
 
@@ -815,8 +815,8 @@ namespace UofA_HSIB_Pro
                         {
                             if (args[1].ToUpper() == "INDEPTH")
                             {
-                                Logger.IndeptMode = Convert.ToBoolean(args[2]);
-                                CrestronConsole.ConsoleCommandResponse("LOGGER in-depth mode is now {0}", Logger.IndeptMode);
+                                //Logger.IndeptMode = Convert.ToBoolean(args[2]);
+                                //CrestronConsole.ConsoleCommandResponse("LOGGER in-depth mode is now {0}", Logger.IndeptMode);
                             }
                             else
                             {
@@ -872,7 +872,7 @@ namespace UofA_HSIB_Pro
             catch (Exception e)
             {
                 CrestronConsole.PrintLine("{0} ### DebugEnableDisable(): Exception caught: {2}", CLASSID, _args, e);
-                Logger.LogEntry(string.Format("{0} ### DebugEnableDisable(): Exception caught: {2}", CLASSID, _args, e), CLASSID, true);
+                //Logger.LogEntry(string.Format("{0} ### DebugEnableDisable(): Exception caught: {2}", CLASSID, _args, e), CLASSID, true);
             }
         }
 
@@ -920,7 +920,7 @@ namespace UofA_HSIB_Pro
             catch (Exception e)
             {
                 CrestronConsole.PrintLine("{0} ### DumpConfig(): Exception caught: {2}", CLASSID, _args, e);
-                Logger.LogEntry(string.Format("{0} ### DumpConfig(): Exception caught: {2}", CLASSID, _args, e), CLASSID, false);
+                //Logger.LogEntry(string.Format("{0} ### DumpConfig(): Exception caught: {2}", CLASSID, _args, e), CLASSID, false);
             }
         }
 
@@ -953,9 +953,9 @@ namespace UofA_HSIB_Pro
             CrestronConsole.PrintLine("{0} *** DSP {1} is on IP {2}", CLASSID, DSPQSC.Name, DSPQSCClient.LocalAddressOfClient);
 
             CrestronConsole.PrintLine("{0} *** DSP Signals configured are as follows:", CLASSID);
-            foreach (DSPQSCSignal signal in DSPQSC.dSPQSCSignals)
+            foreach (var signal in DSPQSC.dSPQSCSignals)
             {
-                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, Volume named control: {2}, Mute named control {3}", signal.Guid, signal.VolumeName, signal.VolNamedControl, signal.MuteNamedControl);
+                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, Volume named control: {2}, Mute named control {3}", signal.Value.Guid, signal.Value.VolumeName, signal.Value.VolNamedControl, signal.Value.MuteNamedControl);
             }
             CrestronConsole.PrintLine("{0} *** End of DSP Signal configuration Dump", CLASSID);
         }
@@ -1012,7 +1012,7 @@ namespace UofA_HSIB_Pro
         public void ControlSystem_OnlineStatusChange(GenericBase currentDevice, OnlineOfflineEventArgs args)
         {
             if (debug) { CrestronConsole.PrintLine("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine); }
-            Logger.LogEntry(string.Format("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine), CLASSID, false);
+            //Logger.LogEntry(string.Format("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine), CLASSID, false);
                /*
             if (args.DeviceOnLine == true)
             {

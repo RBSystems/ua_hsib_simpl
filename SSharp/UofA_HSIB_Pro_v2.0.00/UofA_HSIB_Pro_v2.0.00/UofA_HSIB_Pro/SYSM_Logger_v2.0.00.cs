@@ -81,7 +81,7 @@ namespace PWCSharpPro
             }
             finally
             {
-                controlSystem.LogManager.CheckLogFileSize();
+                //controlSystem.LogManager.CheckLogFileSize();
             }
         }
     }

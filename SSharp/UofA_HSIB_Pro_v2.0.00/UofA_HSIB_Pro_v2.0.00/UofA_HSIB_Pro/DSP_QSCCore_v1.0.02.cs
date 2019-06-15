@@ -5,6 +5,7 @@ using System.Text;
 using Crestron.SimplSharp;
 using PWCSharpPro;
 using PWCUtils;
+using UofA_HSIB_Pro;
 
 namespace PWCSharpPro
 {
@@ -51,12 +52,16 @@ namespace PWCSharpPro
         }
         private string routerName;
 
-        public DSPQSCSignal[] dSPQSCSignals = new DSPQSCSignal[numberSignals];
+        //public Crestron.SimplSharpPro.CrestronControlSystem cSystem;
+        public SYSM_ConfigurationHandler config;
+        public Dictionary<int, DSPQSCSignal> dSPQSCSignals = new Dictionary<int, DSPQSCSignal>();
 
-        public DSP_QSCCore()
+        //public DSP_QSCCore(Crestron.SimplSharpPro.CrestronControlSystem _cs)
+        public DSP_QSCCore(SYSM_ConfigurationHandler _config)
         {
             ClearBuffer();
-            rxTimer = new CTimer(processRx, null, 300, 300);  
+            rxTimer = new CTimer(processRx, null, 300, 300);
+            config = _config;
         }
 
         /// <summary>
@@ -75,9 +80,9 @@ namespace PWCSharpPro
         /// <param name="_volumeName">A name for the signal e.g. Program Audio</param>
         /// <param name="_volNamedControl">The Named Control for this volume level</param>
         /// <param name="_muteNamedControl">The Named control for this volume mute control</param>
-        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType)
+        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, int _sysID)
         {
-            RegisterSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, 6.0f, -20.0f, 0.0f);
+            RegisterSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, 6.0f, -20.0f, 0.0f, _sysID);
         }
 
         public void RegisterPreset(uint _signal, string _presetName)
@@ -103,9 +108,9 @@ namespace PWCSharpPro
         /// <param name="_max">The maximum level in dB of the level</param>
         /// <param name="_min">Theminimum levelin Db of the level</param>
         /// <param name="_defaultLevel">The level in dB to set the level upon default called</param>
-        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel)
+        public void RegisterSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel, int _sysID)
         {
-            dSPQSCSignals[_signal] = new DSPQSCSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, _max, _min, _defaultLevel);
+            dSPQSCSignals[(int)_signal] = new DSPQSCSignal(_signal, _volumeName, _volNamedControl, _muteNamedControl, _rteNamedControl, _pointType, _max, _min, _defaultLevel, _sysID);
         }
 
         public void RecallPreset(uint _signal)
@@ -125,9 +130,9 @@ namespace PWCSharpPro
             if (OnCommandToSend != null)
             {
                 currentVolumes[_signal]++;
-                if (currentVolumes[_signal] > dSPQSCSignals[_signal].MaxLevel)
+                if (currentVolumes[_signal] > dSPQSCSignals[(int)_signal].MaxLevel)
                 {
-                    currentVolumes[_signal] = dSPQSCSignals[_signal].MaxLevel;
+                    currentVolumes[_signal] = dSPQSCSignals[(int)_signal].MaxLevel;
                 }
                 volumeRamping[_signal] = Volume.Up;
 
@@ -148,9 +153,9 @@ namespace PWCSharpPro
             if (OnCommandToSend != null)
             {
                 currentVolumes[_signal]--;
-                if (currentVolumes[_signal] > dSPQSCSignals[_signal].MinLevel)
+                if (currentVolumes[_signal] > dSPQSCSignals[(int)_signal].MinLevel)
                 {
-                    currentVolumes[_signal] = dSPQSCSignals[_signal].MinLevel;
+                    currentVolumes[_signal] = dSPQSCSignals[(int)_signal].MinLevel;
                 }
                 volumeRamping[_signal] = Volume.Down;
 
@@ -186,9 +191,9 @@ namespace PWCSharpPro
                         if (OnCommandToSend != null)
                         {
                             currentVolumes[_signal]++;
-                            if (currentVolumes[_signal] > dSPQSCSignals[_signal].MaxLevel)
+                            if (currentVolumes[_signal] > dSPQSCSignals[(int)_signal].MaxLevel)
                             {
-                                currentVolumes[_signal] = dSPQSCSignals[_signal].MaxLevel;
+                                currentVolumes[_signal] = dSPQSCSignals[(int)_signal].MaxLevel;
                             }
                             volumeRamping[_signal] = Volume.Up;
                             string command = getVolumeCommand(_signal);
@@ -205,9 +210,9 @@ namespace PWCSharpPro
                         if (OnCommandToSend != null)
                         {
                             currentVolumes[_signal]--;
-                            if (currentVolumes[_signal] > dSPQSCSignals[_signal].MinLevel)
+                            if (currentVolumes[_signal] > dSPQSCSignals[(int)_signal].MinLevel)
                             {
-                                currentVolumes[_signal] = dSPQSCSignals[_signal].MinLevel;
+                                currentVolumes[_signal] = dSPQSCSignals[(int)_signal].MinLevel;
                             }
                             volumeRamping[_signal] = Volume.Down;
                             string command = getVolumeCommand(_signal);
@@ -248,7 +253,7 @@ namespace PWCSharpPro
         {
             if (dSPQSCSignals[(int)_signal] != null)
             {
-                float volume = GetLevel(_percentage, dSPQSCSignals[_signal].MaxLevel, dSPQSCSignals[_signal].MinLevel);
+                float volume = GetLevel(_percentage, dSPQSCSignals[(int)_signal].MaxLevel, dSPQSCSignals[(int)_signal].MinLevel);
                 SetVolume(_signal, volume);
             }
         }
@@ -259,24 +264,25 @@ namespace PWCSharpPro
         /// <param name="_volume">The absolute value to set e.g. -10.5f for -10.5dB</param>
         public override void SetVolume(uint _signal, float _volume)
         {
+            List<string> commands = new List<string>();
             if (dSPQSCSignals[(int)_signal] != null)
             {
                 if (dSPQSCSignals[(int)_signal].PointType == 3) //pgm audio router
                 {
                     if ((int)_volume == 0)                                  //none
                     {
-                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
-                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
                     }
                     else if ((int)_volume >= 1 && (int)_volume <= 4)        //local sources
                     {
-                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, (int)_volume));
-                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, (int)_volume));
+                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
                     }
                     else                                                    //remote aux source (and anything else that gets added)
                     {
-                        OnCommandToSend(this, string.Format("csp {0} {1}\x0a", dSPQSCSignals[_signal].RteNamedControl, 5));
-                        OnCommandToSend(this, string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[_signal].RteNamedControl,(int)_volume));
+                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl,(int)_volume));
                     }
                 }
                 else                                            //vol control
@@ -285,17 +291,29 @@ namespace PWCSharpPro
                     if (OnCommandToSend != null)
                     {
                         currentVolumes[_signal] = _volume;
-
-                        string command = getVolumeCommand(_signal);
-                        if (command != "")
-                        {
-                            OnCommandToSend(this, command);
-                        }
+                        commands.Add(getVolumeCommand(_signal));
+                    }
+                }
+                if (dSPQSCSignals[(int)_signal].dspSystemID == 2)
+                {
+                    foreach (var cmd in commands)
+                    {
+                        //OnSendCommandToSystemTwo(this, cmd);
+                        config.controlSystem.eiscs[1].StringInput[400].StringValue = cmd;
+                    }
+                }
+                else
+                {
+                    foreach (var cmd in commands)
+                    {
+                        OnCommandToSend(this, cmd);
                     }
                 }
             }
         }
 
+        //public delegate void SendCommandToSystemTwo(object o, string command);
+        //public SendCommandToSystemTwo OnSendCommandToSystemTwo { get; set; }
         /// <summary>
         /// Sets the mute on of parameter fader 
         /// </summary>
@@ -310,10 +328,10 @@ namespace PWCSharpPro
 
                     //if point type is an audio/mute control (1 or 2)
                     if (dSPQSCSignals[(int)_signal].PointType < 3)
-                        OnCommandToSend(this, string.Format("csp {0} 1\x0A", dSPQSCSignals[_signal].MuteNamedControl));
+                        OnCommandToSend(this, string.Format("csp {0} 1\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl));
                     //else the point type is 3, which is a room-local router for selecting PGM audio
                     else
-                        OnCommandToSend(this, string.Format("csp {0} 1\x0a", dSPQSCSignals[_signal].RteNamedControl));
+                        OnCommandToSend(this, string.Format("csp {0} 1\x0a", dSPQSCSignals[(int)_signal].RteNamedControl));
                 }
             }
         }
@@ -328,7 +346,7 @@ namespace PWCSharpPro
                 if (OnCommandToSend != null)
                 {
                     isMuted[_signal] = false;
-                    string command = string.Format("csp {0} 0\x0A", dSPQSCSignals[_signal].MuteNamedControl);
+                    string command = string.Format("csp {0} 0\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl);
                     OnCommandToSend(this, command);
                 }
             }
@@ -357,7 +375,7 @@ namespace PWCSharpPro
         private string getVolumeCommand(uint _signal)
         {
             string command = "";
-            command = string.Format("csv {0} {1}\x0A", dSPQSCSignals[_signal].VolNamedControl, currentVolumes[_signal]);
+            command = string.Format("csv {0} {1}\x0A", dSPQSCSignals[(int)_signal].VolNamedControl, currentVolumes[_signal]);
             return (command);
         }
 
@@ -370,9 +388,9 @@ namespace PWCSharpPro
             {
                 for (uint signal = 1; signal <= numberSignals; signal++)
                 {
-                    if (dSPQSCSignals[signal].IsRegistered)
+                    if (dSPQSCSignals[(int)signal].IsRegistered)
                     {
-                        currentVolumes[signal] = dSPQSCSignals[signal].DefaultLevel;
+                        currentVolumes[signal] = dSPQSCSignals[(int)signal].DefaultLevel;
                         string command = getVolumeCommand(signal);
                         if (command != "")
                         {
@@ -391,7 +409,7 @@ namespace PWCSharpPro
         {
             if (OnCommandToSend != null)
             {
-                currentVolumes[_signal] = dSPQSCSignals[_signal].DefaultLevel;
+                currentVolumes[_signal] = dSPQSCSignals[(int)_signal].DefaultLevel;
                 string command = getVolumeCommand(_signal);
                 if (command != "")
                 {
@@ -434,7 +452,7 @@ namespace PWCSharpPro
                     string handle = _message.Split('"')[1];
                     int value = Int32.Parse(_message.Split(' ')[3]);
 
-                    for (int x = 1; x < dSPQSCSignals.Length; x++)
+                    for (int x = 1; x < dSPQSCSignals.Count(); x++)
                     {
                         if (dSPQSCSignals[x] != null)
                         {
@@ -522,8 +540,8 @@ namespace PWCSharpPro
         public float MinLevel;
         public float DefaultLevel;
         public uint Guid;
-
-        public DSPQSCSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel)
+        public int dspSystemID;
+        public DSPQSCSignal(uint _signal, string _volumeName, string _volNamedControl, string _muteNamedControl, string _rteNamedControl, int _pointType, float _max, float _min, float _defaultLevel, int _sysID)
         {
             Guid = _signal;
             VolumeName = _volumeName;
@@ -534,7 +552,7 @@ namespace PWCSharpPro
             MaxLevel = _max;
             MinLevel = _min;
             DefaultLevel = _defaultLevel;
-
+            dspSystemID = _sysID;
             IsRegistered = true;
         }
     }
