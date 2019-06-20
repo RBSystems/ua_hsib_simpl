@@ -1,88 +1,87 @@
-cmd_data=Main_router_1, local_name=SW 5A 1, room_ass=01, filter_id=(7),
-cmd_data=Main_router_2, local_name=SW 5A 2, room_ass=01, filter_id=(8),
-cmd_data=Main_router_3, local_name=Capture 5A 1, room_ass=01, filter_id=(7),
-cmd_data=Main_router_4, local_name=Capture 5A 2, room_ass=01, filter_id=(8),
-cmd_data=Main_router_5, local_name=Capture 5A 3, room_ass=01, filter_id=(9),
-cmd_data=Main_router_6, local_name=Capture 5A 4, room_ass=01, filter_id=(10),
-cmd_data=Main_router_7, local_name=Capture 5A 5, room_ass=01, filter_id=(),
-cmd_data=Main_router_8, local_name=Capture 5A 6, room_ass=01, filter_id=(),
-cmd_data=Main_router_9, local_name=Capture 5A 7, room_ass=01, filter_id=(),
-cmd_data=Main_router_10, local_name=Capture 5A 8, room_ass=01, filter_id=(),
-cmd_data=Main_router_11, local_name=Capture 5A 9, room_ass=01, filter_id=(),
-cmd_data=Main_router_12, local_name=Capture 5A 10, room_ass=01, filter_id=(),
-cmd_data=Main_router_13, local_name=Streaming Tx 5A 1, room_ass=00, filter_id=(7),
-cmd_data=Main_router_14, local_name=Streaming Tx 5A 2, room_ass=00, filter_id=(8),
-cmd_data=Main_router_15, local_name=Streaming Tx 5A 3, room_ass=00, filter_id=(9),
-cmd_data=Main_router_16, local_name=Streaming Tx 5A 4, room_ass=00, filter_id=(10),
-cmd_data=Main_router_17, local_name=Streaming Tx 5A 5, room_ass=00, filter_id=(),
-cmd_data=Main_router_18, local_name=Streaming Tx 5A 6, room_ass=00, filter_id=(),
-cmd_data=Main_router_19, local_name=Streaming Tx 5A 7, room_ass=00, filter_id=(),
-cmd_data=Main_router_20, local_name=Streaming Tx 5A 8, room_ass=00, filter_id=(),
-cmd_data=Main_router_21, local_name=Streaming Tx 5A 9, room_ass=00, filter_id=(),
-cmd_data=Main_router_22, local_name=Streaming Tx 5A 10, room_ass=00, filter_id=(),
-cmd_data=Main_router_23, local_name=Remote Aux Rx, room_ass=01, filter_id=(11),
-cmd_data=Main_router_24, local_name=Remote Aux Rx, room_ass=02, filter_id=(12),
-cmd_data=Main_router_25, local_name=Remote Aux Rx, room_ass=03, filter_id=(13),
-cmd_data=Main_router_26, local_name=Remote Aux Rx, room_ass=04, filter_id=(14),
-cmd_data=Main_router_27, local_name=Remote Aux Rx, room_ass=05, filter_id=(15),
-cmd_data=Main_router_28, local_name=Remote Aux Rx, room_ass=06, filter_id=(16),
-cmd_data=Main_router_29, local_name=Remote Aux Rx, room_ass=07, filter_id=(17),
-cmd_data=Main_router_30, local_name=Remote Aux Rx, room_ass=08, filter_id=(18),
-cmd_data=Main_router_31, local_name=Remote Aux Rx, room_ass=09, filter_id=(19),
-cmd_data=Main_router_32, local_name=Remote Aux Rx, room_ass=10, filter_id=(20),
-cmd_data=Main_router_33, local_name=Remote Aux Rx, room_ass=11, filter_id=(21),
-cmd_data=Main_router_34, local_name=Remote Aux Rx, room_ass=12, filter_id=(22),
-cmd_data=Main_router_35, local_name=Remote Aux Rx, room_ass=13, filter_id=(23),
-cmd_data=Main_router_36, local_name=Remote Aux Rx, room_ass=14, filter_id=(24),
-cmd_data=Main_router_37, local_name=Remote Aux Rx, room_ass=15, filter_id=(25),
-cmd_data=Main_router_38, local_name=Remote Aux Rx, room_ass=16, filter_id=(26),
-cmd_data=Main_router_39, local_name=Remote Aux Rx, room_ass=17, filter_id=(27),
-cmd_data=Main_router_40, local_name=Remote Aux Rx, room_ass=18, filter_id=(28),
-cmd_data=Main_router_41, local_name=MobileCart Mix, room_ass=01, filter_id=(11),
-cmd_data=Main_router_42, local_name=MobileCart Mix, room_ass=02, filter_id=(12),
-cmd_data=Main_router_43, local_name=MobileCart Mix, room_ass=03, filter_id=(13),
-cmd_data=Main_router_44, local_name=MobileCart Mix, room_ass=04, filter_id=(14),
-cmd_data=Main_router_45, local_name=MobileCart Mix, room_ass=05, filter_id=(15),
-cmd_data=Main_router_46, local_name=MobileCart Mix, room_ass=06, filter_id=(16),
-cmd_data=Main_router_47, local_name=MobileCart Mix, room_ass=07, filter_id=(17),
-cmd_data=Main_router_48, local_name=MobileCart Mix, room_ass=08, filter_id=(18),
-cmd_data=Main_router_49, local_name=MobileCart Mix, room_ass=09, filter_id=(19),
-cmd_data=Main_router_50, local_name=MobileCart Mix, room_ass=10, filter_id=(20),
-cmd_data=Main_router_51, local_name=MobileCart Mix, room_ass=11, filter_id=(21),
-cmd_data=Main_router_52, local_name=MobileCart Mix, room_ass=12, filter_id=(22),
-cmd_data=Main_router_53, local_name=MobileCart Mix, room_ass=13, filter_id=(23),
-cmd_data=Main_router_54, local_name=MobileCart Mix, room_ass=14, filter_id=(24),
-cmd_data=Main_router_55, local_name=MobileCart Mix, room_ass=15, filter_id=(25),
-cmd_data=Main_router_56, local_name=MobileCart Mix, room_ass=16, filter_id=(26),
-cmd_data=Main_router_57, local_name=MobileCart Mix, room_ass=17, filter_id=(27),
-cmd_data=Main_router_58, local_name=MobileCart Mix, room_ass=18, filter_id=(28),
-cmd_data=Main_router_59, local_name=Rec 5A 1, room_ass=00, filter_id=(7),
-cmd_data=Main_router_60, local_name=Rec 5A 2, room_ass=00, filter_id=(8),
-cmd_data=Main_router_61, local_name=Rec 5A 3, room_ass=00, filter_id=(9),
-cmd_data=Main_router_62, local_name=Remote VTC Rx, room_ass=01, filter_id=(11),
-cmd_data=Main_router_63, local_name=Remote VTC Rx, room_ass=02, filter_id=(12),
-cmd_data=Main_router_64, local_name=Remote VTC Rx, room_ass=03, filter_id=(13),
-cmd_data=Main_router_65, local_name=Remote VTC Rx, room_ass=04, filter_id=(14),
-cmd_data=Main_router_66, local_name=Remote VTC Rx, room_ass=05, filter_id=(15),
-cmd_data=Main_router_67, local_name=Remote VTC Rx, room_ass=06, filter_id=(16),
-cmd_data=Main_router_68, local_name=Remote VTC Rx, room_ass=07, filter_id=(17),
-cmd_data=Main_router_69, local_name=Remote VTC Rx, room_ass=08, filter_id=(18),
-cmd_data=Main_router_70, local_name=Remote VTC Rx, room_ass=09, filter_id=(19),
-cmd_data=Main_router_71, local_name=Remote VTC Rx, room_ass=10, filter_id=(20),
-cmd_data=Main_router_72, local_name=Remote VTC Rx, room_ass=11, filter_id=(21),
-cmd_data=Main_router_73, local_name=Remote VTC Rx, room_ass=12, filter_id=(22),
-cmd_data=Main_router_74, local_name=Remote VTC Rx, room_ass=13, filter_id=(23),
-cmd_data=Main_router_75, local_name=Remote VTC Rx, room_ass=14, filter_id=(24),
-cmd_data=Main_router_76, local_name=Remote VTC Rx, room_ass=15, filter_id=(25),
-cmd_data=Main_router_77, local_name=Remote VTC Rx, room_ass=16, filter_id=(26),
-cmd_data=Main_router_78, local_name=Remote VTC Rx, room_ass=17, filter_id=(27),
-cmd_data=Main_router_79, local_name=Remote VTC Rx, room_ass=18, filter_id=(28),
-cmd_data=Main_router_80, local_name=VTC 1, room_ass=01, filter_id=(50),
-cmd_data=Main_router_81, local_name=VTC 2, room_ass=01, filter_id=(51),
-cmd_data=Main_router_82, local_name=VTC 3, room_ass=01, filter_id=(52),
-cmd_data=Main_router_83, local_name=Forum Tx 1, room_ass=23, filter_id=(),
-cmd_data=Main_router_84, local_name=Forum Tx 2, room_ass=23, filter_id=(),
-cmd_data=Main_router_85, local_name=Forum Tx 3, room_ass=23, filter_id=(),
-cmd_data=Main_router_86, local_name=Forum Tx 4, room_ass=23, filter_id=(),
-cmd_data=Main_router_87, local_name=Forum Tx 5, room_ass=23, filter_id=(),
-
+audio_data[ cmd_io=Main_router_1, local_name=SW 5A 1, room_ass=01, filter_id=(7), ]
+audio_data[ cmd_io=Main_router_2, local_name=SW 5A 2, room_ass=01, filter_id=(8), ]
+audio_data[ cmd_io=Main_router_3, local_name=Capture 5A 1, room_ass=01, filter_id=(7), ]
+audio_data[ cmd_io=Main_router_4, local_name=Capture 5A 2, room_ass=01, filter_id=(8), ]
+audio_data[ cmd_io=Main_router_5, local_name=Capture 5A 3, room_ass=01, filter_id=(9), ]
+audio_data[ cmd_io=Main_router_6, local_name=Capture 5A 4, room_ass=01, filter_id=(10), ]
+audio_data[ cmd_io=Main_router_7, local_name=Capture 5A 5, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_8, local_name=Capture 5A 6, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_9, local_name=Capture 5A 7, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_10, local_name=Capture 5A 8, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_11, local_name=Capture 5A 9, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_12, local_name=Capture 5A 10, room_ass=01, filter_id=(), ]
+audio_data[ cmd_io=Main_router_13, local_name=Streaming Tx 5A 1, room_ass=00, filter_id=(7), ]
+audio_data[ cmd_io=Main_router_14, local_name=Streaming Tx 5A 2, room_ass=00, filter_id=(8), ]
+audio_data[ cmd_io=Main_router_15, local_name=Streaming Tx 5A 3, room_ass=00, filter_id=(9), ]
+audio_data[ cmd_io=Main_router_16, local_name=Streaming Tx 5A 4, room_ass=00, filter_id=(10), ]
+audio_data[ cmd_io=Main_router_17, local_name=Streaming Tx 5A 5, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_18, local_name=Streaming Tx 5A 6, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_19, local_name=Streaming Tx 5A 7, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_20, local_name=Streaming Tx 5A 8, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_21, local_name=Streaming Tx 5A 9, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_22, local_name=Streaming Tx 5A 10, room_ass=00, filter_id=(), ]
+audio_data[ cmd_io=Main_router_23, local_name=Remote Aux Rx, room_ass=01, filter_id=(11), ]
+audio_data[ cmd_io=Main_router_24, local_name=Remote Aux Rx, room_ass=02, filter_id=(12), ]
+audio_data[ cmd_io=Main_router_25, local_name=Remote Aux Rx, room_ass=03, filter_id=(13), ]
+audio_data[ cmd_io=Main_router_26, local_name=Remote Aux Rx, room_ass=04, filter_id=(14), ]
+audio_data[ cmd_io=Main_router_27, local_name=Remote Aux Rx, room_ass=05, filter_id=(15), ]
+audio_data[ cmd_io=Main_router_28, local_name=Remote Aux Rx, room_ass=06, filter_id=(16), ]
+audio_data[ cmd_io=Main_router_29, local_name=Remote Aux Rx, room_ass=07, filter_id=(17), ]
+audio_data[ cmd_io=Main_router_30, local_name=Remote Aux Rx, room_ass=08, filter_id=(18), ]
+audio_data[ cmd_io=Main_router_31, local_name=Remote Aux Rx, room_ass=09, filter_id=(19), ]
+audio_data[ cmd_io=Main_router_32, local_name=Remote Aux Rx, room_ass=10, filter_id=(20), ]
+audio_data[ cmd_io=Main_router_33, local_name=Remote Aux Rx, room_ass=11, filter_id=(21), ]
+audio_data[ cmd_io=Main_router_34, local_name=Remote Aux Rx, room_ass=12, filter_id=(22), ]
+audio_data[ cmd_io=Main_router_35, local_name=Remote Aux Rx, room_ass=13, filter_id=(23), ]
+audio_data[ cmd_io=Main_router_36, local_name=Remote Aux Rx, room_ass=14, filter_id=(24), ]
+audio_data[ cmd_io=Main_router_37, local_name=Remote Aux Rx, room_ass=15, filter_id=(25), ]
+audio_data[ cmd_io=Main_router_38, local_name=Remote Aux Rx, room_ass=16, filter_id=(26), ]
+audio_data[ cmd_io=Main_router_39, local_name=Remote Aux Rx, room_ass=17, filter_id=(27), ]
+audio_data[ cmd_io=Main_router_40, local_name=Remote Aux Rx, room_ass=18, filter_id=(28), ]
+audio_data[ cmd_io=Main_router_41, local_name=MobileCart Mix, room_ass=01, filter_id=(11), ]
+audio_data[ cmd_io=Main_router_42, local_name=MobileCart Mix, room_ass=02, filter_id=(12), ]
+audio_data[ cmd_io=Main_router_43, local_name=MobileCart Mix, room_ass=03, filter_id=(13), ]
+audio_data[ cmd_io=Main_router_44, local_name=MobileCart Mix, room_ass=04, filter_id=(14), ]
+audio_data[ cmd_io=Main_router_45, local_name=MobileCart Mix, room_ass=05, filter_id=(15), ]
+audio_data[ cmd_io=Main_router_46, local_name=MobileCart Mix, room_ass=06, filter_id=(16), ]
+audio_data[ cmd_io=Main_router_47, local_name=MobileCart Mix, room_ass=07, filter_id=(17), ]
+audio_data[ cmd_io=Main_router_48, local_name=MobileCart Mix, room_ass=08, filter_id=(18), ]
+audio_data[ cmd_io=Main_router_49, local_name=MobileCart Mix, room_ass=09, filter_id=(19), ]
+audio_data[ cmd_io=Main_router_50, local_name=MobileCart Mix, room_ass=10, filter_id=(20), ]
+audio_data[ cmd_io=Main_router_51, local_name=MobileCart Mix, room_ass=11, filter_id=(21), ]
+audio_data[ cmd_io=Main_router_52, local_name=MobileCart Mix, room_ass=12, filter_id=(22), ]
+audio_data[ cmd_io=Main_router_53, local_name=MobileCart Mix, room_ass=13, filter_id=(23), ]
+audio_data[ cmd_io=Main_router_54, local_name=MobileCart Mix, room_ass=14, filter_id=(24), ]
+audio_data[ cmd_io=Main_router_55, local_name=MobileCart Mix, room_ass=15, filter_id=(25), ]
+audio_data[ cmd_io=Main_router_56, local_name=MobileCart Mix, room_ass=16, filter_id=(26), ]
+audio_data[ cmd_io=Main_router_57, local_name=MobileCart Mix, room_ass=17, filter_id=(27), ]
+audio_data[ cmd_io=Main_router_58, local_name=MobileCart Mix, room_ass=18, filter_id=(28), ]
+audio_data[ cmd_io=Main_router_59, local_name=Rec 5A 1, room_ass=00, filter_id=(7), ]
+audio_data[ cmd_io=Main_router_60, local_name=Rec 5A 2, room_ass=00, filter_id=(8), ]
+audio_data[ cmd_io=Main_router_61, local_name=Rec 5A 3, room_ass=00, filter_id=(9), ]
+audio_data[ cmd_io=Main_router_62, local_name=Remote VTC Rx, room_ass=01, filter_id=(11), ]
+audio_data[ cmd_io=Main_router_63, local_name=Remote VTC Rx, room_ass=02, filter_id=(12), ]
+audio_data[ cmd_io=Main_router_64, local_name=Remote VTC Rx, room_ass=03, filter_id=(13), ]
+audio_data[ cmd_io=Main_router_65, local_name=Remote VTC Rx, room_ass=04, filter_id=(14), ]
+audio_data[ cmd_io=Main_router_66, local_name=Remote VTC Rx, room_ass=05, filter_id=(15), ]
+audio_data[ cmd_io=Main_router_67, local_name=Remote VTC Rx, room_ass=06, filter_id=(16), ]
+audio_data[ cmd_io=Main_router_68, local_name=Remote VTC Rx, room_ass=07, filter_id=(17), ]
+audio_data[ cmd_io=Main_router_69, local_name=Remote VTC Rx, room_ass=08, filter_id=(18), ]
+audio_data[ cmd_io=Main_router_70, local_name=Remote VTC Rx, room_ass=09, filter_id=(19), ]
+audio_data[ cmd_io=Main_router_71, local_name=Remote VTC Rx, room_ass=10, filter_id=(20), ]
+audio_data[ cmd_io=Main_router_72, local_name=Remote VTC Rx, room_ass=11, filter_id=(21), ]
+audio_data[ cmd_io=Main_router_73, local_name=Remote VTC Rx, room_ass=12, filter_id=(22), ]
+audio_data[ cmd_io=Main_router_74, local_name=Remote VTC Rx, room_ass=13, filter_id=(23), ]
+audio_data[ cmd_io=Main_router_75, local_name=Remote VTC Rx, room_ass=14, filter_id=(24), ]
+audio_data[ cmd_io=Main_router_76, local_name=Remote VTC Rx, room_ass=15, filter_id=(25), ]
+audio_data[ cmd_io=Main_router_77, local_name=Remote VTC Rx, room_ass=16, filter_id=(26), ]
+audio_data[ cmd_io=Main_router_78, local_name=Remote VTC Rx, room_ass=17, filter_id=(27), ]
+audio_data[ cmd_io=Main_router_79, local_name=Remote VTC Rx, room_ass=18, filter_id=(28), ]
+audio_data[ cmd_io=Main_router_80, local_name=VTC 1, room_ass=01, filter_id=(50), ]
+audio_data[ cmd_io=Main_router_81, local_name=VTC 2, room_ass=01, filter_id=(51), ]
+audio_data[ cmd_io=Main_router_82, local_name=VTC 3, room_ass=01, filter_id=(52), ]
+audio_data[ cmd_io=Main_router_83, local_name=Forum Tx 1, room_ass=23, filter_id=(), ]
+audio_data[ cmd_io=Main_router_84, local_name=Forum Tx 2, room_ass=23, filter_id=(), ]
+audio_data[ cmd_io=Main_router_85, local_name=Forum Tx 3, room_ass=23, filter_id=(), ]
+audio_data[ cmd_io=Main_router_86, local_name=Forum Tx 4, room_ass=23, filter_id=(), ]
+audio_data[ cmd_io=Main_router_87, local_name=Forum Tx 5, room_ass=23, filter_id=(), ]
