@@ -271,18 +271,18 @@ namespace PWCSharpPro
                 {
                     if ((int)_volume == 0)                                  //none
                     {
-                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
-                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csv {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csv {0}_2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
                     }
                     else if ((int)_volume >= 1 && (int)_volume <= 4)        //local sources
                     {
-                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, (int)_volume));
-                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csv {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, (int)_volume));
+                        commands.Add(string.Format("csv {0}_2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
                     }
                     else                                                    //remote aux source (and anything else that gets added)
                     {
-                        commands.Add(string.Format("csp {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
-                        commands.Add(string.Format("csp {0}2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl,(int)_volume));
+                        commands.Add(string.Format("csv {0} {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl, 5));
+                        commands.Add(string.Format("csv {0}_2 {1}\x0a", dSPQSCSignals[(int)_signal].RteNamedControl,(int)_volume));
                     }
                 }
                 else                                            //vol control
@@ -329,9 +329,6 @@ namespace PWCSharpPro
                     //if point type is an audio/mute control (1 or 2)
                     if (dSPQSCSignals[(int)_signal].PointType < 3)
                         OnCommandToSend(this, string.Format("csp {0} 1\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl));
-                    //else the point type is 3, which is a room-local router for selecting PGM audio
-                    else
-                        OnCommandToSend(this, string.Format("csp {0} 1\x0a", dSPQSCSignals[(int)_signal].RteNamedControl));
                 }
             }
         }
@@ -365,6 +362,12 @@ namespace PWCSharpPro
             {
                 MuteOn(_signal);
             }
+        }
+
+        public void RouteMatrix(uint _iDst, ushort _iSrc)
+        {
+            string command = string.Format("csp Main_router_{0} {1}\x0a", _iDst, _iSrc);
+            OnCommandToSend(this, command);
         }
 
         /// <summary>

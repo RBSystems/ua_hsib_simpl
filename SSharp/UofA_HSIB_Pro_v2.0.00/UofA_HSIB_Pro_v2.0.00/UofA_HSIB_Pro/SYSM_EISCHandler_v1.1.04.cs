@@ -40,10 +40,10 @@ namespace UofA_HSIB_Pro
         //public const string PRO3IP1 = "192.168.1.105";      // DEBUGGING
 
         // The IPIDs for each EISC
-        public int[] MtrxEiscIds = { 0x81 };
-        public int[] DspEiscIds = { 0x82 };
-        public int[] DplyCamEiscIds = { 0x83 };
-        public int[] IgmpRlyPartLghtEiscIds = { 0x84 };
+        public int[] MtrxEiscIds = { 0x83 };
+        public int[] DspEiscIds = { 0x84 };
+        public int[] DplyCamEiscIds = { 0x85 };
+        public int[] IgmpRlyPartLghtEiscIds = { 0x86 };
 
         // The indices of each EISC
         public int[] MtrxEiscIndices = { 0 };
@@ -81,10 +81,10 @@ namespace UofA_HSIB_Pro
         {
             controlSystem.eiscs = new ThreeSeriesTcpIpEthernetIntersystemCommunications[4];
 
-            controlSystem.eiscs[0] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x81, PRO3IP1, controlSystem);
-            controlSystem.eiscs[1] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x82, PRO3IP1, controlSystem);
-            controlSystem.eiscs[2] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x83, PRO3IP1, controlSystem);
-            controlSystem.eiscs[3] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x84, PRO3IP1, controlSystem);
+            controlSystem.eiscs[0] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x83, PRO3IP1, controlSystem);
+            controlSystem.eiscs[1] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x84, PRO3IP1, controlSystem);
+            controlSystem.eiscs[2] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x85, PRO3IP1, controlSystem);
+            controlSystem.eiscs[3] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x86, PRO3IP1, controlSystem);
 
             controlSystem.eiscs[0].Description = "Matrix Control";
             controlSystem.eiscs[1].Description = "DSP Control";
@@ -224,7 +224,7 @@ namespace UofA_HSIB_Pro
             {
                 if (args.Sig.Number >= 1 && args.Sig.Number <= 499)
                 {
-                    if (args.Sig.UShortValue < 32767) 
+                    if (args.Sig.UShortValue < 32767)                               //volume command request
                     { 
                         controlSystem.DSPQSC.SetVolume(args.Sig.Number, (float)args.Sig.UShortValue); 
                     }
@@ -232,6 +232,10 @@ namespace UofA_HSIB_Pro
                     {
                         controlSystem.DSPQSC.SetVolume(args.Sig.Number, (float)((65536 - args.Sig.UShortValue) * -1));
                     }
+                }
+                else if (args.Sig.Number >= 1000 && args.Sig.Number <= 1999)        //audio matrix route request
+                {
+                    controlSystem.DSPQSC.RouteMatrix(args.Sig.Number, args.Sig.UShortValue);
                 }
             }
             // Boolean (digital) values

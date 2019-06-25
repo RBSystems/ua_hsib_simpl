@@ -28,7 +28,7 @@ room_ass=23, point_type=1, local_index=6, local_name=Podium Mic, tag_gain=FORUM_
 room_ass=23, point_type=2, local_index=7, local_name=Program, tag_gain=FORUM_PGM_gain_volLevel, tag_mute=FORUM_PGM_gain_muteState, dsp_system=2,
 
 	//SOURCE ROUTING:
-	room_ass=23, point_type=3, local_index=8, local_name=Program, tag_rte=FORUM_PGM_Router, dsp_system=2,
+	room_ass=23, point_type=3, local_index=8, local_name=Program, tag_rte=FORUM_PGM_router, dsp_system=2,
 	
 
 //Room 305

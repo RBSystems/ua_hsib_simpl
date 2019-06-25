@@ -24,19 +24,20 @@ CODE MANUAL
 				- is unused at the time of writing (spare processor).
 			CP-03
 				- dedicated to device control, written in SIMPL# Pro
-				- connects to CP-01 via EISC, IPID 81
+				- connects to CP-01 via EISC, IPID 83
 				- generally responsible for controlling the Evertz video system
 			CP-04
 				- dedicated to device control, written in SIMPL# Pro
-				- connects to CP-01 via EISC, IPID 82
+				- connects to CP-01 via EISC, IPID 84
 				- generally responsible for controlling the QSC DSP system
+				- while the rest of the program generally operates on GUIDs, the MTRX_ADST section (the arrays controlling the audio matrix) work based on the actual DSP audio matrix IO numbers. The list of data is stored in GUIDs, however the analog values sent to this CP3 to control matrix crosspoints use the actual command data.
 			CP-05
 				- dedicated to device control, written in SIMPL# Pro
-				- connects to CP-01 via EISC, IPID 83
+				- connects to CP-01 via EISC, IPID 85
 				- generally responsible for controlling all cameras, and all displays in the building
 			CP-06
 				- dedicated to device control, written in SIMPL# Pro
-				- connects to CP-01 via EISC, IPID 84
+				- connects to CP-01 via EISC, IPID 86
 				- generally responsible for controlling the system devices not listed in the above processors
 
 			RS-232 and relays are used on various processors, so the EISCs will sometimes carry this data from CP-01 to CP[03-06]

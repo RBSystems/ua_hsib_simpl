@@ -11,7 +11,7 @@ GlobalReportFileIncludeAll=on
 
 [Variables]
 //Predefined: $time $date $scriptfilename $scriptpath $scriptsection $scriptconnect $scriptindex $LF
-PanelFile_Lecture="C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\VTPro\HSIB_Lecture_DGE200_v1.0.70.vtz"
+PanelFile_Lecture="C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\VTPro\HSIB_Classroom_DGE200_v1.0.77.vtz"
 Pro3IP="10.156.32.100"
 
 
@@ -65,6 +65,9 @@ DisplayListSend |PanelFile_Lecture|
 Connect=auto 10.156.27.70
 
 DisplayListSend |PanelFile_Lecture|
+
+
+
 
 
 

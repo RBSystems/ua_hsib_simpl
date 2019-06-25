@@ -691,10 +691,10 @@ namespace UofA_HSIB_Pro
 
             CrestronConsole.ConsoleCommandResponse("Unregistered and disposed existing EISCs...\r", _args);
 
-            eiscs[0] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x81, _args, this);
-            eiscs[1] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x82, _args, this);
-            eiscs[2] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x83, _args, this);
-            eiscs[3] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x84, _args, this);
+            eiscs[0] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x83, _args, this);
+            eiscs[1] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x84, _args, this);
+            eiscs[2] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x85, _args, this);
+            eiscs[3] = new ThreeSeriesTcpIpEthernetIntersystemCommunications(0x86, _args, this);
 
             eiscs[0].Description = "Matrix Control";
             eiscs[1].Description = "DSP Control";

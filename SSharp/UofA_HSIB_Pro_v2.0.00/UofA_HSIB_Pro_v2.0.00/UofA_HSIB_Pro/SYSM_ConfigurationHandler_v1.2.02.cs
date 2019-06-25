@@ -456,10 +456,9 @@ namespace UofA_HSIB_Pro
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "ACK"));
                 //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured DSP signal with index {1} as named {2} with volume named control {3} and mute named control {4}", CLASSID, args.Sig.Number, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolumeName, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].VolNamedControl, controlSystem.DSPQSC.dSPQSCSignals[args.Sig.Number].MuteNamedControl), CLASSID, false);
             }
-            catch (Exception e)
+            catch
             {
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DspEiscIndices, args.Sig.Number, "NAK"));
-                CrestronConsole.PrintLine("~~~~~~~~ Catch args e: {0}", e.StackTrace);
             }
         }
 
