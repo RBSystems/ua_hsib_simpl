@@ -1,6 +1,4 @@
-﻿
-//SOURCES
-filter_type=src, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm,
+﻿filter_type=src, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm,
 filter_type=src, filter_id=2, group_id=1, filter_name=Aux Inputs,
 filter_type=src, filter_id=50, group_id=1, filter_name=Cisco VTC 1,
 filter_type=src, filter_id=51, group_id=1, filter_name=Cisco VTC 2,
@@ -43,7 +41,6 @@ filter_type=src, filter_id=38, group_id=8, filter_name=Control Room,
 filter_type=src, filter_id=39, group_id=9, filter_name=SimDeck, group_name=Remote Classrooms,
 
 
-//DESTINATIONS
 filter_type=dst, filter_id=1, group_id=1, filter_name=AJA Record,
 filter_type=dst, filter_id=2, group_id=1, filter_name=Capture Stations,
 filter_type=dst, filter_id=4, group_id=1, filter_name=KVM,
@@ -92,5 +89,3 @@ filter_type=dst, filter_id=43, group_id=6, filter_name=Control Room,
 filter_type=dst, filter_id=44, group_id=7, filter_name=SimDeck,
 filter_type=dst, filter_id=45, group_id=8, filter_name=TBD,
 
-//filter_type=dst, filter_id=, group_id=, filter_name=Room 305, group_name=Aux Sends
-//filter_type=dst, filter_id=, group_id=, filter_name=Room 306, 
