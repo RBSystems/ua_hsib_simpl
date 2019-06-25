@@ -1,4 +1,6 @@
-﻿filter_type=src, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm,
+
+//Sources
+filter_type=src, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm,
 filter_type=src, filter_id=2, group_id=1, filter_name=Aux Inputs,
 filter_type=src, filter_id=50, group_id=1, filter_name=Cisco VTC 1,
 filter_type=src, filter_id=51, group_id=1, filter_name=Cisco VTC 2,
