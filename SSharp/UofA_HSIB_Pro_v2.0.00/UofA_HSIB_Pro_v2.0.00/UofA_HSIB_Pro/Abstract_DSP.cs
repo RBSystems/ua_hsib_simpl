@@ -11,7 +11,7 @@ namespace PWCSharpPro
     /// </summary>
     public abstract class DSP
     {
-        protected const int numberSignals = 31;
+        protected const int numberSignals = 350;
         protected const int numberGroups = 21;
 
         public enum FeedbackType { Volume, Mute, All, Data };

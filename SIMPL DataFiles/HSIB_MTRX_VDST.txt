@@ -251,8 +251,8 @@ sys_data[ local_name=Panel Preview, room_ass=18, local_id=50, ]  io_data[ cmd_io
 //NO CISCO CAPABILITY NEEDED IN THIS ROOM
 
 //ROOM 880
-sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ]  io_data[ cmd_io=604, relay_processor=1, rly_on=(38+), rly_off=(37+), ]
-sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ]  io_data[ cmd_io=606, usb_mac=029262, relay_processor=1, rly_on=(40+), rly_off=(39+), ]
+sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, relay_processor=1, rly_on=(38+), rly_off=(37+), ]
+sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, usb_mac=029262, relay_processor=1, rly_on=(40+), rly_off=(39+), ]
 
 sys_data[ local_name=USB Video, room_ass=19, local_id=31, ] device_data[ ip_address=10.156.24.124, ]  io_data[ cmd_io=602, ]
 
@@ -387,26 +387,26 @@ sys_data[ local_name=Throwdown D-HDMI Out 2, room_ass=17, local_id=18,  filter=(
 
 
 		//Control Room
-sys_data[ local_name=VW POS 1, room_ass=17, local_id=21, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=481, ]
-sys_data[ local_name=VW POS 2, room_ass=17, local_id=22, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=482, ]
-sys_data[ local_name=VW POS 3, room_ass=17, local_id=23, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=483, ]
-sys_data[ local_name=VW POS 4, room_ass=17, local_id=24, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=484, ]
-sys_data[ local_name=VW POS 5, room_ass=17, local_id=25, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=485, ]
-sys_data[ local_name=VW POS 6, room_ass=17, local_id=26, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=487, ]
-sys_data[ local_name=VW POS 9, room_ass=17, local_id=27, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=488, ]
-sys_data[ local_name=VW POS 10, room_ass=17, local_id=28, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=489, ]
-sys_data[ local_name=VW POS 13, room_ass=17, local_id=29, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=490, ]
-sys_data[ local_name=VW POS 14, room_ass=17, local_id=30, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=491, ]
-sys_data[ local_name=VW POS 7, room_ass=17, local_id=31, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=492, ]
-sys_data[ local_name=VW POS 8, room_ass=17, local_id=32, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=493, ]
-sys_data[ local_name=VW POS 11, room_ass=17, local_id=33, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=494, ] 
-sys_data[ local_name=VW POS 12, room_ass=17, local_id=34, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=495, ]
-sys_data[ local_name=VW POS 15, room_ass=17, local_id=35, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=496, ]
-sys_data[ local_name=VW POS 16, room_ass=17, local_id=36, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=497, ]
-sys_data[ local_name=VW POS 17, room_ass=17, local_id=37, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=498, ]
-sys_data[ local_name=VW POS 18, room_ass=17, local_id=38, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=499, ]
-sys_data[ local_name=VW POS 19, room_ass=17, local_id=39, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=500, ]
-sys_data[ local_name=VW POS 20, room_ass=17, local_id=40, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ]  io_data[ cmd_io=501, ]
+sys_data[ local_name=VW POS 1, room_ass=17, local_id=21, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=481, ]
+sys_data[ local_name=VW POS 2, room_ass=17, local_id=22, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=482, ]
+sys_data[ local_name=VW POS 3, room_ass=17, local_id=23, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=483, ]
+sys_data[ local_name=VW POS 4, room_ass=17, local_id=24, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=484, ]
+sys_data[ local_name=VW POS 5, room_ass=17, local_id=25, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=485, ]
+sys_data[ local_name=VW POS 6, room_ass=17, local_id=26, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=487, ]
+sys_data[ local_name=VW POS 9, room_ass=17, local_id=27, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=488, ]
+sys_data[ local_name=VW POS 10, room_ass=17, local_id=28, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=489, ]
+sys_data[ local_name=VW POS 13, room_ass=17, local_id=29, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=490, ]
+sys_data[ local_name=VW POS 14, room_ass=17, local_id=30, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=491, ]
+sys_data[ local_name=VW POS 7, room_ass=17, local_id=31, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=492, ]
+sys_data[ local_name=VW POS 8, room_ass=17, local_id=32, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=493, ]
+sys_data[ local_name=VW POS 11, room_ass=17, local_id=33, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=494, ] 
+sys_data[ local_name=VW POS 12, room_ass=17, local_id=34, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=495, ]
+sys_data[ local_name=VW POS 15, room_ass=17, local_id=35, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=496, ]
+sys_data[ local_name=VW POS 16, room_ass=17, local_id=36, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=497, ]
+sys_data[ local_name=VW POS 17, room_ass=17, local_id=37, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=498, ]
+sys_data[ local_name=VW POS 18, room_ass=17, local_id=38, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=499, ]
+sys_data[ local_name=VW POS 19, room_ass=17, local_id=39, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=500, ]
+sys_data[ local_name=VW POS 20, room_ass=17, local_id=40, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=501, ]
 
 
 sys_data[ local_name=Panel Preview, room_ass=17, local_id=50,  ]  io_data[ cmd_io=486, ]

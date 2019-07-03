@@ -1,0 +1,9 @@
+********************************************************************************************
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: BioComm
+Connection: auto 10.156.27.92
+Started: Thursday, June 27, 2019 12:41:50 PM
+Elapsed Time: 20 secs
+Result: Success
+Command for Line  1[Failure, 20 secs]: DisplayListSend |PanelFile_BioComm|
+Error   for Line  1: An unknown error has occurred.

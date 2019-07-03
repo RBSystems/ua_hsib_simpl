@@ -1,0 +1,9 @@
+********************************************************************************************
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 731 SimDeck CR
+Connection: auto 10.156.27.137
+Started: Friday, June 28, 2019 10:08:49 AM
+Elapsed Time: 10 secs
+Result: Success
+Command for Line  1[Failure, 10 secs]: DisplayListSend |PanelFile_Lecture|
+Error   for Line  1: An unknown error has occurred.

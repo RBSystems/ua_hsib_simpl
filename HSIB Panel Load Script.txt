@@ -12,8 +12,14 @@ GlobalReportFileIncludeAll=on
 [Variables]
 //Predefined: $time $date $scriptfilename $scriptpath $scriptsection $scriptconnect $scriptindex $LF
 PanelFile_Lecture="C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\VTPro\HSIB_Classroom_DGE200_v1.0.77.vtz"
+PanelFile_BioComm="C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\VTPro\HSIB_BioComm_DGE200_v1.0.75.vtz"
 Pro3IP="10.156.32.100"
 
+
+[BioComm]
+Connect=auto 10.156.27.92
+
+DisplayListSend |PanelFile_BioComm|
 
 
 [305]
@@ -65,6 +71,27 @@ DisplayListSend |PanelFile_Lecture|
 Connect=auto 10.156.27.70
 
 DisplayListSend |PanelFile_Lecture|
+
+[731 SimDeck CR]
+Connect=auto 10.156.27.137
+
+DisplayListSend |PanelFile_Lecture|
+
+[855]
+Connect=auto 10.156.27.147
+
+DisplayListSend |PanelFile_Lecture|
+
+
+[880]
+Connect=auto 10.156.27.158
+
+DisplayListSend |PanelFile_Lecture|
+
+
+
+
+
 
 
 

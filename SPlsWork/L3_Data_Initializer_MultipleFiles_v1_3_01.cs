@@ -255,8 +255,6 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             Trace( "\\\\______Starting Data Init List: {0} ______(file data)//", LINEHEADER__DOLLAR__ ) ; 
             __context__.SourceCodeLine = 299;
             BUSY_FB  .Value = (ushort) ( 1 ) ; 
-            __context__.SourceCodeLine = 302;
-            Trace( "DataInitializer - {0}, sFilePath={1}", LINEHEADER__DOLLAR__ , SFILEPATH ) ; 
             __context__.SourceCodeLine = 303;
             Functions.Delay (  (int) ( END_DELAY  .Value ) ) ; 
             __context__.SourceCodeLine = 305;
@@ -329,7 +327,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (SIERRFOUND != 0))  ) ) 
                         { 
                         __context__.SourceCodeLine = 357;
-                        Trace( "DataInitializer - {0}, file not found: {1}", LINEHEADER__DOLLAR__ , SFILEPATH ) ; 
+                        Print( "DataInitializer - {0}, file not found: {1}", LINEHEADER__DOLLAR__ , SFILEPATH ) ; 
                         __context__.SourceCodeLine = 358;
                         EndFileOperations ( ) ; 
                         __context__.SourceCodeLine = 359;
@@ -339,7 +337,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                     else 
                         { 
                         __context__.SourceCodeLine = 364;
-                        Trace( "DataInitializer - {0}, file found: {1} ", LINEHEADER__DOLLAR__ , FILEINFO .  Name ) ; 
+                        Print( "DataInitializer - {0}, file found: {1} ", LINEHEADER__DOLLAR__ , FILEINFO .  Name ) ; 
                         __context__.SourceCodeLine = 366;
                         SIERRFILEOPEN = (short) ( FileOpenShared( SFILEPATH ,(ushort) (0 | 16384) ) ) ; 
                         __context__.SourceCodeLine = 367;
@@ -646,7 +644,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                     if ( Functions.TestForTrue  ( ( SEND_FINALIZE_DATA  .Value)  ) ) 
                         { 
                         __context__.SourceCodeLine = 520;
-                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_303__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_303___Callback ) ;
+                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_373__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_373___Callback ) ;
                         } 
                     
                     } 
@@ -654,19 +652,19 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
                 else 
                     { 
                     __context__.SourceCodeLine = 528;
-                    Trace( "data_initializer_multipleFiles  {0}  - skipping index {1:d}", LINEHEADER__DOLLAR__ , (ushort)IFILEINDEX) ; 
+                    Print( "data_initializer_multipleFiles  {0}  - skipping index {1:d}", LINEHEADER__DOLLAR__ , (ushort)IFILEINDEX) ; 
                     } 
                 
                 __context__.SourceCodeLine = 305;
                 } 
             
             __context__.SourceCodeLine = 532;
-            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_304__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_304___Callback ) ;
+            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_374__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_374___Callback ) ;
             
             return 0; // default return value (none specified in module)
             }
             
-        public void __SPLS_TMPVAR__WAITLABEL_303___CallbackFn( object stateInfo )
+        public void __SPLS_TMPVAR__WAITLABEL_373___CallbackFn( object stateInfo )
         {
         
             try
@@ -687,7 +685,7 @@ namespace UserModule_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01
             
         }
         
-    public void __SPLS_TMPVAR__WAITLABEL_304___CallbackFn( object stateInfo )
+    public void __SPLS_TMPVAR__WAITLABEL_374___CallbackFn( object stateInfo )
     {
     
         try
@@ -920,8 +918,8 @@ public override void LogosSplusInitialize()
         m_ParameterList.Add( FILENAME__DOLLAR____Parameter__ + i, FILENAME__DOLLAR__[i+1] );
     }
     
-    __SPLS_TMPVAR__WAITLABEL_303___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_303___CallbackFn );
-    __SPLS_TMPVAR__WAITLABEL_304___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_304___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_373___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_373___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_374___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_374___CallbackFn );
     
     INIT_TRIG.OnDigitalPush.Add( new InputChangeHandlerWrapper( INIT_TRIG_OnPush_0, false ) );
     ENABLE.OnDigitalChange.Add( new InputChangeHandlerWrapper( ENABLE_OnChange_1, false ) );
@@ -941,8 +939,8 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INITIALIZER_MULTIPLEFILES_V1_3_01 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_303___Callback;
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_304___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_373___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_374___Callback;
 
 
 const uint ENABLE__DigitalInput__ = 0;

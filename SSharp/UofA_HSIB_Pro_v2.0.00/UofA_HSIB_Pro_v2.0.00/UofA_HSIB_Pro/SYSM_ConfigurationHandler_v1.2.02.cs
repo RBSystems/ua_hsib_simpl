@@ -571,6 +571,7 @@ namespace UofA_HSIB_Pro
                 display.Controller.Name = name;
                 //display.Controller.Name = "myDisplayName";
                 //display.Controller.Guid = (int)args.Sig.Number;
+                CrestronConsole.PrintLine("made it this freaking far");
                 #region Set Communications
                 if (comPort != 0)
                 {
@@ -588,6 +589,8 @@ namespace UofA_HSIB_Pro
                 }
                 else if (ip != "" && portNumber != -1)
                 {
+                    CrestronConsole.PrintLine("else if IP");
+
 
                     display.Client = new TCPClient();
                     display.Client.AddressClientConnectedTo = ip;
@@ -599,10 +602,14 @@ namespace UofA_HSIB_Pro
                 #region Check if GUID exists. IF so remove it. Then add dislay to list.
                 if (controlSystem.DisplaysList.FindIndex(x => x.Guid == display.Guid) != -1)
                 {
-                    CrestronConsole.PrintLine("{0} *** Removing Display at index {1} from DisplayList, Type {2} with IP of {3}", CLASSID, controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number), controlSystem.DisplaysList[controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number)].Controller.ToString(), controlSystem.DisplaysList[controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number)].Client.AddressClientConnectedTo);
+                    CrestronConsole.PrintLine("ridiculousness");
+
+                    //CrestronConsole.PrintLine("{0} *** Removing Display at index {1} from DisplayList, Type {2} with IP of {3}", CLASSID, controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number), controlSystem.DisplaysList[controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number)].Controller.ToString(), controlSystem.DisplaysList[controlSystem.DisplaysList.FindIndex(x => x.Guid == args.Sig.Number)].Client.AddressClientConnectedTo);
                     controlSystem.DisplaysList.RemoveAt(controlSystem.DisplaysList.FindIndex(x => x.Guid == display.Guid));
+
                 }
                 controlSystem.DisplaysList.Add(display);
+
                 #endregion
 
                 // Register callbacks.
@@ -620,6 +627,8 @@ namespace UofA_HSIB_Pro
                     CrestronConsole.PrintLine("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID);
                     //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID), CLASSID, false);
                 }
+                CrestronConsole.PrintLine("nearly end");
+
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
                 #endregion
 

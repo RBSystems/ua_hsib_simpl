@@ -1,0 +1,9 @@
+********************************************************************************************
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 855
+Connection: auto 10.156.27.147
+Started: Thursday, June 27, 2019 04:30:07 PM
+Elapsed Time: 1 mins 20 secs
+Result: Success
+Command for Line  1[Failure, 1 mins 20 secs]: DisplayListSend |PanelFile_Lecture|
+Error   for Line  1: 	Failure: Error retrieving the file list from device. <not supplied> 

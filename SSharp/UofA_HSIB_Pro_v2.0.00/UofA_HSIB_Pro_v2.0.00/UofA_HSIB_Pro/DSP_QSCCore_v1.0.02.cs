@@ -287,7 +287,7 @@ namespace PWCSharpPro
                 }
                 else                                            //vol control
                 {
-                    if (Debug) { CrestronConsole.PrintLine("{0}: *** Settting Volume {1} {2} to {3}dB", CLASSID, _signal, dSPQSCSignals[(int)_signal].VolumeName, _volume); }
+                    if (Debug) { CrestronConsole.PrintLine("{0}: *** Settting Volume {1} to {3}dB", CLASSID, _signal, _volume); }
                     if (OnCommandToSend != null)
                     {
                         currentVolumes[_signal] = _volume;
