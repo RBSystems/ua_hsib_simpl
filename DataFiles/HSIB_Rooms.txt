@@ -1,4 +1,6 @@
 //the "room_guid=nn" pair MUST be first in the data line, appended with ":"
+//the GUID=[number]: is generated and added automatically in most of the other lists, however the room GUIDs cannot vary.
+//if you need to add a new room, the order does not matter. Just needs to be unique, and cannot exceed    room_guid=30
 
 room_guid=1: room_name=Classroom 305, bldg_rm_num=305, discrete_macro_mode=1, macro_take_mode=0,
 room_guid=2: room_name=Classroom 306, bldg_rm_num=306, discrete_macro_mode=1, macro_take_mode=0,
