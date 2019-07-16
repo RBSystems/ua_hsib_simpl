@@ -1,9 +1,0 @@
-********************************************************************************************
-File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
-Section: BioComm
-Connection: auto 10.156.27.92
-Started: Thursday, June 27, 2019 04:03:02 PM
-Elapsed Time: 21 secs
-Result: Success
-Command for Line  1[Success, 21 secs]: DisplayListSend |PanelFile_BioComm|
-Results for Line  1: "DM-DGE-200-C [v1.3384.00059 (May 30 2018), #874242DD] @E-00107fab45c2"

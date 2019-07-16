@@ -6,7 +6,7 @@
 DebugStrings=on
 AbortOnError=on
 ConcurrentSectionLimit=40
-GlobalReportFile=|$scriptpath||$scriptfilename|__ReportLog_|$date|_|$time|.log
+GlobalReportFile=|$scriptpath|logs\scripts\|$scriptfilename|_Log_|$date|_|$time|.log
 GlobalReportFileIncludeAll=on
 
 [Variables]
@@ -87,6 +87,8 @@ DisplayListSend |PanelFile_Lecture|
 Connect=auto 10.156.27.158
 
 DisplayListSend |PanelFile_Lecture|
+
+
 
 
 
