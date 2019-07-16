@@ -1,0 +1,72 @@
+[Crestron_Toolbox_Address_Book]
+
+[Entries]
+This .xadr file was created using Toolbox v2.41 or later.=:slot 01
+It is not compatible with this version of Toolbox.=:slot 02
+Please open a .adr Address Book to continue.=:slot 03
+
+[AddressBookInfo]
+Schema=2.0
+Version=1.0
+DefaultEntry=
+
+[ComSpecs]
+CP-5A-1_ip=auto 10.156.32.100
+CP-5A-2_ip=auto 10.156.32.101
+CP-5A-3_ip=auto 10.156.32.102
+CP5A-4_ip=auto 10.156.32.103
+CP-5A-5_ip=auto 10.156.32.104
+CP-5A-6_ip=auto 10.156.32.105
+ACC-8A-1_ip=auto 10.156.27.159
+DM-DGE-200-C 222 Forum=auto 10.156.27.11
+DM-DGE-200-C 305=auto 10.156.27.24
+DM-DGE-200-C 306=auto 10.156.27.29
+DM-DGE-200-C-320=auto 10.156.27.35
+DM-DGE-200-C-321=auto 10.156.27.40
+DM-DGE-200-C-322=auto 10.156.27.45
+DM-DGE-200-C-323=auto 10.156.27.50
+DM-DGE-200-C 442=auto 10.156.27.55
+DM-DGE-200-C 443=auto 10.156.27.60
+DM-DGE-200-C 444=auto 10.156.27.65
+DM-DGE-200-C 445=auto 10.156.27.70
+DM-DGE-200-C 567=auto 10.156.27.91
+DM-DGE-200-C 513a BioComm=auto 10.156.27.92
+DM-DGE-200-C 531=auto 10.156.27.75
+DM-DGE-200-C 532=auto 10.156.27.77
+DM-DGE-200-C 640=auto 10.156.27.115
+DM-DGE-200-C 642=auto 10.156.27.117
+DM-DGE-200-C 727=auto 10.156.27.134
+DM-DGE-200-C 731=auto 10.156.27.137
+DM-DGE-200-C 855=auto 10.156.27.147
+DM-DGE-200-C 880=auto 10.156.27.158
+
+[Notes]
+CP-5A-1_ip=PRO3
+CP-5A-2_ip=PRO3
+CP-5A-3_ip=CP3
+CP5A-4_ip=CP3
+CP-5A-5_ip=CP3
+CP-5A-6_ip=CP3
+ACC-8A-1_ip=CEN-CI3-1-C3RY-16
+DM-DGE-200-C 222 Forum=
+DM-DGE-200-C 305=
+DM-DGE-200-C 306=
+DM-DGE-200-C-320=DM-DGE-200-C
+DM-DGE-200-C-321=
+DM-DGE-200-C-322=
+DM-DGE-200-C-323=
+DM-DGE-200-C 442=DM-DGE-200-C
+DM-DGE-200-C 443=DM-DGE-200-C
+DM-DGE-200-C 444=DM-DGE-200-C
+DM-DGE-200-C 445=DM-DGE-200-C
+DM-DGE-200-C 567=
+DM-DGE-200-C 513a BioComm=
+DM-DGE-200-C 531=
+DM-DGE-200-C 532=
+DM-DGE-200-C 640=
+DM-DGE-200-C 642=
+DM-DGE-200-C 727=
+DM-DGE-200-C 731=
+DM-DGE-200-C 855=
+DM-DGE-200-C 880=
+
