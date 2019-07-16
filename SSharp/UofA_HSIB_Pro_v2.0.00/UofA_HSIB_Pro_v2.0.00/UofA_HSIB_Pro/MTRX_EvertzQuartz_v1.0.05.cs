@@ -539,6 +539,8 @@ namespace PWCSharpPro
         {
             Inputs = new Dictionary<int, MTRXSignalInfo>();
             Outputs = new Dictionary<int, MTRXSignalInfo>();
+
+            Inputs.Add(0, new MTRXSignalInfo(0, 0, MTRXSignalInfo.eSignalType.Input, "Blank Src"));
         }
 
         public void AddInput(int Guid, int SignalNumber, string Name)

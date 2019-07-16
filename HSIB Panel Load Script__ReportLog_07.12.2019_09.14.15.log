@@ -1,0 +1,54 @@
+********************************************************************************************
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 305
+Connection: auto 10.156.27.24
+Started: Friday, July 12, 2019 09:13:53 AM
+Elapsed Time: 21 secs
+Result: Success
+Command for Line  1[Success, 21 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3781.00028 (December 31 2018), #86F20966] @E-00107fa8cebc"
+--------------------------------------------------------------------------------------------
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 306
+Connection: auto 10.156.27.29
+Started: Friday, July 12, 2019 09:13:54 AM
+Elapsed Time: 21 secs
+Result: Success
+Command for Line  1[Success, 21 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3781.00028 (December 31 2018), #86E2328A] @E-00107fa8b35d"
+--------------------------------------------------------------------------------------------
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 320
+Connection: auto 10.156.27.35
+Started: Friday, July 12, 2019 09:13:55 AM
+Elapsed Time: 22 secs
+Result: Success
+Command for Line  1[Success, 22 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3781.00028 (December 31 2018), #010A54A9] @E-00107fabfce4"
+--------------------------------------------------------------------------------------------
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 321
+Connection: auto 10.156.27.40
+Started: Friday, July 12, 2019 09:13:58 AM
+Elapsed Time: 22 secs
+Result: Success
+Command for Line  1[Success, 21 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3781.00028 (December 31 2018), #86F20962] @E-00107fa8ce3c"
+--------------------------------------------------------------------------------------------
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 322
+Connection: auto 10.156.27.45
+Started: Friday, July 12, 2019 09:14:00 AM
+Elapsed Time: 26 secs
+Result: Success
+Command for Line  1[Success, 26 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3384.00059 (May 30 2018), #86E21679] @E-00107fa893f4"
+--------------------------------------------------------------------------------------------
+File: C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB Panel Load Script.txt
+Section: 323
+Connection: auto 10.156.27.50
+Started: Friday, July 12, 2019 09:14:02 AM
+Elapsed Time: 27 secs
+Result: Success
+Command for Line  1[Success, 27 secs]: DisplayListSend |PanelFile_Lecture|
+Results for Line  1: "DM-DGE-200-C [v1.3384.00059 (May 30 2018), #86E21C96] @E-00107fa89ab9"

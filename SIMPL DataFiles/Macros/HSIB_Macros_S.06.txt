@@ -1,2 +1,3 @@
 name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
 name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
+name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),

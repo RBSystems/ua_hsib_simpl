@@ -106,36 +106,32 @@ namespace UofA_HSIB_Pro
         /// <param name="args"></param>
         public void EISC_SigChange(BasicTriList currentDevice, SigEventArgs args)
         {
-            if (EnablePacer) 
-            {                
-                if (args.Sig.Type == eSigType.UShort) { return; }
-                if (args.Sig.Type == eSigType.Bool) { return; }
-                if (args.Sig.StringValue.Length == 0) { return; }
-            }
-
             if (debug)
             {
                 if (args.Sig.Type == eSigType.String) { CrestronConsole.PrintLine("{0} {1:X} <<< {2} {3} = {4}", CLASSID, currentDevice.ID, args.Sig.Type, args.Sig.Number, args.Sig.StringValue); }
                 else if (args.Sig.Type == eSigType.UShort) { CrestronConsole.PrintLine("{0} {1:X} <<< {2} {3} = {4}", CLASSID, currentDevice.ID, args.Sig.Type, args.Sig.Number, args.Sig.UShortValue); }
                 else if (args.Sig.Type == eSigType.Bool) { CrestronConsole.PrintLine("{0} {1:X} <<< {2} {3} = {4}", CLASSID, currentDevice.ID, args.Sig.Type, args.Sig.Number, args.Sig.BoolValue); }
                 else { CrestronConsole.PrintLine("{0} {1} <<< {2} {3}", CLASSID, currentDevice.ID, args.Sig.Type, args.Sig.Number); }
-            }            
+            }
 
-            if( MtrxEiscIds.Contains((int)currentDevice.ID) )
+            if (!EnablePacer)
             {
-                new Thread(parseMTRXSignal, args, Thread.eThreadStartOptions.Running);
-            }
-            else if( DspEiscIds.Contains((int)currentDevice.ID) )
-            {
-                new Thread(parseDSPSignal, args, Thread.eThreadStartOptions.Running);
-            }
-            else if (DplyCamEiscIds.Contains((int)currentDevice.ID))
-            {
-                new Thread(parseDPLYorCAMSignal, args, Thread.eThreadStartOptions.Running);
-            }
-            else if (IgmpRlyPartLghtEiscIds.Contains((int)currentDevice.ID))
-            {
-                new Thread(parseIMGPorRLYorLGHTSignal, args, Thread.eThreadStartOptions.Running);
+                if (MtrxEiscIds.Contains((int)currentDevice.ID))
+                {
+                    new Thread(parseMTRXSignal, args, Thread.eThreadStartOptions.Running);
+                }
+                else if (DspEiscIds.Contains((int)currentDevice.ID))
+                {
+                    new Thread(parseDSPSignal, args, Thread.eThreadStartOptions.Running);
+                }
+                else if (DplyCamEiscIds.Contains((int)currentDevice.ID))
+                {
+                    new Thread(parseDPLYorCAMSignal, args, Thread.eThreadStartOptions.Running);
+                }
+                else if (IgmpRlyPartLghtEiscIds.Contains((int)currentDevice.ID))
+                {
+                    new Thread(parseIMGPorRLYorLGHTSignal, args, Thread.eThreadStartOptions.Running);
+                }
             }
         }
 
@@ -173,9 +169,9 @@ namespace UofA_HSIB_Pro
                         }
                         else
                         {
-                            foreach(int x in MtrxEiscIndices)
+                            foreach (int x in MtrxEiscIndices)
                             {
-                                controlSystem.eiscs[x].UShortInput[args.Sig.Number].UShortValue = 65535 ;
+                                controlSystem.eiscs[x].UShortInput[args.Sig.Number].UShortValue = 65535;
                             }
                         }
                     }
@@ -187,18 +183,21 @@ namespace UofA_HSIB_Pro
                 {
                     if (args.Sig.Number == 700)
                     {
-                        if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrix(args);
-                        else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrix, args);
+                        //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrix(args);
+                        //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrix, args);
+                        controlSystem.ConfigurationHandler.ConfigureMatrix(args);
                     }
                     else if (args.Sig.Number >= 1 && args.Sig.Number <= 699)
                     {
-                        if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrixOutput(args);
-                        else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrixOutput, args);
+                        //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrixOutput(args);
+                        //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrixOutput, args);
+                        controlSystem.ConfigurationHandler.ConfigureMatrixOutput(args);
                     }
                     else if (args.Sig.Number >= 701 && args.Sig.Number <= 1399)
                     {
-                        if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrixInput(args);
-                        else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrixInput, args);
+                        //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureMatrixInput(args);
+                        //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureMatrixInput, args);
+                        controlSystem.ConfigurationHandler.ConfigureMatrixInput(args);
                     }
                 }
                 else
@@ -225,8 +224,8 @@ namespace UofA_HSIB_Pro
                 if (args.Sig.Number >= 1 && args.Sig.Number <= 499)
                 {
                     if (args.Sig.UShortValue < 32767)                               //volume command request
-                    { 
-                        controlSystem.DSPQSC.SetVolume(args.Sig.Number, (float)args.Sig.UShortValue); 
+                    {
+                        controlSystem.DSPQSC.SetVolume(args.Sig.Number, (float)args.Sig.UShortValue);
                     }
                     else
                     {
@@ -269,13 +268,15 @@ namespace UofA_HSIB_Pro
             {
                 if (args.Sig.Number == 500)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureDSP(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDSP, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureDSP(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDSP, args);
+                    controlSystem.ConfigurationHandler.ConfigureDSP(args);
                 }
                 else if (args.Sig.Number >= 1 && args.Sig.Number <= 499)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureDSPSignal(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDSPSignal, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureDSPSignal(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDSPSignal, args);
+                    controlSystem.ConfigurationHandler.ConfigureDSPSignal(args);
                 }
             }
             return null;
@@ -291,7 +292,7 @@ namespace UofA_HSIB_Pro
             SigEventArgs args = (SigEventArgs)_args;
             // 
             CAM_Sony thisCam = controlSystem.CAMSony[args.Sig.Number % 50];
-            
+
             // check if signal is bool (digital) and true (high)
             if (args.Sig.Type == eSigType.Bool && args.Sig.BoolValue == true)
             {
@@ -359,7 +360,7 @@ namespace UofA_HSIB_Pro
                 // Camera focus in
                 else if (args.Sig.Number >= 1601 && args.Sig.Number <= 1649)
                 {
-                    
+
                 }
                 // Camera focus out
                 else if (args.Sig.Number >= 1651 && args.Sig.Number <= 1699)
@@ -397,7 +398,6 @@ namespace UofA_HSIB_Pro
                     controlSystem.CAMSony[args.Sig.Number % 50].SavePreset((int)args.Sig.UShortValue);
                 }
                 // Camera folded control
-                // 0 = Stop, 1 = Up, 2 = Down, 3 = Left, 4 = Right, 5 = Zoom In, 6 = Zoom Out, 7 = Focus Near, 8 = Focus Far, 9 = Power On, 10 = Power Off, 
                 // 101-116 = Recall Preset [1-16], 201-216 = Store Preset [1-16]
                 else if (args.Sig.Number >= 1401 && args.Sig.Number <= 1449)
                 {
@@ -405,15 +405,16 @@ namespace UofA_HSIB_Pro
                     {
                         switch ((int)args.Sig.UShortValue)
                         {
-                            case 0: thisCam.MoveCamera(CAM.Move.Stop);  break;
-                            case 1: thisCam.MoveCamera(CAM.Move.Up);    break;
-                            case 2: thisCam.MoveCamera(CAM.Move.Down);  break;
-                            case 3: thisCam.MoveCamera(CAM.Move.Left);  break;
+                            case 0: thisCam.MoveCamera(CAM.Move.Stop); break;
+                            case 1: thisCam.MoveCamera(CAM.Move.Up); break;
+                            case 2: thisCam.MoveCamera(CAM.Move.Down); break;
+                            case 3: thisCam.MoveCamera(CAM.Move.Left); break;
                             case 4: thisCam.MoveCamera(CAM.Move.Right); break;
-                            case 5: thisCam.MoveCamera(CAM.Zoom.In);    break;
-                            case 6: thisCam.MoveCamera(CAM.Zoom.Out);   break;
-                            case 7: thisCam.PowerOn();                  break;
-                            case 8: thisCam.PowerOff();                 break;
+                            case 5: thisCam.MoveCamera(CAM.Zoom.In); break;
+                            case 6: thisCam.MoveCamera(CAM.Zoom.Out); break;
+                            case 7: thisCam.PowerOn(); break;
+                            case 8: thisCam.PowerOff(); break;
+                            case 9: thisCam.MoveCamera(CAM.Zoom.Stop); break;
                         }
                     }
                     else if (thisVal > 100 && thisVal <= 199)
@@ -434,7 +435,7 @@ namespace UofA_HSIB_Pro
 
                     switch (args.Sig.UShortValue)
                     {
-                        case(1):
+                        case (1):
                             {
                                 controlSystem.DisplaysList[index].Controller.SwitchtoInput(DPLY.Input.HDMI1);
                                 break;
@@ -460,7 +461,7 @@ namespace UofA_HSIB_Pro
                         //        break;
                         //    }
                     }
-                   
+
                 }
                 #endregion
             }
@@ -469,13 +470,15 @@ namespace UofA_HSIB_Pro
                 // Configuration
                 if (args.Sig.Number >= 1 && args.Sig.Number <= 199)
                 {
-                    if (!EnablePacer) { controlSystem.ConfigurationHandler.ConfigureDisplay(args); }
-                    else { controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDisplay, args); }
+                    //if (!EnablePacer) { controlSystem.ConfigurationHandler.ConfigureDisplay(args); }
+                    //else { controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureDisplay, args); }
+                    controlSystem.ConfigurationHandler.ConfigureDisplay(args);
                 }
                 else if (args.Sig.Number >= 1301 && args.Sig.Number <= 1349)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureCamera(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureCamera, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureCamera(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureCamera, args);
+                    controlSystem.ConfigurationHandler.ConfigureCamera(args);
                 }
                 #region LG display specific: Control a single display in a daisy chain
                 /* Summary
@@ -533,7 +536,7 @@ namespace UofA_HSIB_Pro
                 {
                     int number = (int)args.Sig.Number % 100;
                     int unit = number;
-                    if (unit % 2 == 0)  { unit--; }
+                    if (unit % 2 == 0) { unit--; }
                     int relay = ((number - 1) % 2) + 1;
                     CrestronConsole.PrintLine("UNIT {0} RELAY {1}: TRUE", unit, relay);
                     controlSystem.RLYGlobalCache[unit].SetRelay(relay);
@@ -553,7 +556,7 @@ namespace UofA_HSIB_Pro
                     controlSystem.LghtLutron[Device].RecallPreset(roomNumber, 0);
                 }
                 #endregion
-                
+
             }
             else if (args.Sig.Type == eSigType.Bool && args.Sig.BoolValue == false)
             {
@@ -574,23 +577,27 @@ namespace UofA_HSIB_Pro
                 // Configuration
                 if (args.Sig.Number >= 101 && args.Sig.Number <= 199)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureRelay(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureRelay, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureRelay(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureRelay, args);
+                    controlSystem.ConfigurationHandler.ConfigureRelay(args);
                 }
                 else if (args.Sig.Number >= 1001 && args.Sig.Number <= 1049)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureLightID(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureLightID, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureLightID(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureLightID, args);
+                    controlSystem.ConfigurationHandler.ConfigureLightID(args);
                 }
                 else if (args.Sig.Number >= 1101 && args.Sig.Number <= 1109)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureLight(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureLight, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureLight(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureLight, args);
+                    controlSystem.ConfigurationHandler.ConfigureLight(args);
                 }
                 else if (args.Sig.Number >= 1201 && args.Sig.Number <= 1210)
                 {
-                    if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureImageProcessor(args);
-                    else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureImageProcessor, args);
+                    //if (!EnablePacer) controlSystem.ConfigurationHandler.ConfigureImageProcessor(args);
+                    //else controlSystem.ConfigurationHandler.Pacer.AddToList(SYSM_ConfigurationHandler.Method.ConfigureImageProcessor, args);
+                    controlSystem.ConfigurationHandler.ConfigureImageProcessor(args);
                 }
             }
             else if (args.Sig.Type == eSigType.UShort)
@@ -613,7 +620,7 @@ namespace UofA_HSIB_Pro
         /// <param name="value"></param>
         public void UpdateEISCSignal(object device, object value)
         {
-            if (debug) { CrestronConsole.PrintLine("{0} *** {1} wants to update EISC", CLASSID, device); }
+            if (debug) { CrestronConsole.PrintLine("{0} *** {1} sending FB to EISC", CLASSID, device); }
 
             #region Matrix feedback
             if (device.GetType() == typeof(MTRX_EvertzQuartz))
@@ -624,7 +631,16 @@ namespace UofA_HSIB_Pro
                     int outputGuid = controlSystem.mtrxSignals.GetGuidForOutput((int)args.Ouput);
                     int inputGuid = controlSystem.mtrxSignals.GetGuidForInput((int)args.Input);
 
-                    if (debug) { CrestronConsole.PrintLine("{0} {1:X} >>> Analog {2} = {3}", CLASSID, index, outputGuid, inputGuid); }
+                    if (debug)
+                    {
+                        CrestronConsole.PrintLine("{0} {1:X} >>> Analog {2} = {3}   ({4} routed to {5})",
+                                                       CLASSID,
+                                                           index,
+                                                               outputGuid,
+                                                                   inputGuid,
+                                                                       controlSystem.mtrxSignals.Inputs[inputGuid].Name,
+                                                                           controlSystem.mtrxSignals.Outputs[outputGuid].Name);
+                    }
                     if (outputGuid != -1)
                     {
                         controlSystem.eiscs[index].UShortInput[(uint)outputGuid].UShortValue = (ushort)inputGuid;
@@ -702,13 +718,13 @@ namespace UofA_HSIB_Pro
             {
                 DPLYArgs args = (DPLYArgs)value;
 
-                Display display =  controlSystem.DisplaysList.Find(x => x.Controller == device);
+                Display display = controlSystem.DisplaysList.Find(x => x.Controller == device);
                 uint PowerOnJoin = (uint)display.Guid + 200;
                 uint PowerOffJoin = (uint)display.Guid + 400;
 
                 switch (args.FeedbackType)
                 {
-                    case(DPLY.FeedbackType.Power):
+                    case (DPLY.FeedbackType.Power):
                         {
                             if (args.Power == DPLY.Power.On)
                             {
@@ -738,7 +754,7 @@ namespace UofA_HSIB_Pro
             }
             #endregion
             #region EISC Feedback - currently only for LG Displays
-            else if(device.GetType() == typeof(SYSM_EISCHandler))
+            else if (device.GetType() == typeof(SYSM_EISCHandler))
             {
                 EISCArgs args = (EISCArgs)value;
                 foreach (int index in DplyCamEiscIndices)
@@ -749,7 +765,14 @@ namespace UofA_HSIB_Pro
             }
             #endregion
         }
+
+        public void EnablePacerSet(object _state)
+        {
+            CrestronConsole.PrintLine("EnablePacer set to {0}", (bool)_state);
+            EnablePacer = (bool)_state;
+        }
     }
+
 
     public class EISCArgs
     {

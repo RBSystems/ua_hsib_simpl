@@ -158,15 +158,14 @@ namespace UofA_HSIB_Pro
                     switch (key.ToUpper())
                     {
                         case ("GLOBAL_NAME"):
-                            {
-                                name = value;
-                                break;
-                            }
+                            name = value;
+                            break;
+                        case ("LOCAL_NAME"):
+                            name = value;
+                            break;
                         case ("CMD_IO"):
-                            {
-                                number = Int32.Parse( ReturnNumbersOnly( value));
-                                break;
-                            }
+                            number = Int32.Parse( ReturnNumbersOnly( value));
+                            break;
                     }
                 }
                 #endregion
@@ -226,15 +225,14 @@ namespace UofA_HSIB_Pro
                     switch (key.ToUpper())
                     {
                         case ("GLOBAL_NAME"):
-                            {
-                                name = value;
-                                break;
-                            }
+                            name = value;
+                            break;
+                        case ("LOCAL_NAME"):
+                            name = value;
+                            break;
                         case ("CMD_IO"):
-                            {
-                                number = Int32.Parse(ReturnNumbersOnly(value));
-                                break;
-                            }
+                            number = Int32.Parse(ReturnNumbersOnly(value));
+                            break;
                     }
                 }
                 #endregion
@@ -499,7 +497,6 @@ namespace UofA_HSIB_Pro
 
                 string[] keyValues = ReturnTidiedKeyValuePairs(args);
 
-                CrestronConsole.PrintLine("FuCK THIS STUPID SHIT  --- {0}", keyValues[0]);
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
                 {
@@ -508,7 +505,6 @@ namespace UofA_HSIB_Pro
                     string key = KeyValue.Split('=')[0];
                     string value = KeyValue.Split('=')[1];
 
-                    CrestronConsole.PrintLine("-----   {0}:{1}   -----", key, value);
                     switch (key.ToUpper())
                     {
                         case ("GLOBAL_NAME"):
@@ -528,7 +524,6 @@ namespace UofA_HSIB_Pro
                             }
                         case ("DEVICE_TYPE"):
                             {
-                                CrestronConsole.PrintLine("~~~~~~~~{0}", value.ToUpper());
                                 switch (value.ToUpper())        //device_type=[sony_lcd,sony_proj,lg_lcd,barco_lcd,Christie_lcd]
                                 {
                                     case ("SONY_LCD"):
@@ -571,7 +566,6 @@ namespace UofA_HSIB_Pro
                 display.Controller.Name = name;
                 //display.Controller.Name = "myDisplayName";
                 //display.Controller.Guid = (int)args.Sig.Number;
-                CrestronConsole.PrintLine("made it this freaking far");
                 #region Set Communications
                 if (comPort != 0)
                 {
@@ -969,6 +963,7 @@ namespace UofA_HSIB_Pro
         /// <param name="_notUsed"></param>
         public void ArgsTimerTimedOut(object _notUsed)
         {
+            /*
             if (ArgsList.Count == 0) 
             {
                 if (debug) { CrestronConsole.PrintLine("{0} *** ArgsList is now at {1}, stopping the pacer", CLASSID, ArgsList.Count); }
@@ -1086,7 +1081,8 @@ namespace UofA_HSIB_Pro
                 ArgsList.RemoveAt(index);                                                                             // Remove the config from the list
                 if (debug) { CrestronConsole.PrintLine("{0} *** Completed configuration, total of {1} list items", CLASSID, ArgsList.Count); }
                 return;                                                                                               // exit
-            }
+            }*/
+
         }
 
         /// <summary>

@@ -72,7 +72,7 @@ namespace UofA_HSIB_Pro
         }
         private bool TxRxdebug = false;
         #endregion
-
+        
         #region System Objects - EISC, Loggers, etc
         public ThreeSeriesTcpIpEthernetIntersystemCommunications[] eiscs;
         public SYSM_EISCHandler eiscHandler;
@@ -201,8 +201,9 @@ namespace UofA_HSIB_Pro
             try
             {
                 eiscHandler.RegisterEISCs();
-                CrestronConsole.PrintLine("Exiting Initialisor");
-
+                DSPQSC = new DSP_QSCCore(ConfigurationHandler);
+                eiscHandler.EnablePacerSet(true);
+                
                 // Add any DEBUGGING phase hard code vars here
                 eiscHandler.Debug = true;
                 ConfigurationHandler.Debug = true;
@@ -1013,21 +1014,24 @@ namespace UofA_HSIB_Pro
         {
             if (debug) { CrestronConsole.PrintLine("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine); }
             //Logger.LogEntry(string.Format("{0} *** ControlSystem_OnlineStatusChange(): {1} DeviceOnLine: {2}", CLASSID, currentDevice, args.DeviceOnLine), CLASSID, false);
-               /*
-            if (args.DeviceOnLine == true)
+               
+            foreach(var eisc in eiscs)
             {
-                foreach(ThreeSeriesTcpIpEthernetIntersystemCommunications eisc in eiscs)
+                if (eisc == currentDevice)
                 {
-                    if (eisc == currentDevice)
+                    if (args.DeviceOnLine == true)
                     {
-                        CrestronConsole.PrintLine("{0} *** EISC connected; enabling pacer", CLASSID, eiscHandler.PacerTimeinMs);
+                        CrestronConsole.PrintLine("{0} *** EISC connected; EnablePacer remains active for 3500ms", CLASSID, eiscHandler.PacerTimeinMs);
+                        //ConfigurationHandler.Pacer.StartPacer();
+                        CTimer ArgsTimer = new CTimer(eiscHandler.EnablePacerSet, false, 3500);
+                    }
+                    else
+                    {
+                        CrestronConsole.PrintLine("{0} *** EISC disconnected; EnablePacer active", CLASSID, eiscHandler.PacerTimeinMs);
                         eiscHandler.EnablePacer = true;
-                        ConfigurationHandler.Pacer.StartPacer();
-                        break;
                     }
                 }
             }
-                */
         }
 
         /// <summary>
