@@ -1,7 +1,0 @@
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\bin\Debug\HSIB_Tools.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\bin\Debug\HSIB_Tools.pdb
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\bin\Debug\SimplSharpCustomAttributesInterface.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\bin\Debug\SimplSharpHelperInterface.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\obj\Debug\HSIB_Tools.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\HSIB_Tools\HSIB_Tools\obj\Debug\HSIB_Tools.pdb

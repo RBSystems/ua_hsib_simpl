@@ -1,9 +1,0 @@
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\L3_HSIB_Front_Pro3.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\L3_HSIB_Front_Pro3.pdb
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\Crestron.SimplSharpPro.DeviceSupport.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\SimplSharpCustomAttributesInterface.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\SimplSharpHelperInterface.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\bin\Debug\SimplSharpPro.exe
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\obj\Debug\L3_HSIB_Front_Pro3.dll
-C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharpPro\L3_HSIB_Front_Pro3\L3_HSIB_Front_Pro3\obj\Debug\L3_HSIB_Front_Pro3.pdb
