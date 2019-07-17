@@ -38,7 +38,6 @@ CODE MANUAL
 				- the removable media on this processor holds several .txt files (referred to as "Data Files" in this document) that contain nearly all of the data that corresponds to the system equipment and configuration as it relates to the Crestron system.
 					- using these files, the system data all starts at a single origin. 
 					- adding or modifying room specific data, audio and video data, sources and destinations, dsp control points, "filter" data found on the BioComm panel, etc all needs to be added to these lists
-
 			CP-02 
 				- holds the frontend program, "Front", composed in SIMPL Windows, SIMPL+, and SIMPL#.
 				- contains all but 5 of the classroom logic folders
