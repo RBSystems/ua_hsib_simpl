@@ -1,3 +1,18 @@
+//VSRC
+//01 - Laptop 
+//02 - PC
+//03 - Wireless
+//04 - (V)Remote Aux Feed
+//05 - (V)Codec Cam
+//06 - (V)Codec Content
+//07 - (RC)Laptop
+//08 - (RC)PC
+//09 - (RC)Wireless
+
+
+
+
+
 //Room 305   
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=01, local_id=3, filter=(8), ]  io_data[ cmd_io=38, ]
 sys_data[ local_name=PC, pgm_audio=1, room_ass=01, local_id=2, filter=(8), ]  io_data[ cmd_io=81, usb_mac=0289c6, ]
