@@ -29,10 +29,10 @@ sys_data[ local_name=Wireless, pgm_audio=3, room_ass=02, local_id=3, filter=(9),
 sys_data[ local_name=PC, pgm_audio=1, room_ass=02, local_id=2, filter=(9), ]  io_data[ cmd_io=84, usb_mac=0289d0, ]
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=02, local_id=1, filter=(9), ]  io_data[ cmd_io=85, usb_mac=0289ca, ]
 
-sys_data[ local_name=Wide Camera, room_ass=02, local_id=20, filter=(9),]  device_data[ is_camera=1, ip_address=10.156.26.53, ]  io_data[ cmd_io=103, ]
-sys_data[ local_name=Audience Camera, room_ass=02, local_id=21, filter=(9), ]  device_data[ is_camera=1, ip_address=10.156.26.52, ]  io_data[ cmd_io=94, ]
-sys_data[ local_name=Presenter Camera, room_ass=02, local_id=22, filter=(9),]  device_data[ is_camera=1, ip_address=10.156.26.54, ]  io_data[ cmd_io=100, ]
-sys_data[ local_name=Floorbox SDI, room_ass=02, local_id=23, filter=(9), ]  io_data[ cmd_io=25, ]
+sys_data[ local_name=Wide Camera, room_ass=02, local_id=21, filter=(9),]  device_data[ is_camera=1, ip_address=10.156.26.53, ]  io_data[ cmd_io=103, ]
+sys_data[ local_name=Audience Camera, room_ass=02, local_id=22, filter=(9), ]  device_data[ is_camera=1, ip_address=10.156.26.52, ]  io_data[ cmd_io=94, ]
+sys_data[ local_name=Presenter Camera, room_ass=02, local_id=23, filter=(9),]  device_data[ is_camera=1, ip_address=10.156.26.54, ]  io_data[ cmd_io=100, ]
+sys_data[ local_name=Floorbox SDI, room_ass=02, local_id=31, filter=(9), ]  io_data[ cmd_io=25, ]
 
 
 //Room 320
