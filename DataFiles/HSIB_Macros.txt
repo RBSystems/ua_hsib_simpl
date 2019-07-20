@@ -7,72 +7,217 @@
 //06 - conference content
 
 
+//new functionality in v1.0.80
+//[1-25] 	VDst Outputs 	(listObjects = VDstLocalID)
+//[26]		USB only		(listObjects = VDstLocalID)
+//[27]		PGM audio only  (listObject  = VSrcLocalID) 
+//[28-30]   unused at the moment
+//[31-40] 	Displays Power	(listObjects = VDstLocalID)
+//[41-56] 	Cam Presets		(listObjects = CamLocalID)	
+
+//[57]		SystemOn 	Uncombined	(listObjects = MacroID)
+//[58]  	SystemOff 	Uncombined	(listObjects = MacroID)
+//[59]		SystemOn	Combined	(listObjects = MacroID)
+//[60]		SystemOff	Combined	(listObjects = MacroID)
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
 //305
-room_ass=01: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,3,5,7,),
-room_ass=01: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,4,6,8,),
-room_ass=01: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,3,4,5,6,7,8,),
-room_ass=01: macro_id=05: name=Soft Conf, primary=41, pgm_audio=1, usb=1, list=(41,),
+room_ass=01: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,3,5,7,),
+room_ass=01: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,4,6,8,),
+room_ass=01: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,3,4,5,6,7,8,),
+room_ass=01: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=01: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=01: macro_id=31: name=All Displays, list=(1,2*,3,4,5,6,7,8,),
+room_ass=01: macro_id=32: name=RC Displays, list=(1,2*,3,4,7,8,),
+
+room_ass=01: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=01: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=01: macro_id=59: name=Sys On Combined, list=(32, 03,),
+room_ass=01: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 //306
-room_ass=02: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,3,5,7,),
-room_ass=02: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,4,6,8,),
-room_ass=02: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,3,4,5,6,7,8,),
-room_ass=02: macro_id=05: name=Soft Conf, primary=41, pgm_audio=1, usb=1, list=(41,),
+room_ass=02: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,3,5,7,),
+room_ass=02: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,4,6,8,),
+room_ass=02: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,3,4,5,6,7,8,),
+room_ass=02: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=02: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=02: macro_id=31: name=All Displays, list=(1,2*,3,4,5,6,7,8,),
+room_ass=02: macro_id=32: name=RC Displays, list=(3,4*,5,6,7,8,),
+
+room_ass=02: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=02: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=02: macro_id=59: name=Sys On Combined, list=(32, 03,),
+room_ass=02: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
 
 //320
-room_ass=03: macro_id=01: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=03: macro_id=02: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=03: macro_id=03: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=03: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=03: macro_id=01: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=03: macro_id=02: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=03: macro_id=03: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=03: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=03: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=03: macro_id=31: name=All Displays, list=(1*,),
+
+room_ass=03: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=03: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=03: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=03: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 //321
-room_ass=04: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
-room_ass=04: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
-room_ass=04: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,),
-room_ass=04: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=04: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=04: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=04: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=04: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=04: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=04: macro_id=31: name=Both Displays, list=(1*,),
+room_ass=04: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=04: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=04: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=04: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=04: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=04: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
+
 
 //322
-room_ass=05: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
-room_ass=05: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
-room_ass=05: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,),
-room_ass=05: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=05: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=05: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=05: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=05: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=05: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=05: macro_id=31: name=Both Displays, list=(1*,),
+room_ass=05: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=05: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=05: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=05: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=05: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=05: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 //323
-room_ass=06: macro_id=01: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=06: macro_id=02: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=06: macro_id=03: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=06: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=06: macro_id=01: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=06: macro_id=02: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=06: macro_id=03: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=06: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=06: macro_id=06: name=PC to DGE, pgm_audio=1, usb=1, list=(49*,),
+
+room_ass=06: macro_id=31: name=All Displays, list=(1*,),
+
+room_ass=06: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=06: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=06: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=06: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //442
-room_ass=07: macro_id=01: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=07: macro_id=02: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=07: macro_id=03: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=07: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=03: macro_id=01: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=07: macro_id=02: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=07: macro_id=03: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=07: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=07: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=07: macro_id=31: name=All Displays, list=(1*,),
+
+room_ass=07: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=07: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=07: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=07: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 //443
-room_ass=08: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
-room_ass=08: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
-room_ass=08: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,),
-room_ass=08: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=08: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=08: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=08: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=08: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=08: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=08: macro_id=31: name=Both Displays, list=(1*,),
+room_ass=08: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=08: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=08: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=08: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=08: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=08: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
+
 
 //444
-room_ass=09: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
-room_ass=09: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
-room_ass=09: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,),
-room_ass=09: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=09: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=09: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=09: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=09: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=09: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=09: macro_id=31: name=Both Displays, list=(1*,),
+room_ass=09: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=09: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=09: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=09: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=09: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=09: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 //445
-room_ass=10: macro_id=01: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=10: macro_id=02: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=10: macro_id=03: name=Display, primary=1, pgm_audio=1, usb=1, list=(1,),
-room_ass=10: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=10: macro_id=01: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=10: macro_id=02: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=10: macro_id=03: name=Display, pgm_audio=1, usb=1, list=(1*,),
+room_ass=10: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=10: macro_id=06: name=PC to DGE, pgm_audio=1, usb=1, list=(49*,),
+
+room_ass=10: macro_id=31: name=All Displays, list=(1*,),
+
+room_ass=10: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=10: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+room_ass=10: macro_id=59: name=Sys On Combined, list=(31, 03,),
+room_ass=10: macro_id=60: name=Sys Off Combined, list=(31, 03, -06,),
 
 
+/////////////////////////////////////////////////////////////////////////////////////
 
 
+//855
+room_ass=18: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=18: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=18: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=18: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=18: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=18: macro_id=31: name=Both Displays, list=(1*,)
+room_ass=18: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=18: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=18: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=18: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
 
 //880
-room_ass=19: macro_id=01: name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
-room_ass=19: macro_id=02: name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
-room_ass=19: macro_id=03: name=All, primary=2, pgm_audio=1, usb=1, list=(1,2,),
-room_ass=19: macro_id=05: name=Soft Conf, primary=41, pgm_audio=0, usb=0, list=(41,),
+room_ass=19: macro_id=01: name=Left, pgm_audio=0, usb=0, list=(1*,),
+room_ass=19: macro_id=02: name=Right, pgm_audio=1, usb=1, list=(2*,),
+room_ass=19: macro_id=03: name=All, pgm_audio=1, usb=1, list=(1,2*,),
+room_ass=19: macro_id=05: name=Soft Conf, pgm_audio=0, usb=0, list=(41*,),
+room_ass=19: macro_id=06: name=PC to DGE, pgm_audio=0, usb=0, list=(49*,),
+
+room_ass=19: macro_id=31: name=Both Displays, list=(1*,),
+room_ass=19: macro_id=32: name=Both Displays, list=(2*,),
+room_ass=19: macro_id=33: name=Both Displays, list=(1,2*,),
+
+room_ass=19: macro_id=57: name=Sys On Uncombined, list=(31, 03,),
+room_ass=19: macro_id=58: name=Sys Off Uncombined, list=(31, 03, -06,),
+
