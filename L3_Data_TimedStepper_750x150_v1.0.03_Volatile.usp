@@ -1,0 +1,259 @@
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+ 
+#INCLUDEPATH "C:\Users\bcampagnola\Documents\L3AV\ProgResources\L3_Tools\L3_Tools\bin\debug"
+#USER_SIMPLSHARP_LIBRARY "L3_Tools"
+ 
+
+#DEFINE_CONSTANT	ciMaxLines	750
+#DEFINE_CONSTANT	ciMaxBytes	150
+
+#HELP_BEGIN
+
+#HELP_END
+
+                     
+DIGITAL_INPUT	_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				Initialized,
+				TCP_is_Connected,
+				Manual_Update;
+
+STRING_INPUT 	in$[ciMaxLines][500];
+
+
+DIGITAL_OUTPUT	_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				Initialized_FB;
+STRING_OUTPUT	_SKIP_,
+				_SKIP_,
+				out$[ciMaxLines];
+
+INTEGER_PARAMETER step_time;
+#BEGIN_PARAMETER_PROPERTIES step_time
+propValidUnits = unitTicks;
+propDefaultValue = 50t;
+#END_PARAMETER_PROPERTIES
+
+INTEGER_PARAMETER highest_index;
+#BEGIN_PARAMETER_PROPERTIES highest_index
+propValidUnits = unitDecimal;
+propDefaultValue = 100d;
+#END_PARAMETER_PROPERTIES
+
+STRING_PARAMETER keys_to_store[500];
+#BEGIN_PARAMETER_PROPERTIES keys_to_store
+propValidUnits = unitString;
+propDefaultValue = "key=,key=";
+#END_PARAMETER_PROPERTIES
+
+
+
+
+INTEGER 	iTCPConnected,
+			iNewChangeDuringLoop,
+			iLoopRunning;
+//NONVOLATILE INTEGER			iChanged[ciMaxLines];
+INTEGER			iChanged[ciMaxLines];
+INTEGER		iInitialized;
+
+//NONVOLATILE STRING		sData[ciMaxLines][ciMaxBytes];
+STRING		sData[ciMaxLines][ciMaxBytes];
+
+INTEGER iNumOfKeys;
+STRING	sTrash[300],
+		sKeys[30][50];
+
+
+StringTools ST;
+
+
+  
+  
+FUNCTION fSend(INTEGER i)
+{
+	out$[i] = sData[i];
+	//iChanged[i] = 0;
+}
+
+FUNCTION fRunLoopWork()
+{
+	INTEGER i;
+     
+	trace("TimedStepper - fRunLoopWork");
+	iLoopRunning = 1;
+	for(i = 1 to highest_index)
+	{
+    	if(!iTCPConnected)
+		{
+			trace("TimedStepper - exited fRunLoopWork via  !TCP_is_Connected  condition");
+			iLoopRunning = 0;
+			break;
+		}
+		//added v1.0.02 - len(sData[i]).. blocks empty strings when using fRunLoop (not when immediately updating new data)
+		if(iChanged[i]  &&  len(sData[i]))
+		{
+        	fSend(i);
+			delay(step_time);
+		}
+	}
+	trace("TimedStepper - exited naturally");
+
+	iLoopRunning = 0;
+}
+
+FUNCTION fRunLoop()							
+{
+	trace("TimedStepper - fRunLoop;  TCP_is_Connected=%u, iLoopRunning=%d", iTCPConnected, iLoopRunning);
+
+	if(iTCPConnected && !iLoopRunning)
+	{
+		delay(400);
+		fRunLoopWork();
+
+		while(iNewChangeDuringLoop)
+		{
+			iNewChangeDuringLoop = 0;
+    		if(iTCPConnected) 			fRunLoopWork();
+		}
+	}
+}
+
+STRING_FUNCTION fFilterKeyData(STRING sData)
+{
+	INTEGER i, iMarker;
+	STRING sTempData[500], sTemp1[500], sTempOutput[500], sDivChar[10];
+                 
+	if(find("is_virtual=1", sData))				//very HSIB specific - do not send virtual MTRX IO
+	{
+     	return("");
+	}
+
+	sTempData = sData;
+	sDivChar = ",";
+	if(find("~", sTempData))	sDivChar = "~";
+
+	for(i = 1 to iNumOfKeys)
+	{
+		iMarker = find(sKeys[i], sTempData);
+		if(iMarker)
+		{
+			makestring(sTempOutput, "%s%s,", sTempOutput, mid(sTempData, iMarker, find(sDivChar, sTempData, iMarker) - iMarker));
+			sTemp1 = left(sTempData, iMarker-1);
+			sTrash = removebylength(find(sDivChar, sTempData, iMarker), sTempData);
+			sTempData = sTemp1 + sTempData;			
+		}
+	}
+	//remove last comma
+	if(len(sTempOutput))   	sTempOutput = left(sTempOutput, len(sTempOutput) - 1);
+
+	return(sTempOutput);
+}
+
+
+  
+PUSH Initialized
+{
+	iInitialized = 1;
+	Initialized_FB = 1;
+
+	fRunLoop();
+
+}
+  
+
+FUNCTION fClearData()
+{
+	INTEGER i;
+	for(i = 1 to ciMaxLines)
+	{
+    	iChanged[i] = 0;
+		sData[i]	= "";
+	}
+}
+
+RELEASE Initialized
+{
+	iInitialized = 0;
+	Initialized_FB = 0;
+
+	fClearData();
+}
+
+PUSH TCP_is_Connected
+{
+
+	//trace("TimedStepper - TCP_is_Connected push");
+	iTCPConnected = 1;
+	if(iInitialized)						fRunLoop();
+}
+
+RELEASE TCP_is_Connected
+{
+	INTEGER i;
+	//trace("TimedStepper - TCP_is_Connected release");
+     
+	for(i = 1 to highest_index)
+	{
+    	iChanged[i] = 1;
+	}
+	iTCPConnected = 0;
+}
+ 
+PUSH Manual_Update
+{
+	fRunLoop();
+}
+
+
+CHANGE in$
+{
+	INTEGER i;
+	i = getlastmodifiedarrayindex();
+
+	iChanged[i] = 1;
+	sData[i] = fFilterKeyData(in$[i]);
+	
+	if(!len(sData[i]))		//if we have no data to send  (the 'do not send virtual MTRX IO' feature also piggybacks on this)
+	{
+    	iChanged[i]	= 0;
+	}
+	else
+	{		
+		if(!iLoopRunning  &&  iInitialized)		fSend(i);
+		else if(iInitialized)
+		{
+	    	iNewChangeDuringLoop = 1;
+		} 	
+	}
+}
+
+
+FUNCTION main()
+{
+	INTEGER i, j;
+	STRING sTemp[500], sTempKeys[500];
+	waitforinitializationcomplete();
+     
+
+	i = 0;               
+	sTempKeys = keys_to_store;
+    while(find(",", sTempKeys) && i <= 30)
+	{
+  		i = i + 1;
+		sTemp 		= remove(",", sTempKeys);
+		sKeys[i] 	= ST.StringTrim(left(sTemp, len(sTemp) - 1)); 			  	
+	}
+     
+	sTempKeys 	= ST.StringTrim(sTempKeys);
+	iNumOfKeys = i;
+
+	iTCPConnected = TCP_is_Connected;
+
+}
+
+
+

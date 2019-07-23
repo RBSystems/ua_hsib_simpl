@@ -1,0 +1,19 @@
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+#DIGITAL_EXPAND	AllWithAny
+
+DIGITAL_INPUT	Trig[45];
+DIGITAL_OUTPUT	Out[45];
+
+INTEGER_PARAMETER PulseLen[45];
+
+#BEGIN_PARAMETER_PROPERTIES PulseLen
+propValidUnits = unitTicks;
+propBounds = 1t, 30000t;
+#END_PARAMETER_PROPERTIES
+
+PUSH Trig
+{
+ 	pulse(PulseLen[getlastmodifiedarrayindex()], Out[getlastmodifiedarrayindex()]);
+}

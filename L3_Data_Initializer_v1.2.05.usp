@@ -1,0 +1,662 @@
+#CATEGORY "46" "L3" // Custom
+
+
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+#ANALOG_SERIAL_EXPAND		allWithAny
+ 
+                                     
+#INCLUDEPATH "C:\Users\bcampagnola\Documents\L3AV\ProgResources\L3_Tools\L3_Tools\bin\debug"
+#USER_SIMPLSHARP_LIBRARY "L3_Tools"
+
+
+/*
+v1.0.08
+v1.2.00 - Added file-read functionality
+          
+v1.2.01 - very heavy.... can't figure out why. Heavy, like Bill & Ted heavy. Maybe not so much like Doc & Marty heavy, but def Bill & Ted heavy.
+v1.2.02 - removed everything possible, except for file-read, one line at a time.
+			now assumes delimiter exists
+
+v1.2.03 - Split the primary function into 2. Now there's fGetFileData, and then fProcessFileData, just in case there's something funky with the
+			temp vars used for file operations. Gives it a chance to destroy those vars before parsing the data.
+
+v1.2.04 - Adding file checksums, stored in NVRAM. If the file did not change since last read-in attempt, it is skipped. (based on 'use_file_chk' option)
+     
+v1.2.05 - Added 'send_init_start' to send a message to the downstream modules, instructing to initialize data.  
+			Also added 'fileDirectoryInsert$' for easy switching between /RM/ (removable media) and /ROMDISK/USER/ 
+			If blank "", program uses the string parameter 'fileFolder$'  
+*/
+
+#HELP_BEGIN
+HALP! 	
+***note: if you need to use a bunch of these modules, do not use "1" on the digital inputs! This will peg the processor's RAM on the 1st logic wave
+and cause the program to crash.
+
+
+       
+Module loads a text file from /[fileFolder$]/[fileName$].
+Or, if either fileDirectoryInsert$  or  fileNameInsert$ are populated, that value / those values will be used instead.
+
+If [use_file_chk] is high, module will compare a checksum stored in NVRAM (from the most recent successful load) to the checksum of the loaded file.
+Then if the checksums match, this file will be skipped.
+
+If [override_file_chk] is high, the above checksum comparison is skipped, forcing the file data to be processed.
+(Use case - if a file's data [A] is dependent on another file's data [B], then an update of [B] should force an update of [A], 
+even if [A] itself did not change )
+
+
+Module reads each line of file, with a line ending [fileLlineDelimiter$].
+It appends  [openChar$][lineHeader$][lineHeaderDelimiter$]   to the front of each line.
+If [use_index_prefixing] is high, module will also append   [indexingPrefix$]=%03d[indexingPrefixDelimiter$]   to the line, where %03d is the line number 
+based on how many lines have previously been processed.
+Module appends [lineDelimiter$][closeChar$] to each line.
+
+^^ Each of those lines is sent out  [tx$], except:
+	- lines that do not include any printable characters are omitted, and do not increment the [indexingPrefix$] value.
+^^ Lines that include "//" will be truncated up to the "//". If a line only contains "//[cr]", it will not increment the [indexingPrefix$] value.
+
+If [output_file_per_line] is high, each line is also sent out its respective [dataSend$[n]] line, where [n] is the [indexingPrefix$] value.
+
+After each line 'send', a delay of [line_delay_in_ticks] takes place. [line_delay] can override this parameter during runtime.
+Note: [line_delay] is NOT considered on startup. Must change after waitforinitializationcomplete().
+
+
+If [send_finalize_data] is high, the module will send  [finalizeData$][finalizeDelimiter$]  to [tx$] after there are no more data lines to send.
+(Use case - inform downstream modules that the data is complete, and the downstream module can process / initialize the data.)
+
+
+[fileNameInsert$] can be updated during runtime, and will overwrite the [fileName$] parameter.
+ 
+[dataInsert$[n]] can be updated during runtime. This will process that line the same as when the data is read from the file.
+If [use_indexing_prefix] is high when [dataInsert$[n]] is changed, [indexingPrefix$]=%03d[indexingPrefixDelimiter$] will be appended after the header,
+where %03d = n.
+If [use_finalize_data] is high when [dataInsert$[n]] is changed, [finalizeData$][finalizeDelimiter$] will be appended to the end of the line.
+
+
+v1.0.08
+v1.2.00 - Added file-read functionality
+          
+v1.2.01 - very heavy.... can't figure out why. Heavy, like Bill & Ted heavy. Maybe not so much like Doc & Marty heavy, but def Bill & Ted heavy.
+v1.2.02 - removed everything possible, except for file-read, one line at a time.
+			now assumes delimiter exists
+
+v1.2.03 - Split the primary function into 2. Now there's fGetFileData, and then fProcessFileData, just in case there's something funky with the
+			temp vars used for file operations. Gives it a chance to destroy those vars before parsing the data.
+          
+v1.2.04 - Adding file checksums, stored in NVRAM. If the file did not change since last read-in attempt, it is skipped. (based on 'use_file_chk' option)
+			
+v1.2.05 - Added 'send_init_start' to send a message to the downstream modules, instructing to initialize data.     
+
+ 
+#HELP_END
+            
+#DEFINE_CONSTANT ciMaxLines		1000
+#DEFINE_CONSTANT ciInitLines	5
+#DEFINE_CONSTANT ciDataLen	    1000
+
+DIGITAL_INPUT	enable,
+				init_trig,
+				use_file_chk,
+				override_file_chk,
+				_SKIP_,
+				output_file_per_line,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				use_index_prefixing,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				send_finalize_start,
+				_SKIP_,
+				send_finalize_end,
+				_SKIP_;
+                
+ANALOG_INPUT	_SKIP_,
+				line_delay;
+STRING_INPUT 	_SKIP_, 
+				fileDirectoryInsert$[200], 
+				fileNameInsert$[200],
+				_SKIP_, 
+				dataInsert$[ciMaxLines,ciInitLines][ciDataLen];
+                 
+DIGITAL_OUTPUT	done_FB,
+				done_pulse,
+				failed_file_read,
+				file_read_complete;
+
+STRING_OUTPUT	_SKIP_,
+				status$,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				tx$,
+				_SKIP_,
+				dataSend$[ciMaxLines,ciInitLines];
+                    
+
+STRING_PARAMETER	_SKIP_,
+					_SKIP_,
+					_SKIP_,
+					_SKIP_,
+					_SKIP_,
+					_SKIP_,
+					fileFolder$[100],
+					fileName$[200],
+					fileLineDelimiter$[20],
+					fileCustomDelimiter$[20],
+					_SKIP_,
+					openChar$[10],
+					lineHeader$[20],
+					lineHeaderDelimiter$[10],
+					indexingPrefix$[20],
+					indexingPrefixDelimiter$[10],
+					lineDelimiter$[10],
+					closeChar$[10],
+					_SKIP_,
+					finalizeStartData$[100],
+					_SKIP_,
+					finalizeEndData$[100],
+					finalizeDelimiter$[10];
+
+INTEGER_PARAMETER	line_delay_in_ticks,
+					end_delay;
+
+
+
+#BEGIN_PARAMETER_PROPERTIES	end_delay
+propValidUnits 		= unitTicks;
+propDefaultValue	= 100t;
+#END_PARAMETER_PROPERTIES
+
+#BEGIN_PARAMETER_PROPERTIES	line_delay_in_ticks
+propValidUnits 		= unitTicks;
+propDefaultValue	= 2t;
+#END_PARAMETER_PROPERTIES
+
+#BEGIN_PARAMETER_PROPERTIES fileFolder$
+propValidUnits		= unitString;
+propDefaultValue	= "/ROMDISK/USER/";
+propList			= 	{	"/ROMDISK/USER/", "User Folder" 						},
+					  	{	"/RM/"			, "Removable Media"						}	;	//,
+						//{	"/"				, "No Folder (include in file name)"	}	;
+#END_PARAMETER_PROPERTIES
+
+#BEGIN_PARAMETER_PROPERTIES fileName$
+propValidUnits		= unitString;
+propDefaultValue	= "myFile.txt";
+#END_PARAMETER_PROPERTIES
+
+#BEGIN_PARAMETER_PROPERTIES fileLineDelimiter$
+propValidUnits		= unitString;
+propDefaultValue	= "\x0d";
+propList			= 	{	"\x0d"			, 	"[CR]"								},
+						{	"\x0d\x0a"		, 	"[CR][LF]"							},
+						{	"Custom"		, 	"Use Custom Delimiter"				}	;
+						
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES fileCustomDelimiter$
+propValidUnits		= unitString;
+propDefaultValue	= "myDelimiter\x0d";
+#END_PARAMETER_PROPERTIES
+
+
+#BEGIN_PARAMETER_PROPERTIES openChar$
+propDefaultValue	= "{";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES lineHeader$
+propDefaultValue	= "HEADER";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES lineHeaderDelimiter$
+propDefaultValue	= ";";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES indexingPrefix$
+propDefaultValue	= "GUID=";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES indexingPrefixDelimiter$
+propDefaultValue	= ":";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES lineDelimiter$
+propDefaultValue	= "|";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES closeChar$
+propDefaultValue	= "}";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES finalizeStartData$
+propDefaultValue	= "INITIALIZE";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES finalizeEndData$
+propDefaultValue	= "COMPLETE";
+#END_PARAMETER_PROPERTIES
+#BEGIN_PARAMETER_PROPERTIES finalizeDelimiter$
+propDefaultValue	= "|";
+#END_PARAMETER_PROPERTIES
+   
+                                                                                          
+//--------------------------------------------------------------------------------------//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------//
+  
+
+StringTools ST;
+
+
+INTEGER iLineDelay,
+		iIndexingLength,
+		iDataInitComplete,
+		iInitTrigBuffered;
+STRING  sDataToSend[1200],
+		sFileLineDelimiter[20],
+		sFileLocation[1000],
+		sFileDirectory[200];
+                       
+NONVOLATILE INTEGER	nviDoneFB;
+NONVOLATILE STRING 	nvsChk[20];
+ 
+ 
+//--------------------------------------------------------------------------------------//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------//
+
+INTEGER_FUNCTION fIsCharPrintable(INTEGER iTemp)
+{
+	if(iTemp >= 33  &&  iTemp <= 126)		return(1);
+	return(0);
+}
+
+  
+
+FUNCTION fUpdateStatus()
+{
+	STRING sTemp1[100], sTemp2[100], sTemp3[100];
+	
+	sTemp1	= "module is not enabled";
+	sTemp2	= "data init has not started";
+	sTemp3 	= "init trigger is armed";
+
+	if(enable)	sTemp1	= "module is enabled";
+    if(iDataInitComplete)	sTemp2 = "data init has completed";
+	if(iInitTrigBuffered)	sTemp3 = "init trigger is armed, awaiting enable";
+
+	makestring(status$, "%s - %s: %s: %s", lineHeader$, sTemp1, sTemp2, sTemp3);
+}
+       
+
+STRING_FUNCTION fGetLineData(INTEGER iGuid, STRING sFileLine)
+{
+	STRING sLocalLine[2000];
+
+	if(use_index_prefixing)
+	{
+        makestring(sLocalLine, "%s=%03u%s %s%s", indexingPrefix$, iGuid, indexingPrefixDelimiter$, sFileLine, lineDelimiter$ );
+		//iIndexingLength	= len(indexingPrefix$) + len(indexingPrefixDelimiter$) + 4;			
+	}
+	else
+	{
+        makestring(sLocalLine, "%s%s", sFileLine, lineDelimiter$);
+		//iIndexingLength = 0;
+	}
+
+	return(sLocalLine);
+}
+ 
+
+FUNCTION fSendFinalizeStartData()
+{
+	makestring(tx$, "%s%s%s %s%s %s", openChar$, lineHeader$, lineHeaderDelimiter$, finalizeStartData$, finalizeDelimiter$, closeChar$ );
+}
+FUNCTION fSendFinalizeEndData()
+{
+	makestring(tx$, "%s%s%s %s%s %s", openChar$, lineHeader$, lineHeaderDelimiter$, finalizeEndData$, finalizeDelimiter$, closeChar$ );
+}
+
+
+SIGNED_INTEGER_FUNCTION fProcessFileData(STRING sTemp)
+{
+ 	INTEGER i;
+   	STRING	sFileData[45000], sLocalDataToSend[1000], sLocalHeader[5000], sLocalLine[600], sFileLine[600], sCloseChar[20];
+
+	sFileData = sTemp;
+
+	if(!len(sFileData))	return(-1);	   
+
+	i = 1;
+	//make header      
+	makestring(sLocalHeader, "%s%s%s", openChar$, lineHeader$, lineHeaderDelimiter$);
+	if(use_index_prefixing)   	makestring(sLocalHeader, "%s%s", sLocalHeader, indexingPrefix$);
+							
+	sCloseChar = lineDelimiter$ + closeChar$;
+	
+	if(send_finalize_start)
+	{
+		fSendFinalizeStartData();
+		delay(end_delay);
+	}
+    
+	while(find(sFileLineDelimiter, sFileData))			
+	{
+		sFileLine	= remove(sFileLineDelimiter, sFileData);
+		sFileLine	= left(sFileLine, len(sFileLine) - len(sFileLineDelimiter));
+		if(find("//", sFileLine))
+		{
+			if(find("//", sFileLine) = 1)		continue;
+			else	sFileLine = ST.StringTrim(left(sFileLine, find("//", sFileLine) - 1));
+		}
+		else	sFileLine	= ST.StringTrim(sFileLine);
+		if(!len(sFileLine))			continue;
+		
+		if(use_index_prefixing)  	makestring(sDataToSend, "%s=%03u%s %s%s", sLocalHeader, i, indexingPrefixDelimiter$, sFileLine, sCloseChar );
+		else				        makestring(sDataToSend, "%s%s%s", sLocalHeader, sFileLine, sCloseChar);
+		
+	    if(output_file_per_line)	dataSend$[i] = sDataToSend;
+		tx$ = sDataToSend;
+		delay(iLineDelay);
+
+		i = i + 1;					//increment GUID
+	}
+
+	if(send_finalize_end)	fSendFinalizeEndData();
+	wait(end_delay)
+	{
+		nviDoneFB 				= 1;
+    	done_FB 				= 1;
+		pulse(10, done_pulse);
+		iDataInitComplete		= 1;
+		file_read_complete 		= 1;
+		fUpdateStatus();
+		trace("%s.%03u  ______Data Init List: %s_____:Complete_//\x0d\x0a", time(), gethseconds(), lineHeader$);
+
+	}
+}
+
+STRING_FUNCTION fGetFileData()
+{
+	INTEGER i, iFileEnd, iNoMoreDelimiters, iOpsClosed, iFileClosed;
+	SIGNED_LONG_INTEGER siFilePointer;
+	SIGNED_INTEGER siErrFileHandle, siErrFound, siErrFileSeek;
+	SIGNED_LONG_INTEGER siErrFileRead, siErrFileOpen, siErrFileClose, siErrEndFileOps; 
+	STRING	sFileData[60000], sFilePath[200], sFilePathTemp[200];
+	FILE_INFO FileInfo;
+    
+	trace("%s.%03u  ______Data Init List: %s_____:Start_//\x0d\x0a", time(), gethseconds(), lineHeader$);
+    
+	i = 1;
+	
+	//makestring(sFilePath, "%s%s", fileFolder$, fileName$);
+	sFilePath = sFileLocation;
+       	
+	startfileoperations();
+	siErrFound	= findfirstshared(sFilePath, FileInfo);
+                           
+	if(findclose() < 0)
+	{
+		trace("DataInitializer - %s, findclose failed, siErrFound=%d", lineHeader$, siErrFound);	
+		endfileoperations();
+		return("");
+	}
+	//added ~ global modules v1.0.76
+	//for testing purposes, make the module automatically look in /ROMDISK/USER/ when it doesn't find the file at the specified location
+	if(siErrFound <> 0)
+	{
+		sFilePathTemp = "/ROMDISK/USER/" + fileName$;
+    	siErrFound = findfirstshared(sFilePathTemp, FileInfo);
+
+		if(findclose() < 0)
+		{
+			trace("DataInitializer - %s, findclose failed, siErrFound=%d", lineHeader$, siErrFound);	
+			endfileoperations();
+			return("");
+		}
+	}
+	//if not found
+	if(siErrFound <> 0)
+	{
+		trace("DataInitializer - %s, file not found: %s", lineHeader$, sFilePath);
+		endfileoperations();
+		return("fileNotFound");
+	}
+	else
+	{	
+		//file found
+//		trace("\\\\______Data Init List: %s_____:Found_//", lineHeader$);
+ 		//try fileopenshared _o_rdonly
+		siErrFileOpen	= fileopenshared( sFilePath, _O_RDONLY | _O_TEXT ); 
+		if(siErrFileOpen < 0)
+		{
+			//error opening file
+			trace("DataInitializer - %s, fileopenshared failed: err code=%d, %s", lineHeader$, siErrFileHandle, sFilePath);
+			endfileoperations();
+			return("");
+		} 
+		else
+		{
+			//file opened successfully	
+			//set pointer to start of file
+			siErrFileSeek	= fileseek(siErrFileHandle, 0, seek_set);
+			if(siErrFileSeek < 0)
+			{
+				//fileseek failed
+				trace("DataInitializer - %s, fileseek failed: err code=%d, %s", lineHeader$, siErrFileSeek, sFilePath);
+                if(fileclose(siErrFileHandle) <> 0)	trace("DataInitializer - %s, fileseek failed, fileclose() failed", lineHeader$);
+                if(endfileoperations() <> 0)	trace("DataInitializer - %s, fileseek failed, endfileoperations() failed", lineHeader$);
+				return("");
+			}
+			
+			siErrFileRead = fileread(siErrFileHandle, sFileData, 60000);						
+			
+           	if(fileclose(siErrFileHandle) <> 0)	trace("DataInitializer - %s, siErrFileRead < 0, fileclose() failed", lineHeader$);
+           	if(endfileoperations() <> 0)	trace("DataInitializer - %s, siErrFileRead < 0, endfileoperations() failed", lineHeader$);
+
+			if(siErrFileRead < 0)						//file read error
+			{
+				trace("DataInitializer - siErrFileRead=%ld", siErrFileRead);
+				return("");
+			}
+
+			return(sFileData);
+		}
+	}
+}
+ 
+SIGNED_INTEGER_FUNCTION fRun()
+{
+	SIGNED_INTEGER siErr;
+	STRING sTemp[60000], sChk[20];
+	
+	sTemp = fGetFileData();
+
+	
+	//checksum
+	//if(len(sTemp))  - dont run if there is nothing to check
+	//if(use_file_chk) - if we should be checking the file checksum 
+	//if(!override_file_chk) - if an upstream file is not forcing an update of this file
+	if(len(sTemp))	
+	{
+		//whereas all the other errors should make done_FB go low, simply not finding a file should not hinder other dependent files from propagating through the TimedStepper modules
+		if(!comparestringsnocase(sTemp, "fileNotFound"))
+		{
+			//ergo, done_FB should go high
+			done_FB = 1;
+			nviDoneFB = 1;
+			status$ = "file not found";
+			trace("%s.%03u  ______Data Init List: %s_____:File not found_//\x0d\x0a", time(), gethseconds(), lineHeader$);
+
+			pulse(10, done_pulse);
+
+			if(send_finalize_end)	fSendFinalizeEndData();
+			return(-1);
+		}
+		else if(use_file_chk && !override_file_chk) //and if we have good data, check the checksums
+		{
+			sChk = ST.StringXOrChk(sTemp);
+			if(!comparestrings(sChk, nvsChk))
+			{
+				trace("%s.%03u  ______Data Init List: %s_____:Chk match, skipping_//\x0d\x0a", time(), gethseconds(), lineHeader$);
+		       	status$ = "skipped file. checksum match";
+				pulse(10, done_pulse);
+
+				done_FB = nviDoneFB;
+
+				if(send_finalize_end) 	fSendFinalizeEndData();
+				return(-1);
+			}
+        }
+		//if checksums do not match, process the data
+		nvsChk = ST.StringXOrChk(sTemp);		
+		siErr = fProcessFileData(sTemp);
+	}
+	else
+	{
+		siErr = 1;
+	   	status$ = "failed file-read";
+		trace("%s.%03u  ______Data Init List: %s_____:Failed file read_//\x0d\x0a", time(), gethseconds(), lineHeader$);
+
+		nviDoneFB = 0;
+		done_FB = 0;
+		pulse(10, failed_file_read);
+	}
+}
+ 
+CHANGE line_delay
+{
+	iLineDelay = line_delay;
+}
+
+CHANGE dataInsert$
+{
+	INTEGER i, j;
+	STRING	sDataToSend[1200];
+                           
+	i = getlastmodifiedarrayindex();
+      
+    //header
+	makestring(sDataToSend, "%s%s%s ", 
+							openChar$, 
+							lineHeader$,
+							lineHeaderDelimiter$
+							);
+    //index_prefix               
+	if(use_index_prefixing)
+	{
+		makestring(sDataToSend, "%s%s=%03u%s ",
+	 							sDataToSend,
+								indexingPrefix$, 
+								i, 
+								indexingPrefixDelimiter$
+								);
+	}
+	//data and closing
+	makestring(sDataToSend, "%s%s%s%s", 
+                            sDataToSend,
+							dataInsert$[i], 
+							lineDelimiter$, 
+							closeChar$
+							);	
+    //send to globalTx$
+    makestring(tx$, "%s", sDataToSend);
+    //send to lineOut
+	makestring(dataSend$[i], "%s", sDataToSend);
+
+	if(send_finalize_end)		fSendFinalizeEndData();
+
+	wait(end_delay)
+	{
+		pulse(10, done_pulse);
+	}
+}
+ 
+PUSH init_trig
+{
+	if(enable)	fRun();
+	else
+	{
+		iInitTrigBuffered	= 1;
+		fUpdateStatus();
+	}
+}
+
+CHANGE enable
+{
+	if(iInitTrigBuffered  &&  enable)
+	{
+		iInitTrigBuffered = 0;
+    	fRun();
+	}
+	else fUpdateStatus();	
+}
+     
+FUNCTION fFileName()
+{
+	if(!len(fileNameInsert$))	sFileLocation = sFileDirectory + fileName$;
+	else 						sFileLocation = sFileDirectory + fileNameInsert$;
+}
+
+CHANGE fileNameInsert$
+{
+	fFileName();
+}
+                      
+FUNCTION fFileDirectory()
+{
+	if(!len(fileDirectoryInsert$))	sFileDirectory	= fileFolder$;
+	else							sFileDirectory	= fileDirectoryInsert$;
+
+	fFileName();
+}
+
+CHANGE fileDirectoryInsert$
+{
+ 	fFileDirectory();
+}
+
+//-----------------------------------------------------------------------------------------------//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------------------------//
+
+
+FUNCTION main()
+{
+	waitforinitializationcomplete();
+
+	if(!comparestrings(fileLineDelimiter$, "Custom"))		sFileLineDelimiter	= fileCustomDelimiter$;
+	else													sFileLineDelimiter	= fileLineDelimiter$;
+         
+	fFileDirectory();
+	fFileName();
+                     
+	iLineDelay = line_delay_in_ticks;
+
+	fUpdateStatus();									
+}
+
+
+

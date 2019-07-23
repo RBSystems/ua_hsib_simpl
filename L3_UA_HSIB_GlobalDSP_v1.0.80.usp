@@ -1,0 +1,512 @@
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+                       
+#DEFINE_CONSTANT 	ciMaxNumRooms				30
+#DEFINE_CONSTANT	ciMaxNumGlobalDSPio			400
+#DEFINE_CONSTANT	ciMaxNumListItems			400
+    
+                   
+DIGITAL_INPUT	Ctrl_Mute_In[1200],
+				_SKIP_;
+BUFFER_INPUT	_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				_SKIP_, 
+				dataInit_Rx$[5000],
+				_SKIP_,
+				_SKIP_,
+				_SKIP_;
+STRING_INPUT	from_Room_Rx$[ciMaxNumRooms][1000],
+				_SKIP_,
+				_SKIP_;
+
+ANALOG_INPUT	List_ItemClicked[12],
+				_SKIP_,
+				Ctrl_Vol_In[1200, 1200],
+				_SKIP_;
+                
+DIGITAL_OUTPUT	Ctrl_Mute_Out[499],
+				_SKIP_;
+
+STRING_OUTPUT	_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				
+				ListFB$[12],
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				to_Room_Tx$[ciMaxNumRooms],
+				_SKIP_,
+				_SKIP_;
+
+             
+ANALOG_OUTPUT	List_NumOfItems[12],
+				_SKIP_,
+				Ctrl_Vol_Out[499, 499],
+				_SKIP_;
+                 
+
+STRUCTURE stList	{
+				INTEGER iItemActive;							//identifies which arrayed items have been populated by init data
+
+             	//INTEGER iFB;		
+				//INTEGER iVis;
+				//INTEGER iIcon;
+				//STRING  sText[4][50];
+
+	           	STRING 	sGlobalName[40];						//global label - "Rm 320 Laptop" 						
+            	STRING 	sLocalName[40];							//local, generic label - "PC", "Wireless" ,etc
+
+				INTEGER iGlobalToList;							//used for 5-8 filters/groups. cross-reference list
+				INTEGER iListToGlobal;							
+				
+				INTEGER iRmAss;									//associated room
+				INTEGER	iLocalID;								//global index for sending upstream
+				INTEGER iFixedID;							//
+				INTEGER iGroupID;				
+				INTEGER iPointType;								//send this to NodeDSP - indicates Mics or Line level list
+
+				INTEGER iFunction;								//added 1.0.80 - for anything with a special function, e.g. room combine mutes
+				
+				INTEGER iIsVirtual;								//isVirtual=does not have a fixed GUID at the local level (e.g. the aux vid feed)
+				INTEGER iVLink;									//integer of the virtual's linked global index. 0 when not linked
+				STRING	sGainCmdData[40];							//string command data related to routing this source (named_control in QSYS)
+				STRING	sMuteCmdData[40];
+				STRING  sRteCmdData[40];						//program audio router selection
+                SIGNED_INTEGER siRangeMax;
+				SIGNED_INTEGER siRangeMin;
+				INTEGER iRangeTotal;
+				SIGNED_INTEGER siDefaultVol;
+				INTEGER iDefaultMute;
+				INTEGER iVolDisabled;
+				INTEGER iMuteDisabled;
+				
+				INTEGER iHighestListIndex;
+				INTEGER iNumOfTextColumns;
+
+				INTEGER iDSPSystem;
+
+			};
+                
+//NONVOLATILE stList List[ciMaxNumGlobalDSPio]; 
+stList List[ciMaxNumGlobalDSPio]; 
+			
+STRUCTURE stRoom {
+             	INTEGER iRoomActive;							//identifies room indices that are in use
+				STRING	sRoomName[30];							//friendly name for the room  (e.g. "Lecture Room 321"
+				STRING  sRoomNameShort[20];						//Used to make GLobal IO names, e.g. "Rm 320" --> "Rm 320 Laptop"
+				INTEGER iRoomNum;								//building location room# (e.g. 320)
+			};
+
+stRoom Room[ciMaxNumRooms];
+
+INTEGER DSP_XRef[1200];
+
+STRING sTrash[1000];     
+        
+//---------------------------------------------------------------------------------------------------------------------//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+INTEGER_FUNCTION fIsCharPrintable(INTEGER iTemp)
+{
+	if(iTemp >= 33  &&  iTemp <= 126)		return(1);
+	return(0);
+}
+
+STRING_FUNCTION fTrimWhitespace(STRING sTemp)
+{
+	//removes non-printable characters from front and back of a string
+	INTEGER iTempC;
+	STRING sData[1000], sTempC[1];
+    
+    if(!len(sTemp))		return("");
+	
+	sData = sTemp;
+	iTempC = getc(sData);
+	while(!fIsCharPrintable(iTempC))
+	{                                       
+		if(!len(sData))		return("");
+    	iTempC = getc(sData);	
+	}
+	sData = chr(iTempC) + sData;
+	if(len(sData) <= 1)			return(sData);
+        
+	sTempC = right(sData, 1);
+	iTempC = getc(sTempC);
+	while(!fIsCharPrintable(iTempC))
+	{
+    	if(!len(sData))		return("");		//this wont ever happen... probably
+		sData = left(sData, len(sData) - 1);
+		sTempC = right(sData, 1);
+		iTempC = getc(sTempC);
+	}
+
+	return(sData);
+}
+
+
+INTEGER_FUNCTION fHighestListIndex(INTEGER iList, INTEGER iIndex)			//iIndex of 0 will just return the iMaxListItems value
+{
+   	List[iIndex].iHighestListIndex	= max(List[iIndex].iHighestListIndex, iIndex);
+	return(List[iIndex].iHighestListIndex);
+}
+
+STRING_FUNCTION fGetDataHeader(INTEGER iType)
+{
+    switch(iType)
+	{
+       	case(1):	return("DSP_POINTS;");
+       	case(2):	return("DSP_PRESET;");
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+     
+CHANGE Ctrl_Vol_In
+{
+	INTEGER iIndex, iVal;
+	iIndex = getlastmodifiedarrayindex();
+    iVal = Ctrl_Vol_In[iIndex];
+
+	if(DSP_XRef[iIndex])	Ctrl_Vol_Out[DSP_XRef[iIndex]] = iVal;
+	else					trace("GlobalDSP - CHANGE Ctrl_Vol_In - DSP_XRef[iIndex]==0, iIndex==%u, iVal==%u", iIndex, iVal);
+}
+
+CHANGE Ctrl_Mute_In
+{
+	INTEGER iIndex, iVal;
+	iIndex = getlastmodifiedarrayindex();
+	iVal = Ctrl_Mute_In[iIndex];
+
+	if(DSP_XRef[iIndex])		Ctrl_Mute_Out[DSP_XRef[iIndex]] = iVal;
+	else					trace("GlobalDSP - CHANGE Ctrl_Mute_In - DSP_XRef[iIndex]==0, iIndex==%u, iVal==%u", iIndex, iVal);
+}
+
+                                                                                                              
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION fProcessRoomData(INTEGER iRoom, STRING sTemp)
+{
+	INTEGER i, iGUIDsrc, iGUIDdst;
+	STRING	sTempData[200], sTempHeader[30], sTemp1[30], sTemp2[100];
+
+
+}
+
+
+CHANGE from_Room_Rx$
+{
+	INTEGER i, iRoom;
+	STRING	sTempData[200];
+
+	iRoom = getlastmodifiedarrayindex();
+
+	sTempData	= gatherbylength(len(from_Room_Rx$[iRoom]), from_Room_Rx$[iRoom]);
+	fProcessRoomData(iRoom, sTempData);
+}
+ 
+        
+
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                                      
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+
+INTEGER_FUNCTION fProcessList(INTEGER iList)
+{
+	INTEGER i, j;
+	STRING 	sTemp[1000];
+
+   	for(i = 1 to ciMaxNumRooms)
+	{
+       	makestring(to_Room_Tx$[i], "%sCOMPLETE|}", fGetDataHeader(iList));
+		delay(150);
+	}
+}
+ 
+FUNCTION fProcessPreset(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+
+}
+
+FUNCTION fProcessLine(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	INTEGER i,
+			iErr;
+	STRING  sTempKey[50],
+			sTempValue[100],
+			sTempPair[151],
+			sTempLine[300],
+			sTempHeader[100];
+
+	sTempLine = sTempLineArg;
+
+	while(find(",", sTempLine))
+	{
+   		sTempPair 	= remove(",", sTempLine);
+		sTempKey	= remove("=", sTempPair);
+		sTempValue	= left(sTempPair, len(sTempPair) - 1);
+    
+   			 if(findnocase("global_name", sTempKey))       	List[iIndex].sGlobalName		= fTrimWhitespace(sTempValue);
+   		else if(findnocase("local_name", sTempKey))		   	List[iIndex].sLocalName			= fTrimWhitespace(sTempValue);
+    
+       	else if(findnocase("room_ass", sTempKey))			List[iIndex].iRmAss				= atoi(sTempValue);
+       	else if(findnocase("local_index", sTempKey))   		List[iIndex].iLocalID			= atoi(sTempValue);
+       	else if(findnocase("fixed_id", sTempKey))			List[iIndex].iFixedID			= atoi(sTempValue);
+        else if(findnocase("group", sTempKey))				List[iIndex].iGroupID			= atoi(sTempValue);
+        else if(findnocase("point_type", sTempKey))			List[iIndex].iPointType			= atoi(sTempValue);
+
+		else if(findnocase("function", sTempKey))			List[iIndex].iFunction			= atoi(sTempValue);
+		
+        else if(findnocase("tag_gain", sTempKey))			List[iIndex].sGainCmdData		= fTrimWhitespace(sTempValue);
+        else if(findnocase("tag_mute", sTempKey))			List[iIndex].sMuteCmdData		= fTrimWhitespace(sTempValue);
+		else if(findnocase("tag_rte", sTempKey))			List[iIndex].sRteCmdData		= fTrimWhitespace(sTempValue);
+        
+		else if(findnocase("dsp_system", sTempKey))			List[iIndex].iDSPSystem			= atoi(sTempValue);
+
+        else if(findnocase("is_virtual", sTempKey))			List[iIndex].iIsVirtual			= atoi(sTempValue);
+       	else if(findnocase("range_max", sTempKey))			List[iIndex].siRangeMax			= atoi(sTempValue);
+        else if(findnocase("range_min", sTempKey))			List[iIndex].siRangeMin			= atoi(sTempValue);
+       	else if(findnocase("vol_default", sTempKey))		List[iIndex].siDefaultVol		= atoi(sTempValue);
+        else if(findnocase("mute_default", sTempKey))		List[iIndex].iDefaultMute		= atoi(sTempValue);
+        else if(findnocase("vol_disabled", sTempKey))		List[iIndex].iVolDisabled		= atoi(sTempValue);
+        else if(findnocase("mute_disabled", sTempKey))		List[iIndex].iMuteDisabled		= atoi(sTempValue);
+        
+        else
+		{
+			trace("GlobalDSP - fProcessLine error - didn't catch key - type=%u, GUID=%u, key=%s, value=%s", iType, iIndex, sTempKey, sTempValue);
+		}
+	}
+     
+	//trace("GlobalDSP line266 - iErr=%d, sTEmpLineArg=%s", iErr, sTempLineArg);
+	if(!iErr)									//if no error on the data line					
+	{
+		if(List[iIndex].iRmAss  &&  List[iIndex].iPointType)
+		{
+			//create global name
+			makestring(List[iIndex].sGlobalName, "Rm%u %s", Room[List[iIndex].iRmAss].iRoomNum, List[iIndex].sLocalName);
+			//create cross reference list to receive vol/mute control from room, and convert to guid
+			DSP_XRef[((List[iIndex].iRmAss - 1)*50) + List[iIndex].iLocalID] = iIndex;
+        }
+
+       	List[iIndex].iItemActive	= 1;		//set item as active
+    	fHighestListIndex(iType, iIndex);							//                
+       	if(List[iIndex].iRmAss)	//if the thing we just parsed is associated with a room, pass the data on to the room.
+		{
+			sTempHeader = fGetDataHeader(iType);
+           	makestring(to_Room_Tx$[List[iIndex].iRmAss], 
+				"{%s LOCALID=%u: GUID=%u, global_name=%s, local_name=%s, fixed_id=%u, group_id=%u, is_virtual=%u, range_max=%d, range_min=%d, default_vol=%d, default_mute=%u, vol_disabled=%u, mute_disabled=%u, point_type=%u, function=%u,|}", 
+					sTempHeader,
+						List[iIndex].iLocalID,
+							iIndex,
+								List[iIndex].sGlobalName,
+									List[iIndex].sLocalName,
+										List[iIndex].iFixedID,
+											List[iIndex].iGroupID,
+												List[iIndex].iIsVirtual,
+													List[iIndex].siRangeMax,
+														List[iIndex].siRangeMin,
+															List[iIndex].siDefaultVol,
+																List[iIndex].iDefaultMute,
+																	List[iIndex].iVolDisabled,
+																		List[iIndex].iMuteDisabled,
+																			List[iIndex].iPointType,
+																				List[iIndex].iFunction		);
+		}
+	}
+}
+
+FUNCTION fProcessRooms(INTEGER iType, INTEGER iIndex, STRING sTempLine)
+{
+	INTEGER i, iRoomNum;
+    STRING	sTempKV[300], sTempKey[100], sData[1000];
+    
+	/*                        
+	if(find(",", sTempLine))
+	{
+    	sData = sTempLine;
+		Room[iIndex].sRoomName = fTrimWhitespace(left(sData, find(",", sData) - 1));
+		sTrash = remove(",", sData);
+		Room[iIndex].iRoomNum	= atoi(sData);
+
+	} 	
+    */
+	if(find(",", sTempLine))
+	{
+    	sData = sTempLine;
+		while(find(",", sData))
+		{
+        	sTempKV = remove(",", sData);
+			sTempKey = remove("=", sTempKV);
+            	 //if(findnocase("room_guid", sTempKey))				iIndex							= atoi(sTempKV); 
+				 //this was moved to the auto-parse iIndex portion of fProcessInit
+				 if(findnocase("room_name", sTempKey))				Room[iIndex].sRoomName			= fTrimWhitespace(left(sTempKV, len(sTempKV)-1)); //fTrimWhitespace(left(sTempKV, len(sTempKV)-1));
+			else if(findnocase("bldg_rm_num", sTempKey))			Room[iIndex].iRoomNum			= atoi(sTempKV);
+			//else if(findnocase("discrete_macro_mode", sTempKey))	Room[iIndex].iDiscreteMacroMode	= atoi(sTempKV);
+			//else if(findnocase("macro_take_mode", sTempKey))		Room[iIndex].iMacroTakeMode		= atoi(sTempKV);
+			//else if(findnocase("use_src_list_mode", sTempKey))		Room[iIndex].iUseSrcListMode	= atoi(sTempKV);
+			else	{}//don't worry about a thing
+		}
+	}
+
+}
+
+FUNCTION fProcessInit(STRING sTempInitData)
+{
+	INTEGER i, 
+			j, 
+			iIndex,
+			iType;
+	
+	STRING 	sTempData[1000], 
+			sTempHeader[100], 
+			sTempGUID[20], 
+			sTempLine[300];
+
+	sTempData 	= sTempInitData;				//"{MTRX_VDST; GUID=014: friendly_name=MyFriendlyLCD, room_ass=02, local_id=4, is_permissed=true, filter_id=3, virtual=false, cmd_data=143| }"
+	sTempHeader = remove(";", sTempData);		//"{MTRX_VDST;"
+
+		 if(findnocase("DSP_POINTS", sTempHeader))			iType = 1;
+    else if(findnocase("DSP_PRESETS", sTempHeader))			iType = 2;
+    else if(findnocase("ROOMS", sTempHeader))				iType = 13;
+	else trace("GlobalDSP - in fProcessInit - didn't catch header type - %s", sTempHeader);
+
+	while(find("|", sTempData))
+	{
+    	sTempLine 	= remove("|", sTempData);	//"
+		if(findnocase("complete", sTempLine))		
+		{
+			delay(10);
+			fProcessList(iType);
+		}
+		else
+		{
+			sTempGUID	= remove(":", sTempLine);   //"GUID=014:", "RoomID=021:"
+			iIndex		= atoi(sTempGUID);
+
+  			if(iIndex)
+			{
+				switch(iType)
+				{
+					case(1):
+					{
+						List[iIndex].siRangeMax		= 6;
+						List[iIndex].siRangeMin		= -20;
+						List[iIndex].iRangeTotal	= 26;
+						List[iIndex].iDefaultMute	= 0;
+						List[iIndex].siDefaultVol	= 0;
+
+						fProcessLine(iType, iIndex, sTempLine);
+					}
+					case(2):	fProcessPreset(iType, iIndex, sTempLine);
+					case(13):	fProcessRooms(iType, iIndex, sTempLine);
+				}
+            }
+			else	trace("GlobalDSP - fProcessInit error, iIndex did not resolve -    %s %u %s", sTempHeader, iIndex, sTempLine);
+		}
+	}	
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+THREADSAFE CHANGE dataInit_Rx$
+{
+	INTEGER i;
+	STRING sTemp[50000];
+
+	while(find("}", dataInit_Rx$))
+	{
+    	sTemp = gather("}", dataInit_Rx$);
+		fProcessInit(sTemp);
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                                                            
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION main()
+{
+	INTEGER i, j;
+	STRING	sTemp[100];
+    
+    waitforinitializationcomplete();
+}
+

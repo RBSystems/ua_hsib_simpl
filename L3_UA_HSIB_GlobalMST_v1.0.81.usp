@@ -1,0 +1,2701 @@
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+
+
+// v1.0.62 - VDST and VSRC datainit lines are immediately propagated to the NodeMST modules
+// v1.0.63 - VDST and VSRC datainit lines process in GlobalMST first, and when COMPLETE; is received, THEN all lines are iterated over and sent to NodeMST
+  
+// v1.0.71 - Changed out most of the KV searches for just straight comma-chopping
+
+// v1.0.73 - attempting to move program over to NVRAM in order to save boot time reading in the lists every boot sequence
+
+// v1.0.74 - Adding the special data command "INITIALIZE" to indicate when data needs to be reset
+
+// v1.0.75 - Commenting out NONVOLATILE declarations. Shiz aint workin. Declaring NV on a structure only makes the immediate vars non-volatile,
+//				and not the variables inside the nested structures. Doesn't appear to be any way of making that work.
+       
+#INCLUDEPATH "C:\Users\bcampagnola\Documents\L3AV\ProgResources\L3_Tools\L3_Tools\bin\debug"
+#USER_SIMPLSHARP_LIBRARY "L3_Tools"
+
+
+                       
+#DEFINE_CONSTANT 	ciMaxNumRooms				30
+#DEFINE_CONSTANT	ciMaxNumGlobalMTRXio		400
+#DEFINE_CONSTANT	ciMaxNumListItems			400
+#DEFINE_CONSTANT	ciMaxNumCams				50
+#DEFINE_CONSTANT	ciMaxNumDisplays			200
+#DEFINE_CONSTANT	ciMaxNumCodecs				3
+
+#DEFINE_CONSTANT	ciListTextGlobalName		1
+#DEFINE_CONSTANT	ciListTextRoutedSrc			2
+                                                 
+#DEFINE_CONSTANT	ciListVSrc					1
+#DEFINE_CONSTANT	ciListVDst					2
+#DEFINE_CONSTANT	ciListASrc					3
+#DEFINE_CONSTANT	ciListADst					4
+#DEFINE_CONSTANT	ciListSrcF					5
+#DEFINE_CONSTANT	ciListSrcG					6
+#DEFINE_CONSTANT	ciListDstF					7
+#DEFINE_CONSTANT	ciListDstG					8
+
+#DEFINE_CONSTANT	ciMaxNumFilters				100
+#DEFINE_CONSTANT	ciMaxNumGroups				30
+
+#DEFINE_CONSTANT	ciOffsetCamIndex			20
+                                      
+                   
+DIGITAL_INPUT	MTRX_Take_All,
+				MTRX_Take_Video,
+				MTRX_Take_Audio,
+				MTRX_Deselect_All,
+				MTRX_Deselect_Video,
+				MTRX_Deselect_Audio,
+				MTRX_Select_All,
+				MTRX_Select_All_Video,
+				MTRX_Select_All_Audio,
+				MTRX_Clear_Route_All,
+				_SKIP_,
+				UI_Page[5],
+				UI_Sub[5],
+				_SKIP_,
+				List_DataInit_Complete[15],
+				_SKIP_,
+				CAM_SendToVTC[ciMaxNumCodecs],
+				_SKIP_,
+				CAM_Save[1],
+				_SKIP_,
+				_SKIP_,
+				VTC_Ctrl_Sel[ciMaxNumCodecs],
+				_SKIP_,
+				VTC_DisplaySingle[ciMaxNumCodecs],
+				VTC_DisplayDual[ciMaxNumCodecs],
+				_SKIP_;
+
+ANALOG_INPUT	CAM_FoldedCtrl,
+				_SKIP_;
+
+STRING_INPUT	CAM_PresetText$_In[100],
+				_SKIP_;
+
+BUFFER_INPUT	_SKIP_,
+				dataInit_Rx$[10000],
+				_SKIP_,
+				_SKIP_;
+STRING_INPUT	_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				_SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, _SKIP_, 
+				from_Room_Rx$[ciMaxNumRooms][1000],
+				_SKIP_,
+				_SKIP_;
+
+ANALOG_INPUT	List_ItemClicked[12],
+				_SKIP_,
+				MTRX_V_In[350],
+				_SKIP_,
+				MTRX_A_In[500,500];
+                 
+
+DIGITAL_OUTPUT	CAM_PowerOn_FB,
+				CAM_PowerOff_FB,
+				CAM_Save_FB,
+				_SKIP_,
+				_SKIP_,
+
+				VTC_RoomRes_PopReset,
+				VTC_CamSel_PopReset,
+				VTC_Content_PopReset,
+				_SKIP_,
+				VTC_Ctrl_Sel_FB[ciMaxNumCodecs],
+                _SKIP_,
+				VTC_EndAllCalls[ciMaxNumCodecs],
+				_SKIP_,
+				_SKIP_,
+				DataInit_Done[15],
+				_SKIP_;
+
+STRING_OUTPUT	_SKIP_,
+				VTC_Ctrl_Sel_UnitName$,
+				USB_Tx$,
+				_SKIP_,
+				CAM_PresetText$_Out,
+				_SKIP_,
+				CAM_List_SelectedCam$,
+				_SKIP_,
+				ROOMS_List_SelectedRoom$,
+                _SKIP_;
+				
+STRING_OUTPUT	_SKIP_,
+				VTC_RoomRes_Name$_Sel[1],
+				VTC_RoomRes_Name$[ciMaxNumCodecs],
+				_SKIP_,
+				VTC_CamSelect_Name$_Sel[1],
+				VTC_CamSelect_Name$[ciMaxNumCodecs],
+				_SKIP_,
+				VTC_ContentShare_Name$_Sel[1],
+				VTC_ContentShare_Name$[ciMaxNumCodecs],
+				_SKIP_,
+				_SKIP_,
+				ListFB$[13],
+				_SKIP_,
+				Cam_DataInit$[1],
+				Display_DataInit$[6],
+				_SKIP_,
+				Relay_DataInit$[2],				//[1] is local Crestron relays (and Ethernet Crestron relay boxes), [2] is for the Global Cache boxes fed thru CP-06
+				to_Room_Tx$[ciMaxNumRooms],
+				_SKIP_,
+				_SKIP_;
+
+             
+ANALOG_OUTPUT	List_NumOfItems[12],
+				_SKIP_,
+				MTRX_V_Out[350], 
+				_SKIP_,
+				MTRX_A_Out[500],
+				_SKIP_,
+				Cam_FoldedCmd[ciMaxNumCams],
+				_SKIP_,
+				Display_FoldedCmd[ciMaxNumDisplays, ciMaxNumDisplays],
+				_SKIP_;
+                 
+                     
+STRUCTURE stRelay {
+              	INTEGER iRelayIndex;
+				INTEGER iIsInitIndex;
+				STRING	sIPAddress[20];
+			};
+
+STRUCTURE stListItem {
+				INTEGER iItemActive;							//identifies which arrayed items have been populated by init data
+
+             	INTEGER iFB;		
+				INTEGER iVis;
+				INTEGER iIcon;
+				STRING  sText[4][50];
+
+	           	STRING 	sGlobalName[40];						//global label - "Rm 320 Laptop" 						
+            	STRING 	sLocalName[40];							//local, generic label - "PC", "Wireless" ,etc
+
+				INTEGER iGlobalToList;							//used for 5-8 filters/groups. cross-reference list
+				INTEGER iListToGlobal;							
+				
+				INTEGER iRmAss;									//associated room
+				INTEGER	iLocalID;								//the room-local id
+				INTEGER iFunctionID;							//arbitrary id used to match IO with others of similar function
+				INTEGER iFilterID;								//global matrix filter IO
+				INTEGER iGroupID;
+  
+				INTEGER	iLocalSrcID;							//virtual src list id
+
+				STRING	sIPAddress[40];							//the fucking IP address
+				INTEGER iComPort;								//the com port, you bitch
+				INTEGER iProcessorIndex;						//the index of the processor that controls the device, be it Eth or 232
+
+				INTEGER iIsCamera;								//is it a fucking camera?
+				INTEGER iCamLocalID;							//the local ID of the camera in its respective room
+				INTEGER iCamGUID;								//the global camera id
+
+				INTEGER iIsDisplay;								//maybe it's a fucking display?
+				INTEGER iDisplayLocalID;						//the local ID of the display in its respective room
+				INTEGER iDisplayGUID;							//the global display id
+
+				INTEGER iRelayProcessor;						//1 = the Crestron relay boxes connected via Ethernet to this processor
+																//6 = CP-06, dedicated to Global Cache boxes (and other stuff)
+				stRelay RelayOn[10];							//relay index or indices associated with turning this video device "on"
+				stRelay RelayOff[10];							//relay index or indices associated with turning this video device "off"
+				INTEGER iRelayOnNumOf;							//count the total number of relays associated with the"on" function of this device
+				INTEGER iRelayOffNumOf;							//blah blah blah "off" function  blah blah blah
+                                                                                      
+				INTEGER iIsVTC;									//index of the VTC unit this source or destination is assigned
+				INTEGER iVTCio;									//gives the physical input or output of the VTC device - for VSRC: 1 = camera view, 2 = content share
+																//for VDST: 1 = camera feed, 2 = content feed, 3 = aux 
+				
+
+				STRING	sDeviceType[30];						//well if it is, you better get the device type, whore.
+
+				STRING	sUSBAddr[6];							//last 3 octets of USB device mac address
+																//this needs to be 6 bytes long, ergo if it overflows, it needs to be fixed anyway
+				INTEGER iIsUSB;									//bool denoting if the source or destination is associated with a USB endpoint				
+				
+				INTEGER iIsVirtual;								//isVirtual=does not have a fixed GUID at the local level (e.g. the aux vid feed)
+				INTEGER iVLink;									//integer of the virtual's linked global index. 0 when not linked
+				STRING	sCmdData[20];							//string command data related to routing this source (the evertz IO call num)
+				INTEGER	iCmdData;								//same data, int version
+				INTEGER iRoutedSrc;								//only for MTRX points - GUID of the source routed to dst (used with Dst only)
+				INTEGER iLastRouteReq;							//the last value that we attempted to propagate. (if not the same as iRoutedSrc, then we're not getting FB from Evertz for some reason)
+                 
+				INTEGER iSysPreset;								//for NodeMST "Sys_Preset" functionality
+
+				INTEGER iPGMAudio;								//stores room-local pgm audio router IO info
+			};
+
+                    
+STRUCTURE stFilterItem	 {
+				INTEGER iItemActive;							//identifies which arrayed items have been populated by init data
+
+             	INTEGER iFB;		
+				INTEGER iVis;
+				INTEGER iIcon;
+				STRING  sText[50];
+
+	           	STRING 	sName[40];						
+
+              	INTEGER iNumOfMembersV;
+              	INTEGER iNumOfMembersA;
+
+				INTEGER iMemberListV[ciMaxNumGlobalMTRXio];
+				INTEGER iMemberListA[ciMaxNumGlobalMTRXio];
+
+				INTEGER iGroup;
+
+
+			};
+STRUCTURE stFilter	{
+				stFilterItem Item[ciMaxNumFilters];
+
+				INTEGER iItemSelectedLast;
+				INTEGER	iHighestListIndex;
+
+				INTEGER iGlobalListIndex;				
+			};
+
+stFilter Filter[2];			//[1] = FilterSource list, [2] = FilterDestination list
+
+
+STRUCTURE stGroupItem	{
+				INTEGER iItemActive;							//identifies which arrayed items have been populated by init data
+
+             	INTEGER iFB;		
+				INTEGER iVis;
+				INTEGER iIcon;
+				STRING  sText[50];
+
+				STRING	sName[40];
+
+   				INTEGER iMemberListF[ciMaxNumFilters];
+
+				};
+                 
+STRUCTURE stGroup	{
+              	stGroupItem Item[ciMaxNumGroups];
+
+				INTEGER iItemSelectedLast;
+				INTEGER	iHighestListIndex;
+
+				INTEGER iGlobalListIndex;								
+			};
+
+stGroup	Group[2];			//[1] = GroupSource list, [2] = GroupDestination list
+
+STRUCTURE stList	{
+             	stListItem Item[ciMaxNumListItems];
+				
+				INTEGER iHighestListIndex;
+				INTEGER iNumOfTextColumns;
+				INTEGER iListUsesFB;
+				INTEGER iListUsesVis;
+				INTEGER iListUsesIcon;
+				INTEGER iListUsesText;
+				INTEGER iGlobalToLocal[ciMaxNumGlobalMTRXio];
+				INTEGER iInitialized;
+
+				INTEGER iItemSelectedLast;						//this is only used with fully mutex lists e.g. source lists, filter lists
+				
+				STRING 	sSelected[2500];
+				STRING	sVisible[2500];
+			};
+   
+
+             
+//NONVOLATILE stList List[13];		//1 = Vsrc, 2 = Vdst, 3 = ASrc, 4 = ADst, 11 = ROOMS, 12 = Cameras, 13 = Displays
+stList List[13];		//1 = Vsrc, 2 = Vdst, 3 = ASrc, 4 = ADst, 11 = ROOMS, 12 = Cameras, 13 = Displays
+
+
+STRUCTURE stRoom {
+             	INTEGER iRoomActive;							//identifies room indices that are in use
+				STRING	sRoomName[30];							//friendly name for the room  (e.g. "Lecture Room 321"
+				STRING  sRoomNameShort[20];						//Used to make GLobal IO names, e.g. "Rm 320" --> "Rm 320 Laptop"
+				INTEGER iRoomNum;								//building location room# (e.g. 320)
+				INTEGER iDiscreteMacroMode;						//if 1 / 'on' / 'true', the room operates as discrete routing per macro output ggroup
+																//if 0 / 'off' / 'false', the room operates macros as a virtual matrix switcher
+																//for the latter, only the first macro src selection will be used 
+				INTEGER iUseSrcListMode;						//tells the macro routing system to use the input value from the admin VSRC list as the source to route
+
+				INTEGER iMacroTakeMode;							//1 = use take button, 0 = switch automatically on dst press
+                                                                
+				INTEGER iVirtualVDstGUID[10];					//these are the VSrc GUIDs for virtual destinations. fMTRXSendRouteVirtual will use these
+				INTEGER iVTCAssignment;							//the VTC index (1-3) that is currently assigned to this room
+
+				INTEGER iNumOfCams;								//running count of the cams associated with a room - increments as data comes in
+				INTEGER iNumOfDisplays;							//running count of the displays associated with a room - increments as data comes in
+
+				
+			};
+
+//NONVOLATILE stRoom Room[ciMaxNumRooms];
+stRoom Room[ciMaxNumRooms];
+                     
+STRUCTURE stCam {
+				INTEGER iNumOfCams;								//total number of cameras in system
+             	INTEGER iVSrcGUID[ciMaxNumCams];				//the arrayed VSRC GUIDs (in list order)
+			};
+
+STRUCTURE stDisplay {
+              	INTEGER iNumOfDisplays;							//total number of displays in the system
+				INTEGER iVDstGUID[ciMaxNumDisplays];			//the arrayed VDST GUIDs (in list order)
+			};
+                
+STRUCTURE stUI	{
+              	INTEGER iPage;
+				INTEGER iSub;
+			}; 
+
+STRUCTURE stVTC	{
+             	INTEGER iDualDisplay;							//if 0, we assume single display mode
+				INTEGER iVOutGUID[2];							//the 2 physical video outputs
+				INTEGER iVInGUID[3];							//the 3 physical video inputs		1=camera, 2=content, 3=aux
+				INTEGER iRoomRes;								//the global room index the unit is reserved for
+
+				INTEGER iCamSelect;								//VSRC GUID of the camera routed to the codec
+				INTEGER iContentSrc;							//VSRC GUID of the content source routed to the codec
+
+
+				STRING	sUnitName[30];							//e.g. "Cisco SX80 Unit01"
+
+			};                   
+
+STRUCTURE stSystem {
+              	STRING	sBlankSrcText[100];						//fucking blank source text
+
+				INTEGER	iCamSel;								//this is the selected camera index, not the VSRC GUID
+				stCam 		Cam;
+
+				stDisplay 	Display;
+
+				stUI		UI;
+
+				INTEGER iRoomSel;								//selected room index
+				INTEGER	iNumOfRooms;
+
+				INTEGER iVTCSel;
+				stVTC		VTC[ciMaxNumCodecs];
+
+				INTEGER iVDstPanelGUID;							//				
+
+			};
+
+//NONVOLATILE stSystem Sys;
+stSystem Sys;
+
+  
+StringTools ST;
+//---------------------------------------------------------------------------------------------------------------------//
+               
+STRING sTrash[1000];  
+LONG_INTEGER liUSB_CmdIndex;
+   
+        
+//---------------------------------------------------------------------------------------------------------------------//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+INTEGER_FUNCTION fIsCharPrintable(INTEGER iTemp)
+{
+	if(iTemp >= 33  &&  iTemp <= 126)		return(1);
+	return(0);
+}
+
+STRING_FUNCTION fTrimWhitespace(STRING sTemp)
+{
+	//removes non-printable characters from front and back of a string
+	INTEGER iTempC;
+	STRING sData[1000], sTempC[1];
+    
+    if(!len(sTemp))		return("");
+	
+	sData = sTemp;
+	iTempC = getc(sData);
+	while(!fIsCharPrintable(iTempC))
+	{                                       
+		if(!len(sData))		return("");
+    	iTempC = getc(sData);	
+	}
+	sData = chr(iTempC) + sData;
+	if(len(sData) <= 1)			return(sData);
+        
+	sTempC = right(sData, 1);
+	iTempC = getc(sTempC);
+	while(!fIsCharPrintable(iTempC))
+	{
+    	if(!len(sData))		return("");		//this wont ever happen... probably
+		sData = left(sData, len(sData) - 1);
+		sTempC = right(sData, 1);
+		iTempC = getc(sTempC);
+	}
+
+	return(sData);
+}
+
+
+INTEGER_FUNCTION fHighestListIndex(INTEGER iList, INTEGER iIndex)			//iIndex of 0 will just return the iMaxListItems value
+{	
+	if(iList >= 1  &&  iList <= 4)
+	{
+    	List[iList].iHighestListIndex	= max(List[iList].iHighestListIndex, iIndex);
+		return(List[iList].iHighestListIndex);
+	}
+	else if(iList = 5 || iList = 6)
+	{
+		//global List[5,6] are FilterSrc and FilterDst respectively, which, internally, are Filter[1] and Filter[2]
+		iList = iList-4;
+		Filter[iList].iHighestListIndex	= max(Filter[iList].iHighestListIndex, iIndex);
+		return(Filter[iList].iHighestListIndex);
+	}
+	else if(iList = 7 || iList = 8)
+	{
+		//global List[7,8] are GroupSrc and GroupDst respectively, which, internally, are Group[1] and Group[2]
+		iList = iList-6;
+		Group[iList].iHighestListIndex	= max(Group[iList].iHighestListIndex, iIndex);
+		return(Group[iList].iHighestListIndex);
+	}
+
+	else if(iList = 11)    	return(Sys.iNumOfRooms);
+	else if(iList = 12)		return(Sys.Cam.iNumOfCams);
+	else if(iList = 13)		return(Sys.Display.iNumOfDisplays);
+}
+
+STRING_FUNCTION fGetDataHeader(INTEGER iType)
+{
+    switch(iType)
+	{
+       	case(1):	return("MTRX_VSRC_01;");				//video source list
+		case(2):	return("MTRX_VDST_02;");				//video destination list
+		case(3):	return("MTRX_ASRC_03;");				//audio source list
+		case(4):	return("MTRX_ADST_04;");				//audio destination list
+		case(5):	return("MTRX_SRCF_05;");				//source filter list
+		//case(6):	return("MTRX_SRCG;");				//source group list
+		//case(7):	return("MTRX_DSTF;");				//destination filter list
+		//case(8):	return("MTRX_DSTG;");				//destination group list
+		case(13):	return("ROOMS_13;");
+		case(14):	return("MACRO_14;");
+		default:
+		{
+			trace("GlobalMST - fGetDataHeader - didn't catch iType");
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+STRING_FUNCTION fGetUSBCmdIndex(INTEGER iInc)
+{
+	STRING sTemp[4];
+
+	if(iInc) 	liUSB_CmdIndex = liUSB_CmdIndex + 1;
+                 
+	makestring(sTemp, "%s%s%s%s", 
+						chr(high(highword(liUSB_CmdIndex))), 
+							chr(low(highword(liUSB_CmdIndex))), 
+								chr(high(lowword(liUSB_CmdIndex))), 
+									chr(low(lowword(liUSB_CmdIndex))) 		);
+	return(sTemp);	
+}
+
+FUNCTION fUSBSendRouteKill(INTEGER iDst, INTEGER iSrc)
+{
+	INTEGER i;
+	STRING sHandle[4];
+	i = 1;				//header = \xa9\xc4\xd8\xf4\
+						//line counter = \x00\x00\x00\x01  (increments)
+						//command = \x0a    (disconnect)
+						//mac = \xhh\xhh\xhh\xhh\xhh\xhh
+	//trace("fUSBSendRouteKill, iDst = %u, List[2].Item[iDst] = %s", iDst, List[2].Item[iDst].sUSBAddr);
+	if(iDst)
+	{
+		sHandle = fGetUSBCmdIndex(1);                 
+		makestring(USB_Tx$, "\xa9\xc4\xd8\xf4%s\x0a%s%s",
+							sHandle,
+								"\x00\x1b\x13",
+									List[2].Item[iDst].sUSBAddr	);								
+	}
+	if(iSrc)
+	{
+    	sHandle = fGetUSBCmdIndex(1);
+		makestring(USB_Tx$, "\xa9\xc4\xd8\xf4%s\x0a%s%s",
+							sHandle,
+								"\x00\x1b\x13",
+									List[1].Item[iSrc].sUSBAddr );
+	}
+}
+
+FUNCTION fUSBSendRouteTake(INTEGER iDst, INTEGER iSrc)
+{
+	INTEGER i;
+	STRING sHandle[4];
+
+	i = 1;
+
+	fUSBSendRouteKill(iDst, iSrc);
+         
+	sHandle = fGetUSBCmdIndex(1);                 
+	makestring(USB_Tx$, "\xa9\xc4\xd8\xf4%s\x04%s%s%s%s",
+							sHandle,
+								"\x00\x1b\x13",
+									List[2].Item[iDst].sUSBAddr,
+										"\x00\x1b\x13",
+											List[1].Item[iSrc].sUSBAddr	);
+
+	sHandle = fGetUSBCmdIndex(1);                 
+	makestring(USB_Tx$, "\xa9\xc4\xd8\xf4%s\x04%s%s%s%s",
+							sHandle, 
+								"\x00\x1b\x13",
+									List[1].Item[iSrc].sUSBAddr,
+										"\x00\x1b\x13",
+											List[2].Item[iDst].sUSBAddr	);
+}
+	
+       
+FUNCTION fUSBSendRoute(INTEGER iDst, INTEGER iSrc)
+{
+	//trace("in GlobalMST - fUSBSendRoute, iSrc=%u, iDst=%u", iSrc, iDst);
+	if(List[2].Item[iDst].iIsUSB  &&  (List[1].Item[iSrc].iRmAss = List[2].Item[iDst].iRmAss))	//if the dst is a USB destination
+	{
+    	if(iSrc)						//if asserting a route
+		{
+			if(List[1].Item[iSrc].iIsUSB)	//if routing a USB source
+			{
+            	fUSBSendRouteTake(iDst, iSrc);			
+			}
+			else
+			{
+            	fUSBSendRouteKill(iDst, 0);	//if routing a non-usb source
+			}
+		}
+		else							//if clearing a route
+		{
+        	fUSBSendRouteKill(iDst, 0);	
+		}
+	}
+}
+
+
+FUNCTION fMTRXSendRoute(INTEGER iList, INTEGER iDst, INTEGER iSrc)
+{
+	if(iDst)
+	{
+		switch(iList)
+		{
+			case(2):								//videoMTRX
+			{
+				List[iList].Item[iDst].iLastRouteReq			= iSrc;
+				MTRX_V_Out[iDst]								= iSrc;
+			}
+			case(4):								//audioMTRX
+			{
+				List[iList].Item[iDst].iLastRouteReq			= iSrc;
+				MTRX_A_Out[List[4].Item[iDst].iCmdData]			= List[3].Item[iSrc].iCmdData;
+			}
+			default:
+			{
+	        	trace("GlobalMST - in fMTRXSendRoute - didnt catch iList case - iList=%u", iList);
+			}
+		}
+	}
+	else	trace("GlobalMST - in fMTRXSendRoute - attempting to send to VDST Guid (0).  iList=%d, iDst=%d, iSrc=%d", iList, iDst, iSrc);
+}
+
+
+SIGNED_INTEGER_FUNCTION fMTRXSendRouteVirtual(INTEGER iDst, INTEGER iSrc)
+{
+	//probably only used for Aux video sources in the classrooms, and maybe with Cisco SX-80 source selection. 
+	//will not work for SX-80 video destinations, such as camera and content inputs.
+	//currently, v1.0.46, MTRXSendRouteVirtual only works with video, so there is no iList nor switch-case(4) condition
+
+	//--find destination room of virtual dst
+	//--assign iGUID of the source to the v_link value of the virtual destination
+	//--send data to the room, including global name of the source, room-local index, and iGUID of source
+	//--create function to clear virtual route, including all virtual routes
+	
+	INTEGER iDstRoom, iSrcRoom, iLocalID;
+	STRING	sTempName[100];
+    
+	if(iDst)
+	{ 
+		iDstRoom = List[ciListVDst].Item[iDst].iRmAss;
+		iSrcRoom = List[ciListVSrc].Item[iSrc].iRmAss;
+		//
+    	iLocalID = List[ciListVDst].Item[iDst].iLocalID;              
+		//The source guid becomes the iVLink value of the virtual destination
+		List[ciListVDst].Item[iDst].iVLink	= iSrc;
+	}
+	else
+	{
+		trace("GlobalMST - in fMTRXSendRouteVirtual - attempting function with iDst value 0");
+    	return(-1);
+	}
+                                                            
+	//fucking blankSrcText assuming iSrc = 0
+	sTempName				= Sys.sBlankSrcText;
+	//overwrite if sending a source							
+    if(iSrc)	 sTempName 	= List[ciListVSrc].Item[iSrc].sGlobalName;
+	//command is sent to the room as "V_LINK_VSRC" because the virtual object is a source in the room
+	makestring(to_Room_Tx$[iDstRoom], "{V_LINK_VSRC; LocalID=%u: GUID=%u,%s|;}", iLocalID, iSrc, sTempName);
+	
+
+		
+}                             
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                                         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+INTEGER_FUNCTION fCamGetFoldedCmd(STRING sTempData)
+{
+	// cmd=stop|}    
+    // stop, up, down, left, right, zoomin, zoomout, poweron, poweroff, presetrecall01, presetsave16
+	// 
+		 if(findnocase("pantilt_stop", sTempData))				return(0);
+	else if(findnocase("pantilt_up", sTempData))				return(1);
+	else if(findnocase("pantilt_down", sTempData))				return(2);
+	else if(findnocase("pantilt_left", sTempData))				return(3);
+	else if(findnocase("pantilt_right", sTempData))				return(4);
+	else if(findnocase("zoom_in", sTempData))			return(5);
+	else if(findnocase("zoom_out", sTempData))			return(6);
+	else if(findnocase("power_on", sTempData))			return(7);
+	else if(findnocase("power_off", sTempData))			return(8);
+	else if(findnocase("zoom_stop", sTempData))			return(9);
+	else if(findnocase("preset_rec", sTempData))			return(atoi(sTempData) + 100);
+	else if(findnocase("preset_sav", sTempData))			return(atoi(sTempData) + 200);
+}
+
+FUNCTION fCamProcessPreset(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                                         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION fSendListFB(INTEGER iList, STRING sData)
+{
+	ListFB$[iList]	= sData;
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+FUNCTION fUpdateListFBAll(INTEGER iList, INTEGER iIndex, INTEGER iState)
+{
+	INTEGER i, j;
+	STRING 	sTemp[100];
+
+	i = fHighestListIndex(iList, 0);
+	if(iIndex)	i = iIndex;
+
+	makestring(sTemp, "{ListButtonFB:*^%u=%u,|;}", i, iState);
+	fSendListFB(iList, sTemp);
+}
+
+FUNCTION fUpdateListVisAll(INTEGER iList, INTEGER iIndex, INTEGER iState)
+{
+	INTEGER i, j;
+	STRING 	sTemp[100];
+
+	i = fHighestListIndex(iList, 0);
+	if(iIndex)	i = iIndex;
+
+	makestring(sTemp, "{ListVisFB:*^%u=%u,|;}", i, iState);
+	fSendListFB(iList, sTemp);
+}
+
+FUNCTION fUpdateListFB(INTEGER iList, INTEGER iIndex)				
+{
+	INTEGER i, j;
+	STRING 	sTemp[1000];
+     
+	if(iIndex)
+	{
+		sTemp = "{ListButtonFB:";
+		makestring(sTemp, "%s%u=%u,", sTemp, iIndex, List[iList].Item[iIndex].iFB);
+	}
+	else	
+	{
+    	for(iIndex = 1 to fHighestListIndex(iList, 0))
+		{
+			if(!len(sTemp))	makestring(sTemp, "{ListButtonFB:");
+
+      		makestring(sTemp, "%s%u=%u,", sTemp, iIndex, List[iList].Item[iIndex].iFB); 
+			if(len(sTemp) > 900)
+			{
+               	makestring(sTemp, "%s|;}", sTemp);
+				fSendListFB(iList, sTemp);
+				sTemp = "";
+			}	
+		}
+	}
+	if(len(sTemp))
+	{
+		makestring(sTemp, "%s|;}", sTemp);
+		fSendListFB(iList, sTemp);
+	}
+}
+
+FUNCTION fUpdateListVis(INTEGER iList, INTEGER iIndex)				
+{
+	INTEGER i, j;
+	STRING 	sTemp[1000];
+
+	if(List[iList].iListUsesVis)
+	{ 
+		if(iIndex)
+		{
+			sTemp = "{ListVisFB:";
+			makestring(sTemp, "%s%u=%u,", sTemp, iIndex, List[iList].Item[iIndex].iVis);
+		}
+		else	
+		{
+	    	for(iIndex = 1 to fHighestListIndex(iList, 0))
+			{
+				if(!len(sTemp))	makestring(sTemp, "{ListVisFB:");
+
+	      		makestring(sTemp, "%s%u=%u,", sTemp, iIndex, List[iList].Item[iIndex].iVis); 
+				if(len(sTemp) > 900)
+				{
+                	makestring(sTemp, "%s|;}", sTemp);
+					fSendListFB(iList, sTemp);
+					sTemp = "";
+				}	
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s|;}", sTemp);
+			fSendListFB(iList, sTemp);
+		}
+	}
+}
+
+FUNCTION fUpdateListText(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER i, j;
+	STRING 	sTemp[2000];
+     
+	if(iIndex)
+	{
+		sTemp = "{ListTextFB:";
+
+		makestring(sTemp, "%s%u=", sTemp, iIndex);
+		for(j = 1 to List[iList].iNumOfTextColumns)
+		{
+			makestring(sTemp, "%s%s,", sTemp, List[iList].Item[iIndex].sText[j]);
+		}
+		sTemp = sTemp + "|;}";
+		fSendListFB(iList, sTemp);
+	}
+	else	
+	{
+		for(iIndex = 1 to fHighestListIndex(iList, 0))
+		{
+			if(List[iList].Item[iIndex].iItemActive)
+			{
+				if(!len(sTemp))		makestring(sTemp, "{ListTextFB:");		//possible we need to reinit the header
+
+				makestring(sTemp, "%s%u=", sTemp, iIndex);
+				for(j = 1 to List[iList].iNumOfTextColumns)
+				{
+					makestring(sTemp, "%s%s,", sTemp, List[iList].Item[iIndex].sText[j]);
+				}
+				makestring(sTemp, "%s|", sTemp);
+				
+				if(len(sTemp) > 600)
+				{
+                	makestring(sTemp, "%s;}", sTemp);
+					fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+					sTemp = "";
+				}
+			}			
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}
+}
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+FUNCTION fUpdateListFBFilter(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER i, iIntList;
+	STRING sTemp[2000];
+     
+	iIntList = ((iList-1) mod 2) + 1;	
+
+	if(iIndex)
+	{
+		makestring(sTemp, "{ListButtonFB:%u=%u,", iIndex, Filter[iList].Item[iIndex].iFB);
+	}
+	else if(iList = 5 || iList = 6)
+	{
+		for(i = 1 to Filter[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListButtonFB:");		//possible we need to reinit the header
+	
+			if(Filter[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%u,|", 
+									sTemp, 	
+										i, 
+											Filter[iIntList].Item[i].iFB		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}
+	else if(iList = 7 || iList = 8)
+	{
+		for(i = 1 to Group[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListButtonFB:");		//possible we need to reinit the header
+	
+			if(Group[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%u,|", 
+									sTemp, 	
+										i, 
+											Group[iIntList].Item[i].iFB		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}	
+}
+
+FUNCTION fUpdateListVisFilter(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER i, iIntList;
+	STRING sTemp[2000];
+     
+	iIntList = ((iList-1) mod 2) + 1;	
+
+	if(iIndex)
+	{
+		makestring(sTemp, "{ListVisFB:%u=%u,", iIndex, Filter[iList].Item[iIndex].iVis);
+	}
+	else if(iList = 5 || iList = 6)
+	{
+		for(i = 1 to Filter[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListVisFB:");		//possible we need to reinit the header
+	
+			if(Filter[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%u,|", 
+									sTemp, 	
+										i, 
+											Filter[iIntList].Item[i].iVis		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}
+	else if(iList = 7 || iList = 8)
+	{
+		for(i = 1 to Group[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListVisFB:");		//possible we need to reinit the header
+	
+			if(Group[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%u,|", 
+									sTemp, 	
+										i, 
+											Group[iIntList].Item[i].iVis		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}	
+}
+
+FUNCTION fUpdateListTextFilter(INTEGER iList)			//only for iList 5 thru 8
+{
+	INTEGER i, j, iIntList;
+	STRING 	sTemp[2000];
+                         
+	iIntList = ((iList-1) mod 2) + 1;	
+	trace("fUpdateListTextFilter - iList = %u, iIntList = %u", iList, iIntList);
+	sTemp = "{ListTextFB:";
+	
+	if(iList = 5 || iList = 6)
+	{
+		trace("in 5/6 - Filter[iIntList].iHighestListIndex=%u", Filter[iIntList].iHighestListIndex);
+		for(i = 1 to Filter[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListTextFB:");		//possible we need to reinit the header
+	
+			if(Filter[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%s,|", 
+									sTemp, 	
+										i, 
+											Filter[iIntList].Item[i].sText		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}
+	else if(iList = 7 || iList = 8)
+	{
+		trace("in 7/8 - Group[iIntList].iHighestListIndex=%u", Filter[iIntList].iHighestListIndex);
+
+		for(i = 1 to Group[iIntList].iHighestListIndex)
+		{
+			if(!len(sTemp))		makestring(sTemp, "{ListTextFB:");		//possible we need to reinit the header
+	
+			if(Group[iIntList].Item[i].iItemActive)
+			{
+				makestring(sTemp, "%s%u=%s,|", 
+									sTemp, 	
+										i, 
+											Group[iIntList].Item[i].sText		);
+	        }
+			if(len(sTemp) > 800)
+			{
+	           	makestring(sTemp, "%s;}", sTemp);
+				fSendListFB(iList, sTemp);				//reinit the header above, when we know there's at least one iItemActive left
+				sTemp = "";
+			}
+		}
+		if(len(sTemp))
+		{
+			makestring(sTemp, "%s;}", sTemp);
+			fSendListFB(iList, sTemp);			
+		}
+	}	
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION fUpdateListAll(INTEGER iList, INTEGER iIndex)
+{
+ 	//update FB
+	//update vis
+	//update icon
+	//update text
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+   
+FUNCTION fConfigureListFBSetVisibleItems(INTEGER iList)
+{
+	INTEGER i;
+    STRING sList[2500], sIndex[10];
+                     
+	sList = List[iList].sVisible;
+
+	while(find(",", sList))
+	{
+		sIndex = remove(",", sList);
+		i = atoi(sIndex);
+		if(i)
+		{
+			List[iList].Item[i].iFB		= 1;
+			fUpdateListFB(iList, i);
+		}
+	}
+}
+
+FUNCTION fConfigureListFBResetAll(INTEGER iList)
+{
+	INTEGER i;
+    STRING sIndex[10], sList[2500];
+
+	sList = List[iList].sSelected;
+
+	while(find(",", sList))
+	{
+		sIndex = remove(",", sList);
+    	i = atoi(sIndex);
+		if(i)
+		{
+			List[iList].Item[i].iFB	= 0;
+		}
+	}
+	fUpdateListFBAll(iList, 0, 0);
+
+	List[iList].sSelected = "";
+	List[iList].iItemSelectedLast	= 0;
+
+}
+ 
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+STRING_FUNCTION fListStringKeyAddRemove(INTEGER iIndex, INTEGER iState, STRING sData)
+{
+	STRING sList[2500], sIndex[10], sTemp[2500];
+	INTEGER i;
+     
+	sList = sData;
+   	makestring(sIndex, ".%03u,", iIndex);
+	i = find(sIndex, sList);
+    
+	//if removing from list
+  	if(!iState)
+	{
+		//index not found in list
+		if(!i)
+		{
+           	return(sData);
+		}	
+		//index is found in list
+		else
+		{
+           	sTemp = remove(sIndex, sList);
+			sTemp = left(sTemp, len(sTemp) - 5);
+			sTemp = sTemp + sList;
+			return(sTemp);
+		} 
+	}
+	//if adding to list
+	else
+	{
+		//index alreay in list
+    	if(i)
+		{
+        	return(sData);
+		}
+		else
+		{
+        	makestring(sTemp, "%s.%03u,", sList, iIndex);
+			return(sTemp);
+		}
+	}
+}   
+
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+       
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+STRING_FUNCTION fGetRoutedSourceName(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER i;
+
+	try
+	{
+		if(iList = 2 || iList = 4)		//only works on Dst lists
+		{
+			if(List[iList].Item[iIndex].iRoutedSrc)
+			{
+				return(List[iList-1].Item[List[iList].Item[iIndex].iRoutedSrc].sGlobalName);
+	        }
+			else 	return(Sys.sBlankSrcText);				
+		}
+	}
+	catch
+	{
+    	trace("GlobalMST fGetRoutedSourceName - error - iList=%u, iIndex=%u, List[%u].Item[%u].iRoutedSrc=%u",
+						iList, iIndex, iList, iIndex, List[iList].Item[iIndex].iRoutedSrc);
+	}
+}
+
+INTEGER_FUNCTION fConfigureListText(INTEGER iList, INTEGER iIndex)
+{
+	switch(iList)
+	{
+      	case(1):
+		{
+			List[iList].Item[iIndex].sText[1]				=  List[iList].Item[iIndex].sGlobalName; 
+		}
+		case(2):	
+		{	
+			List[iList].Item[iIndex].sText[1]				=  List[iList].Item[iIndex].sGlobalName; 
+			List[iList].Item[iIndex].sText[2]				=  fGetRoutedSourceName(iList, iIndex);
+		}		
+      	case(3):
+		{
+			List[iList].Item[iIndex].sText[1]				=  List[iList].Item[iIndex].sGlobalName; 
+		}
+		case(4):	
+		{	
+			List[iList].Item[iIndex].sText[1]				=  List[iList].Item[iIndex].sGlobalName; 
+			List[iList].Item[iIndex].sText[2]				=  fGetRoutedSourceName(iList, iIndex);
+		}		
+	}
+
+	return(0);
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION fConfigureListAll(INTEGER iList, INTEGER iIndex)
+{
+ 	//configure FB
+	//configure vis
+	//configure icon
+	//configure text
+}
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+                                                                                                              
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+FUNCTION fProcessRoomData(INTEGER iRoom, STRING sTemp)
+{
+	INTEGER i, j, iState, iRelayType, iDisplayVGUID, iGUIDsrc, iGUIDdst;
+	STRING	sTempData[200], sTempHeader[30], sTemp1[30], sTemp2[100];
+
+	sTempData	= sTemp;
+    sTempHeader	= remove(";", sTempData);
+
+	while(find("|", sTempData))
+	{
+    	sTemp2 = remove("|", sTempData);
+		if(findnocase("MTRX_V_RTE", sTempHeader))
+		{
+			sTemp1	= remove(":", sTemp2);    	
+			iGUIDdst	= atoi(sTemp1);
+			iGUIDsrc 	= atoi(sTemp2);
+			fMTRXSendRoute(ciListVDst, iGUIDdst, iGUIDsrc);		
+		}
+		else if(findnocase("usb_rte", sTempHeader))
+		{
+			trace("in GlobalMST usb_rte");
+        	sTemp1 = remove(":", sTemp2);
+			iGUIDdst	= atoi(sTemp1);
+			iGUIDsrc	= atoi(sTemp2);
+			trace("iGUIDdst = %u, iGUIDsrc = %u", iGUIDdst, iGUIDsrc);
+
+			fUSBSendRoute(iGUIDdst, iGUIDsrc);
+		}
+		else if(findnocase("cam_ctrl", sTempHeader))
+		{         
+      		sTrash = remove("=", sTemp2);
+			i = atoi(sTemp2);
+			if(i)
+			{
+				sTrash = remove("=", sTemp2);
+				Cam_FoldedCmd[i]		= fCamGetFoldedCmd(sTemp2);  	
+			}
+			else
+			{
+            	trace("GlobalMST fProcessRoomData, found cam_ctrl: iCamGUID resolved to zero(0)");
+			}
+		}
+		else if(findnocase("dply_cmd", sTempHeader))
+		{
+			//sTrash = remove("=", sTemp2);
+			i = atoi(sTemp2);
+			sTrash = remove(",", sTemp2);
+           	//trace("Global fProcessRoomData, found dply_cmd: dplyGUID=%u, cmd='%s' ", i, sTemp2);
+		
+			if(i)
+			{		
+            	//add 10 to the powerstate command - 10 = off, 11 = on
+
+				iState						= atoi(sTemp2) + 10;
+
+           		trace("Global fProcessRoomData, in if(i): iState=%u ", iState);
+				Display_FoldedCmd[i] 		= iState;
+				
+				iDisplayVGUID = Sys.Display.iVDstGUID[i];
+           		trace("Global fProcessRoomData, in if(i): iiDisplayVGUID=%u ", iDisplayVGUID);
+
+
+				if(List[2].Item[iDisplayVGUID].iRelayProcessor = 1)		//crestron relay
+					iRelayType = 1;
+				else if(List[2].Item[iDisplayVGUID].iRelayProcessor = 6)	//global cache
+                	iRelayType = 2;
+				//check for associated relays
+				if(iRelayType)
+				{
+	           		//trace("Global fProcessRoomData, in if(i): iiDisplayVGUID=%u ", iDisplayVGUID);
+
+					switch(iState)
+					{
+	                	case(10):		//if turning displays off
+						{
+	                    	for(j = 1 to List[2].Item[iDisplayVGUID].iRelayOffNumOf)
+							{
+			           			//trace("Global fProcessRoomData, in if(i): case(10), j=%u ", j);
+	                           	makestring(Relay_DataInit$[iRelayType], "{ListButtonFB:%u=1,|;}", List[2].Item[iDisplayVGUID].RelayOff[j].iRelayIndex);
+							}
+							delay(3);
+	                        for(j = 1 to List[2].Item[iDisplayVGUID].iRelayOffNumOf)
+							{
+							   	makestring(Relay_DataInit$[iRelayType], "{ListButtonFB:%u=0,|;}", List[2].Item[iDisplayVGUID].RelayOff[j].iRelayIndex);
+							}
+						}
+						case(11):		//if turning displays on
+						{
+	                    	for(j = 1 to List[2].Item[iDisplayVGUID].iRelayOnNumOf)
+							{
+			           			//trace("Global fProcessRoomData, in if(i): case(11), j=%u ", j);
+	                           	makestring(Relay_DataInit$[iRelayType], "{ListButtonFB:%u=1,|;}", List[2].Item[iDisplayVGUID].RelayOn[j].iRelayIndex);
+							}
+							delay(3);
+	                    	for(j = 1 to List[2].Item[iDisplayVGUID].iRelayOnNumOf)
+							{
+							   	makestring(Relay_DataInit$[iRelayType], "{ListButtonFB:%u=0,|;}", List[2].Item[iDisplayVGUID].RelayOn[j].iRelayIndex);
+							}
+						}
+					}
+				}
+			}		
+		}
+	}
+}
+
+CHANGE from_Room_Rx$
+{
+	INTEGER i, iRoom;
+	STRING	sTempData[200];
+
+	iRoom = getlastmodifiedarrayindex();
+
+	sTempData	= gatherbylength(len(from_Room_Rx$[iRoom]), from_Room_Rx$[iRoom]);
+	fProcessRoomData(iRoom, sTempData);
+}
+ 
+//---------------------------------------------------------------------------------------------------------------------//
+
+CHANGE MTRX_V_In
+{
+	INTEGER iDst,
+			iSrc;
+    if(List[2].iInitialized)				//if the video dst MTRX list is done initializing
+	{
+		iDst = getlastmodifiedarrayindex();
+	    
+		iSrc = MTRX_V_In[iDst];
+        
+		if(iSrc > 1000)																		//unregistered source (gets returned as Evertz source# + 10000
+		{
+			trace("GlobalMST - Change MTRX_V_In, dstGUID=%u, srcValue(not a GUID)=%u", iDst, iSrc);
+			iSrc = 0;
+	  		List[ciListVDst].Item[iDst].iRoutedSrc	= iSrc;
+			fConfigureListText(ciListVDst, iDst);
+			fUpdateListText(ciListVDst, iDst);
+		}
+		else if(iSrc && iSrc <> List[ciListVDst].Item[iDst].iRoutedSrc)						//if the routed source changed
+		{
+	  		List[ciListVDst].Item[iDst].iRoutedSrc	= iSrc;
+			fConfigureListText(ciListVDst, iDst);
+			fUpdateListText(ciListVDst, iDst);
+	
+			if(List[ciListVDst].Item[iDst].iRmAss)									//if the dst is associated with a room	
+			{
+				makestring(to_Room_Tx$[List[ciListVDst].Item[iDst].iRmAss], 
+								"{MTRX_V_RTE_10; LocalID=%u:src_guid=%u,src_name=%s,|}",
+								List[ciListVDst].Item[iDst].iLocalID,
+								iSrc,
+								List[ciListVSrc].Item[iSrc].sGlobalName	);   	
+			}
+		}
+		else if(!iSrc)
+		{
+        	trace("GlobalMST - Change MTRX_V_In, iSrc == 0");
+	  		List[ciListVDst].Item[iDst].iRoutedSrc	= iSrc;
+			fConfigureListText(ciListVDst, iDst);
+			fUpdateListText(ciListVDst, iDst);
+		}
+		else
+		{
+        	trace("GlobalMST MTRX_V_In - else trap");
+		}
+	}
+	else	{}
+}
+
+CHANGE MTRX_A_In
+{
+	INTEGER iDst,
+			iSrc;
+    
+	if(List[4].iInitialized)				//if the audio dst MTRX list is done initializing
+	{
+		iDst = getlastmodifiedarrayindex();
+	    
+		iSrc = MTRX_A_In[iDst];
+		if(iSrc <> List[ciListADst].Item[iDst].iRoutedSrc)						//if the routed source changed
+		{
+	  		List[ciListADst].Item[iDst].iRoutedSrc	= iSrc;
+			fConfigureListText(ciListADst, iDst);
+			fUpdateListText(ciListADst, iDst);
+	
+			if(List[ciListADst].Item[iDst].iRmAss)									//if the dst is associated with a room	
+			{
+				makestring(to_Room_Tx$[List[ciListADst].Item[iDst].iRmAss], 
+								"{MTRX_A_RTE; LocalID=%u:src_guid=%u,src_name=%s,|}",
+								List[ciListADst].Item[iDst].iLocalID,
+								iSrc,
+								List[ciListASrc].Item[iSrc].sGlobalName	);   	
+			}
+		}
+    }
+	else	trace("Global received analog FB from the audio MTRX system, but Global has not completed data initialization. Skipping FB process.");
+
+}
+         
+
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                                      
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------------------//
+  
+FUNCTION fAssignFilter(INTEGER iType, INTEGER iFilterIndex, INTEGER iMemberIndex)
+{
+	switch(iType)
+	{
+    	case(1):		//vsrc
+		{
+      		Filter[1].Item[iFilterIndex].iMemberListV[iMemberIndex]		= 1; 	
+		}
+		case(2):		//vdst
+		{
+      		Filter[2].Item[iFilterIndex].iMemberListV[iMemberIndex]		= 1; 	
+		}
+		case(3):		//asrc
+		{
+      		Filter[1].Item[iFilterIndex].iMemberListA[iMemberIndex]		= 1; 	
+		}
+		case(4):		//adst
+		{
+      		Filter[2].Item[iFilterIndex].iMemberListA[iMemberIndex]		= 1; 	
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------------------//
+
+INTEGER_FUNCTION fProcessList(INTEGER iList)
+{
+	//fProcessList - 
+	//initializes list data for the global module
+    //set the text values internal to this module, and then update them external
+	//update list item visibility
+
+	INTEGER i, j;
+	STRING 	sTemp[1000], sTempComPort[100];
+	
+	if(iList = 5)				//filters
+	{
+		for(i = 5 to 8)
+		{
+			fUpdateListTextFilter(i);
+			fUpdateListVisFilter(i, 0);	
+        }
+		delay(100);
+	}
+	else if(iList >= 1  &&  iList <= 4)			//vsrc, vdst, asrc, adst			
+	{
+		if(fHighestListIndex(iList, 0))					//if any lines are populated for that list				
+		{     	
+			List[iList].iInitialized	= 1;
+		    List[iList].sSelected		= "";
+			List[iList].sVisible		= "";
+			//for all data lines, initialize the SPRL text, column 1  (source or destination name, generally)             
+			for(i = 1 to fHighestListIndex(iList, 0))
+			{
+				if(List[iList].Item[i].iItemActive)
+				{
+					fConfigureListText(iList, i);
+					makestring(List[iList].sVisible, "%s.%03u,", List[iList].sVisible, i);           				
+				}
+			}
+					
+			fUpdateListText(iList, 0);
+			fUpdateListVisAll(iList, 0, 1);	
+		}
+	}
+
+	pulse(20, DataInit_Done[iList]);
+}
+
+INTEGER_FUNCTION fProcessLinesSendComplete(INTEGER iList)
+{
+	INTEGER i;
+
+	for(i = 1 to 23)		//(for now)
+	{
+       	makestring(to_Room_Tx$[i], "%sCOMPLETE|}", fGetDataHeader(iList));
+		delay(200);
+	}
+}
+  
+INTEGER_FUNCTION fProcessLinesToRoom(INTEGER iType)
+{
+	INTEGER i, j,
+			iIndex;
+
+	STRING	sTemp[300],
+			sTempHeader[60];
+
+	//fProcessLinesToRoom - sends all appropriate list data to each room respectively
+	    
+	//if no data was loaded, skip the COMPLETE config for this list
+	if(fHighestListIndex(iType, 0))
+	{
+		sTempHeader = fGetDataHeader(iType);
+	
+		for(iIndex = 1 to fHighestListIndex(iType, 0))
+		{       
+	       	if(List[iType].Item[iIndex].iRmAss)	//if this data line is associated with a room, pass the data on to the room.
+			{
+				sTemp = "";
+				if(List[iType].Item[iIndex].iIsUSB)       		makestring(sTemp, " usb_mac=%s,", List[iType].Item[iIndex].sUSBAddr );
+				if(List[iType].Item[iIndex].iIsCamera)			makestring(sTemp, 
+																	"%s is_camera=1, cam_localID=%u, cam_global=%u, ", 
+																		sTemp,
+																			List[iType].Item[iIndex].iCamLocalID,
+																				List[iType].Item[iIndex].iCamGUID 	);
+				else if(List[iType].Item[iIndex].iIsDisplay)	makestring(sTemp,
+																	"%s is_display=1, display_localID=%u, display_global=%u, ",
+	        															sTemp,
+																			List[iType].Item[iIndex].iDisplayLocalID,
+																				List[iType].Item[iIndex].iDisplayGUID 	);
+	 
+				if(List[iType].Item[iIndex].iSysPreset)			makestring(sTemp, "%s sys_preset=%u,", sTemp, List[iType].Item[iIndex].iSysPreset);
+	
+				if(iType = 1)	if(List[iType].Item[iIndex].iPGMAudio)			makestring(sTemp, "%s pgm_audio=%u,", sTemp, List[iType].Item[iIndex].iPGMAudio); 
+	
+	           	
+				if(iType >= 1 && iType <= 2)	makestring(to_Room_Tx$[List[iType].Item[iIndex].iRmAss], 
+				//									makestring(to_Room_Tx$[List[iType].Item[iIndex].iRmAss], 
+														"{%s LOCALID=%u: GUID=%u, global_name=%s, local_name=%s, is_virtual=%u, %s|}", 
+															sTempHeader,
+																List[iType].Item[iIndex].iLocalID,
+																	iIndex,
+																		List[iType].Item[iIndex].sGlobalName,
+																			List[iType].Item[iIndex].sLocalName,
+																				List[iType].Item[iIndex].iIsVirtual,
+																					sTemp									);
+				
+				//set the GUID of virtual sources aside, arrayed by their room-local-id number, so that the program can find the VTC virtual destinations automatically
+				if(List[iType].Item[iIndex].iIsVirtual)		Room[List[iType].Item[iIndex].iRmAss].iVirtualVDstGUID[List[iType].Item[iIndex].iLocalID]	= iIndex;
+				delay(5);		
+			}
+		}
+
+		delay(300);
+		fProcessLinesSendComplete(iType);
+    }     
+}
+ 
+  
+FUNCTION fProcessLineIsCam(INTEGER iType, INTEGER iIndex)
+{
+	INTEGER i, iCamGUID;
+    
+	//total number of system cameras +1, create the cams list GUID
+    Sys.Cam.iNumOfCams										= Sys.Cam.iNumOfCams + 1;
+    iCamGUID												= Sys.Cam.iNumOfCams;
+                                                                  
+	//
+	List[iType].Item[iIndex].iCamGUID						= iCamGUID;
+	Sys.Cam.iVSrcGUID[iCamGUID]								= iIndex;
+
+	Room[List[iType].Item[iIndex].iRmAss].iNumOfCams 		= Room[List[iType].Item[iIndex].iRmAss].iNumOfCams + 1;		
+	List[iType].Item[iIndex].iCamLocalID					= Room[List[iType].Item[iIndex].iRmAss].iNumOfCams;
+
+	//data to CP3
+    makestring(Cam_DataInit$[1], 
+							"{ListTextFB:%u= global_name=%s~ip=%s~,|;}", 
+								iCamGUID,
+									List[iType].Item[iIndex].sGlobalName,
+										List[iType].Item[iIndex].sIPAddress			);
+	//global cam list
+	makestring(ListFB$[12], 
+							"{ListTextFB:%u=%s,|; ListVisFB:%u=1,|;}", 
+								iCamGUID, 
+									List[iType].Item[iIndex].sGlobalName,
+										iCamGUID									);
+}
+
+FUNCTION fProcessLineIsDisplay(INTEGER iType, INTEGER iIndex)
+{
+	INTEGER i, iDisplayGUID;
+    STRING	sTempComPort[100];
+	
+	//total number of system displays +1, create the displays list GUID
+    Sys.Display.iNumOfDisplays								= Sys.Display.iNumOfDisplays + 1;
+	iDisplayGUID											= Sys.Display.iNumOfDisplays;
+    //cross reference the List[2] index with the DisplayList index
+	List[iType].Item[iIndex].iDisplayGUID					= iDisplayGUID;
+	Sys.Display.iVDstGUID[iDisplayGUID]						= iIndex;
+
+    //room data
+	Room[List[iType].Item[iIndex].iRmAss].iNumOfDisplays 	= Room[List[iType].Item[iIndex].iRmAss].iNumOfDisplays + 1;
+	List[iType].Item[iIndex].iDisplayLocalID				= Room[List[iType].Item[iIndex].iRmAss].iNumOfDisplays;
+           
+	List[iType].Item[iIndex].iProcessorIndex				= 5;
+	sTempComPort											= "";
+	
+	if(List[iType].Item[Sys.Display.iVDstGUID[i]].iComPort)		makestring(sTempComPort, "~com_port=%u,", List[iType].Item[Sys.Display.iVDstGUID[i]].iComPort);
+ 
+
+	//data to CP3         	
+	makestring(Display_DataInit$[List[iType].Item[iIndex].iProcessorIndex], 
+							"{ListTextFB:%u= global_name=%s~ip=%s~%sdevice_type=%s~,|;}", 
+								iDisplayGUID,
+									List[iType].Item[iIndex].sGlobalName,
+										List[iType].Item[iIndex].sIPAddress,
+											sTempComPort,
+												List[iType].Item[iIndex].sDeviceType
+													);
+	//global displays list
+	makestring(ListFB$[13], 
+							"{ListTextFB:%u=%s,|; ListVisFB:%u=1,|;}", 
+								iDisplayGUID, 
+									List[iType].Item[iIndex].sGlobalName,
+										iDisplayGUID			);
+          
+		
+	if(List[iType].Item[iIndex].iRelayProcessor = 6)		//if the display is associated with relay data and we need to initialize a Global Cache box
+	{
+    	for(i = 1 to List[iType].Item[iIndex].iRelayOnNumOf)
+          	if(List[iType].Item[iIndex].RelayOn[i].iRelayIndex  &&  List[iType].Item[iIndex].RelayOn[i].iIsInitIndex)	
+			{
+               	makestring(Relay_DataInit$[2], 
+							"{ListTextFB:%u= ip=%s~,|;}", 
+								List[iType].Item[iIndex].RelayOn[i].iRelayIndex, 
+									List[iType].Item[iIndex].RelayOn[i].sIPAddress);
+			}
+		for(i = 1 to List[iType].Item[iIndex].iRelayOffNumOf)
+		   	if(List[iType].Item[iIndex].RelayOff[i].iRelayIndex  &&  List[iType].Item[iIndex].RelayOff[i].iIsInitIndex)	
+			{
+               	makestring(Relay_DataInit$[2], 
+							"{ListTextFB:%u= ip=%s~,|;}", 
+								List[iType].Item[iIndex].RelayOff[i].iRelayIndex, 
+									List[iType].Item[iIndex].RelayOff[i].sIPAddress);
+			}
+	}
+}
+
+FUNCTION fProcessLineIsVTCio(INTEGER iType, INTEGER iIndex)
+{
+    switch(iType)
+	{
+		//the hardware outputs
+       	case(1):      	Sys.VTC[List[iType].Item[iIndex].iIsVTC].iVOutGUID[List[iType].Item[iIndex].iVTCio]		= iIndex; 
+		//the hardware inputs
+		case(2):      	Sys.VTC[List[iType].Item[iIndex].iIsVTC].iVInGUID[List[iType].Item[iIndex].iVTCio]		= iIndex; 
+	}
+}
+ 
+SIGNED_INTEGER_FUNCTION fProcessLineAudio(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	STRING 	sTempLine[300],
+			sTempPair[100],
+			sTempKey[50],
+			sTempValue[100];
+
+	sTempLine 	= sTempLineArg;
+
+	while(find(",", sTempLine))
+	{
+   		sTempPair 	= remove(",", sTempLine);
+		sTempKey	= remove("=", sTempPair);
+		sTempValue	= left(sTempPair, len(sTempPair) - 1);    
+
+			 if(find("local_name", sTempKey))			List[iType].Item[iIndex].sLocalName			= ST.StringTrim(sTempValue); //fTrimWhitespace(sTempValue);
+		else if(find("room_ass", sTempKey))				List[iType].Item[iIndex].iRmAss				= atoi(sTempValue);
+	    else if(find("filter", sTempKey))       		List[iType].Item[iIndex].iFilterID			= atoi(sTempValue);
+	    else if(find("cmd_io", sTempKey))
+		{
+       		List[iType].Item[iIndex].sCmdData			= ST.StringTrim(sTempValue);
+			List[iType].Item[iIndex].iCmdData			= atoi(sTempValue);
+		}	
+		//else if(find("is_virtual", sTempKey))			List[iType].Item[iIndex].iIsVirtual			= atoi(sTempValue);
+		//else if(find("function_id", sTempKey))		List[iType].Item[iIndex].iFunctionID		= atoi(sTempValue);
+		//else if(find("sys_preset", sTempKey))			List[iType].Item[iIndex].iSysPreset			= atoi(sTempValue);
+	    else
+		{
+			trace("GlobalMST - fProcessLineAudio - didn't catch key - type=%u, GUID=%u, %s%s", iType, iIndex, sTempKey, sTempValue);
+			return(1);
+		}
+	}
+}
+
+
+SIGNED_INTEGER_FUNCTION fProcessLineSys(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	STRING 	sTempLine[300],
+			sTempPair[100],
+			sTempKey[50],
+			sTempValue[100];
+
+	sTempLine 	= sTempLineArg;
+	while(find(",", sTempLine))
+	{
+   		sTempPair 	= remove(",", sTempLine);
+		sTempKey	= remove("=", sTempPair);
+		sTempValue	= left(sTempPair, len(sTempPair) - 1);    
+
+			 if(find("local_name", sTempKey))			List[iType].Item[iIndex].sLocalName			= ST.StringTrim(sTempValue); //fTrimWhitespace(sTempValue);
+		else if(find("room_ass", sTempKey))				List[iType].Item[iIndex].iRmAss				= atoi(sTempValue);
+	    else if(find("local_id", sTempKey))       		List[iType].Item[iIndex].iLocalID			= atoi(sTempValue);
+		else if(find("function_id", sTempKey))			List[iType].Item[iIndex].iFunctionID		= atoi(sTempValue);
+	    else if(find("filter", sTempKey))       		List[iType].Item[iIndex].iFilterID			= atoi(sTempValue);
+		else if(find("pgm_audio", sTempKey))			List[iType].Item[iIndex].iPGMAudio			= atoi(sTempValue);
+		else if(find("is_virtual", sTempKey))			List[iType].Item[iIndex].iIsVirtual			= atoi(sTempValue);
+	    else if(find("local_src_id", sTempKey))       	List[iType].Item[iIndex].iLocalID			= atoi(sTempValue);
+		else if(find("sys_preset", sTempKey))			List[iType].Item[iIndex].iSysPreset			= atoi(sTempValue);
+	    else
+		{
+			trace("GlobalMST - fProcessLineSys - didn't catch key - type=%u, GUID=%u, %s%s", iType, iIndex, sTempKey, sTempValue);
+			return(1);
+		}
+	}
+}
+
+SIGNED_INTEGER_FUNCTION fProcessLineDevice(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	STRING 	sTempLine[300],
+			sTempPair[100],
+			sTempKey[50],
+			sTempValue[100];
+
+	sTempLine 	= sTempLineArg;
+	while(find(",", sTempLine))
+	{
+   		sTempPair 	= remove(",", sTempLine);
+		sTempKey	= remove("=", sTempPair);
+		sTempValue	= left(sTempPair, len(sTempPair) - 1);    
+
+
+			 if(find("device_type", sTempKey))			List[iType].Item[iIndex].sDeviceType		= ST.StringTrim(sTempValue); //fTrimWhitespace(sTempValue);
+		else if(find("ip_address", sTempKey))			List[iType].Item[iIndex].sIPAddress			= ST.StringTrim(sTempValue); //fTrimWhitespace(sTempValue);
+		else if(find("is_display", sTempKey))			List[iType].Item[iIndex].iIsDisplay			= atoi(sTempValue);
+	    else if(find("is_camera", sTempKey))			List[iType].Item[iIndex].iIsCamera			= atoi(sTempValue);
+	    else if(find("is_vtc", sTempKey))				List[iType].Item[iIndex].iIsVTC				= atoi(sTempValue);
+	    else if(find("com_port", sTempKey))				List[iType].Item[iIndex].iComPort			= atoi(sTempValue);
+	    else if(find("processor_index", sTempKey))		List[iType].Item[iIndex].iProcessorIndex	= atoi(sTempValue);
+	
+	    else
+		{
+			trace("GlobalMST - fProcessLineDevice - didn't catch key - type=%u, GUID=%u, %s%s", iType, iIndex, sTempKey, sTempValue);
+			return(1);
+		}
+	}
+}
+
+SIGNED_INTEGER_FUNCTION fProcessLineIO(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	INTEGER i;
+	STRING 	sTempLine[300],
+			sTempPair[100],
+			sTempKey[50],
+			sTempValue[100],
+			sTemp[50];
+
+	sTempLine 	= sTempLineArg;
+	while(find(",", sTempLine))
+	{
+   		sTempPair 	= remove(",", sTempLine);
+		sTempKey	= remove("=", sTempPair);
+		sTempValue	= left(sTempPair, len(sTempPair) - 1);    
+
+	
+	    	 if(find("cmd_io", sTempKey))
+		{
+			List[iType].Item[iIndex].sCmdData					= ST.StringTrim(sTempValue); //fTrimWhitespace(sTempValue);
+			List[iType].Item[iIndex].iCmdData					= atoi(sTempValue);
+		}
+		else if(find("usb_mac", sTempKey))
+		{
+			sTempValue = fTrimWhitespace(sTempValue);
+			makestring(List[iType].Item[iIndex].sUSBAddr, 
+							"%s%s%s", 
+								chr(hextoi(mid(sTempValue, 1, 2))), 
+									chr(hextoi(mid(sTempValue, 3, 2))), 
+										chr(hextoi(mid(sTempValue, 5, 2)))	); 
+			List[iType].Item[iIndex].iIsUSB	= 1; 
+		}
+		else if(find("relay_proc", sTempKey))			List[iType].Item[iIndex].iRelayProcessor	= atoi(sTempValue);
+		else if(find("rly_on", sTempKey))
+		{
+			i = 0;
+			while(find("+", sTempValue))
+			{
+				i = i + 1;
+
+				sTemp = remove("+", sTempValue);
+	           	List[iType].Item[iIndex].RelayOn[i].iRelayIndex			= atoi(sTemp);
+				if(find("^", sTemp))
+				{
+	               	sTrash = remove("^", sTemp);
+					List[iType].Item[iIndex].RelayOn[i].iIsInitIndex		= 1;
+					List[iType].Item[iIndex].RelayOn[i].sIPAddress			= left(sTemp, find("+", sTemp) - 1);
+				}
+			}
+			List[iType].Item[iIndex].iRelayOnNumOf	= i;
+			i = 0; //courtesy reset
+		}
+		else if(find("rly_off", sTempKey))
+		{
+			i = 0;
+			while(find("+", sTempValue))
+			{
+				i = i + 1;
+
+				sTemp = remove("+", sTempValue);
+	           	List[iType].Item[iIndex].RelayOff[i].iRelayIndex		= atoi(sTemp);
+				if(find("^", sTemp))
+				{
+	               	sTrash = remove("^", sTemp);
+					List[iType].Item[iIndex].RelayOff[i].iIsInitIndex		= 1;
+					List[iType].Item[iIndex].RelayOff[i].sIPAddress			= left(sTemp, find("+", sTemp) - 1);
+				}
+			}
+			List[iType].Item[iIndex].iRelayOffNumOf	= i;
+			i = 0; //courtesy reset
+		}
+	    else if(find("vtc_io", sTempKey))				List[iType].Item[iIndex].iVTCio				= atoi(sTempValue);
+	 
+	    else
+		{
+			trace("GlobalMST - fProcessLineIO - didn't catch key - type=%u, GUID=%u, %s%s", iType, iIndex, sTempKey, sTempValue);
+			return(1);
+		}
+	}
+}
+
+
+FUNCTION fProcessLine(INTEGER iType, INTEGER iIndex, STRING sTempLineArg)
+{
+	INTEGER iErr;
+
+	STRING  sTempLine[300],
+			sTemp[100],
+			sTemp2[200];
+
+	sTempLine = sTempLineArg;
+                             
+	//parse by arbitrary kv.key category;  the kv pairs were sub-categorized to make the process lighter
+	while(find("]", sTempLine))
+	{
+		sTemp 	= remove("[", sTempLine);
+		sTemp2 	= remove("]", sTempLine);
+
+    		 if(find("sys_data", sTemp))		iErr = fProcessLineSys(iType, iIndex, sTemp2);
+		else if(find("device_data", sTemp))		iErr = fProcessLineDevice(iType, iIndex, sTemp2);
+		else if(find("io_data", sTemp))			iErr = fProcessLineIO(iType, iIndex, sTemp2);
+		else if(find("audio_mtrx", sTemp))		iErr = fProcessLineAudio(iType, iIndex, sTemp2);
+		else iErr = 2;		
+	}
+       
+	if(iErr)		trace("GlobalMST - fProcessLine - iErr<>0, iType=%u, iIndex=%u", iType, iIndex);	
+	else					
+	{
+		if(List[iType].Item[iIndex].iFilterID)	fAssignFilter(iType, List[iType].Item[iIndex].iFilterID, iIndex);
+
+		if(List[iType].Item[iIndex].iRmAss)
+		{
+			makestring(List[iType].Item[iIndex].sGlobalName, 
+								"%03u %s", 
+									Room[List[iType].Item[iIndex].iRmAss].iRoomNum, 
+										List[iType].Item[iIndex].sLocalName				);
+		}
+		else 	List[iType].Item[iIndex].sGlobalName	= List[iType].Item[iIndex].sLocalName;
+								
+	 	     if(List[iType].Item[iIndex].iIsCamera)			fProcessLineIsCam(iType, iIndex);
+		else if(List[iType].Item[iIndex].iIsDisplay)		fProcessLineIsDisplay(iType, iIndex);
+		else if(List[iType].Item[iIndex].iIsVTC)			fProcessLineIsVTCio(iType, iIndex);
+
+       	List[iType].Item[iIndex].iItemActive	= 1;			//set item as active
+       	List[iType].Item[iIndex].iVis			= 1;			//set item as active
+    	fHighestListIndex(iType, iIndex);						//     
+	}
+}
+
+ 
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------//
+                                                                                                          
+FUNCTION fProcessRooms(INTEGER iType, INTEGER iIndex, STRING sTempLine)
+{
+	INTEGER i, iRoomNum;
+    STRING	sTempName[100], sTempKey[100], sTempKV[100], sTempNameShort[100], sData[1000];
+                            
+	if(find(",", sTempLine))
+	{
+    	sData = sTempLine;
+		while(find(",", sData))
+		{
+        	sTempKV = remove(",", sData);
+			sTempKey = remove("=", sTempKV);
+            	 //if(findnocase("room_guid", sTempKey))				iIndex							= atoi(sTempKV); 
+				 //this was moved to the auto-parse iIndex portion of fProcessInit
+				 if(findnocase("room_name", sTempKey))				Room[iIndex].sRoomName			= ST.StringTrim(left(sTempKV, len(sTempKV)-1)); //fTrimWhitespace(left(sTempKV, len(sTempKV)-1));
+			else if(findnocase("bldg_rm_num", sTempKey))			Room[iIndex].iRoomNum			= atoi(sTempKV);
+			else if(findnocase("discrete_macro_mode", sTempKey))	Room[iIndex].iDiscreteMacroMode	= atoi(sTempKV);
+			else if(findnocase("macro_take_mode", sTempKey))		Room[iIndex].iMacroTakeMode		= atoi(sTempKV);
+			else if(findnocase("use_src_list_mode", sTempKey))		Room[iIndex].iUseSrcListMode	= atoi(sTempKV);
+		}
+
+		makestring(to_Room_Tx$[iIndex], "{%s RoomID=%u:room_name=%s,room_num=%u,discrete_macro_mode=%u,macro_take_mode=%u,use_src_list_mode=%u,|}",
+										fGetDataHeader(iType), 
+											iIndex, 
+												Room[iIndex].sRoomName, 
+													Room[iIndex].iRoomNum,
+														Room[iIndex].iDiscreteMacroMode,
+															Room[iIndex].iMacroTakeMode,
+																Room[iIndex].iUseSrcListMode		);
+		//Update Rooms list
+		makestring(ListFB$[11], "{ListVisFB:%u=1,; ListTextFB:%u=%s,|;}", iIndex, iIndex, Room[iIndex].sRoomName );
+	} 	
+}
+
+
+
+
+SIGNED_INTEGER_FUNCTION fProcessFilter(STRING sTempLine)
+{
+	INTEGER i, 
+			iType,
+			iFilterIndex,
+			iGroupIndex,
+			iConfigGroupFlag;
+
+	STRING	sFilterType[50], 
+			sFilterName[50],
+			sGroupName[50],
+			sTempKey[100], 
+			sTempValue[200], 
+			sData[1000];
+      
+	sData = sTempLine;             
+  
+	//filter_type=source, filter_id=1, group_id=1, filter_name=AJA Record, group_name=BioComm
+
+	while(find(",", sData))
+	{
+    	sTempValue 	= remove(",", sData);
+		sTempKey 	= remove("=", sTempValue);
+
+			 if(find("filter_type", sTempKey))	sFilterType 	= left(sTempValue, find(",", sTempValue) - 1);
+		else if(find("filter_id", sTempKey))	iFilterIndex	= atoi(sTempValue);
+		else if(find("group_id", sTempKey))		iGroupIndex		= atoi(sTempValue);
+		else if(find("filter_name", sTempKey))	sFilterName		= left(sTempValue, find(",", sTempValue) - 1);
+		else if(find("group_name", sTempKey))
+		{
+			iConfigGroupFlag	= 1;
+			sGroupName			= left(sTempValue, find(",", sTempValue) - 1);
+		}
+		else
+		{
+			trace("Global - in fProcessFilter - caught iErr.   iIndex=%u, %s%s", iFilterIndex, sTempKey, sTempValue);
+			return(-1);
+		}
+	}
+
+   		 if(findnocase("src", sFilterType))		iType = 1;
+	else if(findnocase("dst", sFilterType))		iType = 2;
+	else
+	{
+		trace("Global - in fProcessFilter - caught iErr.   iIndex=%u, %s%s", iFilterIndex, sTempKey, sTempValue);
+		return(-1);    	
+	}
+ 
+		
+    if(iConfigGroupFlag)
+	{
+		if(iGroupIndex)
+		{
+           	Group[iType].iHighestListIndex 				= max(iGroupIndex, Group[iType].iHighestListIndex);
+			Group[iType].Item[iGroupIndex].iItemActive	= 1;
+			Group[iType].Item[iGroupIndex].sName		= ST.StringTrim(sGroupName);
+
+			Group[iType].Item[iGroupIndex].iVis			= 1;
+			Group[iType].Item[iGroupIndex].sText		= Group[iType].Item[iGroupIndex].sName;
+		}    	
+	}
+     
+	if(iFilterIndex)
+	{
+       	Filter[iType].iHighestListIndex					= max(iFilterIndex, Filter[iType].iHighestListIndex);
+		Filter[iType].Item[iFilterIndex].iItemActive	= 1;
+		Filter[iType].Item[iFilterIndex].sName			= ST.StringTrim(sFilterName);
+
+		Filter[iType].Item[iFilterIndex].iVis			= 1;
+		Filter[iType].Item[iFilterIndex].sText			= Filter[iType].Item[iFilterIndex].sName;
+
+		if(iGroupIndex)		Group[iType].Item[iGroupIndex].iMemberListF[iFilterIndex]	= 1;
+	}
+
+}
+     
+
+
+     
+//---------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------//
+    
+
+PUSH List_DataInit_Complete
+{
+	INTEGER iType;
+	iType = getlastmodifiedarrayindex();
+	switch(iType)
+	{
+		case(1):	fProcessLinesToRoom(iType);
+		case(2):	fProcessLinesToRoom(iType);
+		case(3):	{}
+		case(4):	{}
+		case(5):	{}
+		case(14):	fProcessLinesSendComplete(iType);
+	}
+	//fProcessList for all types
+	fProcessList(iType);
+}
+
+
+FUNCTION fProcessInit(STRING sTempInitData)
+{
+	INTEGER i, 
+			j, 
+			iIndex,
+			iType;
+	
+	STRING 	sTempData[500], 
+			//sTempGUID[100], 
+			sTempLine[500],
+			sTemp[200];
+    
+	sTempData	= sTempInitData;	
+     
+
+	//replaced the header search with atoi. less processing.
+	iType = atoi(sTempData);
+
+
+	//if the header is not MACRO_14 or ROOMS_13
+	if(iType && iType <= 4)
+	{
+		sTrash 		= remove(";", sTempData);
+		iIndex		= atoi(remove(":", sTempData));
+		
+		if(iIndex)		fProcessLine(iType, iIndex, sTempData);
+		else	trace("GlobalMST - MTRX fProcessInit, iIndex did not resolve:	%s", sTempData);
+	}
+	else if(iType = 5)
+	{
+		sTrash		= remove(";", sTempData);
+		fProcessFilter(sTempData);
+	}
+	else if(iType = 13)
+	{
+		sTrash 		= remove(";", sTempData);
+		iIndex		= atoi(remove(":", sTempData));
+		if(iIndex)		fProcessRooms(iType, iIndex, sTempData);
+		else	trace("GlobalMST - fProcessInit, iType=13 (ROOMS), iIndex was zero for the following line: %s", sTempData);
+	}
+	else if(iType = 14)
+	{
+		sTrash 		= remove(";", sTempData);
+		iIndex		= atoi(remove(":", sTempData));
+		if(iIndex)		makestring(to_Room_Tx$[iIndex], "{%s%s", fGetDataHeader(iType), sTempData); //fProcessRooms(iType, iIndex, sTempData);
+		else	trace("GlobalMST - fProcessInit, iType=14 (MACRO), iIndex was zero for the following line: %s", sTempData);
+	}
+	else	trace("GlobalMST - error getting header from data:       %s", sTempData);	
+}
+    
+//---------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------//
+
+THREADSAFE CHANGE dataInit_Rx$
+{
+	INTEGER i;
+	STRING sTemp[4000];
+
+	while(1)
+	{
+    	sTemp = gather("}", dataInit_Rx$);
+		fProcessInit(sTemp);
+	}
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------//			Init
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//--------------------------------------------------------------------------------------------------------------------------//			VTC
+
+
+FUNCTION fUpdateVTC(INTEGER iVTCSel)
+{
+	INTEGER i;
+	STRING	sTemp[200];
+  
+	sTemp									= Sys.sBlankSrcText;
+	VTC_Ctrl_Sel_UnitName$					= Sys.VTC[Sys.iVTCSel].sUnitName;
+	if(Sys.VTC[iVTCSel].iRoomRes)	 sTemp	= Room[Sys.VTC[iVTCSel].iRoomRes].sRoomName;
+	VTC_RoomRes_Name$_Sel[1]				= sTemp;
+	sTemp									= Sys.sBlankSrcText;
+	if(Sys.VTC[iVTCSel].iCamSelect)  sTemp	= List[1].Item[Sys.VTC[iVTCSel].iCamSelect].sGlobalName;
+	VTC_CamSelect_Name$_Sel[1]				= sTemp;
+	sTemp									= Sys.sBlankSrcText;
+	if(Sys.VTC[iVTCSel].iContentSrc) sTemp	= List[1].Item[Sys.VTC[iVTCSel].iContentSrc].sGlobalName; 
+	VTC_ContentShare_Name$_Sel[1]			= sTemp;
+
+ 	
+}
+
+//--------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------//
+
+PUSH VTC_Ctrl_Sel
+{
+	INTEGER i;
+	Sys.iVTCSel	= getlastmodifiedarrayindex();
+    
+	for(i = 1 to 3)    	VTC_Ctrl_Sel_FB[i] 	= 0;
+	VTC_Ctrl_Sel_FB[Sys.iVTCSel]			= 1;
+
+	fUpdateVTC(Sys.iVTCSel);
+		
+}
+
+PUSH CAM_SendToVTC
+{
+	INTEGER iVTC, iSrcGUID;
+	STRING	sTemp[200];
+         
+	//which VTC unit number did we just send to
+	iVTC = getlastmodifiedarrayindex();
+    
+	//init data as though no camera is selected
+	iSrcGUID = 0;  
+	sTemp	= Sys.sBlankSrcText;
+                   
+	//but if there is a selected camera   
+	if(Sys.iCamSel)
+	{
+		iSrcGUID	= Sys.Cam.iVSrcGUID[Sys.iCamSel];
+		sTemp		= List[1].Item[Sys.Cam.iVSrcGUID[Sys.iCamSel]].sGlobalName;
+    }
+	//set the GUID to the VTC[].iCamSelect var
+	Sys.VTC[iVTC].iCamSelect									= iSrcGUID;
+	//Send  route - fMTRXSendRoute(iList=2, destination, source);		
+	fMTRXSendRoute(2, Sys.VTC[iVTC].iVInGUID[1], Sys.VTC[iVTC].iCamSelect);
+	VTC_CamSelect_Name$[iVTC]									= sTemp;
+	if(iVTC  =  Sys.iVTCSel)		VTC_CamSelect_Name$_Sel[1]	= sTemp;
+
+}
+
+CHANGE CAM_FoldedCtrl
+{
+	if(Sys.UI.iSub	= 2)
+	{
+		if(Sys.iCamSel)
+		{
+    		Cam_FoldedCmd[Sys.iCamSel]	= CAM_FoldedCtrl;
+		}
+	}
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------//			CAM
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------------------//			MTRX
+ 
+
+FUNCTION fMTRXTake(INTEGER iType)		
+{
+	INTEGER i;
+	STRING  sIndex[10], sList[2500];
+
+	
+	if(iType = 2 || iType = 4)							//2 = vid, 4 = aud
+	{
+		sList = List[iType].sSelected;
+
+		if(List[iType-1].iItemSelectedLast)					//if a source is selected
+		{
+			while(find(",", sList))
+			{
+            	sIndex = remove(",", sList);
+				i = atoi(sIndex);
+				if(i)
+				{
+					if(!List[iType].Item[i].iIsVirtual) fMTRXSendRoute(iType, i, List[iType-1].iItemSelectedLast);
+					else								fMTRXSendRouteVirtual(i, List[iType-1].iItemSelectedLast);
+				}
+			}
+		}
+	}
+}
+
+FUNCTION fMTRXClearRoutes(INTEGER iType)
+{
+	INTEGER i;
+	STRING  sIndex[10], sList[2500];
+
+	if(iType = 2 || iType = 4)							//2 = vid, 4 = aud
+	{
+		sList = List[iType].sSelected;
+
+		while(find(",", sList))
+		{
+           	sIndex = remove(",", sList);
+			i = atoi(sIndex);
+			if(i)
+			{
+				if(!List[iType].Item[i].iIsVirtual) fMTRXSendRoute(iType, i, 0);
+				else								fMTRXSendRouteVirtual(i, 0); 
+			}
+		}
+	}
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------//
+ 
+
+PUSH MTRX_Take_All
+{
+	fMTRXTake(2);
+	fMTRXTake(4);
+}
+
+PUSH MTRX_Take_Video
+{
+	fMTRXTake(2);
+}
+
+PUSH MTRX_Take_Audio
+{
+	fMTRXTake(4);
+}
+
+PUSH MTRX_Deselect_All
+{
+	fConfigureListFBResetAll(1);
+	fConfigureListFBResetAll(2);
+	fConfigureListFBResetAll(3);
+	fConfigureListFBResetAll(4);
+}
+PUSH MTRX_Deselect_Video
+{
+	fConfigureListFBResetAll(1);
+	fConfigureListFBResetAll(2);
+}
+PUSH MTRX_Deselect_Audio
+{
+	fConfigureListFBResetAll(3);
+	fConfigureListFBResetAll(4);
+}
+PUSH MTRX_Select_All
+{
+	fConfigureListFBSetVisibleItems(2);	
+	fConfigureListFBSetVisibleItems(4);	
+}
+PUSH MTRX_Select_All_Video
+{
+	fConfigureListFBSetVisibleItems(2);	
+}
+PUSH MTRX_Select_All_Audio
+{
+	fConfigureListFBSetVisibleItems(4);	
+}
+PUSH MTRX_Clear_Route_All
+{
+	fMTRXClearRoutes(2);
+	fMTRXClearRoutes(4);
+}
+ 
+//---------------------------------------------------------------------------------------------------------------------//			MTRX
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------------------//			ListItemClicked
+
+
+
+FUNCTION fConfigureListFBToggle(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER i;
+	STRING sList[2500], sIndex[10], sTemp[2500];
+	List[iList].Item[iIndex].iFB	= !List[iList].Item[iIndex].iFB;
+	fUpdateListFB(iList, iIndex);
+    
+	List[iList].sSelected			= fListStringKeyAddRemove(iIndex, List[iList].Item[iIndex].iFB, List[iList].sSelected);
+} 
+
+INTEGER_FUNCTION fConfigureListFBMutex(INTEGER iList, INTEGER iIndex)
+{
+	INTEGER iSame;
+	if(iIndex)							//if we selected a list item (not index 0)
+	{
+		if(List[iList].iItemSelectedLast = iIndex)			//if a single item is selected, and we just re-selected it
+		{
+	     	List[iList].Item[iIndex].iFB	= 0;			//send it low
+			List[iList].iItemSelectedLast	= 0;			//reset the iItemSelectedLast marker
+			iSame 							= 1;
+			List[iList].sSelected			= "";
+		}
+		else if(List[iList].iItemSelectedLast)				//if a single item is selected, and we just selected a different item
+		{
+			List[iList].Item[List[iList].iItemSelectedLast].iFB		= 0;			//set that item low
+			fUpdateListFB(iList, List[iList].iItemSelectedLast);					//update
+			List[iList].iItemSelectedLast							= iIndex;
+			List[iList].Item[iIndex].iFB							= 1;
+			List[iList].sSelected			= fListStringKeyAddRemove(iIndex, List[iList].Item[iIndex].iFB, List[iList].sSelected);
+		}
+		else										//if nothing is selected
+		{
+	   		List[iList].iItemSelectedLast	= iIndex;
+			List[iList].Item[iIndex].iFB	= 1;
+			List[iList].sSelected			= fListStringKeyAddRemove(iIndex, List[iList].Item[iIndex].iFB, List[iList].sSelected);
+		}
+		fUpdateListFB(iList, iIndex);
+		if(iSame)	return(0);
+		return(iIndex);	
+	}
+	else								//if we sent 0
+	{
+		List[iList].sSelected									= "";
+
+    	if(List[iList].iItemSelectedLast)
+		{
+        	List[iList].Item[List[iList].iItemSelectedLast].iFB		= 0	;
+			fUpdateListFB(iList, List[iList].iItemSelectedLast);
+			List[iList].iItemSelectedLast							= 0	;
+		}
+		else
+		{
+        	
+		}
+		return(0);
+	}
+}
+
+
+//---------------------------------------------------------------------------------------------------//
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------//
+
+
+
+FUNCTION fGroup(INTEGER iType, INTEGER iIndex)
+{
+	INTEGER i;
+       
+	if(!iIndex)											//clear filter
+	{
+		fConfigureListFBMutex(iType+6, iIndex);
+    	for(i = 1 to Filter[iType].iHighestListIndex)
+		{
+        	Filter[iType].Item[i].iVis		= 1;
+		}
+		fUpdateListVisFilter(iType+4, 0);
+
+		//fUpdateFilterListVis(iType, 0);
+	}
+	else if(iIndex = Group[iType].iItemSelectedLast)	//no change if same as last time
+	{
+    	//do nothing if selecting the same list item
+	}	
+	else												//update filter
+	{
+		fConfigureListFBMutex(iType+6, iIndex);
+		for(i = 1 to Filter[iType].iHighestListIndex)
+		{
+        	Filter[iType].Item[i].iVis 		= Group[iType].Item[iIndex].iMemberListF[i];
+		} 	
+		fUpdateListVisFilter(iType+4, 0);
+	}
+}
+
+FUNCTION fFilter(INTEGER iType, INTEGER iIndex)
+{
+    INTEGER i, j;
+	
+	if(!iIndex)
+	{
+		fConfigureListFBMutex(iType+4, iIndex);
+
+		j = iType mod 2;
+		for(i = 1 to ciMaxNumGlobalMTRXio)
+		{
+     		List[2-j].Item[i].iVis		= 1;  	
+     		List[4-j].Item[i].iVis		= 1;  	
+		}
+
+		fUpdateListVisAll(2-j, 0, 1);
+		fUpdateListVisAll(4-j, 0, 1);		
+	}
+	else if(iIndex = Filter[iType].iItemSelectedLast)
+	{
+    	//do nothing if selecting the same list item
+	}	
+	else
+	{
+		fConfigureListFBMutex(iType+4, iIndex);
+
+		j = iType mod 2;
+        
+		//set all vis as 0 first (faster this way)
+		fUpdateListVisAll(2-j, 0, 0);
+		fUpdateListVisAll(4-j, 0, 0);
+
+        for(i = 1 to ciMaxNumGlobalMTRXio)
+		{
+            List[2-j].Item[i].iVis 		= Filter[iType].Item[iIndex].iMemberListV[i];
+			if(List[2-j].Item[i].iVis)	fUpdateListVis(2-j, i);
+			
+			List[4-j].Item[i].iVis		= Filter[iType].Item[iIndex].iMemberListA[i];
+			if(List[4-j].Item[i].iVis)	fUpdateListVis(4-j, i);
+		}
+
+	}
+	//^^ wtf is that?
+	//this says 
+	// if iType = 1, set visibility for lists 1 & 3. 
+	// if iType = 2, set vis for lists 2 & 4
+}
+
+
+//---------------------------------------------------------------------------------------------------//
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------//
+
+
+CHANGE List_ItemClicked
+{
+	INTEGER i, j, 
+			iList, 
+			iIndex, 
+			iPreviousRoom;
+	INTEGER iErr;    		//iErr collects data from iConfigureFilterFBMutex which indicates if the list selection actually changed
+							//1 = list changed, 0 = list did not change (in the case that the selected value was already selected)
+    
+	iErr = 10000;
+	iList = getlastmodifiedarrayindex();
+	iIndex = List_ItemClicked[iList];
+    
+	switch(iList)
+	{
+    	case(1): 	fConfigureListFBMutex(iList, iIndex);
+    	case(2): 	fConfigureListFBToggle(iList, iIndex);
+    	case(3): 	fConfigureListFBMutex(iList, iIndex);
+    	case(4): 	fConfigureListFBToggle(iList, iIndex);
+    	case(5): 	
+		{
+			fFilter(1, iIndex);
+		}
+    	case(6): 	
+		{
+			fFilter(2, iIndex);
+		}
+    	case(7): 	
+		{
+			fGroup(1, iIndex);
+		}
+    	case(8): 	
+		{
+			fGroup(2, iIndex);
+		}
+		case(11):											//cameras
+		{
+			switch(Sys.UI.iSub)
+			{
+    			case(1):	{}
+				case(2):		//filter list of cameras down to those in the selected room
+				{
+					iIndex = fConfigureListFBMutex(iList, iIndex);
+
+                	if(iIndex)		//CAM page - just selected a room
+					{
+						ROOMS_List_SelectedRoom$	= Room[iIndex].sRoomName;
+                    	for(i = 1 to Sys.Cam.iNumOfCams)		//filter cams list
+						{
+							//if the camera's room association matches the index of the room we just selected
+                        	if(List[1].Item[Sys.Cam.iVSrcGUID[i]].iRmAss = iIndex)		List[12].Item[i].iVis = 1;
+							else 													List[12].Item[i].iVis = 0;
+						}
+					}
+					else			//reset the list
+					{
+						ROOMS_List_SelectedRoom$	= "";
+                    	for(i = 1 to Sys.Cam.iNumOfCams)	List[12].Item[i].iVis	= 1;
+					}
+					fUpdateListVis(12, 0);
+				}
+				case(3):			//VTC page - selected room
+				{
+					fConfigureListFBMutex(iList, iIndex);
+
+                	if(Sys.iVTCSel)		//if a VTC unit is selected
+					{
+						iPreviousRoom								= Sys.VTC[Sys.iVTCSel].iRoomRes;
+						Sys.VTC[Sys.iVTCSel].iRoomRes				= iIndex;
+						if(iIndex) 	Room[iIndex].iVTCAssignment		= Sys.iVTCSel;
+						if(iPreviousRoom  &&  !iIndex)		Room[iPreviousRoom].iVTCAssignment	= 0;
+                        
+						//if there was not a room assigned previously, and we just selected 'no room' / zero
+						if(!iPreviousRoom  &&  !iIndex)
+						{
+                        	//do nothing?
+						}						
+						//if there was a previous room, and we just re-selected it
+						else if(iPreviousRoom  =  iIndex)
+						{
+                        	//reinitialize all routes
+						}
+						//if the vtc was already routed to a room, and it is not the same room that was just selected
+						else if(iPreviousRoom  &&  iPreviousRoom <> iIndex)
+						{
+	                    	//end calls
+							pulse(10, VTC_EndAllCalls[Sys.iVTCSel]);
+							//clear outputs from the VTC in that room and unlink the virtual routes
+							fMTRXSendRouteVirtual(Room[iPreviousRoom].iVirtualVDstGUID[5], 0);
+							fMTRXSendRouteVirtual(Room[iPreviousRoom].iVirtualVDstGUID[6], 0);
+							//clear inputs to the VTC
+							fMTRXSendRoute(2, Sys.VTC[Sys.iVTCSel].iVInGUID[1], 0);	
+							fMTRXSendRoute(2, Sys.VTC[Sys.iVTCSel].iVInGUID[2], 0);	
+						}
+                        
+                        //if we are unrouting
+						if(!iIndex)
+						{
+	                    	//end calls
+							pulse(10, VTC_EndAllCalls[Sys.iVTCSel]);
+							//clear outputs from the VTC in that room and unlink the virtual routes
+                        	VTC_RoomRes_Name$[Sys.iVTCSel]	= "";
+							VTC_RoomRes_Name$_Sel[1]		= "";
+						}
+						//else route to the new room
+                  		else		
+						{
+                         	VTC_RoomRes_Name$[Sys.iVTCSel]	= Room[iIndex].sRoomName;
+							VTC_RoomRes_Name$_Sel[1]		= Room[iIndex].sRoomName;
+							//update the room vLink routes
+							fMTRXSendRouteVirtual(Room[iIndex].iVirtualVDstGUID[5], Sys.VTC[Sys.iVTCSel].iVOutGUID[1]);
+							if(Sys.VTC[Sys.iVTCSel].iDualDisplay)
+							{
+                            	fMTRXSendRouteVirtual(Room[iIndex].iVirtualVDstGUID[6], Sys.VTC[Sys.iVTCSel].iVOutGUID[2]);
+							} 
+							//route camera and content to the codec from the new room
+						} 	
+					}
+				}
+			}
+		}
+		case(12):
+		{
+			iIndex = fConfigureListFBMutex(iList, iIndex);
+			Sys.iCamSel	= iIndex;
+
+			switch(Sys.UI.iSub)
+			{
+            	case(1):	{}
+				case(2):	
+				{
+					fMTRXSendRoute(2, Sys.iVDstPanelGUID, Sys.Cam.iVSrcGUID[iIndex]);				
+				}           	
+				case(3):
+				{
+                 	if(Sys.iVTCSel)
+					{
+                    	if(iIndex)
+						{
+                        	Sys.VTC[Sys.iVTCSel].iCamSelect	= Sys.Cam.iVSrcGUID[iIndex];
+							fMTRXSendRoute(2, Sys.VTC[Sys.iVTCSel].iVInGUID[1], Sys.Cam.iVSrcGUID[iIndex]);
+							VTC_CamSelect_Name$[Sys.iVTCSel]				= List[1].Item[Sys.Cam.iVSrcGUID[iIndex]].sGlobalName;
+							VTC_CamSelect_Name$_Sel[1]							= List[1].Item[Sys.Cam.iVSrcGUID[iIndex]].sGlobalName;
+						}
+						else
+						{
+                        	Sys.VTC[Sys.iVTCSel].iCamSelect	= 0;
+							fMTRXSendRoute(2, Sys.VTC[Sys.iVTCSel].iVInGUID[1], 0);
+							VTC_CamSelect_Name$[Sys.iVTCSel]				= Sys.sBlankSrcText;
+							VTC_CamSelect_Name$_Sel[1]							= Sys.sBlankSrcText;
+						}
+					}
+				}
+			}
+		}
+	}
+	if(iErr)
+	{
+		switch(iList)
+		{
+		   	case(5):	;//fConfigureFilter(iList, iIndex);
+		   	case(6):	;//fConfigureGroup(iList, iIndex);
+		   	case(7):	;//fConfigureFilter(iList, iIndex);
+		   	case(8):	;//fConfigureGroup(iList, iIndex);
+		}
+	}
+}
+   
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------------//			ListItemClicked
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------------------//			UI.Page
+
+PUSH UI_Page
+{
+	Sys.UI.iPage	= getlastmodifiedarrayindex();	
+}
+
+PUSH UI_Sub
+{
+ 	Sys.UI.iSub		= getlastmodifiedarrayindex();
+}
+ 
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------//		UI.Page
+                                                                                                                                            
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------------------------------------//		Main
+ 
+
+FUNCTION main()
+{
+	INTEGER i, j;
+	STRING	sTemp[100];
+
+    waitforinitializationcomplete();
+                
+	Sys.sBlankSrcText				= "---";       
+       
+	Sys.VTC[1].sUnitName			= "Cisco SX80 Unit01";
+	Sys.VTC[2].sUnitName			= "Cisco SX80 Unit02";
+	Sys.VTC[3].sUnitName			= "Cisco SX80 Unit03";
+	
+	List[1].iNumOfTextColumns		= 1;
+	List[2].iNumOfTextColumns		= 2;
+	List[3].iNumOfTextColumns		= 1;
+	List[4].iNumOfTextColumns		= 2;
+	
+	List[1].iListUsesVis			= 1;
+	List[2].iListUsesVis			= 1;
+	List[3].iListUsesVis			= 1;
+	List[4].iListUsesVis			= 1;
+	List[5].iListUsesVis			= 1;
+	List[6].iListUsesVis			= 1;
+	List[7].iListUsesVis			= 1;
+	List[8].iListUsesVis			= 1;
+	List[12].iListUsesVis			= 1;
+	List[13].iListUsesVis			= 1;
+
+	Filter[1].iGlobalListIndex		= 5;
+	Filter[2].iGlobalListIndex		= 6;
+
+	Group[1].iGlobalListIndex		= 7;
+	Group[2].iGlobalListIndex		= 8;
+    
+    
+	for(i = 1 to 2)
+	{
+		//List[i].iHighestListIndex		= 350;
+		List_NumOfItems[i]			= 350;
+    }    	
+	for(i = 3 to 4)
+	{
+		//List[i].iHighestListIndex		= 400;
+		List_NumOfItems[i]			= 400;
+    }            	
+}
+
