@@ -1,0 +1,5 @@
+name=Window 1, primary=1, pgm_audio=0, usb=0, list=(1,5,),
+name=Window 2, primary=2, pgm_audio=0, usb=0, list=(2,6,),
+name=Window 3, primary=3, pgm_audio=0, usb=0, list=(3,7,),
+name=Window 4, primary=4, pgm_audio=0, usb=0, list=(4,8,),
+

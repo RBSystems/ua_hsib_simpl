@@ -1,0 +1,3 @@
+name=Left, primary=1, pgm_audio=0, usb=0, list=(1,),
+name=Right, primary=2, pgm_audio=1, usb=1, list=(2,),
+name=Both, primary=2, pgm_audio=1, usb=1, list=(1, 2,),
