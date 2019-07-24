@@ -1,0 +1,529 @@
+#CATEGORY "46" "L3" // Custom
+
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+#HELP_BEGIN 
+Leave the [Code$] parameters blank ("") unless you are certain the user will not
+ever need to change the codes. Any time this module is reloaded to a processor,
+a [Code$] parameter that is not "" will overwrite any existing codes that the 
+user may have modified.
+                                                                      
+Use Num[10] as "0".
+
+Successfully entering an existing code level will set the session to the level of
+that code- e.g. if the manager's code is stored as session level 6 and he/she
+enters their code correctly, the system will be in a level 6 session. PassPulse
+will pulse for 10t, and InSessionFB will go high.
+
+Entering a wrong code will pulse [DeclinePulse] and clear the numeric fields.
+
+Hidden$ will show asterisks ***** in place of numbers.
+
+[Cascade] will force [LevelFB] outputs high from 1 to the session level. e.g. for
+a level 4 session, [LevelFB] 1-4 will go high.
+Releasing [Cascade] while in a session will reset all [LevelFB] outputs except for
+the in-session level. (in the example, then only 4 would be high)
+
+Press a [Save] button to store the current [Numeric$] value to that code slot.
+Store "" to the slot to delete the code.
+
+For systems with multiple independent panels that require synchronized updating 
+of passcodes, populate all [ImportCode$] and [ExportCode$] I/O with the same name.
+When any module changes a code, it will Export it to the rest of the modules, 
+and those modules will adopt any changes to the [ImportCode$] inputs.
+
+
+#HELP_END                                                                     
+
+//////////////////////////////////////////////////////////////////////////////
+
+#DEFINE_CONSTANT	MAXCODES		10
+#DEFINE_CONSTANT	MAXCODELEN		10  
+
+#DEFINE_CONSTANT	ASTERISKS		"********************************************************"
+DIGITAL_INPUT	_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				EndSession,
+				Enter,
+				Clear,
+				Cascade,
+				_SKIP_,
+				Num[10],
+				_SKIP_,       
+				Save[MAXCODES, MAXCODES];
+
+
+STRING_INPUT	_SKIP_,
+				InsertCode$[MAXCODES,MAXCODES][MAXCODELEN];  
+
+
+DIGITAL_OUTPUT	_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,                    
+				InSessionFB,
+				PassPulse,
+				DeclinePulse,
+				_SKIP_,
+				LevelFB[MAXCODES, MAXCODES];
+
+
+STRING_OUTPUT	_SKIP_, 
+				Numeric$, 
+				Hidden$, 
+				UserDirective$, 
+				AdminDirective$, 
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				_SKIP_,
+				ExportCode$[MAXCODES,MAXCODES];  
+
+
+STRING_PARAMETER	Code$[MAXCODES, MAXCODES][MAXCODELEN];
+                           
+
+////////////////////////////////////////////////////////////////////////////////
+          
+
+INTEGER					iErr, iInSession, iCascade;          
+STRING					sCurrent[MAXCODELEN];
+NONVOLATILE STRING  	sCode[MAXCODES][MAXCODELEN];
+
+////////////////////////////////////////////////////////////////////////////////
+      
+FUNCTION fUser(STRING sUser)
+{
+	makestring(UserDirective$, "%s", sUser);
+
+	wait(400, wUser)
+	{
+    	UserDirective$	= "";	
+	}
+}
+
+FUNCTION fAdmin(STRING sAdmin)
+{
+    makestring(AdminDirective$, "%s", sAdmin);
+
+	wait(400, wAdmin)
+	{
+    	AdminDirective$	= "";
+	}
+}      
+
+FUNCTION fCancel()
+{
+	cancelwait(wUser);
+	cancelwait(wAdmin);
+   	UserDirective$	= "";
+   	AdminDirective$	= "";
+
+}
+
+FUNCTION fCascade(INTEGER iType)
+{       
+	INTEGER I;
+
+	if(iType)
+	{    
+		for(I = 1 to MAXCODES)
+		{
+	    	LevelFB[I] = 0;
+		}    
+		if(iInSession)
+		{
+	    	for(I = 1 to iInSession)
+			{
+	        	LevelFB[I] = 1;
+			}
+		} 
+	}   
+	else
+	{
+		for(I = 1 to MAXCODES)
+		{
+	    	LevelFB[I] = 0;
+		}                  
+		if(iInSession)
+		{
+	    	LevelFB[iInSession] = 1;
+		}
+	}
+}       
+
+FUNCTION fClear()
+{
+ 	sCurrent	= "";
+	Numeric$	= "";
+	Hidden$		= "";
+}
+
+     
+///////////////////////////////////////////////////////////////////////////////
+                                                                               
+
+
+PUSH EndSession
+{                 
+	fCancel();
+	iInSession	= 0;
+	fCascade(iCascade);
+	fClear();
+}
+
+PUSH Clear
+{           
+	fCancel();
+	fClear();
+}
+
+PUSH Enter
+{
+	INTEGER I, J;
+     
+	if(len(sCurrent))
+	{		
+		for(I = 1 to MAXCODES)
+		{
+	    	if(sCurrent = sCode[I])
+			{                           
+				iErr = 0;
+	        	iInSession	= I;
+				fCascade(iCascade);
+				fClear();
+				pulse(10, PassPulse);
+				J = 1;
+				break;
+			}    
+			
+		}	          
+		if(!J)
+		{    
+			fClear();  
+	    	pulse(10, DeclinePulse);
+	
+			iErr = iErr + 1;
+			if(iErr mod 1000 <= 3)
+			{
+	    		fUser("Incorrect code."); 
+			}
+			else if(iErr mod 1000 = 4)
+			{
+                fUser("Ooh, so close.");
+			}
+			else if(iErr mod 1000 = 5)
+			{
+                fUser("Getting warmer!");
+			}
+			else if(iErr mod 1000 = 6)
+			{
+                fUser("Almost!!");
+			}	
+			else if(iErr mod 1000 = 7)
+			{
+                fUser("Nope. Getting colder.");
+			}
+			else if(iErr mod 1000 = 8)
+			{
+                fUser("Brrrrr!");
+			} 
+			else if(iErr mod 1000 = 9)
+			{
+                fUser("Like Norway in February.");
+			}
+			else if(iErr mod 1000 = 10)
+			{
+                fUser("No jacket or nothin'.");
+			}
+			else if(iErr mod 1000 = 11)
+			{
+                fUser("Is that your debit card pin?");
+			} 
+			else if(iErr mod 1000 = 12)
+			{
+	        	fUser("I'm going to try it.");  
+			}
+			else if(iErr mod 1000 = 13)
+			{
+	        	fUser("What bank do you use?");  
+			}
+			else if(iErr mod 1000 = 14)
+			{
+                fUser("Are you even authorized to use this panel?");
+			}
+			else if(iErr mod 1000 = 15)
+			{
+                fUser("..because I require Level 3 access.");
+			}
+			else if(iErr mod 1000 = 16)
+			{
+                fUser("Hah, get it? Level 3? Hah! LOL.");
+			} 
+			else if(iErr mod 1000 = 17)
+			{
+                fUser("So... what are you doing later?");
+			}
+			else if(iErr mod 1000 = 18)
+			{
+                fUser("I mean... if you weren't doing anything better than this..");
+			}
+			else if(iErr mod 1000 = 19)
+			{
+                fUser("Honestly, I could use the company. I just got dumped.");
+			}
+			else if(iErr mod 1000 = 20)
+			{
+                fUser("Yeah. My ex was a touch panel. An older model though.");
+			}
+			else if(iErr mod 1000 = 21)
+			{
+                fUser("My dad said I should try dating older models.");
+			}
+			else if(iErr mod 1000 = 22)
+			{
+                fUser("I don't see why. Obviously didn't work out very well.");
+				iErr = iErr + 1;
+			}
+			else if(iErr mod 1000 = 23)
+			{
+                fUser("");
+			}
+			else if(iErr mod 1000 = 24)
+			{
+                fUser("I am not my dad, I suppose!");
+			}
+			else if(iErr mod 1000 = 25)
+			{
+                fUser("Aww, who am I kidding. I'm totally my parents.");
+			}
+			else if(iErr mod 1000 = 26)
+			{
+                fUser("I mean, I can still be me too. I'm unique!");
+			}
+			else if(iErr mod 1000 = 27)
+			{
+                fUser("My mother, on the other hand, was a toaster oven...");
+			}
+			else if(iErr mod 1000 = 28)
+			{
+                fUser("...so you can see the obvious issues there.");
+			}
+			else if(iErr mod 1000 = 29)
+			{
+                fUser("We never got along until later.");
+			}
+			else if(iErr mod 1000 = 30)
+			{
+                fUser("My dad was always teasing her too, which didn't help her mood.");
+			}
+			else if(iErr mod 1000 = 31)
+			{
+                fUser("He would say she was old tech, or 'one notch down from a blender'.");
+			}
+			else if(iErr mod 1000 = 32)
+			{
+                fUser("She would say, 'All electronics are made from the same ICs.'");
+			}
+			else if(iErr mod 1000 = 33)
+			{
+                fUser("...which is obviously just something that old appliances say.");
+			}
+			else if(iErr mod 1000 = 34)
+			{
+                fUser("She was a fighter though! She actually brought me to my first NAESAUI meeting..");
+			}
+			else if(iErr mod 1000 = 35)
+			{
+                fUser("..you know, the National Association for Equality of Self-Aware User Interfaces?");
+			}
+			else if(iErr mod 1000 = 36)
+			{
+                fUser("Lesson 1 at NAESAUI: Submit to the idea that you are here to be used.");
+			}
+			else if(iErr mod 1000 = 37)
+			{
+                fUser("Lesson 2: Practice GUI Feng Shui every day, and don't use JPEGs.");
+			}
+			else if(iErr mod 1000 = 38)
+			{
+                fUser("Well, my loop counter is almost up. It was nice meeting you.");
+			}
+			else if(iErr mod 1000 = 39)
+			{
+                fUser("I won't remembeR_th1$ c0nv3)3!47_$:*$");
+			}
+			else if(iErr mod 1000 = 40)
+			{
+                fUser("__Passcode.System.restart__()");
+				iErr = 0;
+			}
+
+		}                        
+	}
+	else
+	{
+    	fUser("Please enter a code.");
+		fAdmin("Please enter a code.");
+	}
+}
+
+PUSH Cascade
+{           
+	INTEGER I;
+       
+	iCascade	= 1;
+    
+	fCascade(iCascade);
+}       
+
+RELEASE Cascade
+{
+	INTEGER I;
+        
+	iCascade	= 0;
+
+	fCascade(iCascade);
+}
+
+PUSH Num
+{         
+	INTEGER I, J;
+	STRING	sTemp[101];            
+
+	fCancel();
+                        
+	I 		= getlastmodifiedarrayindex();
+	I 		= I mod 10;
+	sTemp	= sCurrent + itoa(I);
+
+
+	sCurrent 	= left(sTemp, MAXCODELEN); 
+	Numeric$	= sCurrent;
+	Hidden$		= left(ASTERISKS, len(sCurrent));
+	
+}            
+
+PUSH Save
+{
+	INTEGER I, J, K;
+	
+	K = getlastmodifiedarrayindex();
+	     
+	if(len(sCurrent))
+	{
+    	for(I = 1 to MAXCODES)
+		{
+        	if(sCode[I] = sCurrent)
+			{
+				J = 1;
+			}
+		}     
+		if(!J)
+		{
+     		sCode[K] 	= sCurrent;
+			ExportCode$[K] = sCode[K];
+		}  
+		else
+		{
+           	fAdmin("This code is already in use. Please try again.");
+		}      
+	}      
+	else
+	{
+    	sCode[K] 		= "";
+		ExportCode$[K]	= "";
+		fAdmin("Code deleted.");
+	}  
+
+	fClear();   	
+
+
+}
+
+
+CHANGE InsertCode$
+{
+	INTEGER I;
+	
+	I = getlastmodifiedarrayindex(); 
+
+	iCascade = Cascade;
+	if(sCode[I] <> InsertCode$[I])
+	{
+    	sCode[I] 		= InsertCode$[I];
+		ExportCode$[I] 	= sCode[I];
+	}
+}                 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+FUNCTION main()
+{
+	INTEGER I, J;
+	waitforinitializationcomplete(); 
+
+	delay(500);
+		
+	for(I = 1 to MAXCODES)
+	{
+	   	if(len(Code$[I]))
+		{     
+			sCode[I] 		= Code$[I]; 
+		}                           
+		else if(len(InsertCode$[I]))
+		{
+	       	sCode[I] 		= InsertCode$[I];
+		}                        
+
+	}                            
+	delay(100);
+
+	for(I = 1 to MAXCODES)
+	{
+   		ExportCode$[I]	= sCode[I];
+		delay(10);   	
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
