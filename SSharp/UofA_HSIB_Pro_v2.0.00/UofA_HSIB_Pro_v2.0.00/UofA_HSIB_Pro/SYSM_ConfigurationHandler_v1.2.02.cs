@@ -623,7 +623,6 @@ namespace UofA_HSIB_Pro
                     CrestronConsole.PrintLine("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID);
                     //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Display {1} as {2} named {3} on COM {4}", CLASSID, args.Sig.Number, display.Controller.ToString(), display.Controller.Name, display.SerialPort.ID), CLASSID, false);
                 }
-                CrestronConsole.PrintLine("nearly end");
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
                 #endregion

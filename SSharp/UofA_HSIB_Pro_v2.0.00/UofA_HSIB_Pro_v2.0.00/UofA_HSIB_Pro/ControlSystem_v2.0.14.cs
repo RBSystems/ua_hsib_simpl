@@ -905,15 +905,26 @@ namespace UofA_HSIB_Pro
         private void CamSendDirectCmd(string _args)
         {
             string[] args = _args.Split();
-            string cmd = "";
+            string[] b = args[1].Split(',');
+            char[] cmd = new char[100];
             int tempGuid = 0;
             if (args.Length != 2)
                 CrestronConsole.PrintLine("CamCmd err. Try 'CamCmd 12 15,12,1,2,255,34,126'");
             else
             {
                 tempGuid = Int32.Parse(args[0]);
-                //if(tempGuid > 0)
+                if(tempGuid > 0)
+                {
+                    //foreach (var c in b)
+                    //    cmd.add += Convert.ToChar(Int32.Parse(c));
                     //CAMSony[tempGuid].OnCommandToSend()
+                    if (args[1].Contains("init1"))
+                        CAMSony[tempGuid].InitCamera(1);
+                    else if (args[1].Contains("init2"))
+                        CAMSony[tempGuid].InitCamera(2);
+                    else if (args[1].Contains("init3"))
+                        CAMSony[tempGuid].InitCamera(3);
+                }
             }
         }
 
