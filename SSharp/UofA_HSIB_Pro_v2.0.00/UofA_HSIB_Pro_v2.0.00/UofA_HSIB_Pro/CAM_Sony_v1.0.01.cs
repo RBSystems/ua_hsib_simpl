@@ -115,8 +115,8 @@ namespace PWCSharpPro
 
         public override void MoveCamera(Move _move)
         {
-            char panSpeed = '\x11';
-            char tiltSpeed = '\x11';
+            char panSpeed = '\x08';
+            char tiltSpeed = '\x08';
             string movement = "";    
 
             switch (_move)
@@ -174,7 +174,7 @@ namespace PWCSharpPro
             //sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
             //             02  00  00  01  00  00  00  01  01  FF
             CrestronConsole.PrintLine("cam[{0}] init string:", guid);
-            sendCommand("\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
+            OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
             transaction = 1;
         }
 

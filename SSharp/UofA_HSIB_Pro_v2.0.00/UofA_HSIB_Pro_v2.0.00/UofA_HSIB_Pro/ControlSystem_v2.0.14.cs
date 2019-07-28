@@ -418,7 +418,7 @@ namespace UofA_HSIB_Pro
         public void Cam_EthTx(int _index, string _command)
         {
             //if (TxRxdebug) { CrestronConsole.PrintLine("{0}{1:D2}_{2}:{3}: >>> {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, _command); }
-            if (TxRxdebug) 
+            /*if (TxRxdebug) 
             {
                 string printableCmd = "";
                 foreach (var c in _command)
@@ -426,6 +426,7 @@ namespace UofA_HSIB_Pro
 
                 new Thread(Print, string.Format("{0}[{1:D2}] ({2}:{3}): >>> {4}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, printableCmd)); 
             }
+             */
             SocketErrorCodes err = camSonyClients[_index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
             if (err != SocketErrorCodes.SOCKET_OK)
             {
@@ -662,6 +663,12 @@ namespace UofA_HSIB_Pro
                 CrestronConsole.PrintLine("Failed to register console command E-Switch");
                 ErrorLog.Error("{0} 03!!! Failed to register console command E-Switch", CLASSID);
             }
+            
+            if (!CrestronConsole.AddNewConsoleCommand(CamSendDirectCmd, "CamCmd", "Send a string direct to a camera, (int) chars, comma delimited (no final comma)", ConsoleAccessLevelEnum.AccessOperator))
+            {
+                CrestronConsole.PrintLine("Failed to register console command CamCmd");
+                ErrorLog.Error("{0} 03!!! Failed to register console command CamCmd", CLASSID);
+            }
             if (Debug) { CrestronConsole.PrintLine("User commands all registered"); }
         }
 
@@ -895,6 +902,21 @@ namespace UofA_HSIB_Pro
             }
         }
 
+        private void CamSendDirectCmd(string _args)
+        {
+            string[] args = _args.Split();
+            string cmd = "";
+            int tempGuid = 0;
+            if (args.Length != 2)
+                CrestronConsole.PrintLine("CamCmd err. Try 'CamCmd 12 15,12,1,2,255,34,126'");
+            else
+            {
+                tempGuid = Int32.Parse(args[0]);
+                //if(tempGuid > 0)
+                    //CAMSony[tempGuid].OnCommandToSend()
+            }
+        }
+
         #region Configuration dumping to console
         private void DumpConfig(string _args)
         {
@@ -1005,9 +1027,9 @@ namespace UofA_HSIB_Pro
             for (int x = 1; x < CAMSony.Length; x++ )
             {
                 if (CAMSony[x] != null)
-                {
                     CrestronConsole.PrintLine("Camera: {0}, Name: {1}, IP: {2}:{3}", x, CAMSony[x].Name, camSonyClients[x].AddressToAcceptConnectionFrom, camSonyClients[x].PortNumber);
-                }
+                else
+                    CrestronConsole.PrintLine("[{0}]-----", x);
             }
         }
 
