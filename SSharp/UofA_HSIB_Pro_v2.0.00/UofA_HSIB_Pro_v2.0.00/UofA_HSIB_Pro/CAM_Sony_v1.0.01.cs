@@ -171,8 +171,11 @@ namespace PWCSharpPro
 
         public void InitCamera()
         {
-            sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
+            //sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
             //             02  00  00  01  00  00  00  01  01  FF
+            CrestronConsole.PrintLine("cam[{0}] init string:", guid);
+            sendCommand("\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
+            transaction = 1;
         }
 
         private void sendCommand(string _command)
@@ -215,13 +218,13 @@ namespace PWCSharpPro
 
         private string getHeader(string _cmd, bool _isCommand)
         {
-            //transaction++;
+            transaction++;
             if (_isCommand)
-                //return ("\x01\x00" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
-                return( "\x01\x00\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
+                return ("\x01\x00" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
+                //return( "\x01\x00\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
             else
-                //return ("\x01\x10" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
-                return ("\x01\x10\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
+                return ("\x01\x10" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
+                //return ("\x01\x10\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
         }
 
         private string getTransaction(int _transaction)

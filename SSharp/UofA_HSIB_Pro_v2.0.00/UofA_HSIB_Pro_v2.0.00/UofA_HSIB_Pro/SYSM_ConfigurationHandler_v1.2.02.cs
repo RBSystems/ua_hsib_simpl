@@ -317,6 +317,7 @@ namespace UofA_HSIB_Pro
                 controlSystem.camSonyClients[Guid].EnableUDPServer();
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom); };
 
+                controlSystem.CAMSony[Guid].InitCamera();
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.DplyCamEiscIndices, args.Sig.Number, "ACK"));
                 //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom), CLASSID, false);
             }

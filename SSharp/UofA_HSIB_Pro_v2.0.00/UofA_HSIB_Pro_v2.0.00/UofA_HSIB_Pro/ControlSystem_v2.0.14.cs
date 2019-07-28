@@ -455,7 +455,7 @@ namespace UofA_HSIB_Pro
         {
             if (debug) { new Thread(Print, string.Format("{0} <<< UDP {1}_{2}: {3} Bytes", CLASSID, myUDPServer.IPAddressLastMessageReceivedFrom, myUDPServer.PortNumber, numberOfBytesReceived)); }
             string feedback = PWCConvert.BytesToString(myUDPServer.IncomingDataBuffer, numberOfBytesReceived);
-
+            CrestronConsole.PrintLine("~~~ UDPServerReceiveCallback triggered ");
             for (int x = 1; x <= camSonyClients.Length; x++)
             {
                 if (camSonyClients[x] == myUDPServer)
@@ -633,7 +633,7 @@ namespace UofA_HSIB_Pro
         /// </summary>
         private void RegisterConsoleCommands()
         {
-            if (!CrestronConsole.AddNewConsoleCommand(DebugEnableDisable, "Enable", "Enable or disable HSIB Debug prints", ConsoleAccessLevelEnum.AccessOperator))
+            if(!CrestronConsole.AddNewConsoleCommand(DebugEnableDisable, "Enable", "Enable or disable HSIB Debug prints", ConsoleAccessLevelEnum.AccessOperator))
             {
                 CrestronConsole.PrintLine("Failed to register console command Debug");
                 ErrorLog.Error("{0} 03!!! Failed to register console command Debug", CLASSID);
