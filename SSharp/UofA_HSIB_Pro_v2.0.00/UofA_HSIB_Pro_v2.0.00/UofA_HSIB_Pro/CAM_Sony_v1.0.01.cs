@@ -47,6 +47,9 @@ namespace PWCSharpPro
             }
         }
 
+        public string HeaderForCommand = "";
+        public string HeaderForNonCommand = "";
+
         public bool Debug = false;
 
         public uint ID
@@ -117,30 +120,20 @@ namespace PWCSharpPro
             switch (_move)
             {
                 case(Move.Up):
-                    {
-                        movement = "\x03\x01";
-                        break;
-                    }
+                    movement = "\x03\x01";
+                    break;
                 case (Move.Down):
-                    {
-                        movement = "\x03\x02";
-                        break;
-                    }
+                    movement = "\x03\x02";
+                    break;
                 case (Move.Left):
-                    {
-                        movement = "\x01\x03";
-                        break;
-                    }
+                    movement = "\x01\x03";
+                    break;
                 case (Move.Right):
-                    {
-                        movement = "\x02\x03";
-                        break;
-                    }
+                    movement = "\x02\x03";
+                    break;
                 case (Move.Stop):
-                    {
-                        movement = "\x03\x03";
-                        break;
-                    }                
+                    movement = "\x03\x03";
+                    break;
             }
             string command = string.Format("{0}\x01\x06\x01{1}{2}{3}\xFF", idChar, panSpeed, tiltSpeed, movement);
             command = getHeader(command, true) + command;
@@ -160,20 +153,14 @@ namespace PWCSharpPro
             switch (_zoom)
             {
                 case(Zoom.In):
-                    {
-                        movement = "\x02";
-                        break;
-                    }
+                    movement = "\x02";
+                    break;
                 case (Zoom.Out):
-                    {
-                        movement = "\x03";
-                        break;
-                    }
+                    movement = "\x03";
+                    break;
                 case (Zoom.Stop):
-                    {
-                        movement = "\x00";
-                        break;
-                    }
+                    movement = "\x00";
+                    break;
             }
             string command = string.Format("{0}\x01\x04\x07{1}\xFF", idChar, movement);
             command = getHeader(command, true) + command;

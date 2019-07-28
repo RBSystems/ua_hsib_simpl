@@ -415,7 +415,25 @@ namespace UofA_HSIB_Pro
             }
             #endregion
         }
+        public void Cam_EthTx(int _index, string _command)
+        {
+            //if (TxRxdebug) { CrestronConsole.PrintLine("{0}{1:D2}_{2}:{3}: >>> {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, _command); }
+            if (TxRxdebug) 
+            {
+                string printableCmd = "";
+                foreach (var c in _command)
+                    printableCmd += "0h" + (int)c;
 
+                new Thread(Print, string.Format("{0}{1:D2}_{2}:{3}: >>> {4}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, printableCmd)); 
+            }
+            SocketErrorCodes err = camSonyClients[_index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
+            if (err != SocketErrorCodes.SOCKET_OK)
+            {
+                CrestronConsole.PrintLine("{0}{1:D2}_{2}:{3}: !!! Send Error: {4}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, err);
+                //Logger.LogEntry(string.Format("{0}{1:D2}_{2}:{3}: !!! Send Error: {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, err), CLASSID, false);
+            }
+            return;
+        }
         /// <summary>
         /// Invoked when status for a device has been updated - via a module, to be sent to EISC
         /// Just passes it wholesale to the EISC handler
