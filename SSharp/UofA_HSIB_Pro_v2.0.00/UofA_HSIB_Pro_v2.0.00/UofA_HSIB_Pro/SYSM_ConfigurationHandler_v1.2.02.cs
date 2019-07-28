@@ -307,8 +307,9 @@ namespace UofA_HSIB_Pro
                 #endregion
 
                 controlSystem.CAMSony[Guid] = new CAM_Sony();
+                controlSystem.CAMSony[Guid].guid = Guid;
                 controlSystem.CAMSony[Guid].Name = name;
-                controlSystem.CAMSony[Guid].OnCommandToSend += new CAM_Sony.CommandToSend(controlSystem.ModuleNeedsToSend);
+                controlSystem.CAMSony[Guid].OnCommandToSend += new CAM_Sony.CommandToSend(controlSystem.Cam_EthTx);
                 controlSystem.CAMSony[Guid].OnFeedbackUpdate += new CAM_Sony.FeedbackUpdate(controlSystem.ModuleHasUpdate);
 
                 controlSystem.camSonyClients[Guid] = new UDPServer(ip, CAM_Sony.IpPort, 5000);

@@ -34,7 +34,7 @@ namespace PWCSharpPro
             }
         }
 
-        public delegate void CommandToSend(object dply, string command);
+        public delegate void CommandToSend(int index, string command);
         public CommandToSend OnCommandToSend { get; set; }
 
         public delegate void FeedbackUpdate(object dply, object args);

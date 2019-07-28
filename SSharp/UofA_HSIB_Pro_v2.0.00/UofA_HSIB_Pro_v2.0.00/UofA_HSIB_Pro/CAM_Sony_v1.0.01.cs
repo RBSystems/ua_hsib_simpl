@@ -70,6 +70,8 @@ namespace PWCSharpPro
 
         private int transaction = 1;
 
+        public int guid;
+
         public string Name
         {
             get
@@ -178,7 +180,7 @@ namespace PWCSharpPro
             if (Debug) { PWCConvert.HexPrint(CLASSID, "000>>>", _command); }
             if (OnCommandToSend != null)
             {
-                OnCommandToSend(this, _command);
+                OnCommandToSend(guid, _command);
             }
         }
 
