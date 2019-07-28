@@ -924,6 +924,8 @@ namespace UofA_HSIB_Pro
                         CAMSony[tempGuid].InitCamera(2);
                     else if (args[1].Contains("init3"))
                         CAMSony[tempGuid].InitCamera(3);
+                    else if (args[1].Contains("init4"))
+                        CAMSony[tempGuid].InitCamera(4);
                 }
             }
         }

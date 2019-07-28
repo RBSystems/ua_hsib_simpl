@@ -195,6 +195,11 @@ namespace PWCSharpPro
                     OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
                     transaction = 1;
                     break;
+                case (4):
+                    CrestronConsole.PrintLine("cam[{0}] init string type 3:", guid);
+                    OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
+                    transaction = 1;
+                    break;
             }
         }
 
