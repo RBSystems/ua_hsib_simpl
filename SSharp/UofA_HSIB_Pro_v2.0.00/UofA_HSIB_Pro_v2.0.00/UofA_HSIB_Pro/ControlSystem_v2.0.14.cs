@@ -418,7 +418,7 @@ namespace UofA_HSIB_Pro
         public void Cam_EthTx(int _index, string _command)
         {
             //if (TxRxdebug) { CrestronConsole.PrintLine("{0}{1:D2}_{2}:{3}: >>> {4}", CAM_Sony.CLASSID, index, camSonyClients[index].AddressToAcceptConnectionFrom, camSonyClients[index].PortNumber, _command); }
-            /*if (TxRxdebug) 
+            if (TxRxdebug) 
             {
                 string printableCmd = "";
                 foreach (var c in _command)
@@ -426,7 +426,7 @@ namespace UofA_HSIB_Pro
 
                 new Thread(Print, string.Format("{0}[{1:D2}] ({2}:{3}): >>> {4}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, printableCmd)); 
             }
-             */
+            
             SocketErrorCodes err = camSonyClients[_index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
             if (err != SocketErrorCodes.SOCKET_OK)
             {
