@@ -918,14 +918,7 @@ namespace UofA_HSIB_Pro
                     //foreach (var c in b)
                     //    cmd.add += Convert.ToChar(Int32.Parse(c));
                     //CAMSony[tempGuid].OnCommandToSend()
-                    if (args[1].Contains("init1"))
-                        CAMSony[tempGuid].InitCamera(1);
-                    else if (args[1].Contains("init2"))
-                        CAMSony[tempGuid].InitCamera(2);
-                    else if (args[1].Contains("init3"))
-                        CAMSony[tempGuid].InitCamera(3);
-                    else if (args[1].Contains("init4"))
-                        CAMSony[tempGuid].InitCamera(4);
+
                 }
             }
         }

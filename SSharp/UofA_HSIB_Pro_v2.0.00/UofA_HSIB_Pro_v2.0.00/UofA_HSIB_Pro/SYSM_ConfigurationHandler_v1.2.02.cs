@@ -315,6 +315,9 @@ namespace UofA_HSIB_Pro
                 controlSystem.camSonyClients[Guid] = new UDPServer(ip, CAM_Sony.IpPort, 5000);
                 controlSystem.camSonyClients[Guid].ReceiveDataAsync(controlSystem.UDPServerReceiveCallback);
                 controlSystem.camSonyClients[Guid].EnableUDPServer();
+                
+                controlSystem.CAMSony[Guid].InitCamera();
+                
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Camera {1} named {2} with IP {3}", CLASSID, Guid, controlSystem.CAMSony[Guid].Name, controlSystem.camSonyClients[Guid].AddressToAcceptConnectionFrom); };
 
                 controlSystem.CAMSony[Guid].InitCamera();

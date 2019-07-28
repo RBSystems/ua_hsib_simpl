@@ -171,36 +171,11 @@ namespace PWCSharpPro
 
         public void InitCamera()
         {
-            InitCamera(1);
-        }
-
-        public void InitCamera(int _type)
-        {
             //sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
             //             02  00  00  01  00  00  00  01  01  FF
-            switch (_type)
-            {
-                case (1):
-                    CrestronConsole.PrintLine("cam[{0}] init string type 1:", guid);
-                    OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
-                    transaction = 1;
-                    break;
-                case (2):
-                    CrestronConsole.PrintLine("cam[{0}] init string type 2:", guid);
-                    sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
-                    transaction = 1;
-                    break;
-                case (3):
-                    CrestronConsole.PrintLine("cam[{0}] init string type 3:", guid);
-                    OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
-                    transaction = 1;
-                    break;
-                case (4):
-                    CrestronConsole.PrintLine("cam[{0}] init string type 3:", guid);
-                    OnCommandToSend(guid, "\x20\x01\x00\x05\xff\xff\xff\xff\x81\x01\x00\x01\xff");
-                    transaction = 1;
-                    break;
-            }
+            CrestronConsole.PrintLine("cam[{0}] init string type 2:", guid);
+            sendCommand("\x02\x00\x00\x01\x00\x00\x00\x01\x01\xFF");
+            transaction = 1;
         }
 
         private void sendCommand(string _command)
