@@ -424,7 +424,7 @@ namespace UofA_HSIB_Pro
                 foreach (var c in _command)
                     printableCmd += "0h" + (int)c;
 
-                new Thread(Print, string.Format("{0}{1:D2}_{2}:{3}: >>> {4}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, printableCmd)); 
+                new Thread(Print, string.Format("{0}{1:D2}_{2}:{3}: >>> {4} {5}", CAM_Sony.CLASSID, _index, camSonyClients[_index].AddressToAcceptConnectionFrom, camSonyClients[_index].PortNumber, printableCmd, printableCmd.Length)); 
             }
             SocketErrorCodes err = camSonyClients[_index].SendData(PWCConvert.StringToBytes(_command), _command.Length);
             if (err != SocketErrorCodes.SOCKET_OK)
