@@ -215,15 +215,13 @@ namespace PWCSharpPro
 
         private string getHeader(string _cmd, bool _isCommand)
         {
-            transaction++;
+            //transaction++;
             if (_isCommand)
-            {
-                return( "\x01\x00" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
-            }
+                //return ("\x01\x00" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
+                return( "\x01\x00\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
             else
-                {
-                    return ("\x01\x10" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
-            }
+                //return ("\x01\x10" + "\x00" + Convert.ToChar(_cmd.Length) + getTransaction(transaction));
+                return ("\x01\x10\x00" + Convert.ToChar(_cmd.Length) + "\xff\xff\xff\xff");
         }
 
         private string getTransaction(int _transaction)
