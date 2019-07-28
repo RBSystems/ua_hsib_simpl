@@ -41,3 +41,17 @@ C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSha
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpHelperInterface.dll
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpPro.exe
 C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL Repo\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpReflectionInterface.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\UofA_HSIB_Pro.pdb
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.DeviceSupport.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.DM.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.EthernetCommunications.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.GeneralIO.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\Crestron.SimplSharpPro.ThreeSeriesCards.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpCustomAttributesInterface.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpHelperInterface.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpPro.exe
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\bin\Debug\SimplSharpReflectionInterface.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.dll
+C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\SSharp\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro_v2.0.00\UofA_HSIB_Pro\obj\Debug\UofA_HSIB_Pro.pdb

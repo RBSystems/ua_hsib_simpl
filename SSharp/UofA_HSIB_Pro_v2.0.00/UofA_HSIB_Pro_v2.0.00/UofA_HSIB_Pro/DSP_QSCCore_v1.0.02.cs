@@ -319,16 +319,29 @@ namespace PWCSharpPro
         /// </summary>
         /// <param name="_signal">The fader to manipulate. 1 - 30</param>
         public override void MuteOn(uint _signal)
-        {          
+        {
+            string command;
             if (dSPQSCSignals[(int)_signal] != null)
             {
                 if (OnCommandToSend != null)
                 {
                     isMuted[_signal] = true;
 
+                    command = string.Format("csp {0} 1\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl);
+
                     //if point type is an audio/mute control (1 or 2)
                     if (dSPQSCSignals[(int)_signal].PointType < 3)
-                        OnCommandToSend(this, string.Format("csp {0} 1\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl));
+                    {
+                        if (dSPQSCSignals[(int)_signal].dspSystemID == 2)
+                        {
+                            //OnSendCommandToSystemTwo(this, cmd);
+                            config.controlSystem.eiscs[1].StringInput[400].StringValue = command;
+                        }
+                        else
+                        {
+                            OnCommandToSend(this, command);
+                        }
+                    }
                 }
             }
         }
@@ -338,13 +351,28 @@ namespace PWCSharpPro
         /// <param name="_signal">The fader to manipulate. 1 - 30</param>
         public override void MuteOff(uint _signal)
         {
+            string command;
             if (dSPQSCSignals[(int)_signal] != null)
             {
                 if (OnCommandToSend != null)
                 {
                     isMuted[_signal] = false;
-                    string command = string.Format("csp {0} 0\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl);
-                    OnCommandToSend(this, command);
+
+                    command = string.Format("csp {0} 0\x0A", dSPQSCSignals[(int)_signal].MuteNamedControl);
+
+                    //if point type is an audio/mute control (1 or 2)
+                    if (dSPQSCSignals[(int)_signal].PointType < 3)
+                    {
+                        if (dSPQSCSignals[(int)_signal].dspSystemID == 2)
+                        {
+                            //OnSendCommandToSystemTwo(this, cmd);
+                            config.controlSystem.eiscs[1].StringInput[400].StringValue = command;
+                        }
+                        else
+                        {
+                            OnCommandToSend(this, command);
+                        }
+                    }
                 }
             }
         }

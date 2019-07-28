@@ -114,7 +114,7 @@ namespace UofA_HSIB_Pro
                 else { CrestronConsole.PrintLine("{0} {1} <<< {2} {3}", CLASSID, currentDevice.ID, args.Sig.Type, args.Sig.Number); }
             }
 
-            if (!EnablePacer)
+            if (EnablePacer == false)
             {
                 if (MtrxEiscIds.Contains((int)currentDevice.ID))
                 {
@@ -132,6 +132,14 @@ namespace UofA_HSIB_Pro
                 {
                     new Thread(parseIMGPorRLYorLGHTSignal, args, Thread.eThreadStartOptions.Running);
                 }
+            } 
+            else if (args.Sig.Number == 4000  &&  args.Sig.BoolValue == true)
+            {
+                EnablePacerSet(false);
+            }
+            else
+            {
+                CrestronConsole.PrintLine("Pacer Blocked Incoming EISC Signal: {0}, {1}", args.Sig.Number, args.Sig.Type);
             }
         }
 
