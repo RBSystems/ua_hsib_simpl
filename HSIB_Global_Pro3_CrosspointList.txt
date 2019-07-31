@@ -1,4 +1,4 @@
-Crosspoint listing for C:\Users\bcampagnola\Documents\L3AV\Jobs\UofA HSIB\SIMPL\ua_hsib_simpl\HSIB_Global_Pro3.SMW
+Crosspoint listing for C:\Users\benca\Documents\Projects\L3\ua_hsib_simpl\HSIB_Global_Pro3.SMW
 
 Note:  Crosspoint symbols with EquipID or ControlID set to 0d are not routeable.
 
