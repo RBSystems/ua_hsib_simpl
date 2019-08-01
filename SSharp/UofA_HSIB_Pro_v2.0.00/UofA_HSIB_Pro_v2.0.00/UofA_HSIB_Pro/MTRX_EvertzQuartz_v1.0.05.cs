@@ -9,6 +9,7 @@ using PWCUtils;
 using Crestron.SimplSharpPro.CrestronThread;        	// For Threading
 using UofA_HSIB_Pro;
 
+
 namespace PWCSharpPro
 {
     public class MTRX_EvertzQuartz : MTRX
@@ -530,7 +531,7 @@ namespace PWCSharpPro
         public MTRX_Data()
         {
             //create the mtrx io lists
-            GtoIO.Add(MTRX_Item.eIO_Type.Input, new Dictionary<int, MTRX_Item>());
+            GtoIO[MTRX_Item.eIO_Type.Input] = new Dictionary<int, MTRX_Item>();
             GtoIO.Add(MTRX_Item.eIO_Type.Output, new Dictionary<int, MTRX_Item>());
             //add "blank source" / "none" to the inputs list
             GtoIO[MTRX_Item.eIO_Type.Input].Add(0, new MTRX_Item(0, 0, 0, MTRX_Item.eIO_Type.Input, "Blank Src"));
