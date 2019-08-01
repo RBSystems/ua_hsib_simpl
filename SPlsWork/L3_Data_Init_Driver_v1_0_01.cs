@@ -183,7 +183,11 @@ public override object FunctionMain (  object __obj__ )
         __context__.SourceCodeLine = 133;
         IINDEX = (ushort) ( 1 ) ; 
         __context__.SourceCodeLine = 135;
+<<<<<<< HEAD
         CreateWait ( "__SPLS_TMPVAR__WAITLABEL_12__" , DELAY_TIME  .Value , __SPLS_TMPVAR__WAITLABEL_12___Callback ) ;
+=======
+        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_117__" , DELAY_TIME  .Value , __SPLS_TMPVAR__WAITLABEL_117___Callback ) ;
+>>>>>>> parent of 476d259... xd
         
         
     }
@@ -192,7 +196,11 @@ public override object FunctionMain (  object __obj__ )
     return __obj__;
     }
     
+<<<<<<< HEAD
 public void __SPLS_TMPVAR__WAITLABEL_12___CallbackFn( object stateInfo )
+=======
+public void __SPLS_TMPVAR__WAITLABEL_117___CallbackFn( object stateInfo )
+>>>>>>> parent of 476d259... xd
 {
 
     try
@@ -264,7 +272,11 @@ public override void LogosSplusInitialize()
     DELAY_TIME = new UShortParameter( DELAY_TIME__Parameter__, this );
     m_ParameterList.Add( DELAY_TIME__Parameter__, DELAY_TIME );
     
+<<<<<<< HEAD
     __SPLS_TMPVAR__WAITLABEL_12___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_12___CallbackFn );
+=======
+    __SPLS_TMPVAR__WAITLABEL_117___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_117___CallbackFn );
+>>>>>>> parent of 476d259... xd
     
     START.OnDigitalPush.Add( new InputChangeHandlerWrapper( START_OnPush_0, false ) );
     STOP.OnDigitalPush.Add( new InputChangeHandlerWrapper( STOP_OnPush_1, false ) );
@@ -287,7 +299,11 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INIT_DRIVER_V1_0_01 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
+<<<<<<< HEAD
 private WaitFunction __SPLS_TMPVAR__WAITLABEL_12___Callback;
+=======
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_117___Callback;
+>>>>>>> parent of 476d259... xd
 
 
 const uint DISABLE__DigitalInput__ = 0;

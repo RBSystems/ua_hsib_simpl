@@ -123550,7 +123550,7 @@ I1=53364
 I4=53365
 mO=2
 tO=3
-O1=810
+O1=53367
 O2=3083
 O3=53366
 mP=1
@@ -131836,11 +131836,6 @@ Nm=S.x_RLY_toRemote_Trig_001_OS
 ObjTp=Sg
 H=809
 Nm=S.02_System_Uses_PrivacyMute
-]
-[
-ObjTp=Sg
-H=810
-Nm=//S.x_DSP02_TCP_Connect_FB
 ]
 [
 ObjTp=Sg

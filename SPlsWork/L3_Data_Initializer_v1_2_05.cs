@@ -288,12 +288,20 @@ namespace UserModule_L3_DATA_INITIALIZER_V1_2_05
                 }
             
             __context__.SourceCodeLine = 385;
+<<<<<<< HEAD
             CreateWait ( "__SPLS_TMPVAR__WAITLABEL_13__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_13___Callback ) ;
+=======
+            CreateWait ( "__SPLS_TMPVAR__WAITLABEL_118__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_118___Callback ) ;
+>>>>>>> parent of 476d259... xd
             
             return 0; // default return value (none specified in module)
             }
             
+<<<<<<< HEAD
         public void __SPLS_TMPVAR__WAITLABEL_13___CallbackFn( object stateInfo )
+=======
+        public void __SPLS_TMPVAR__WAITLABEL_118___CallbackFn( object stateInfo )
+>>>>>>> parent of 476d259... xd
         {
         
             try
@@ -642,7 +650,11 @@ object DATAINSERT__DOLLAR___OnChange_1 ( Object __EventInfo__ )
             }
         
         __context__.SourceCodeLine = 588;
+<<<<<<< HEAD
         CreateWait ( "__SPLS_TMPVAR__WAITLABEL_14__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_14___Callback ) ;
+=======
+        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_119__" , END_DELAY  .Value , __SPLS_TMPVAR__WAITLABEL_119___Callback ) ;
+>>>>>>> parent of 476d259... xd
         
         
     }
@@ -652,7 +664,11 @@ object DATAINSERT__DOLLAR___OnChange_1 ( Object __EventInfo__ )
     
 }
 
+<<<<<<< HEAD
 public void __SPLS_TMPVAR__WAITLABEL_14___CallbackFn( object stateInfo )
+=======
+public void __SPLS_TMPVAR__WAITLABEL_119___CallbackFn( object stateInfo )
+>>>>>>> parent of 476d259... xd
 {
 
     try
@@ -975,8 +991,13 @@ public override void LogosSplusInitialize()
     FINALIZEDELIMITER__DOLLAR__ = new StringParameter( FINALIZEDELIMITER__DOLLAR____Parameter__, this );
     m_ParameterList.Add( FINALIZEDELIMITER__DOLLAR____Parameter__, FINALIZEDELIMITER__DOLLAR__ );
     
+<<<<<<< HEAD
     __SPLS_TMPVAR__WAITLABEL_13___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_13___CallbackFn );
     __SPLS_TMPVAR__WAITLABEL_14___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_14___CallbackFn );
+=======
+    __SPLS_TMPVAR__WAITLABEL_118___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_118___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_119___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_119___CallbackFn );
+>>>>>>> parent of 476d259... xd
     
     LINE_DELAY.OnAnalogChange.Add( new InputChangeHandlerWrapper( LINE_DELAY_OnChange_0, false ) );
     for( uint i = 0; i < 1000; i++ )
@@ -1003,8 +1024,13 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_DATA_INITIALIZER_V1_2_05 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
+<<<<<<< HEAD
 private WaitFunction __SPLS_TMPVAR__WAITLABEL_13___Callback;
 private WaitFunction __SPLS_TMPVAR__WAITLABEL_14___Callback;
+=======
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_118___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_119___Callback;
+>>>>>>> parent of 476d259... xd
 
 
 const uint ENABLE__DigitalInput__ = 0;
