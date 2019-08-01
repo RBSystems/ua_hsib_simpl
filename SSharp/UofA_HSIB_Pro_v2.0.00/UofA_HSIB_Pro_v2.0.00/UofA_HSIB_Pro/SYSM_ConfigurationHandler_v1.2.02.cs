@@ -252,7 +252,7 @@ namespace UofA_HSIB_Pro
                 #endregion
 
                 controlSystem.mtrxData.AddIO(guid, v_number, a_number, name, MTRX_Item.eIO_Type.Output);
-                controlSystem.MTRXEvertz.StartPolling();
+                //controlSystem.MTRXEvertz.StartPolling();
                 if (debug) { CrestronConsole.PrintLine(
                         "{0} *** Configured Matrix Output with guid {1} named {2} with Evertz VSrc#{3}, Evertz ASrc#{4}", 
                         CLASSID, 
