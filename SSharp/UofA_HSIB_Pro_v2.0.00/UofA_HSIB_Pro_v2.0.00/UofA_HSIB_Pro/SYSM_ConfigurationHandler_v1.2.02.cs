@@ -92,7 +92,7 @@ namespace UofA_HSIB_Pro
                 ConfigStrings[(int)Method.ConfigureMatrix, args.Sig.Number] = args.Sig.StringValue;
 
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configuring Matrix with {1}...", CLASSID, args.Sig.StringValue); }
-                controlSystem.MTRXEvertz = new MTRX_EvertzQuartz();
+                controlSystem.MTRXEvertz = new MTRX_EvertzQuartz(controlSystem);
                 controlSystem.MTRXEvertz.OnCommandToSend += new MTRX.CommandToSend(controlSystem.ModuleNeedsToSend);
                 controlSystem.MTRXEvertz.OnFeedbackUpdate += new MTRX.FeedbackUpdate(controlSystem.ModuleHasUpdate);
                 controlSystem.MTRXEvertz.Name = args.Sig.StringValue.Split('|')[0];
@@ -101,7 +101,7 @@ namespace UofA_HSIB_Pro
                 controlSystem.MTRXEvertzClient.SocketStatusChange += new TCPClientSocketStatusChangeEventHandler(controlSystem.TCPClientSocketStatusChange);
                 //SocketErrorCodes err = controlSystem.MTRXEvertzClient.ConnectToServer();
 
-                controlSystem.mtrxSignals = new MTRXSignals();
+                controlSystem.mtrxData = new MTRX_Data();
                 if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix as {1} named {2} on IP {3}", CLASSID, controlSystem.MTRXEvertz.ToString(), controlSystem.MTRXEvertz.Name, controlSystem.MTRXEvertzClient.AddressClientConnectedTo); }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
@@ -143,8 +143,8 @@ namespace UofA_HSIB_Pro
 
                 int guid = (int)args.Sig.Number % 700;
                 string name = "";
-                int number = -1;
-
+                int v_number = -1;
+                int a_number = -1;
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
                 {
@@ -163,18 +163,28 @@ namespace UofA_HSIB_Pro
                         case ("LOCAL_NAME"):
                             name = value;
                             break;
-                        case ("CMD_IO"):
-                            number = Int32.Parse( ReturnNumbersOnly( value));
+                        case ("V_CMD_IO"):
+                            v_number = Int32.Parse(ReturnNumbersOnly(value));
+                            break;
+                        case ("A_CMD_IO"):
+                            a_number = Int32.Parse(ReturnNumbersOnly(value));
                             break;
                     }
                 }
                 #endregion
 
-                controlSystem.mtrxSignals.AddInput(guid, number, name);
-                if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].SignalNumber); }
+                controlSystem.mtrxData.AddIO(guid, v_number, a_number, name, MTRX_Item.eIO_Type.Input);
+                if (debug) { CrestronConsole.PrintLine(
+                                    "{0} *** Configured Matrix Input with guid {1} named {2} with Evertz VSrc#{3}, Evertz ASrc#{4}", 
+                                    CLASSID, 
+                                    (int)args.Sig.Number % 700, 
+                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Input][(int)args.Sig.Number % 700].Name,
+                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number % 700].V_MTRX_io_Num,
+                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number % 700].A_MTRX_io_Num   );
+                }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
-                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxSignals.Inputs[(int)args.Sig.Number % 700].SignalNumber), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Input with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number % 700, controlSystem.mtrxData.Inputs[(int)args.Sig.Number % 700].Name, controlSystem.mtrxData.Inputs[(int)args.Sig.Number % 700].SignalNumber), CLASSID, false);
             }
             catch (Exception e)
             {
@@ -212,7 +222,8 @@ namespace UofA_HSIB_Pro
 
                 int guid = (int)args.Sig.Number;
                 string name = "";
-                int number = -1;
+                int v_number = -1;
+                int a_number = -1;
 
                 #region Check each KVP for relevant data. Immediately set up device type when found
                 foreach (string KeyValue in keyValues)
@@ -230,19 +241,28 @@ namespace UofA_HSIB_Pro
                         case ("LOCAL_NAME"):
                             name = value;
                             break;
-                        case ("CMD_IO"):
-                            number = Int32.Parse(ReturnNumbersOnly(value));
+                        case ("V_CMD_IO"):
+                            v_number = Int32.Parse(ReturnNumbersOnly(value));
+                            break;
+                        case ("A_CMD_IO"):
+                            a_number = Int32.Parse(ReturnNumbersOnly(value));
                             break;
                     }
                 }
                 #endregion
 
-                controlSystem.mtrxSignals.AddOutput(guid, number, name);
+                controlSystem.mtrxData.AddIO(guid, v_number, a_number, name, MTRX_Item.eIO_Type.Output);
                 controlSystem.MTRXEvertz.StartPolling();
-                if (debug) { CrestronConsole.PrintLine("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber); }
+                if (debug) { CrestronConsole.PrintLine(
+                        "{0} *** Configured Matrix Output with guid {1} named {2} with Evertz VSrc#{3}, Evertz ASrc#{4}", 
+                        CLASSID, 
+                        (int)args.Sig.Number, 
+                        controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number].Name, 
+                        controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number].V_MTRX_io_Num,
+                        controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number].A_MTRX_io_Num );     }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
-                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber), CLASSID, false);
+                //controlSystem.Logger.LogEntry(string.Format("{0} *** Configured Matrix Output with guid {1} named {2} with Evertz number {3}", CLASSID, (int)args.Sig.Number, controlSystem.mtrxData.Outputs[(int)args.Sig.Number].Name, controlSystem.mtrxData.Outputs[(int)args.Sig.Number].SignalNumber), CLASSID, false);
             }
             catch (Exception e)
             {

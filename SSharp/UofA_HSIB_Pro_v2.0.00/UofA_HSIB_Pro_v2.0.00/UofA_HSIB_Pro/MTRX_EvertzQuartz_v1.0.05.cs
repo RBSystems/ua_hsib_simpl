@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Crestron.SimplSharp;
+using Crestron.SimplSharpPro;
 using PWCSharpPro;
 using PWCUtils;
 using Crestron.SimplSharpPro.CrestronThread;        	// For Threading
+using UofA_HSIB_Pro;
 
 namespace PWCSharpPro
 {
@@ -14,7 +16,7 @@ namespace PWCSharpPro
         /* Changelog:
          * v1.0.02: Removed old timing components      
          *          Added new gate for sendCommand() to pace commands
-         * v1.0.03: Fixed bug where overwriting a singla in MTRXSignals would throw an excetion; removing previous key fixed.    
+         * v1.0.03: Fixed bug where overwriting a singla in MTRX_Data would throw an excetion; removing previous key fixed.    
          *          Removed CommandList sub class
          * v1.0.04: Added auto polling      
          * v1.0.05: 
@@ -65,10 +67,14 @@ namespace PWCSharpPro
         private string name;
 
         CTimer rxTimer;
+        ControlSystem controlSystem;
         #endregion
 
-        public MTRX_EvertzQuartz()
+
+
+        public MTRX_EvertzQuartz(ControlSystem _controlSystem)
         {
+            controlSystem = _controlSystem;
             debug = false;
             currentInputForOutputs = new uint[cNumberOutputs + 1];
             ClearBuffer();
@@ -318,48 +324,28 @@ namespace PWCSharpPro
         {
             try
             {
-                if (_input <= cNumberInputs)
+                if (_input != currentInputForOutputs[_output])
                 {
-                    if (_output <= cNumberOutputs)
+                    currentInputForOutputs[_output] = _input;           // FAKE NE- I mean, feedback ;)
+                    if (OnFeedbackUpdate != null)
                     {
-                        if (_input != currentInputForOutputs[_output])
-                        {
-                            currentInputForOutputs[_output] = _input;           // FAKE NE- I mean, feedback ;)
-                            if (OnFeedbackUpdate != null)
-                            {
-                                MTRXArgs args = new MTRXArgs(FeedbackType.All, _output, _input);
-                                OnFeedbackUpdate(this, args);
-                            }
-                        }
-
-                        if (_signal == Signal.Video)
-                        {
-                            return (string.Format(".SV{0},{1}\x0D", _output, _input));
-                        }
-                        else if (_signal == Signal.Audio)
-                        {
-                            return (string.Format(".SA{0},{1}\x0D", _output, _input));
-                        }
-                        else if (_signal == Signal.Both)
-                        {
-                            return (string.Format(".SVA{0},{1}\x0D", _output, _input));
-                        }
-                        else
-                        {
-                            if (Debug) { CrestronConsole.PrintLine("{0} !!! createSwitchCommand({1}, {2}, {3}): Level character(s) invalid", CLASSID, _input, _output, _signal, cNumberOutputs); }
-                            throw new IndexOutOfRangeException("Level character(s) invalid");
-                        }
-                    }
-                    else
-                    {
-                        if (Debug) { CrestronConsole.PrintLine("{0} !!! createSwitchCommand({1}, {2}, {3}): Output exceeds {4}", CLASSID, _input, _output, _signal, cNumberOutputs); }
-                        throw new IndexOutOfRangeException("Output out of range");
+                        MTRXArgs args = new MTRXArgs(FeedbackType.All, _output, _input);
+                        OnFeedbackUpdate(this, args);
                     }
                 }
+                if (controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)_output].A_MTRX_io_Num > 0)
+                    _signal = Signal.Audio;
+
+                if (_signal == Signal.Video)
+                    return (string.Format(".SV{0},{1}\x0D", _output, _input));
+                else if (_signal == Signal.Audio)
+                    return (string.Format(".SA{0},{1}\x0D", _output, _input));
+                else if (_signal == Signal.Both)
+                    return (string.Format(".SVA{0},{1}\x0D", _output, _input));
                 else
                 {
-                    if (Debug) { CrestronConsole.PrintLine("{0} !!! createSwitchCommand({1}, {2}, {3}): Input exceeds {4}", CLASSID, _input, _output, _signal, cNumberInputs); }
-                    throw new IndexOutOfRangeException("Input out of range");
+                    if (Debug) { CrestronConsole.PrintLine("{0} !!! createSwitchCommand({1}, {2}, {3}): Level character(s) invalid", CLASSID, _input, _output, _signal, cNumberOutputs); }
+                    throw new IndexOutOfRangeException("Level character(s) invalid");
                 }
             }
             catch (Exception)
@@ -509,110 +495,87 @@ namespace PWCSharpPro
     /// <summary>
     /// Class is an args class to store a signals details, such as guid, signal number (on Evertz), name
     /// </summary>
-    public class MTRXSignalInfo
+    public class MTRX_Item
     {
-        public enum eSignalType { Output, Input };
+        public enum eIO_Type { Output, Input };
 
         public int Guid;
-        public int SignalNumber;
-        public eSignalType SignalType;
+        public int V_MTRX_io_Num;
+        public int A_MTRX_io_Num;
+        public eIO_Type IO_Type;
         public string Name;
 
-        public MTRXSignalInfo(int Guid, int SignalNumber, eSignalType SignalType, string Name)
+        public MTRX_Item(int _Guid, int _V_MTRX_io_Num, int _A_MTRX_io_Num, eIO_Type _IO_Type, string _Name)
         {
-            this.Guid = Guid;
-            this.SignalNumber = SignalNumber;
-            this.SignalType = SignalType;
-            this.Name = Name;
+            Guid = _Guid;
+            V_MTRX_io_Num = _V_MTRX_io_Num;
+            A_MTRX_io_Num = _A_MTRX_io_Num;
+            IO_Type = _IO_Type;
+            Name = _Name;
         }
     }
 
     /// <summary>
     /// Class sotres a list of all the inputs and outputs used in the system
     /// </summary>
-    public class MTRXSignals
+    public class MTRX_Data
     {
-        public Dictionary<int, MTRXSignalInfo> Inputs = new Dictionary<int, MTRXSignalInfo>();
-        public Dictionary<int, MTRXSignalInfo> Outputs = new Dictionary<int, MTRXSignalInfo>();
-
-        public MTRXSignals()
-        {
-            Inputs = new Dictionary<int, MTRXSignalInfo>();
-            Outputs = new Dictionary<int, MTRXSignalInfo>();
-
-            Inputs.Add(0, new MTRXSignalInfo(0, 0, MTRXSignalInfo.eSignalType.Input, "Blank Src"));
-        }
-
-        public void AddInput(int Guid, int SignalNumber, string Name)
-        {
-            MTRXSignalInfo SignalInfo = new MTRXSignalInfo(Guid, SignalNumber, MTRXSignalInfo.eSignalType.Input, Name);
-
-            if (Inputs.ContainsKey(Guid))
-            {
-                CrestronConsole.PrintLine("{0} *** Removing previous input for GUID {1}", MTRX_EvertzQuartz.CLASSID, Guid);
-                Inputs.Remove(Guid);
-            }
-
-            Inputs.Add(Guid, SignalInfo);
-        }
-
-        public void AddOutput(int Guid, int SignalNumber, string Name)
-        {
-            MTRXSignalInfo SignalInfo = new MTRXSignalInfo(Guid, SignalNumber, MTRXSignalInfo.eSignalType.Output, Name);
-
-            if (Outputs.ContainsKey(Guid))
-            {
-                CrestronConsole.PrintLine("{0} *** Removing previous output for GUID {1}", MTRX_EvertzQuartz.CLASSID, Guid);
-                Outputs.Remove(Guid);
-            }
-
-            Outputs.Add(Guid, SignalInfo);
-        }
-
-        public int GetOutputForGuid(int Guid)
-        {
-            if (Outputs.ContainsKey(Guid))
-            {
-                return Outputs[Guid].SignalNumber;
-            }
-            return -1;
-        }
-
-        public int GetInputForGuid(int Guid)
-        {
-            if (Inputs.ContainsKey(Guid))
-            {
-                return Inputs[Guid].SignalNumber;
-            }
-            else if (Guid == 0)
-            {
-                return 0;
-            }
-            return -1;
-        }
-
-        public int GetGuidForInput(int Input)
-        {
-            if (Input == 0)
-            {
-                return 0;
-            }
-
-            if (Inputs.FirstOrDefault(x => x.Value.SignalNumber == Input).Key != 0)
-            {
-                return (Inputs.FirstOrDefault(x => x.Value.SignalNumber == Input).Key);
-            }
-            return 10000 + Input;
+        //GtoIO[input/output]<(int)guid, (obj)MTRX_Item>
+        public Dictionary<MTRX_Item.eIO_Type, Dictionary<int, MTRX_Item>>
+            GtoIO = new Dictionary<MTRX_Item.eIO_Type, Dictionary<int, MTRX_Item>>();
+        //IOtoG[input/output]<(int)io_num, (int)guid>
+        public Dictionary<MTRX_Item.eIO_Type, Dictionary<int, int>>
+            IOtoG = new Dictionary<MTRX_Item.eIO_Type, Dictionary<int, int>>();
             
+        public MTRX_Data()
+        {
+            //create the mtrx io lists
+            GtoIO[MTRX_Item.eIO_Type.Input] = new Dictionary<int, MTRX_Item>();
+            GtoIO[MTRX_Item.eIO_Type.Output] = new Dictionary<int, MTRX_Item>();
+            //add "blank source" / "none" to the inputs list
+            GtoIO[MTRX_Item.eIO_Type.Input][0] = new MTRX_Item(0, 0, 0, MTRX_Item.eIO_Type.Input, "Blank Src");
+
+
+            IOtoG[MTRX_Item.eIO_Type.Input] = new Dictionary<int, int>();
+            IOtoG[MTRX_Item.eIO_Type.Output] = new Dictionary<int, int>();
+
+            IOtoG[MTRX_Item.eIO_Type.Input][0] = 0;
         }
 
-        public int GetGuidForOutput(int Output)
+        public void AddIO(int Guid, int V_MTRX_io_Num, int A_MTRX_io_Num, string Name, MTRX_Item.eIO_Type io_type)
         {
-            if (Outputs.FirstOrDefault(x => x.Value.SignalNumber == Output).Key != 0)
+            GtoIO[io_type][Guid] = new MTRX_Item(Guid, V_MTRX_io_Num, A_MTRX_io_Num, io_type, Name);
+            
+            if(V_MTRX_io_Num > 0)   IOtoG[io_type][V_MTRX_io_Num] = Guid;
+            else if(A_MTRX_io_Num > 0) IOtoG[io_type][A_MTRX_io_Num] = Guid;
+        }
+
+        public int[] GetIOtoG(int _io, MTRX_Item.eIO_Type _type)
+        {
+            int[] io_num = new int[2];
+            io_num[0] = 0;
+            io_num[1] = 0;
+            if (IOtoG[_type].ContainsKey(_io))
             {
-                return (Outputs.FirstOrDefault(x => x.Value.SignalNumber == Output).Key);
+                io_num[0] = IOtoG[_type][_io];
+                io_num[1] = IOtoG[_type][_io];
+                return (io_num);
             }
-            return -1;
+            return (io_num);
+        }
+
+        public int[] GetGtoIO(int _guid, MTRX_Item.eIO_Type _type)
+        {
+            int[] io_num = new int[2];
+            io_num[0]=0;
+            io_num[1]=0;
+            if (GtoIO[_type].ContainsKey(_guid))
+            {
+                io_num[0] = GtoIO[_type][_guid].V_MTRX_io_Num;
+                io_num[1] = GtoIO[_type][_guid].A_MTRX_io_Num;
+                return (io_num);
+            }
+            return (io_num);
         }
     }
 

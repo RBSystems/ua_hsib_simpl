@@ -152,23 +152,26 @@ namespace UofA_HSIB_Pro
         {
             SigEventArgs args = (SigEventArgs)_args;
             // Polling command. Index is output to poll. Check signal is true (pressed) and is boolean (digital)
-            if (args.Sig.Type == eSigType.Bool && args.Sig.BoolValue == true)
+            /*if (args.Sig.Type == eSigType.Bool && args.Sig.BoolValue == true)
             {
                 if (args.Sig.Number >= 1 && args.Sig.Number <= 699)
                 {
-                    uint Output = (uint)controlSystem.mtrxSignals.Outputs[(int)args.Sig.Number].SignalNumber;
+                    uint Output = (uint)controlSystem.mtrxData.Outputs[(int)args.Sig.Number].SignalNumber;
                     controlSystem.MTRXEvertz.PollOutput(PWCSharpPro.MTRX.Signal.Video, Output);
                 }
-            }
+            }*/
             // Routing command. Index is output, value is input. Check signal is ushort (analog)
-            else if (args.Sig.Type == eSigType.UShort)
+            //else if (args.Sig.Type == eSigType.UShort)
+            if (args.Sig.Type == eSigType.UShort)
             {
                 if (args.Sig.Number >= 1 && args.Sig.Number <= 699)
                 {
-                    if (controlSystem.mtrxSignals != null)
+                    if (controlSystem.mtrxData != null)
                     {
-                        int Output = controlSystem.mtrxSignals.GetOutputForGuid((int)args.Sig.Number);
-                        int Input = controlSystem.mtrxSignals.GetInputForGuid((int)args.Sig.UShortValue);
+                        int[] io = controlSystem.mtrxData.GetGtoIO((int)args.Sig.Number, MTRX_Item.eIO_Type.Output);
+                        
+                        int Output = controlSystem.mtrxData.GetGtoIO((int)args.Sig.Number, MTRX_Item.eIO_Type.Output)[0];
+                        int Input = controlSystem.mtrxData.GetGtoIO((int)args.Sig.UShortValue, MTRX_Item.eIO_Type.Input)[0];
                         if (debug) { CrestronConsole.PrintLine("{0} Queueing Out {1} In {2}", CLASSID, Output, Input); }
 
                         if (Output != -1 && Input != -1)
@@ -636,18 +639,18 @@ namespace UofA_HSIB_Pro
                 MTRXArgs args = (MTRXArgs)value;
                 foreach (int index in MtrxEiscIndices)
                 {
-                    int outputGuid = controlSystem.mtrxSignals.GetGuidForOutput((int)args.Ouput);
-                    int inputGuid = controlSystem.mtrxSignals.GetGuidForInput((int)args.Input);
+                    int outputGuid = controlSystem.mtrxData.GetIOtoG((int)args.Ouput, MTRX_Item.eIO_Type.Output)[0];
+                    int inputGuid = controlSystem.mtrxData.GetIOtoG((int)args.Input, MTRX_Item.eIO_Type.Input)[0];
 
                     if (debug)
                     {
                         CrestronConsole.PrintLine("{0} {1:X} >>> Analog {2} = {3}   ({4} routed to {5})",
                                                        CLASSID,
-                                                           index,
-                                                               outputGuid,
-                                                                   inputGuid,
-                                                                       controlSystem.mtrxSignals.Inputs[inputGuid].Name,
-                                                                           controlSystem.mtrxSignals.Outputs[outputGuid].Name);
+                                                       index,
+                                                       outputGuid,
+                                                       inputGuid,
+                                                       controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Input][inputGuid].Name,
+                                                       controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][outputGuid].Name);
                     }
                     if (outputGuid != -1)
                     {

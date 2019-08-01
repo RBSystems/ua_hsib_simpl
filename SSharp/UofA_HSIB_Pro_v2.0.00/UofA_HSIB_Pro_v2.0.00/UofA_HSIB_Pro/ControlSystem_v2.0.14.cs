@@ -84,7 +84,7 @@ namespace UofA_HSIB_Pro
 
         #region Device Objects and Handlers
         public MTRX_EvertzQuartz MTRXEvertz;
-        public MTRXSignals mtrxSignals;
+        public MTRX_Data mtrxData;
 
         public DSP_QSCCore DSPQSC;
         public CAM_Sony[] CAMSony = new CAM_Sony[50];
@@ -979,15 +979,15 @@ namespace UofA_HSIB_Pro
             CrestronConsole.PrintLine("{0} *** Matrix {1} is on IP {2}", CLASSID, MTRXEvertz.Name, MTRXEvertzClient.LocalAddressOfClient);
 
             CrestronConsole.PrintLine("{0} *** Matrix Inputs configured are as follows:", CLASSID);
-            foreach (KeyValuePair<int, MTRXSignalInfo> signal in mtrxSignals.Inputs)
+            foreach (KeyValuePair<int, MTRX_Item> signal in mtrxData.GtoIO[MTRX_Item.eIO_Type.Input])
             {
-                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
+                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.V_MTRX_io_Num);
             }
 
             CrestronConsole.PrintLine("\n{0} *** Matrix Outputs configured are as follows:", CLASSID);
-            foreach (KeyValuePair<int, MTRXSignalInfo> signal in mtrxSignals.Outputs)
+            foreach (KeyValuePair<int, MTRX_Item> signal in mtrxData.GtoIO[MTRX_Item.eIO_Type.Output])
             {
-                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.SignalNumber);
+                CrestronConsole.PrintLine("Guid: {0}, Name: {1}, IO_Num: {2}", signal.Value.Guid, signal.Value.Name, signal.Value.V_MTRX_io_Num);
             }
             CrestronConsole.PrintLine("{0} *** End of Matrix Signal configuration Dump", CLASSID);
         }

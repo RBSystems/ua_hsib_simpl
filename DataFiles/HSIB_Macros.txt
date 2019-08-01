@@ -198,7 +198,7 @@ room_ass=10: macro_id=60: name=Sys Off Combined, list=(33, 03, ),
 /////////////////////////////////////////////////////////////////////////////////////
 
 //531
-room_ass=11: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,),
+room_ass=11: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,47,),
 room_ass=11: macro_id=02: name=Individual Stations, pgm_audio=1, usb=0, special_60p=1,
 
 room_ass=11: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,),
@@ -210,7 +210,7 @@ room_ass=11: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
 
 
 //532
-room_ass=12: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,),
+room_ass=12: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,47,),
 room_ass=12: macro_id=02: name=Individual Stations, pgm_audio=1, usb=0, special_60p=1,
 
 room_ass=12: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,),
@@ -221,7 +221,7 @@ room_ass=12: macro_id=59: name=Sys On Combined, list=(33, 01,),
 room_ass=12: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
 
 //640
-room_ass=14: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,),
+room_ass=14: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,47,),
 room_ass=14: macro_id=02: name=Individual Stations, pgm_audio=1, usb=0, special_60p=1,
 
 room_ass=14: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,),
@@ -233,7 +233,7 @@ room_ass=14: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
 
 
 //642
-room_ass=15: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,),
+room_ass=15: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,47,),
 room_ass=15: macro_id=02: name=Individual Stations, pgm_audio=1, usb=0, special_60p=1,
 
 room_ass=15: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,),
