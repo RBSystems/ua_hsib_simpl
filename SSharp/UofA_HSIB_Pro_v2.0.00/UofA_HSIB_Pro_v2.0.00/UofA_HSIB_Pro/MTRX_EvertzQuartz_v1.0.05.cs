@@ -544,16 +544,12 @@ namespace PWCSharpPro
 
         public void AddIO(int Guid, int V_MTRX_io_Num, int A_MTRX_io_Num, string Name, MTRX_Item.eIO_Type io_type)
         {
-            CrestronConsole.PrintLine("In AddIO, top");
-            CrestronConsole.PrintLine("In AddIO, {0}", GtoIO[io_type]);
             if (GtoIO[io_type].ContainsKey(Guid))
                 GtoIO[io_type].Remove(Guid);
             GtoIO[io_type].Add(Guid, new MTRX_Item(Guid, V_MTRX_io_Num, A_MTRX_io_Num, io_type, Name));
-            CrestronConsole.PrintLine("In AddIO, mid");
             
             if(V_MTRX_io_Num > 0)   IOtoG[io_type].Add(V_MTRX_io_Num, Guid);
             else if(A_MTRX_io_Num > 0) IOtoG[io_type].Add(A_MTRX_io_Num, Guid);
-            CrestronConsole.PrintLine("In AddIO, bottom");
         }
 
         public int[] GetIOtoG(int _io, MTRX_Item.eIO_Type _type)

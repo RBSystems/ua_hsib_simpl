@@ -179,8 +179,8 @@ namespace UofA_HSIB_Pro
                                     CLASSID, 
                                     (int)args.Sig.Number % 700, 
                                     controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Input][(int)args.Sig.Number % 700].Name,
-                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number % 700].V_MTRX_io_Num,
-                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Output][(int)args.Sig.Number % 700].A_MTRX_io_Num   );
+                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Input][(int)args.Sig.Number % 700].V_MTRX_io_Num,
+                                    controlSystem.mtrxData.GtoIO[MTRX_Item.eIO_Type.Input][(int)args.Sig.Number % 700].A_MTRX_io_Num   );
                 }
 
                 controlSystem.eiscHandler.UpdateEISCSignal(this, new ConfigArgs(controlSystem.eiscHandler.MtrxEiscIndices, args.Sig.Number, "ACK"));
