@@ -532,25 +532,23 @@ namespace PWCSharpPro
         {
             //create the mtrx io lists
             GtoIO[MTRX_Item.eIO_Type.Input] = new Dictionary<int, MTRX_Item>();
-            GtoIO.Add(MTRX_Item.eIO_Type.Output, new Dictionary<int, MTRX_Item>());
+            GtoIO[MTRX_Item.eIO_Type.Output] = new Dictionary<int, MTRX_Item>();
             //add "blank source" / "none" to the inputs list
-            GtoIO[MTRX_Item.eIO_Type.Input].Add(0, new MTRX_Item(0, 0, 0, MTRX_Item.eIO_Type.Input, "Blank Src"));
+            GtoIO[MTRX_Item.eIO_Type.Input][0] = new MTRX_Item(0, 0, 0, MTRX_Item.eIO_Type.Input, "Blank Src");
 
 
-            IOtoG.Add(MTRX_Item.eIO_Type.Input, new Dictionary<int, int>());
-            IOtoG.Add(MTRX_Item.eIO_Type.Output, new Dictionary<int, int>());
+            IOtoG[MTRX_Item.eIO_Type.Input] = new Dictionary<int, int>();
+            IOtoG[MTRX_Item.eIO_Type.Output] = new Dictionary<int, int>();
 
-            IOtoG[MTRX_Item.eIO_Type.Input].Add(0, 0);
+            IOtoG[MTRX_Item.eIO_Type.Input][0] = 0;
         }
 
         public void AddIO(int Guid, int V_MTRX_io_Num, int A_MTRX_io_Num, string Name, MTRX_Item.eIO_Type io_type)
         {
-            if (GtoIO[io_type].ContainsKey(Guid))
-                GtoIO[io_type].Remove(Guid);
-            GtoIO[io_type].Add(Guid, new MTRX_Item(Guid, V_MTRX_io_Num, A_MTRX_io_Num, io_type, Name));
+            GtoIO[io_type][Guid] = new MTRX_Item(Guid, V_MTRX_io_Num, A_MTRX_io_Num, io_type, Name);
             
-            if(V_MTRX_io_Num > 0)   IOtoG[io_type].Add(V_MTRX_io_Num, Guid);
-            else if(A_MTRX_io_Num > 0) IOtoG[io_type].Add(A_MTRX_io_Num, Guid);
+            if(V_MTRX_io_Num > 0)       IOtoG[io_type][V_MTRX_io_Num] = Guid;
+            else if(A_MTRX_io_Num > 0)  IOtoG[io_type][A_MTRX_io_Num] = Guid;
         }
 
         public int[] GetIOtoG(int _io, MTRX_Item.eIO_Type _type)
