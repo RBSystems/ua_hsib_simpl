@@ -13,43 +13,43 @@
 
 
 //ROOM 305
-sys_data[ local_name=Projector Left North, room_ass=01, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.46, ]  io_data[ v_cmd_io=87, relay_processor=1, rly_on=(10+), rly_off=(9+), ]
-sys_data[ local_name=Projector Right North, room_ass=01, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.47, ]  io_data[ v_cmd_io=89, relay_processor=1, rly_on=(12+), rly_off=(11+), usb_mac=02925e, ]
-sys_data[ local_name=Projector Left East, room_ass=01, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.45, ]  io_data[ v_cmd_io=92, ]
-sys_data[ local_name=Projector Right East, room_ass=01, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.49, ]  io_data[ v_cmd_io=95, ]
-sys_data[ local_name=Projector Left South, room_ass=01, local_id=5,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.51, ]  io_data[ v_cmd_io=98, relay_processor=1, rly_on=(14+), rly_off=(13+), ]
-sys_data[ local_name=Projector Right South, room_ass=01, local_id=6,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.50, ]  io_data[ v_cmd_io=107, relay_processor=1, rly_on=(18+), rly_off=(17+), ]
-sys_data[ local_name=Projector Left West, room_ass=01, local_id=7,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.48, ] io_data[ v_cmd_io=96, ]
-sys_data[ local_name=Projector Right West, room_ass=01, local_id=8,  ] device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.44, ] io_data[ v_cmd_io=90, ] 
+sys_data[ local_name=Projector Left North, room_ass=01, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.46, ]  io_data[ cmd_io=87, relay_processor=1, rly_on=(10+), rly_off=(9+), ]
+sys_data[ local_name=Projector Right North, room_ass=01, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.47, ]  io_data[ cmd_io=89, relay_processor=1, rly_on=(12+), rly_off=(11+), usb_mac=02925e, ]
+sys_data[ local_name=Projector Left East, room_ass=01, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.45, ]  io_data[ cmd_io=92, ]
+sys_data[ local_name=Projector Right East, room_ass=01, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.49, ]  io_data[ cmd_io=95, ]
+sys_data[ local_name=Projector Left South, room_ass=01, local_id=5,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.51, ]  io_data[ cmd_io=98, relay_processor=1, rly_on=(14+), rly_off=(13+), ]
+sys_data[ local_name=Projector Right South, room_ass=01, local_id=6,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.50, ]  io_data[ cmd_io=107, relay_processor=1, rly_on=(18+), rly_off=(17+), ]
+sys_data[ local_name=Projector Left West, room_ass=01, local_id=7,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.48, ] io_data[ cmd_io=96, ]
+sys_data[ local_name=Projector Right West, room_ass=01, local_id=8,  ] device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.44, ] io_data[ cmd_io=90, ] 
 
-sys_data[ local_name=USB Video, room_ass=01, local_id=41, ]    io_data[ v_cmd_io=82, ]
+sys_data[ local_name=USB Video, room_ass=01, local_id=41, ]    io_data[ cmd_io=82, ]
 
-sys_data[ local_name=Panel Preview, room_ass=01, local_id=49,  ]  io_data[ v_cmd_io=81, ]
+sys_data[ local_name=Panel Preview, room_ass=01, local_id=49,  ]  io_data[ cmd_io=81, ]
 
 
 
 //ROOM 306
-sys_data[ local_name=Projector Left North, room_ass=02, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.57, ]  io_data[ v_cmd_io=105, relay_processor=1, rly_on=(20+), rly_off=(19+), ]
-sys_data[ local_name=Projector Right North, room_ass=02, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.58, ]  io_data[ v_cmd_io=101, relay_processor=1, rly_on=(22+), rly_off=(21+), usb_mac=02925d, ]
-sys_data[ local_name=Projector Left East, room_ass=02, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.56, ]  io_data[ v_cmd_io=104, ]
-sys_data[ local_name=Projector Right East, room_ass=02, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.60, ]  io_data[ v_cmd_io=108, ]
-sys_data[ local_name=Projector Left South, room_ass=02, local_id=5,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.62, ]  io_data[ v_cmd_io=106, ]
-sys_data[ local_name=Projector Right South, room_ass=02, local_id=6,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.61, ]  io_data[ v_cmd_io=99, ]
-sys_data[ local_name=Projector Left West, room_ass=02, local_id=7,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.59, ]  io_data[ v_cmd_io=93, ]
-sys_data[ local_name=Projector Right West, room_ass=02, local_id=8,  ] device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.55, ] io_data[ v_cmd_io=102,  ]
+sys_data[ local_name=Projector Left North, room_ass=02, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.57, ]  io_data[ cmd_io=105, relay_processor=1, rly_on=(20+), rly_off=(19+), ]
+sys_data[ local_name=Projector Right North, room_ass=02, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.58, ]  io_data[ cmd_io=101, relay_processor=1, rly_on=(22+), rly_off=(21+), usb_mac=02925d, ]
+sys_data[ local_name=Projector Left East, room_ass=02, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.56, ]  io_data[ cmd_io=104, ]
+sys_data[ local_name=Projector Right East, room_ass=02, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.60, ]  io_data[ cmd_io=108, ]
+sys_data[ local_name=Projector Left South, room_ass=02, local_id=5,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.62, ]  io_data[ cmd_io=106, ]
+sys_data[ local_name=Projector Right South, room_ass=02, local_id=6,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.61, ]  io_data[ cmd_io=99, ]
+sys_data[ local_name=Projector Left West, room_ass=02, local_id=7,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.59, ]  io_data[ cmd_io=93, ]
+sys_data[ local_name=Projector Right West, room_ass=02, local_id=8,  ] device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.55, ] io_data[ cmd_io=102,  ]
 
-sys_data[ local_name=USB Video, room_ass=02, local_id=41,  ]   io_data[ v_cmd_io=85, ]
+sys_data[ local_name=USB Video, room_ass=02, local_id=41,  ]   io_data[ cmd_io=85, ]
 
-sys_data[ local_name=Panel Preview, room_ass=02, local_id=49,  ]  io_data[ v_cmd_io=84, ]
+sys_data[ local_name=Panel Preview, room_ass=02, local_id=49,  ]  io_data[ cmd_io=84, ]
 
 
 
 //ROOM 320
-sys_data[ local_name=Projector, room_ass=03, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.63, ]  io_data[ v_cmd_io=143, usb_mac=02802c, relay_processor=6, rly_on=(2+), rly_off=(1^10.156.27.181+), ]
+sys_data[ local_name=Projector, room_ass=03, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.63, ]  io_data[ cmd_io=143, usb_mac=02802c, relay_processor=6, rly_on=(2+), rly_off=(1^10.156.27.181+), ]
 
-sys_data[ local_name=USB Video, room_ass=03, local_id=41,  ]   io_data[ v_cmd_io=132, ]
+sys_data[ local_name=USB Video, room_ass=03, local_id=41,  ]   io_data[ cmd_io=132, ]
 
-sys_data[ local_name=Panel Preview, room_ass=03, local_id=49,  ]  io_data[ v_cmd_io=131, ]
+sys_data[ local_name=Panel Preview, room_ass=03, local_id=49,  ]  io_data[ cmd_io=131, ]
 
 sys_data[ local_name=Aux Feed, room_ass=03, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=03, local_src_id=5,  is_virtual=1, ]
@@ -57,12 +57,12 @@ sys_data[ local_name=Cisco Codec Content, room_ass=03, local_src_id=6,  is_virtu
 
 
 //ROOM 321
-sys_data[ local_name=Projector Left, room_ass=04, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.65, ]  io_data[ v_cmd_io=145, relay_processor=6, rly_on=(4+), rly_off=(3^10.156.27.182+), ]
-sys_data[ local_name=Projector Right, room_ass=04, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.66, ]  io_data[ v_cmd_io=147,  relay_processor=6, rly_on=(6+), rly_off=(5^10.156.27.183+), usb_mac=02925b, ]
+sys_data[ local_name=Projector Left, room_ass=04, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.65, ]  io_data[ cmd_io=145, relay_processor=6, rly_on=(4+), rly_off=(3^10.156.27.182+), ]
+sys_data[ local_name=Projector Right, room_ass=04, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.66, ]  io_data[ cmd_io=147,  relay_processor=6, rly_on=(6+), rly_off=(5^10.156.27.183+), usb_mac=02925b, ]
 
-sys_data[ local_name=USB Video, room_ass=04, local_id=41,  ]  io_data[ v_cmd_io=135, ]
+sys_data[ local_name=USB Video, room_ass=04, local_id=41,  ]  io_data[ cmd_io=135, ]
 
-sys_data[ local_name=Panel Preview, room_ass=04, local_id=49,  ] io_data[ v_cmd_io=134, ]
+sys_data[ local_name=Panel Preview, room_ass=04, local_id=49,  ] io_data[ cmd_io=134, ]
 
 sys_data[ local_name=Aux Feed, room_ass=04, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=04, local_src_id=5,  is_virtual=1, ]
@@ -70,12 +70,12 @@ sys_data[ local_name=Cisco Codec Content, room_ass=04, local_src_id=6,  is_virtu
 
 
 //ROOM 322
-sys_data[ local_name=Projector Left, room_ass=05, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.70, ]  io_data[ v_cmd_io=151, relay_processor=6, rly_on=(8+), rly_off=(7^10.156.27.184+), ]
-sys_data[ local_name=Projector Right, room_ass=05, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.69, ] io_data[ v_cmd_io=149, relay_processor=6, rly_on=(10+), rly_off=(9^10.156.27.185+), usb_mac=02925c, ]
+sys_data[ local_name=Projector Left, room_ass=05, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.70, ]  io_data[ cmd_io=151, relay_processor=6, rly_on=(8+), rly_off=(7^10.156.27.184+), ]
+sys_data[ local_name=Projector Right, room_ass=05, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.69, ] io_data[ cmd_io=149, relay_processor=6, rly_on=(10+), rly_off=(9^10.156.27.185+), usb_mac=02925c, ]
 
-sys_data[ local_name=USB Video, room_ass=05, local_id=41,  ]  io_data[ v_cmd_io=138, ]
+sys_data[ local_name=USB Video, room_ass=05, local_id=41,  ]  io_data[ cmd_io=138, ]
 
-sys_data[ local_name=Panel Preview, room_ass=05, local_id=49,  ]  io_data[ v_cmd_io=137, ]
+sys_data[ local_name=Panel Preview, room_ass=05, local_id=49,  ]  io_data[ cmd_io=137, ]
 
 sys_data[ local_name=Aux Feed, room_ass=05, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=05, local_src_id=5,  is_virtual=1, ]
@@ -83,10 +83,10 @@ sys_data[ local_name=Cisco Codec Content, room_ass=05, local_src_id=6,  is_virtu
 
 
 //ROOM 323
-sys_data[ local_name=Projector, room_ass=06, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.73, ]  io_data[ v_cmd_io=153,  relay_processor=6, rly_on=(12+), rly_off=(11^10.156.27.186+), usb_mac=029261, ]
+sys_data[ local_name=Projector, room_ass=06, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.73, ]  io_data[ cmd_io=153,  relay_processor=6, rly_on=(12+), rly_off=(11^10.156.27.186+), usb_mac=029261, ]
 
-sys_data[ local_name=USB Video, room_ass=06, local_id=41,  ]  io_data[ v_cmd_io=141, ]
-sys_data[ local_name=Panel Preview, room_ass=06, local_id=49,  ]  io_data[ v_cmd_io=140, ]
+sys_data[ local_name=USB Video, room_ass=06, local_id=41,  ]  io_data[ cmd_io=141, ]
+sys_data[ local_name=Panel Preview, room_ass=06, local_id=49,  ]  io_data[ cmd_io=140, ]
 
 sys_data[ local_name=Aux Feed, room_ass=06, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=06, local_src_id=5,  is_virtual=1, ]
@@ -94,11 +94,11 @@ sys_data[ local_name=Cisco Codec Content, room_ass=06, local_src_id=6,  is_virtu
 
 
 //ROOM 442
-sys_data[ local_name=Projector, room_ass=07, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.91, ]  io_data[ v_cmd_io=193, relay_processor=6, rly_on=(24+), rly_off=(23^10.156.27.187+), usb_mac=029259, ]
+sys_data[ local_name=Projector, room_ass=07, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.91, ]  io_data[ cmd_io=193, relay_processor=6, rly_on=(24+), rly_off=(23^10.156.27.187+), usb_mac=029259, ]
 
-sys_data[ local_name=USB Video, room_ass=07, local_id=41,  ]   io_data[ v_cmd_io=181, ]
+sys_data[ local_name=USB Video, room_ass=07, local_id=41,  ]   io_data[ cmd_io=181, ]
 
-sys_data[ local_name=Panel Preview, room_ass=07, local_id=49, ] io_data[ v_cmd_io=180, ]
+sys_data[ local_name=Panel Preview, room_ass=07, local_id=49, ] io_data[ cmd_io=180, ]
 
 sys_data[ local_name=Aux Feed, room_ass=07, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=07, local_src_id=5,  is_virtual=1, ]
@@ -106,12 +106,12 @@ sys_data[ local_name=Cisco Codec Content, room_ass=07, local_src_id=6,  is_virtu
 
 
 //ROOM 443
-sys_data[ local_name=Projector Left, room_ass=08, local_id=1,  ]   device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.94, ] io_data[ v_cmd_io=191, relay_processor=6, rly_on=(20+), rly_off=(19^10.156.27.188+), ]
-sys_data[ local_name=Projector Right, room_ass=08, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.93, ] io_data[ v_cmd_io=189, usb_mac=02925a, relay_processor=6, rly_on=(22+), rly_off=(21^10.156.27.189+), ]
+sys_data[ local_name=Projector Left, room_ass=08, local_id=1,  ]   device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.94, ] io_data[ cmd_io=191, relay_processor=6, rly_on=(20+), rly_off=(19^10.156.27.188+), ]
+sys_data[ local_name=Projector Right, room_ass=08, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.93, ] io_data[ cmd_io=189, usb_mac=02925a, relay_processor=6, rly_on=(22+), rly_off=(21^10.156.27.189+), ]
 
-sys_data[ local_name=USB Video, room_ass=08, local_id=41,  ]  io_data[ v_cmd_io=178, ]
+sys_data[ local_name=USB Video, room_ass=08, local_id=41,  ]  io_data[ cmd_io=178, ]
 
-sys_data[ local_name=Panel Preview, room_ass=08, local_id=49,  ] io_data[ v_cmd_io=177, ]
+sys_data[ local_name=Panel Preview, room_ass=08, local_id=49,  ] io_data[ cmd_io=177, ]
 
 sys_data[ local_name=Aux Feed, room_ass=08, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=08, local_src_id=5,  is_virtual=1, ]
@@ -119,12 +119,12 @@ sys_data[ local_name=Cisco Codec Content, room_ass=08, local_src_id=6,  is_virtu
 
 
 //ROOM 444
-sys_data[ local_name=Projector Left, room_ass=09, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.98, ] io_data[ v_cmd_io=185, relay_processor=6, rly_on=(16+), rly_off=(15^10.156.27.190+), ]
-sys_data[ local_name=Projector Right, room_ass=09, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.97, ] io_data[ v_cmd_io=187, usb_mac=02925f, relay_processor=6, rly_on=(18+), rly_off=(17^10.156.27.191+), ]
+sys_data[ local_name=Projector Left, room_ass=09, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.98, ] io_data[ cmd_io=185, relay_processor=6, rly_on=(16+), rly_off=(15^10.156.27.190+), ]
+sys_data[ local_name=Projector Right, room_ass=09, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.97, ] io_data[ cmd_io=187, usb_mac=02925f, relay_processor=6, rly_on=(18+), rly_off=(17^10.156.27.191+), ]
 
-sys_data[ local_name=USB Video, room_ass=09, local_id=41,  ]  io_data[ v_cmd_io=175, ]
+sys_data[ local_name=USB Video, room_ass=09, local_id=41,  ]  io_data[ cmd_io=175, ]
 
-sys_data[ local_name=Panel Preview, room_ass=09, local_id=49,  ]  io_data[ v_cmd_io=174, ]
+sys_data[ local_name=Panel Preview, room_ass=09, local_id=49,  ]  io_data[ cmd_io=174, ]
 
 sys_data[ local_name=Aux Feed, room_ass=09, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=09, local_src_id=5,  is_virtual=1, ]
@@ -132,11 +132,11 @@ sys_data[ local_name=Cisco Codec Content, room_ass=09, local_src_id=6,  is_virtu
 
 
 //ROOM 445
-sys_data[ local_name=Projector, room_ass=10, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.101, ]  io_data[ v_cmd_io=183, usb_mac=029260, relay_processor=6, rly_on=(14+), rly_off=(13^10.156.27.192+), ]
+sys_data[ local_name=Projector, room_ass=10, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.101, ]  io_data[ cmd_io=183, usb_mac=029260, relay_processor=6, rly_on=(14+), rly_off=(13^10.156.27.192+), ]
 
-sys_data[ local_name=USB Video, room_ass=10, local_id=41,  ]  io_data[ v_cmd_io=172, ]
+sys_data[ local_name=USB Video, room_ass=10, local_id=41,  ]  io_data[ cmd_io=172, ]
 
-sys_data[ local_name=Panel Preview, room_ass=10, local_id=49,  ]  io_data[ v_cmd_io=171, ]
+sys_data[ local_name=Panel Preview, room_ass=10, local_id=49,  ]  io_data[ cmd_io=171, ]
 
 sys_data[ local_name=Aux Feed, room_ass=10, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=10, local_src_id=5,  is_virtual=1, ]
@@ -144,53 +144,51 @@ sys_data[ local_name=Cisco Codec Content, room_ass=10, local_src_id=6,  is_virtu
 
 
 //ROOM 531
-sys_data[ local_name=Station N1, room_ass=11, local_id=1, filter=(21), ]  device_data[ ip_address=10.156.26.121, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=387, ]
-sys_data[ local_name=Station N2, room_ass=11, local_id=2, filter=(21), ]  device_data[ ip_address=10.156.26.122, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=388, ]
-sys_data[ local_name=Station N3, room_ass=11, local_id=3, filter=(21), ]  device_data[ ip_address=10.156.26.123, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=389, ]
-sys_data[ local_name=Station N4, room_ass=11, local_id=4, filter=(21), ]  device_data[ ip_address=10.156.26.124, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=390, ]
-sys_data[ local_name=Station W1, room_ass=11, local_id=5, filter=(21), ]  device_data[ ip_address=10.156.26.125, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=391, ]
-sys_data[ local_name=Station E1, room_ass=11, local_id=6, filter=(21), ]  device_data[ ip_address=10.156.26.126, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=392, ]
-sys_data[ local_name=Station S1, room_ass=11, local_id=7, filter=(21), ]  device_data[ ip_address=10.156.26.127, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=393, ]
-sys_data[ local_name=Station S2, room_ass=11, local_id=8, filter=(21), ]  device_data[ ip_address=10.156.26.128, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=394, ]
-sys_data[ local_name=Station S3, room_ass=11, local_id=9, filter=(21), ]  device_data[ ip_address=10.156.26.129, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=395, ]
-sys_data[ local_name=Station S4, room_ass=11, local_id=10, filter=(21), ]  device_data[ ip_address=10.156.26.130, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=396, ]
+sys_data[ local_name=Station N1, room_ass=11, local_id=1, filter=(21), ]  device_data[ ip_address=10.156.26.121, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=387, ]
+sys_data[ local_name=Station N2, room_ass=11, local_id=2, filter=(21), ]  device_data[ ip_address=10.156.26.122, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=388, ]
+sys_data[ local_name=Station N3, room_ass=11, local_id=3, filter=(21), ]  device_data[ ip_address=10.156.26.123, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=389, ]
+sys_data[ local_name=Station N4, room_ass=11, local_id=4, filter=(21), ]  device_data[ ip_address=10.156.26.124, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=390, ]
+sys_data[ local_name=Station W1, room_ass=11, local_id=5, filter=(21), ]  device_data[ ip_address=10.156.26.125, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=391, ]
+sys_data[ local_name=Station E1, room_ass=11, local_id=6, filter=(21), ]  device_data[ ip_address=10.156.26.126, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=392, ]
+sys_data[ local_name=Station S1, room_ass=11, local_id=7, filter=(21), ]  device_data[ ip_address=10.156.26.127, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=393, ]
+sys_data[ local_name=Station S2, room_ass=11, local_id=8, filter=(21), ]  device_data[ ip_address=10.156.26.128, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=394, ]
+sys_data[ local_name=Station S3, room_ass=11, local_id=9, filter=(21), ]  device_data[ ip_address=10.156.26.129, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=395, ]
+sys_data[ local_name=Station S4, room_ass=11, local_id=10, filter=(21), ]  device_data[ ip_address=10.156.26.130, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=396, ]
 
-sys_data[ local_name=Panel Preview, room_ass=11, local_id=49,  filter=(21), ] io_data[ v_cmd_io=381, ]
-
-sys_data[ local_name=PGM Audio Dante, room_ass=11, local_id=47, filter=(21), ] io_data[ a_cmd_io=1774]
+sys_data[ local_name=Panel Preview, room_ass=11, local_id=49,  filter=(21), ] io_data[ cmd_io=381, ]
 
 
 
 
 //ROOM 532
-sys_data[ local_name=Station N1, room_ass=12, local_id=1, filter=(22), ]  device_data[ ip_address=10.156.26.131, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=397, ]
-sys_data[ local_name=Station N2, room_ass=12, local_id=2, filter=(22), ]  device_data[ ip_address=10.156.26.132, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=398, ]
-sys_data[ local_name=Station N3, room_ass=12, local_id=3, filter=(22), ]  device_data[ ip_address=10.156.26.133, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=399, ]
-sys_data[ local_name=Station N4, room_ass=12, local_id=4, filter=(22), ]  device_data[ ip_address=10.156.26.134, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=400, ]
-sys_data[ local_name=Station E1, room_ass=12, local_id=5, filter=(22), ]  device_data[ ip_address=10.156.26.135, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=401, ]
-sys_data[ local_name=Station W1, room_ass=12, local_id=6, filter=(22), ]  device_data[ ip_address=10.156.26.136, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=402, ]
-sys_data[ local_name=Station S1, room_ass=12, local_id=7, filter=(22), ]  device_data[ ip_address=10.156.26.137, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=403, ]
-sys_data[ local_name=Station S2, room_ass=12, local_id=8, filter=(22), ]  device_data[ ip_address=10.156.26.138, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=404, ]
-sys_data[ local_name=Station S3, room_ass=12, local_id=9, filter=(22), ]  device_data[ ip_address=10.156.26.139, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=405, ]
-sys_data[ local_name=Station S4, room_ass=12, local_id=10, filter=(22), ]  device_data[ ip_address=10.156.26.140, is_display=1, device_type=sony_lcd, ] io_data[ v_cmd_io=406, ]
+sys_data[ local_name=Station N1, room_ass=12, local_id=1, filter=(22), ]  device_data[ ip_address=10.156.26.131, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=397, ]
+sys_data[ local_name=Station N2, room_ass=12, local_id=2, filter=(22), ]  device_data[ ip_address=10.156.26.132, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=398, ]
+sys_data[ local_name=Station N3, room_ass=12, local_id=3, filter=(22), ]  device_data[ ip_address=10.156.26.133, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=399, ]
+sys_data[ local_name=Station N4, room_ass=12, local_id=4, filter=(22), ]  device_data[ ip_address=10.156.26.134, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=400, ]
+sys_data[ local_name=Station E1, room_ass=12, local_id=5, filter=(22), ]  device_data[ ip_address=10.156.26.135, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=401, ]
+sys_data[ local_name=Station W1, room_ass=12, local_id=6, filter=(22), ]  device_data[ ip_address=10.156.26.136, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=402, ]
+sys_data[ local_name=Station S1, room_ass=12, local_id=7, filter=(22), ]  device_data[ ip_address=10.156.26.137, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=403, ]
+sys_data[ local_name=Station S2, room_ass=12, local_id=8, filter=(22), ]  device_data[ ip_address=10.156.26.138, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=404, ]
+sys_data[ local_name=Station S3, room_ass=12, local_id=9, filter=(22), ]  device_data[ ip_address=10.156.26.139, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=405, ]
+sys_data[ local_name=Station S4, room_ass=12, local_id=10, filter=(22), ]  device_data[ ip_address=10.156.26.140, is_display=1, device_type=sony_lcd, ] io_data[ cmd_io=406, ]
 
-sys_data[ local_name=Panel Preview, room_ass=12, local_id=49,  filter=(22), ]  io_data[ v_cmd_io=384, ]
+sys_data[ local_name=Panel Preview, room_ass=12, local_id=49,  filter=(22), ]  io_data[ cmd_io=384, ]
 
-sys_data[ local_name=PGM Audio Dante, room_ass=12, local_id=47, filter=(22), ] io_data[ a_cmd_io=1775 ]
+
 
 
 //ROOM 567
-sys_data[ local_name=Zoom Content Input, room_ass=13, local_id=34, filter=(23), ]  io_data[ v_cmd_io=300, ]
-sys_data[ local_name=Zoom PC USB Video Input, local_id=35, room_ass=13, filter=(23), ] io_data [ v_cmd_io=301, ]
-sys_data[ local_name=2X2 Display Left, room_ass=13, local_id=2, filter=(23), ]  io_data[ v_cmd_io=328, usb_mac=02926b, ]
-sys_data[ local_name=2X2 Display Center, room_ass=13, local_id=3, filter=(23), ]  io_data[ v_cmd_io=329, ]
-sys_data[ local_name=2X2 Display Right, room_ass=13, local_id=4, filter=(23), ]  io_data[ v_cmd_io=330, ]
+sys_data[ local_name=Zoom Content Input, room_ass=13, local_id=34, filter=(23), ]  io_data[ cmd_io=300, ]
+sys_data[ local_name=Zoom PC USB Video Input, local_id=35, room_ass=13, filter=(23), ] io_data [ cmd_io=301, ]
+sys_data[ local_name=2X2 Display Left, room_ass=13, local_id=2, filter=(23), ]  io_data[ cmd_io=328, usb_mac=02926b, ]
+sys_data[ local_name=2X2 Display Center, room_ass=13, local_id=3, filter=(23), ]  io_data[ cmd_io=329, ]
+sys_data[ local_name=2X2 Display Right, room_ass=13, local_id=4, filter=(23), ]  io_data[ cmd_io=330, ]
 
-sys_data[ local_name=Projector, room_ass=13, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.143, ]  io_data[ v_cmd_io=331, ]
+sys_data[ local_name=Projector, room_ass=13, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.143, ]  io_data[ cmd_io=331, ]
 
-sys_data[ local_name=USB Video, room_ass=13, local_id=41,  ]  io_data[ v_cmd_io=422, ]
+sys_data[ local_name=USB Video, room_ass=13, local_id=41,  ]  io_data[ cmd_io=422, ]
 
-sys_data[ local_name=Panel Preview, room_ass=13, local_id=49,  ]  io_data[ v_cmd_io=421, ]
+sys_data[ local_name=Panel Preview, room_ass=13, local_id=49,  ]  io_data[ cmd_io=421, ]
 
 sys_data[ local_name=Aux Feed, room_ass=13, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=13, local_src_id=5,  is_virtual=1, ]
@@ -198,49 +196,44 @@ sys_data[ local_name=Cisco Codec Content, room_ass=13, local_src_id=6,  is_virtu
 
 
 //ROOM 640
-sys_data[ local_name=Station N1, room_ass=14, local_id=1, filter=(24), ] device_data[ ip_address=10.156.26.161, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=447, ]
-sys_data[ local_name=Station N2, room_ass=14, local_id=2, filter=(24), ] device_data[ ip_address=10.156.26.162, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=448, ]
-sys_data[ local_name=Station N3, room_ass=14, local_id=3, filter=(24), ] device_data[ ip_address=10.156.26.163, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=449, ]
-sys_data[ local_name=Station N4, room_ass=14, local_id=4, filter=(24), ] device_data[ ip_address=10.156.26.164, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=450, ]
-sys_data[ local_name=Station W1, room_ass=14, local_id=5, filter=(24), ] device_data[ ip_address=10.156.26.165, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=451, ]
-sys_data[ local_name=Station E1, room_ass=14, local_id=6, filter=(24), ] device_data[ ip_address=10.156.26.166, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=452, ]
-sys_data[ local_name=Station S1, room_ass=14, local_id=7, filter=(24), ] device_data[ ip_address=10.156.26.167, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=453, ]
-sys_data[ local_name=Station S2, room_ass=14, local_id=8, filter=(24), ] device_data[ ip_address=10.156.26.168, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=454, ]
-sys_data[ local_name=Station S3, room_ass=14, local_id=9, filter=(24), ] device_data[ ip_address=10.156.26.169, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=455, ]
-sys_data[ local_name=Station S4, room_ass=14, local_id=10, filter=(24), ] device_data[ ip_address=10.156.26.170, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=456, ]
-sys_data[ local_name=Panel Preview, room_ass=14, local_id=49,  filter=(24), ]  io_data[ v_cmd_io=441,  ]
-
-sys_data[ local_name=PGM Audio Dante, room_ass=14, local_id=47, filter=(24), ] io_data[ a_cmd_io=1761 ]
-
+sys_data[ local_name=Station N1, room_ass=14, local_id=1, filter=(24), ] device_data[ ip_address=10.156.26.161, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=447, ]
+sys_data[ local_name=Station N2, room_ass=14, local_id=2, filter=(24), ] device_data[ ip_address=10.156.26.162, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=448, ]
+sys_data[ local_name=Station N3, room_ass=14, local_id=3, filter=(24), ] device_data[ ip_address=10.156.26.163, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=449, ]
+sys_data[ local_name=Station N4, room_ass=14, local_id=4, filter=(24), ] device_data[ ip_address=10.156.26.164, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=450, ]
+sys_data[ local_name=Station W1, room_ass=14, local_id=5, filter=(24), ] device_data[ ip_address=10.156.26.165, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=451, ]
+sys_data[ local_name=Station E1, room_ass=14, local_id=6, filter=(24), ] device_data[ ip_address=10.156.26.166, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=452, ]
+sys_data[ local_name=Station S1, room_ass=14, local_id=7, filter=(24), ] device_data[ ip_address=10.156.26.167, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=453, ]
+sys_data[ local_name=Station S2, room_ass=14, local_id=8, filter=(24), ] device_data[ ip_address=10.156.26.168, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=454, ]
+sys_data[ local_name=Station S3, room_ass=14, local_id=9, filter=(24), ] device_data[ ip_address=10.156.26.169, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=455, ]
+sys_data[ local_name=Station S4, room_ass=14, local_id=10, filter=(24), ] device_data[ ip_address=10.156.26.170, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=456, ]
+sys_data[ local_name=Panel Preview, room_ass=14, local_id=49,  filter=(24), ]  io_data[ cmd_io=441,  ]
 
 
 //ROOM 642
-sys_data[ local_name=Station N1, room_ass=15, local_id=1,  filter=(25), ]  device_data[ ip_address=10.156.26.171, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=457, ]
-sys_data[ local_name=Station N2, room_ass=15, local_id=2,  filter=(25), ]  device_data[ ip_address=10.156.26.172, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=458, ]
-sys_data[ local_name=Station N3, room_ass=15, local_id=3,  filter=(25), ]  device_data[ ip_address=10.156.26.173, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=459, ]
-sys_data[ local_name=Station N4, room_ass=15, local_id=4,  filter=(25), ]  device_data[ ip_address=10.156.26.174, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=460, ]
-sys_data[ local_name=Station W1, room_ass=15, local_id=5,  filter=(25), ]  device_data[ ip_address=10.156.26.176, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=462, ]
-sys_data[ local_name=Station E1, room_ass=15, local_id=6,  filter=(25), ]  device_data[ ip_address=10.156.26.175, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=461, ]
-sys_data[ local_name=Station S1, room_ass=15, local_id=7,  filter=(25), ]  device_data[ ip_address=10.156.26.177, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=463, ]
-sys_data[ local_name=Station S2, room_ass=15, local_id=8,  filter=(25), ]  device_data[ ip_address=10.156.26.178, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=464, ]
-sys_data[ local_name=Station S3, room_ass=15, local_id=9,  filter=(25), ]  device_data[ ip_address=10.156.26.179, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=465, ]
-sys_data[ local_name=Station S4, room_ass=15, local_id=10,  filter=(25), ]  device_data[ ip_address=10.156.26.180, is_display=1, device_type=sony_lcd, ]  io_data[ v_cmd_io=466, ]
+sys_data[ local_name=Station N1, room_ass=15, local_id=1,  filter=(25), ]  device_data[ ip_address=10.156.26.171, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=457, ]
+sys_data[ local_name=Station N2, room_ass=15, local_id=2,  filter=(25), ]  device_data[ ip_address=10.156.26.172, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=458, ]
+sys_data[ local_name=Station N3, room_ass=15, local_id=3,  filter=(25), ]  device_data[ ip_address=10.156.26.173, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=459, ]
+sys_data[ local_name=Station N4, room_ass=15, local_id=4,  filter=(25), ]  device_data[ ip_address=10.156.26.174, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=460, ]
+sys_data[ local_name=Station W1, room_ass=15, local_id=5,  filter=(25), ]  device_data[ ip_address=10.156.26.176, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=462, ]
+sys_data[ local_name=Station E1, room_ass=15, local_id=6,  filter=(25), ]  device_data[ ip_address=10.156.26.175, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=461, ]
+sys_data[ local_name=Station S1, room_ass=15, local_id=7,  filter=(25), ]  device_data[ ip_address=10.156.26.177, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=463, ]
+sys_data[ local_name=Station S2, room_ass=15, local_id=8,  filter=(25), ]  device_data[ ip_address=10.156.26.178, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=464, ]
+sys_data[ local_name=Station S3, room_ass=15, local_id=9,  filter=(25), ]  device_data[ ip_address=10.156.26.179, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=465, ]
+sys_data[ local_name=Station S4, room_ass=15, local_id=10,  filter=(25), ]  device_data[ ip_address=10.156.26.180, is_display=1, device_type=sony_lcd, ]  io_data[ cmd_io=466, ]
 
-sys_data[ local_name=Panel Preview, room_ass=15, local_id=49,  filter=(25), ]  io_data[ v_cmd_io=444, ]
-
-sys_data[ local_name=PGM Audio Dante, room_ass=15, local_id=47, filter=(25), ] io_data[ a_cmd_io=1762 ]
+sys_data[ local_name=Panel Preview, room_ass=15, local_id=49,  filter=(25), ]  io_data[ cmd_io=444, ]
 
 
 
 //ROOM 727
-sys_data[ local_name=Projector North, room_ass=16, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.181, ]  io_data[ v_cmd_io=564, ]
-sys_data[ local_name=Projector East, room_ass=16, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj,  ip_address=10.156.26.183, ]  io_data[ v_cmd_io=568, usb_mac=02872e, ]
-sys_data[ local_name=Projector South, room_ass=16, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.184, ]  io_data[ v_cmd_io=570, ]
-sys_data[ local_name=Projector West, room_ass=16, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.182, ]  io_data[ v_cmd_io=566, ]
+sys_data[ local_name=Projector North, room_ass=16, local_id=1,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.181, ]  io_data[ cmd_io=564, ]
+sys_data[ local_name=Projector East, room_ass=16, local_id=2,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj,  ip_address=10.156.26.183, ]  io_data[ cmd_io=568, usb_mac=02872e, ]
+sys_data[ local_name=Projector South, room_ass=16, local_id=3,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.184, ]  io_data[ cmd_io=570, ]
+sys_data[ local_name=Projector West, room_ass=16, local_id=4,  ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.182, ]  io_data[ cmd_io=566, ]
 
-sys_data[ local_name=USB Video, room_ass=16, local_id=41,  ]  io_data[ v_cmd_io=562, ]
+sys_data[ local_name=USB Video, room_ass=16, local_id=41,  ]  io_data[ cmd_io=562, ]
 
-sys_data[ local_name=Panel Preview, room_ass=16, local_id=49,  ]   io_data[ v_cmd_io=561, ]
+sys_data[ local_name=Panel Preview, room_ass=16, local_id=49,  ]   io_data[ cmd_io=561, ]
 
 sys_data[ local_name=Aux Feed, room_ass=16, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=16, local_src_id=5, is_virtual=1, ]
@@ -248,20 +241,20 @@ sys_data[ local_name=Cisco Codec Content, room_ass=16, local_src_id=6, is_virtua
 
 
 //ROOM 855
-sys_data[ local_name=Projector Right, room_ass=18, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ v_cmd_io=585, relay_processor=1, rly_on=(34+), rly_off=(33+), ]
-sys_data[ local_name=Projector Left, room_ass=18, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ v_cmd_io=584, relay_processor=1, rly_on=(36+), rly_off=(35+), ]
+sys_data[ local_name=Projector Right, room_ass=18, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ cmd_io=585, relay_processor=1, rly_on=(34+), rly_off=(33+), ]
+sys_data[ local_name=Projector Left, room_ass=18, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ cmd_io=584, relay_processor=1, rly_on=(36+), rly_off=(35+), ]
 
-sys_data[ local_name=Panel Preview, room_ass=18, local_id=49, ]  io_data[ v_cmd_io=581, ]
+sys_data[ local_name=Panel Preview, room_ass=18, local_id=49, ]  io_data[ cmd_io=581, ]
 
 //NO CISCO CAPABILITY NEEDED IN THIS ROOM
 
 //ROOM 880
-sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ v_cmd_io=604, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
-sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ v_cmd_io=606, usb_mac=029262, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
+sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
+sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, usb_mac=029262, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
 
-sys_data[ local_name=USB Video, room_ass=19, local_id=41, ] device_data[ ip_address=10.156.24.124, ]  io_data[ v_cmd_io=602, ]
+sys_data[ local_name=USB Video, room_ass=19, local_id=41, ] device_data[ ip_address=10.156.24.124, ]  io_data[ cmd_io=602, ]
 
-sys_data[ local_name=Panel Preview, room_ass=19, local_id=49, ]  io_data[ v_cmd_io=601, ]
+sys_data[ local_name=Panel Preview, room_ass=19, local_id=49, ]  io_data[ cmd_io=601, ]
 
 sys_data[ local_name=Aux Feed, room_ass=19, local_src_id=4, function_id=8, is_virtual=1, ]
 sys_data[ local_name=Cisco Codec Camera, room_ass=19, local_src_id=5, is_virtual=1, ]
@@ -269,103 +262,103 @@ sys_data[ local_name=Cisco Codec Content, room_ass=19, local_src_id=6, is_virtua
 
 
 //ROOM 513A
-sys_data[ local_name=Video Conf Camera, filter=(50), ]  device_data[ is_vtc=1, ] io_data[ v_cmd_io=290, vtc_io=1, ]
-sys_data[ local_name=Video Conf Camera, filter=(51), ]  device_data[ is_vtc=2, ] io_data[ v_cmd_io=293, vtc_io=1, ]
-sys_data[ local_name=Video Conf Camera, filter=(52), ]  device_data[ is_vtc=3, ] io_data[ v_cmd_io=296, vtc_io=1, ]
+sys_data[ local_name=Video Conf Camera, filter=(50), ]  device_data[ is_vtc=1, ] io_data[ cmd_io=290, vtc_io=1, ]
+sys_data[ local_name=Video Conf Camera, filter=(51), ]  device_data[ is_vtc=2, ] io_data[ cmd_io=293, vtc_io=1, ]
+sys_data[ local_name=Video Conf Camera, filter=(52), ]  device_data[ is_vtc=3, ] io_data[ cmd_io=296, vtc_io=1, ]
 
-sys_data[ local_name=Video Conf Content, filter=(50), ]  device_data[ is_vtc=1,] io_data[ v_cmd_io=291, vtc_io=2, ]
-sys_data[ local_name=Video Conf Content, filter=(51), ]  device_data[ is_vtc=2,] io_data[ v_cmd_io=294, vtc_io=2, ]
-sys_data[ local_name=Video Conf Content, filter=(52), ]  device_data[ is_vtc=3,] io_data[ v_cmd_io=297, vtc_io=2, ]
+sys_data[ local_name=Video Conf Content, filter=(50), ]  device_data[ is_vtc=1,] io_data[ cmd_io=291, vtc_io=2, ]
+sys_data[ local_name=Video Conf Content, filter=(51), ]  device_data[ is_vtc=2,] io_data[ cmd_io=294, vtc_io=2, ]
+sys_data[ local_name=Video Conf Content, filter=(52), ]  device_data[ is_vtc=3,] io_data[ cmd_io=297, vtc_io=2, ]
 
-sys_data[ local_name=Video Conf AuxIn, filter=(50), ]  device_data[ is_vtc=1, ]  io_data[ v_cmd_io=292, vtc_io=3, ]
-sys_data[ local_name=Video Conf AuxIn, filter=(51), ]  device_data[ is_vtc=2, ]  io_data[ v_cmd_io=295, vtc_io=3, ]
-sys_data[ local_name=Video Conf AuxIn, filter=(52), ]  device_data[ is_vtc=3, ]  io_data[ v_cmd_io=298, vtc_io=3, ]
+sys_data[ local_name=Video Conf AuxIn, filter=(50), ]  device_data[ is_vtc=1, ]  io_data[ cmd_io=292, vtc_io=3, ]
+sys_data[ local_name=Video Conf AuxIn, filter=(51), ]  device_data[ is_vtc=2, ]  io_data[ cmd_io=295, vtc_io=3, ]
+sys_data[ local_name=Video Conf AuxIn, filter=(52), ]  device_data[ is_vtc=3, ]  io_data[ cmd_io=298, vtc_io=3, ]
 
-sys_data[ local_name=AJA KIPRO REC 5A-1, filter=(1), ]  io_data[ v_cmd_io=217, ]
-sys_data[ local_name=AJA KIPRO REC 5A-2, filter=(1), ]  io_data[ v_cmd_io=219, ]
-sys_data[ local_name=AJA KIPRO REC 5A-3, filter=(1), ]  io_data[ v_cmd_io=221, ]
-sys_data[ local_name=Capture PC 1 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=249, ]
-sys_data[ local_name=Capture PC 1 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=250, ]
-sys_data[ local_name=Capture PC 2 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=251, ]
-sys_data[ local_name=Capture PC 2 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=252, ]
-sys_data[ local_name=Capture PC 3 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=253, ]
-sys_data[ local_name=Capture PC 3 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=254, ]
-sys_data[ local_name=Capture PC 4 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=255, ]
-sys_data[ local_name=Capture PC 4 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=256, ]
-sys_data[ local_name=Capture PC 5 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=257, ]
-sys_data[ local_name=Capture PC 5 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=258, ]
-sys_data[ local_name=Capture PC 6 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=259, ]
-sys_data[ local_name=Capture PC 6 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=260, ]
-sys_data[ local_name=Capture PC 7 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=261, ]
-sys_data[ local_name=Capture PC 7 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=262, ]
-sys_data[ local_name=Capture PC 8 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=263, ]
-sys_data[ local_name=Capture PC 8 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=264, ]
-sys_data[ local_name=Capture PC 9 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=265, ]
-sys_data[ local_name=Capture PC 9 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=266, ]
-sys_data[ local_name=Capture PC 10 SDI Input 1, filter=(2), ]  io_data[ v_cmd_io=267, ]
-sys_data[ local_name=Capture PC 10 SDI Input 2, filter=(2), ]  io_data[ v_cmd_io=268, ]
+sys_data[ local_name=AJA KIPRO REC 5A-1, filter=(1), ]  io_data[ cmd_io=217, ]
+sys_data[ local_name=AJA KIPRO REC 5A-2, filter=(1), ]  io_data[ cmd_io=219, ]
+sys_data[ local_name=AJA KIPRO REC 5A-3, filter=(1), ]  io_data[ cmd_io=221, ]
+sys_data[ local_name=Capture PC 1 SDI Input 1, filter=(2), ]  io_data[ cmd_io=249, ]
+sys_data[ local_name=Capture PC 1 SDI Input 2, filter=(2), ]  io_data[ cmd_io=250, ]
+sys_data[ local_name=Capture PC 2 SDI Input 1, filter=(2), ]  io_data[ cmd_io=251, ]
+sys_data[ local_name=Capture PC 2 SDI Input 2, filter=(2), ]  io_data[ cmd_io=252, ]
+sys_data[ local_name=Capture PC 3 SDI Input 1, filter=(2), ]  io_data[ cmd_io=253, ]
+sys_data[ local_name=Capture PC 3 SDI Input 2, filter=(2), ]  io_data[ cmd_io=254, ]
+sys_data[ local_name=Capture PC 4 SDI Input 1, filter=(2), ]  io_data[ cmd_io=255, ]
+sys_data[ local_name=Capture PC 4 SDI Input 2, filter=(2), ]  io_data[ cmd_io=256, ]
+sys_data[ local_name=Capture PC 5 SDI Input 1, filter=(2), ]  io_data[ cmd_io=257, ]
+sys_data[ local_name=Capture PC 5 SDI Input 2, filter=(2), ]  io_data[ cmd_io=258, ]
+sys_data[ local_name=Capture PC 6 SDI Input 1, filter=(2), ]  io_data[ cmd_io=259, ]
+sys_data[ local_name=Capture PC 6 SDI Input 2, filter=(2), ]  io_data[ cmd_io=260, ]
+sys_data[ local_name=Capture PC 7 SDI Input 1, filter=(2), ]  io_data[ cmd_io=261, ]
+sys_data[ local_name=Capture PC 7 SDI Input 2, filter=(2), ]  io_data[ cmd_io=262, ]
+sys_data[ local_name=Capture PC 8 SDI Input 1, filter=(2), ]  io_data[ cmd_io=263, ]
+sys_data[ local_name=Capture PC 8 SDI Input 2, filter=(2), ]  io_data[ cmd_io=264, ]
+sys_data[ local_name=Capture PC 9 SDI Input 1, filter=(2), ]  io_data[ cmd_io=265, ]
+sys_data[ local_name=Capture PC 9 SDI Input 2, filter=(2), ]  io_data[ cmd_io=266, ]
+sys_data[ local_name=Capture PC 10 SDI Input 1, filter=(2), ]  io_data[ cmd_io=267, ]
+sys_data[ local_name=Capture PC 10 SDI Input 2, filter=(2), ]  io_data[ cmd_io=268, ]
 
 
 //Filming Studio
-sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(29), ] io_data[ v_cmd_io=247,  ]
+sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(29), ] io_data[ cmd_io=247,  ]
 
 
 //222 Forum
-sys_data[ local_name=LED Wall VidProc Input 1, room_ass=23, local_id=01, filter=(33), ]  io_data[ v_cmd_io=50, ] 
-sys_data[ local_name=LED Wall VidProc Input 2, room_ass=23, local_id=02, filter=(33), ]  io_data[ v_cmd_io=51, ]
-sys_data[ local_name=LED Wall VidProc Input 3, room_ass=23, local_id=03, filter=(33), ]  io_data[ v_cmd_io=52, ]
-sys_data[ local_name=LED Wall VidProc Input 4, room_ass=23, local_id=04, filter=(33), ]  io_data[ v_cmd_io=53, ]
-sys_data[ local_name=Projector VidProc Input 1, room_ass=23, local_id=05, filter=(36), ]  io_data[ v_cmd_io=38, ]
-sys_data[ local_name=Projector VidProc Input 2, room_ass=23, local_id=06, filter=(36), ]  io_data[ v_cmd_io=39, ]
-sys_data[ local_name=Projector VidProc Input 3, room_ass=23, local_id=07, filter=(36), ]  io_data[ v_cmd_io=40, ]
-sys_data[ local_name=Projector VidProc Input 4, room_ass=23, local_id=08, filter=(36), ]  io_data[ v_cmd_io=41, ]
+sys_data[ local_name=LED Wall VidProc Input 1, room_ass=23, local_id=01, filter=(33), ]  io_data[ cmd_io=50, ] 
+sys_data[ local_name=LED Wall VidProc Input 2, room_ass=23, local_id=02, filter=(33), ]  io_data[ cmd_io=51, ]
+sys_data[ local_name=LED Wall VidProc Input 3, room_ass=23, local_id=03, filter=(33), ]  io_data[ cmd_io=52, ]
+sys_data[ local_name=LED Wall VidProc Input 4, room_ass=23, local_id=04, filter=(33), ]  io_data[ cmd_io=53, ]
+sys_data[ local_name=Projector VidProc Input 1, room_ass=23, local_id=05, filter=(36), ]  io_data[ cmd_io=38, ]
+sys_data[ local_name=Projector VidProc Input 2, room_ass=23, local_id=06, filter=(36), ]  io_data[ cmd_io=39, ]
+sys_data[ local_name=Projector VidProc Input 3, room_ass=23, local_id=07, filter=(36), ]  io_data[ cmd_io=40, ]
+sys_data[ local_name=Projector VidProc Input 4, room_ass=23, local_id=08, filter=(36), ]  io_data[ cmd_io=41, ]
 
 sys_data[ local_name=PROJ 2B-1, room_ass=23, local_id=09, sys_preset=01, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.11, ]  io_data[ relay_processor=1, rly_on=(2+29+), rly_off=(1+30+), ]
 sys_data[ local_name=PROJ 2B-4, room_ass=23, local_id=10, sys_preset=01, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.12, ]
 
-sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ v_cmd_io=12, ]
-sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ v_cmd_io=13, ]
-sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ v_cmd_io=14, ]
-sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ v_cmd_io=15, ]
-sys_data[ local_name=South Soffit Display 1, room_ass=23, local_id=15, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.17, ]  io_data[ v_cmd_io=16, ]
-sys_data[ local_name=South Soffit Display 2, room_ass=23, local_id=16, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.18, ]  io_data[ v_cmd_io=17, ]
-sys_data[ local_name=South Soffit Display 3, room_ass=23, local_id=17, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.19, ]  io_data[ v_cmd_io=18, ]
-sys_data[ local_name=South Soffit Display 4, room_ass=23, local_id=18, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.20, ]  io_data[ v_cmd_io=19, ]
+sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ cmd_io=12, ]
+sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ cmd_io=13, ]
+sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ cmd_io=14, ]
+sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ cmd_io=15, ]
+sys_data[ local_name=South Soffit Display 1, room_ass=23, local_id=15, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.17, ]  io_data[ cmd_io=16, ]
+sys_data[ local_name=South Soffit Display 2, room_ass=23, local_id=16, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.18, ]  io_data[ cmd_io=17, ]
+sys_data[ local_name=South Soffit Display 3, room_ass=23, local_id=17, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.19, ]  io_data[ cmd_io=18, ]
+sys_data[ local_name=South Soffit Display 4, room_ass=23, local_id=18, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.20, ]  io_data[ cmd_io=19, ]
 
-sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=23, local_id=21,  filter=(30), ]  io_data[ v_cmd_io=4, ]
-sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=23, local_id=22,  filter=(30), ]  io_data[ v_cmd_io=5, ]
+sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=23, local_id=21,  filter=(30), ]  io_data[ cmd_io=4, ]
+sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=23, local_id=22,  filter=(30), ]  io_data[ cmd_io=5, ]
 
-sys_data[ local_name=Stage Podium HDMI Out 1, room_ass=23, local_id=23, filter=(35), ]  io_data[ v_cmd_io=7, ]
-sys_data[ local_name=Stage Podium HDMI Out 2, room_ass=23, local_id=24, filter=(35), ]  io_data[ v_cmd_io=8, ]
+sys_data[ local_name=Stage Podium HDMI Out 1, room_ass=23, local_id=23, filter=(35), ]  io_data[ cmd_io=7, ]
+sys_data[ local_name=Stage Podium HDMI Out 2, room_ass=23, local_id=24, filter=(35), ]  io_data[ cmd_io=8, ]
 
-sys_data[ local_name=Mix Cart HDMI Out 1, room_ass=23, local_id=25, filter=(34), ]  io_data[ v_cmd_io=1, ]
-sys_data[ local_name=MIX Cart HDMI Out 2, room_ass=23, local_id=26, filter=(34), ]  io_data[ v_cmd_io=2, ]
+sys_data[ local_name=Mix Cart HDMI Out 1, room_ass=23, local_id=25, filter=(34), ]  io_data[ cmd_io=1, ]
+sys_data[ local_name=MIX Cart HDMI Out 2, room_ass=23, local_id=26, filter=(34), ]  io_data[ cmd_io=2, ]
 
-sys_data[ local_name=KVM TX For SW 2A-1-LOCKED ROUTE, local_id=27, local_id=38, room_ass=23, filter=(32), ]  io_data[ v_cmd_io=34, ]
+sys_data[ local_name=KVM TX For SW 2A-1-LOCKED ROUTE, local_id=27, local_id=38, room_ass=23, filter=(32), ]  io_data[ cmd_io=34, ]
 
-sys_data[ local_name=Touch Panel Video Preview, local_id=49, room_ass=23, filter=(31), ]  io_data[ v_cmd_io=32,  ]
+sys_data[ local_name=Touch Panel Video Preview, local_id=49, room_ass=23, filter=(31), ]  io_data[ cmd_io=32,  ]
 
-sys_data[ local_name=Capture PC 1-SDI In 1, room_ass=23, local_id=28, filter=(37), ]  io_data[ v_cmd_io=24, ]
-sys_data[ local_name=Capture PC 1-SDI In 2, room_ass=23, local_id=29, filter=(37), ]  io_data[ v_cmd_io=25, ]
-sys_data[ local_name=Matrox Recorder 1, room_ass=23, local_id=30, filter=(37), ]  io_data[ v_cmd_io=26, ]
-sys_data[ local_name=Flex PC 2A-1 USB Video Input, room_ass=23, local_id=41, filter=(39), ]  io_data[ v_cmd_io=33, ]
+sys_data[ local_name=Capture PC 1-SDI In 1, room_ass=23, local_id=28, filter=(37), ]  io_data[ cmd_io=24, ]
+sys_data[ local_name=Capture PC 1-SDI In 2, room_ass=23, local_id=29, filter=(37), ]  io_data[ cmd_io=25, ]
+sys_data[ local_name=Matrox Recorder 1, room_ass=23, local_id=30, filter=(37), ]  io_data[ cmd_io=26, ]
+sys_data[ local_name=Flex PC 2A-1 USB Video Input, room_ass=23, local_id=41, filter=(39), ]  io_data[ cmd_io=33, ]
 
-sys_data[ local_name=Tricaster 2A-1 SDI In 1, room_ass=23, local_id=32, filter=(40), ]  io_data[ v_cmd_io=20, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 2, room_ass=23, local_id=33, filter=(40), ]  io_data[ v_cmd_io=21, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 3, room_ass=23, local_id=34, filter=(40), ]  io_data[ v_cmd_io=22, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 4, room_ass=23, local_id=35, filter=(40), ]  io_data[ v_cmd_io=23, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 1, room_ass=23, local_id=36, filter=(41), ]  io_data[ v_cmd_io=27, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 2, room_ass=23, local_id=37, filter=(41), ]  io_data[ v_cmd_io=28, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 3, room_ass=23, local_id=38, filter=(41), ]  io_data[ v_cmd_io=29, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 4, room_ass=23, local_id=39, filter=(41), ]  io_data[ v_cmd_io=30, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 1, room_ass=23, local_id=32, filter=(40), ]  io_data[ cmd_io=20, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 2, room_ass=23, local_id=33, filter=(40), ]  io_data[ cmd_io=21, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 3, room_ass=23, local_id=34, filter=(40), ]  io_data[ cmd_io=22, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 4, room_ass=23, local_id=35, filter=(40), ]  io_data[ cmd_io=23, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 1, room_ass=23, local_id=36, filter=(41), ]  io_data[ cmd_io=27, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 2, room_ass=23, local_id=37, filter=(41), ]  io_data[ cmd_io=28, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 3, room_ass=23, local_id=38, filter=(41), ]  io_data[ cmd_io=29, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 4, room_ass=23, local_id=39, filter=(41), ]  io_data[ cmd_io=30, ]
 
 
 
 //Remote Classrooms
-sys_data[ local_name=ZeeVee Encoder 1,  filter=(45), ]  io_data[ v_cmd_io=312, ]
-sys_data[ local_name=ZeeVee Encoder 2,  filter=(45), ]  io_data[ v_cmd_io=313, ]
-sys_data[ local_name=ZeeVee Encoder 3,  filter=(45), ]  io_data[ v_cmd_io=314, ]
-sys_data[ local_name=ZeeVee Encoder 4,  filter=(45), ]  io_data[ v_cmd_io=315, ]
+sys_data[ local_name=ZeeVee Encoder 1,  filter=(45), ]  io_data[ cmd_io=312, ]
+sys_data[ local_name=ZeeVee Encoder 2,  filter=(45), ]  io_data[ cmd_io=313, ]
+sys_data[ local_name=ZeeVee Encoder 3,  filter=(45), ]  io_data[ cmd_io=314, ]
+sys_data[ local_name=ZeeVee Encoder 4,  filter=(45), ]  io_data[ cmd_io=315, ]
 
 
 
@@ -375,41 +368,41 @@ sys_data[ local_name=ZeeVee Encoder 4,  filter=(45), ]  io_data[ v_cmd_io=315, ]
 sys_data[ local_name=Projector Left, room_ass=17, local_id=01, ]  device_data[ is_display=1, device_type=christie_proj, ip_address=10.156.26.221, ]
 sys_data[ local_name=Projector Center, room_ass=17, local_id=02, ]  device_data[ is_display=1, device_type=christie_proj, ip_address=10.156.26.222, ]
 sys_data[ local_name=Projector Right, room_ass=17, local_id=03, ]  device_data[ is_display=1, device_type=christie_proj, ip_address=10.156.26.223, ]
-sys_data[ local_name=Watchout MediaServer In1, room_ass=17, local_id=04,  filter=(44), ]  io_data[ v_cmd_io=242, ]
-sys_data[ local_name=Watchout MediaServer In2, room_ass=17, local_id=05,  filter=(44), ]  io_data[ v_cmd_io=243, ]
+sys_data[ local_name=Watchout MediaServer In1, room_ass=17, local_id=04,  filter=(44), ]  io_data[ cmd_io=242, ]
+sys_data[ local_name=Watchout MediaServer In2, room_ass=17, local_id=05,  filter=(44), ]  io_data[ cmd_io=243, ]
 
 
-sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=17, local_id=11,  filter=(42), ]  io_data[ v_cmd_io=521, ]
-sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=17, local_id=12,  filter=(42), ]  io_data[ v_cmd_io=522, ]
-sys_data[ local_name=Throwdown B-HDMI Out 1, room_ass=17, local_id=13,  filter=(42), ]  io_data[ v_cmd_io=524, ] 
-sys_data[ local_name=Throwdown B-HDMI Out 2, room_ass=17, local_id=14,  filter=(42), ]  io_data[ v_cmd_io=525, ]
-sys_data[ local_name=Throwdown C-HDMI Out 1, room_ass=17, local_id=15,  filter=(42), ]  io_data[ v_cmd_io=527, ]
-sys_data[ local_name=Throwdown C-HDMI Out 2, room_ass=17, local_id=16,  filter=(42), ]  io_data[ v_cmd_io=528, ]
-sys_data[ local_name=Throwdown D-HDMI Out 1, room_ass=17, local_id=17,  filter=(42), ]  io_data[ v_cmd_io=530, ]
-sys_data[ local_name=Throwdown D-HDMI Out 2, room_ass=17, local_id=18,  filter=(42), ]  io_data[ v_cmd_io=531, ]
+sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=17, local_id=11,  filter=(42), ]  io_data[ cmd_io=521, ]
+sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=17, local_id=12,  filter=(42), ]  io_data[ cmd_io=522, ]
+sys_data[ local_name=Throwdown B-HDMI Out 1, room_ass=17, local_id=13,  filter=(42), ]  io_data[ cmd_io=524, ] 
+sys_data[ local_name=Throwdown B-HDMI Out 2, room_ass=17, local_id=14,  filter=(42), ]  io_data[ cmd_io=525, ]
+sys_data[ local_name=Throwdown C-HDMI Out 1, room_ass=17, local_id=15,  filter=(42), ]  io_data[ cmd_io=527, ]
+sys_data[ local_name=Throwdown C-HDMI Out 2, room_ass=17, local_id=16,  filter=(42), ]  io_data[ cmd_io=528, ]
+sys_data[ local_name=Throwdown D-HDMI Out 1, room_ass=17, local_id=17,  filter=(42), ]  io_data[ cmd_io=530, ]
+sys_data[ local_name=Throwdown D-HDMI Out 2, room_ass=17, local_id=18,  filter=(42), ]  io_data[ cmd_io=531, ]
 
 
 		//SimDeck Control Room
-sys_data[ local_name=VW POS 1, room_ass=17, local_id=21, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=481, ]
-sys_data[ local_name=VW POS 2, room_ass=17, local_id=22, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=482, ]
-sys_data[ local_name=VW POS 3, room_ass=17, local_id=23, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=483, ]
-sys_data[ local_name=VW POS 4, room_ass=17, local_id=24, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=484, ]
-sys_data[ local_name=VW POS 5, room_ass=17, local_id=25, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=485, ]
-sys_data[ local_name=VW POS 6, room_ass=17, local_id=26, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=487, ]
-sys_data[ local_name=VW POS 9, room_ass=17, local_id=27, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=488, ]
-sys_data[ local_name=VW POS 10, room_ass=17, local_id=28, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=489, ]
-sys_data[ local_name=VW POS 13, room_ass=17, local_id=29, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=490, ]
-sys_data[ local_name=VW POS 14, room_ass=17, local_id=30, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=491, ]
-sys_data[ local_name=VW POS 7, room_ass=17, local_id=41, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=492, ]
-sys_data[ local_name=VW POS 8, room_ass=17, local_id=32, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=493, ]
-sys_data[ local_name=VW POS 11, room_ass=17, local_id=33, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=494, ] 
-sys_data[ local_name=VW POS 12, room_ass=17, local_id=34, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=495, ]
-sys_data[ local_name=VW POS 15, room_ass=17, local_id=35, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=496, ]
-sys_data[ local_name=VW POS 16, room_ass=17, local_id=36, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=497, ]
-sys_data[ local_name=VW POS 17, room_ass=17, local_id=37, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=498, ]
-sys_data[ local_name=VW POS 18, room_ass=17, local_id=38, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=499, ]
-sys_data[ local_name=VW POS 19, room_ass=17, local_id=39, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=500, ]
-sys_data[ local_name=VW POS 20, room_ass=17, local_id=40, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ v_cmd_io=501, ]
+sys_data[ local_name=VW POS 1, room_ass=17, local_id=21, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=481, ]
+sys_data[ local_name=VW POS 2, room_ass=17, local_id=22, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=482, ]
+sys_data[ local_name=VW POS 3, room_ass=17, local_id=23, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=483, ]
+sys_data[ local_name=VW POS 4, room_ass=17, local_id=24, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=484, ]
+sys_data[ local_name=VW POS 5, room_ass=17, local_id=25, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=485, ]
+sys_data[ local_name=VW POS 6, room_ass=17, local_id=26, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=487, ]
+sys_data[ local_name=VW POS 9, room_ass=17, local_id=27, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=488, ]
+sys_data[ local_name=VW POS 10, room_ass=17, local_id=28, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=489, ]
+sys_data[ local_name=VW POS 13, room_ass=17, local_id=29, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=490, ]
+sys_data[ local_name=VW POS 14, room_ass=17, local_id=30, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=491, ]
+sys_data[ local_name=VW POS 7, room_ass=17, local_id=41, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=492, ]
+sys_data[ local_name=VW POS 8, room_ass=17, local_id=32, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=493, ]
+sys_data[ local_name=VW POS 11, room_ass=17, local_id=33, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=494, ] 
+sys_data[ local_name=VW POS 12, room_ass=17, local_id=34, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=495, ]
+sys_data[ local_name=VW POS 15, room_ass=17, local_id=35, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=496, ]
+sys_data[ local_name=VW POS 16, room_ass=17, local_id=36, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=497, ]
+sys_data[ local_name=VW POS 17, room_ass=17, local_id=37, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=498, ]
+sys_data[ local_name=VW POS 18, room_ass=17, local_id=38, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=499, ]
+sys_data[ local_name=VW POS 19, room_ass=17, local_id=39, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=500, ]
+sys_data[ local_name=VW POS 20, room_ass=17, local_id=40, filter=(43), ]  device_data[ is_display=1, device_type=lg_lcd, ip_address=10.156.27.138]  io_data[ cmd_io=501, ]
 
 
-sys_data[ local_name=Panel Preview, room_ass=17, local_id=49,  ]  io_data[ v_cmd_io=486, ]
+sys_data[ local_name=Panel Preview, room_ass=17, local_id=49,  ]  io_data[ cmd_io=486, ]

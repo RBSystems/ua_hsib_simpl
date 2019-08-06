@@ -177,15 +177,11 @@ namespace PWCSharpPro
             switch (_input)
             {
                 case(Input.HDMI1):
-                    {
-                        command = string.Format("*SCINPT0000000100000001\x0A");
-                        break;
-                    }
+                    command = string.Format("*SCINPT0000000100000001\x0A");
+                    break;
                 case(Input.HDMI2):
-                {
                     command = string.Format("*SCINPT0000000100000002\x0A");
                     break;
-                }
             }
             currentInput = _input;
             sendCommand(command);
@@ -194,12 +190,8 @@ namespace PWCSharpPro
         public override bool SupportsInput(DPLY.Input _input)
         {
             foreach (Input input in InputsSupported)
-            {
                 if (input == _input)
-                {
                     return true;
-                }
-            }
             return false;
         }
 
