@@ -17,6 +17,13 @@
 //04=Privacy Mute
 //05=Room Combine Mute
 
+//FixedIDs
+//01=Mic Mix
+//02=Program
+//03=
+//04=CMic Mute
+//05=Privacy Mute
+
 //Forum  – Control IP 10.156.24.61
 
 room_ass=23, point_type=1, local_index=1, local_name=Wireless Mic 01, tag_gain=FORUM_Wmic01_gain_volLevel, tag_mute=FORUM_Wmic01_gain_muteState, dsp_system=2,
@@ -317,13 +324,7 @@ room_ass=16, point_type=2, local_index=10, local_name=Room Combine Mute, functio
 room_ass=18, point_type=1, local_index=1, local_name=Handheld, tag_gain=R855_Wmic01_gain_volLevel, tag_mute=R855_Wmic01_gain_muteState, 
 room_ass=18, point_type=1, local_index=2, local_name=LAV, tag_gain=R855_Wmic02_gain_volLevel, tag_mute=R855_Wmic02_gain_muteState,
 room_ass=18, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R855_WmicMix_gain_volLevel, tag_mute=R855_WmicMix_gain_muteState,
-
-room_ass=18, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R855_Privacy_muteState,
-room_ass=18, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R855_ConfRx_gain_volLevel, tag_mute=R855_ConfRx_gain_muteState,
-room_ass=18, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R855_VTC_Rx_gain_volLevel, tag_mute=R855_VTC_Rx_gain_muteState,
-room_ass=18, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R855_VTC_Tx_gain_volLevel, tag_mute=R855_VTC_Tx_gain_muteState,
 room_ass=18, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R855_PGM_gain_volLevel, tag_mute=R855_PGM_gain_muteState,
-room_ass=18, point_type=2, local_index=10, local_name=Room Combine Mute, function=1, group_id=05, tag_mute=R855_RC_gain_muteState,
 
 	//SOURCE ROUTING:
 	room_ass=18, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R855_PGM_router,
@@ -335,7 +336,7 @@ room_ass=19, point_type=1, local_index=2, local_name=LAV, tag_gain=R880_Wmic02_g
 room_ass=19, point_type=1, local_index=3, local_name=Mic Mix, group_id=01, fixed_id=01, tag_gain=R880_WmicMix_gain_volLevel, tag_mute=R880_WmicMix_gain_muteState,
 room_ass=19, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=02, tag_gain=R880_CMicMix_gain_volLevel, tag_mute=R880_CMicMix_gain_muteState,
 
-room_ass=19, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, tag_mute=R880_Privacy_muteState,
+room_ass=19, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, fixed_id=05, tag_mute=R880_Privacy_muteState,
 room_ass=19, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R880_ConfRx_gain_volLevel, tag_mute=R880_ConfRx_gain_muteState,
 room_ass=19, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R880_VTC_Rx_gain_volLevel, tag_mute=R880_VTC_Rx_gain_muteState,
 room_ass=19, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R880_VTC_Tx_gain_volLevel, tag_mute=R880_VTC_Tx_gain_muteState,

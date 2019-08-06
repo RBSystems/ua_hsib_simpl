@@ -206,6 +206,8 @@ namespace PWCSharpPro
         public abstract void SwitchtoInput(DPLY.Input _input);
         public abstract bool SupportsInput(DPLY.Input _input);
 
+        public abstract void TileMatrixMode(int _position);
+
         public abstract uint GetLampHours();
         public abstract uint GetLampHours(uint _lamp);
 

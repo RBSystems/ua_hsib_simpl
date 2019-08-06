@@ -181,6 +181,11 @@ CrestronConsole.PrintLine("Hit Sony 232 - POWER ON");
             return false;
         }
 
+        public override void TileMatrixMode(int _position)
+        {
+            throw new NotImplementedException();
+        }
+
         public override uint GetLampHours()
         {
             throw new NotImplementedException();

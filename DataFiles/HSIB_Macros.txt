@@ -220,6 +220,46 @@ room_ass=12: macro_id=58: name=Sys Off Uncombined, list=(33, 01, ),
 room_ass=12: macro_id=59: name=Sys On Combined, list=(33, 01,),
 room_ass=12: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
 
+/////////////////////////////////////////////////////////////////////////////////////
+
+//567
+room_ass=13: macro_id=01: name=Route to All, pgm_audio=1, list=(1*,2,3,4,5,6,7,8,9,10,11,12,13,),
+
+room_ass=13: macro_id=07: name=LCD Left Quad, list=(1*,2,3,4,),
+room_ass=13: macro_id=08: name=LCD Center Quad, pgm_audio=1, usb=1, list=(5*,6,7,8,),
+room_ass=13: macro_id=09: name=LCD Right Quad, list=(9*,10,11,12,),
+
+room_ass=13: macro_id=10: name=Projector, pgm_audio=1, usb=1, list=(13*,),
+
+room_ass=13: macro_id=11: name=LCD Left 01, list=(1*,),
+room_ass=13: macro_id=12: name=LCD Left 02, list=(2*,),
+room_ass=13: macro_id=13: name=LCD Left 03, list=(3*,),
+room_ass=13: macro_id=14: name=LCD Left 04, list=(4*,),
+room_ass=13: macro_id=15: name=LCD Center 01, list=(5*,),
+room_ass=13: macro_id=16: name=LCD Center 02, list=(6*,),
+room_ass=13: macro_id=17: name=LCD Center 03, list=(7*,),
+room_ass=13: macro_id=18: name=LCD Center 04, list=(8*,),
+room_ass=13: macro_id=19: name=LCD Right 01, list=(9*,),
+room_ass=13: macro_id=20: name=LCD Right 02, list=(10*,),
+room_ass=13: macro_id=21: name=LCD Right 03, list=(11*,),
+room_ass=13: macro_id=22: name=LCD Right 04, list=(12*,),
+room_ass=13: macro_id=23: name=Projector, list=(13*,),
+
+
+room_ass=13: macro_id=24: name=LCD Wall Mode, special_567=1,
+room_ass=13: macro_id=25: name=Projector Mode, special_567=2,
+
+
+room_ass=13: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,11,12,),
+
+room_ass=13: macro_id=57: name=Sys On Uncombined, list=(33, 01, ),
+room_ass=13: macro_id=58: name=Sys Off Uncombined, list=(33, 01, ),
+room_ass=13: macro_id=59: name=Sys On Combined, list=(33, 01, ),
+room_ass=13: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
 //640
 room_ass=14: macro_id=01: name=Route to All, pgm_audio=1, usb=0, list=(1*,2,3,4,5,6,7,8,9,10,),
 room_ass=14: macro_id=02: name=Individual Stations, pgm_audio=1, usb=0, special_60p=1,

@@ -291,6 +291,10 @@ namespace PWCSharpPro
         {
             throw new NotImplementedException();
         }
+        public override void TileMatrixMode(int _position)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         /// <summary>

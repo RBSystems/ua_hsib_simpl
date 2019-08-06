@@ -444,30 +444,32 @@ namespace UofA_HSIB_Pro
                     switch (args.Sig.UShortValue)
                     {
                         case (1):
-                            {
-                                controlSystem.DisplaysList[index].Controller.SwitchtoInput(DPLY.Input.HDMI1);
-                                break;
-                            }
+                            controlSystem.DisplaysList[index].Controller.SwitchtoInput(DPLY.Input.HDMI1);
+                            break;
                         case (2):
-                            {
-                                controlSystem.DisplaysList[index].Controller.SwitchtoInput(DPLY.Input.HDMI2);
-                                break;
-                            }
+                            controlSystem.DisplaysList[index].Controller.SwitchtoInput(DPLY.Input.HDMI2);
+                            break;
                         case (10):
-                            {
-                                controlSystem.DisplaysList[index].Controller.PowerOff();
-                                break;
-                            }
+                            controlSystem.DisplaysList[index].Controller.PowerOff();
+                            break;
                         case (11):
-                            {
-                                controlSystem.DisplaysList[index].Controller.PowerOn();
-                                break;
-                            }
-                        //case (99):
-                        //    {
-                        //        controlSystem.DisplaysList[index].Controller.SelfDestruct();
-                        //        break;
-                        //    }
+                            controlSystem.DisplaysList[index].Controller.PowerOn();
+                            break;
+                        case (20):
+                            controlSystem.DisplaysList[index].Controller.TileMatrixMode(0);
+                            break;
+                        case (21):
+                            controlSystem.DisplaysList[index].Controller.TileMatrixMode(1);
+                            break;
+                        case (22):
+                            controlSystem.DisplaysList[index].Controller.TileMatrixMode(2);
+                            break;
+                        case (23):
+                            controlSystem.DisplaysList[index].Controller.TileMatrixMode(3);
+                            break;
+                        case (24):
+                            controlSystem.DisplaysList[index].Controller.TileMatrixMode(4);
+                            break;
                     }
 
                 }

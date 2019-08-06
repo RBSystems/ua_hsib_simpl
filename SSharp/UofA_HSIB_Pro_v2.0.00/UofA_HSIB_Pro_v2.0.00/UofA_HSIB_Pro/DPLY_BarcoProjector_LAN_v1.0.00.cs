@@ -91,6 +91,11 @@ namespace PWCSharpPro
             }
         }
 
+        public override void TileMatrixMode(int _position)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Constructor
         /// Starts RxTimer

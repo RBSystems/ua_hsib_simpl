@@ -88,6 +88,8 @@ namespace PWCSharpPro
             }
         }
 
+
+
         public DPLY_SonyLCD_LAN()
         {
             debug = false;
@@ -194,6 +196,12 @@ namespace PWCSharpPro
                     return true;
             return false;
         }
+
+        public override void TileMatrixMode(int _position)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public override uint GetLampHours()
         {

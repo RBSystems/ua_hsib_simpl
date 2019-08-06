@@ -101,7 +101,7 @@
     <Compile Include="ControlSystem_v2.0.14.cs" />
     <Compile Include="DPLY_BarcoProjector_LAN_v1.0.00.cs" />
     <Compile Include="DPLY_ChristieProjector_LAN_v1.0.01.cs" />
-    <Compile Include="DPLY_LGLCD LANRS232C_v1.0.02.cs" />
+    <Compile Include="DPLY_LGLCD LANRS232C_v1.0.03.cs" />
     <Compile Include="DPLY_SonyLCD_LAN_v1.0.01.cs" />
     <Compile Include="DPLY_SonyLCD_RS232C_v1.0.01.cs" />
     <Compile Include="DPLY_SonyProjector_LAN_v1.0.02.cs" />
