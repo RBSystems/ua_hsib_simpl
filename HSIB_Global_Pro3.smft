@@ -12,8 +12,8 @@
       <Device Model="DM-DGE-200-C" DeviceId="1F" Name="S.x BioComm"/>
       <Device Model="DM-DGE-200-C" DeviceId="20" Name="S.01"/>
       <Device Model="DM-DGE-200-C" DeviceId="21" Name="S.02"/>
-      <Device Model="DM-DGE-200-C" DeviceId="2F" Name="S.16 --Do Not Overwrite All"/>
-      <Device Model="DM-DGE-200-C" DeviceId="30" Name="S.17 --Do Not Overwrite All"/>
+      <Device Model="DM-DGE-200-C" DeviceId="2F" Name="S.16"/>
+      <Device Model="DM-DGE-200-C" DeviceId="30" Name="S.17"/>
       <Device Model="DM-DGE-200-C" DeviceId="36" Name="S.23 Forum"/>
       <Device Model="CEN-CI3-1" DeviceId="70" Name="ACC 2A-1 (Forum)"/>
       <Device Model="CEN-CI3-1" DeviceId="71" Name="ACC 2A-2 (Forum)"/>

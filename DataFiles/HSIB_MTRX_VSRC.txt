@@ -146,11 +146,11 @@ sys_data[ local_name=Wireless, pgm_audio=3, room_ass=13, local_id=3, filter=(20)
 sys_data[ local_name=Audience Camera, room_ass=13, local_id=22, filter=(20), ]  device_data[ is_camera=1, ip_address=10.156.26.141, ]  io_data[ cmd_io=249, ]
 sys_data[ local_name=Presenter Camera, room_ass=13, local_id=21, filter=(20), ]  device_data[ is_camera=1, ip_address=10.156.26.142, ]  io_data[ cmd_io=250, ]
 
-sys_data[ local_name=Wallbox SDI 1, room_ass=13, local_id=24, filter=(20), ]  device_data[ is_camera=0, ]  io_data[ cmd_io=253, ]
-sys_data[ local_name=Wallbox SDI 2, room_ass=13, local_id=25, filter=(20), ]  device_data[ is_camera=0, ]  io_data[ cmd_io=254, ]
-sys_data[ local_name=Zoom PC Mon 1, room_ass=13, local_id=26, filter=(20), ]  device_data[ is_camera=0, ]  io_data[ cmd_io=328, ]
-sys_data[ local_name=Zoom PC Mon 2, room_ass=13, local_id=27, filter=(20), ]  device_data[ is_camera=0, ]  io_data[ cmd_io=329, ]
-sys_data[ local_name=Zoom PC Mon 3, room_ass=13, local_id=28, filter=(20), ]  device_data[ is_camera=0, ]  io_data[ cmd_io=330, ]
+sys_data[ local_name=Wallbox SDI 1, room_ass=13, local_id=31, filter=(20), ]  io_data[ cmd_io=253, ]
+sys_data[ local_name=Wallbox SDI 2, room_ass=13, local_id=32, filter=(20), ]  io_data[ cmd_io=254, ]
+sys_data[ local_name=Zoom PC Mon 1, room_ass=13, local_id=33, filter=(20), ]  io_data[ cmd_io=328, ]
+sys_data[ local_name=Zoom PC Mon 2, room_ass=13, local_id=34, filter=(20), ]  io_data[ cmd_io=329, ]
+sys_data[ local_name=Zoom PC Mon 3, room_ass=13, local_id=35, filter=(20), ]  io_data[ cmd_io=330, ]
 
 
 
