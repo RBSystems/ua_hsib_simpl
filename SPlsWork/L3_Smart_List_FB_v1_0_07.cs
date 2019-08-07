@@ -19,7 +19,6 @@ namespace UserModule_L3_SMART_LIST_FB_V1_0_07
         InOutArray<Crestron.Logos.SplusObjects.DigitalOutput> VIS;
         InOutArray<Crestron.Logos.SplusObjects.DigitalOutput> FB;
         InOutArray<Crestron.Logos.SplusObjects.StringOutput> TX__DOLLAR__1;
-        UShortParameter HIGHINDEX;
         UShortParameter TEXTCOLUMNS;
         StringParameter HTMLDATA;
         STHTML [] HTML;
@@ -493,9 +492,6 @@ namespace UserModule_L3_SMART_LIST_FB_V1_0_07
         RX__DOLLAR__ = new Crestron.Logos.SplusObjects.BufferInput( RX__DOLLAR____AnalogSerialInput__, 2000, this );
         m_StringInputList.Add( RX__DOLLAR____AnalogSerialInput__, RX__DOLLAR__ );
         
-        HIGHINDEX = new UShortParameter( HIGHINDEX__Parameter__, this );
-        m_ParameterList.Add( HIGHINDEX__Parameter__, HIGHINDEX );
-        
         TEXTCOLUMNS = new UShortParameter( TEXTCOLUMNS__Parameter__, this );
         m_ParameterList.Add( TEXTCOLUMNS__Parameter__, TEXTCOLUMNS );
         
@@ -526,9 +522,8 @@ namespace UserModule_L3_SMART_LIST_FB_V1_0_07
     const uint VIS__DigitalOutput__ = 0;
     const uint FB__DigitalOutput__ = 200;
     const uint TX__DOLLAR__1__AnalogSerialOutput__ = 0;
-    const uint HIGHINDEX__Parameter__ = 10;
-    const uint TEXTCOLUMNS__Parameter__ = 11;
-    const uint HTMLDATA__Parameter__ = 12;
+    const uint TEXTCOLUMNS__Parameter__ = 10;
+    const uint HTMLDATA__Parameter__ = 11;
     
     [SplusStructAttribute(-1, true, false)]
     public class SplusNVRAM : SplusStructureBase

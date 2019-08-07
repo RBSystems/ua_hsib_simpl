@@ -241,7 +241,7 @@ room_ass=13: macro_id=04: name=LCD Quad Center, pgm_audio=1, usb=1, list=(3*,),
 room_ass=13: macro_id=05: name=Zoom Cam, list=(35,41*,),
 room_ass=13: macro_id=06: name=Zoom Content, list=(34*,),
 
-room_ass=13: macro_id=07: name=Projector, pgm_audio=1, usb=1, list=(13*,),
+room_ass=13: macro_id=07: name=Projector, pgm_audio=1, usb=1, list=(1*,),
 
 room_ass=13: macro_id=26: name=LCD Matrix Mode, special_function=2,
 room_ass=13: macro_id=27: name=Projector Mode, special_function=3,
