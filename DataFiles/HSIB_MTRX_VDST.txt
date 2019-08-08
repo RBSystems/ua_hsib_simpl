@@ -178,9 +178,9 @@ sys_data[ local_name=Panel Preview, room_ass=12, local_id=49,  filter=(22), ]  i
 
 
 //ROOM 567
-sys_data[ local_name=Projector, room_ass=13, local_id=1, filter=(23)]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.143, ]  io_data[ cmd_io=331, relay_processor=1, rly_on=(49+), rly_off=(50+), ]
-sys_data[ local_name=2X2 Display Left, room_ass=13, local_id=2, filter=(23), ]  device_data[ is_display=1, processor_index=5, device_type=lg_lcd, com_port=1, ]  io_data[ cmd_io=328, usb_mac=02926b, ]
-sys_data[ local_name=2X2 Display Center, room_ass=13, local_id=3, filter=(23), ]  device_data[ is_display=1, processor_index=5, device_type=lg_lcd, com_port=2, ]  io_data[ cmd_io=329, ]
+sys_data[ local_name=Projector, room_ass=13, local_id=1, filter=(23)]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.143, ]  io_data[ cmd_io=331, relay_processor=1, rly_on=(49+), rly_off=(50+), usb_mac=02926b, ]
+sys_data[ local_name=2X2 Display Left, room_ass=13, local_id=2, filter=(23), ]  device_data[ is_display=1, processor_index=5, device_type=lg_lcd, com_port=1, ]  io_data[ cmd_io=328, ]
+sys_data[ local_name=2X2 Display Center, room_ass=13, local_id=3, filter=(23), ]  device_data[ is_display=1, processor_index=5, device_type=lg_lcd, com_port=2, ]  io_data[ cmd_io=329, usb_mac=02926b, ]
 sys_data[ local_name=2X2 Display Right, room_ass=13, local_id=4, filter=(23), ]  device_data[ is_display=1, processor_index=5, device_type=lg_lcd, com_port=3, ]  io_data[ cmd_io=330, ]
 
 sys_data[ local_name=Zoom Content Input, room_ass=13, local_id=34, filter=(23), ]  io_data[ cmd_io=300, ]
