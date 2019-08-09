@@ -189,9 +189,9 @@ sys_data[ local_name=Zoom PC USB Video Input, room_ass=13, local_id=35, filter=(
 sys_data[ local_name=USB Video, room_ass=13, local_id=41, filter=(23),]  io_data[ cmd_io=422, ]
 sys_data[ local_name=Panel Preview, room_ass=13, local_id=49, filter=(23),]  io_data[ cmd_io=421, ]
 
-sys_data[ local_name=Aux Feed, room_ass=13, local_src_id=4, function_id=8, is_virtual=1, ]
-sys_data[ local_name=Cisco Codec Camera, room_ass=13, local_src_id=5,  is_virtual=1, ]
-sys_data[ local_name=Cisco Codec Content, room_ass=13, local_src_id=6,  is_virtual=1, ]
+//sys_data[ local_name=Aux Feed, room_ass=13, local_src_id=4, function_id=8, is_virtual=1, ]
+//sys_data[ local_name=Cisco Codec Camera, room_ass=13, local_src_id=5,  is_virtual=1, ]
+//sys_data[ local_name=Cisco Codec Content, room_ass=13, local_src_id=6,  is_virtual=1, ]
 
 
 //ROOM 640
