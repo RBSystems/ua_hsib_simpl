@@ -240,16 +240,18 @@ sys_data[ local_name=Cisco Codec Content, room_ass=16, local_src_id=6, is_virtua
 
 
 //ROOM 855
-sys_data[ local_name=Projector Right, room_ass=18, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ cmd_io=585, relay_processor=1, rly_on=(34+), rly_off=(33+), ]
-sys_data[ local_name=Projector Left, room_ass=18, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ cmd_io=584, relay_processor=1, rly_on=(36+), rly_off=(35+), ]
+sys_data[ local_name=Projector Left, room_ass=18, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ cmd_io=584, relay_processor=1, rly_on=(35+), rly_off=(36+), ]
+
+sys_data[ local_name=Projector Right, room_ass=18, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ cmd_io=585, relay_processor=1, rly_on=(33+), rly_off=(34+), ]
 
 sys_data[ local_name=Panel Preview, room_ass=18, local_id=49, ]  io_data[ cmd_io=581, ]
 
 //NO CISCO CAPABILITY NEEDED IN THIS ROOM
 
 //ROOM 880
-sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
-sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, usb_mac=029262, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
+sys_data[ local_name=Projector Left, room_ass=19, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
+
+sys_data[ local_name=Projector Right, room_ass=19, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, usb_mac=029262, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
 
 sys_data[ local_name=USB Video, room_ass=19, local_id=41, ] device_data[ ip_address=10.156.24.124, ]  io_data[ cmd_io=602, ]
 
