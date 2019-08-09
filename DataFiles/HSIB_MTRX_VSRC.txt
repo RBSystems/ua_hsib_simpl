@@ -259,8 +259,8 @@ sys_data[ local_name=PC, pgm_audio=1, room_ass=19, local_id=2, filter=(25), ]  i
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=19, local_id=1, filter=(25), ]  io_data[ cmd_io=602, usb_mac=0289ba, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=19, local_id=3, filter=(25), ]  io_data[ cmd_io=52, ]
 
-sys_data[ local_name=Audience Camera, room_ass=19, local_id=22, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.243, ]  io_data[ cmd_io=605, ]
-sys_data[ local_name=Presenter Camera, room_ass=19, local_id=21, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.244, ]  io_data[ cmd_io=607, ]
+sys_data[ local_name=Audience Camera, room_ass=19, local_id=22, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.243, ]  io_data[ cmd_io=607, ]
+sys_data[ local_name=Presenter Camera, room_ass=19, local_id=21, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.244, ]  io_data[ cmd_io=605, ]
 
 
 
