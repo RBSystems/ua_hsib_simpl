@@ -75,7 +75,7 @@ sys_data[ local_name=PC, pgm_audio=1, room_ass=07, local_id=2, filter=(14), ]  i
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=07, local_id=1, filter=(14), ]  io_data[ cmd_io=181, usb_mac=0289d5, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=07, local_id=3, filter=(14), ]  io_data[ cmd_io=307, ]
 
-sys_data[ local_name=Presenter Camera, room_ass=07, local_id=21, filter=(14), ]  device_data[ is_camera=1, ip_address=10.156.26.91, ]  io_data[ cmd_io=194, ]
+sys_data[ local_name=Presenter Camera, room_ass=07, local_id=21, filter=(14), ]  device_data[ is_camera=1, ip_address=10.156.26.92, ]  io_data[ cmd_io=194, ]
 
 
 //Room 443
@@ -83,8 +83,8 @@ sys_data[ local_name=PC, pgm_audio=1, room_ass=08, local_id=2, filter=(15), ]  i
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=08, local_id=1, filter=(15), ]  io_data[ cmd_io=178, usb_mac=0289cc, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=08, local_id=3, filter=(15), ]  io_data[ cmd_io=306, ]
 
-sys_data[ local_name=Presenter Camera, room_ass=08, local_id=21, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.93, ]  io_data[ cmd_io=192, ]
-sys_data[ local_name=Audience Camera, room_ass=08, local_id=22, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.94, ]  io_data[ cmd_io=190, ]
+sys_data[ local_name=Presenter Camera, room_ass=08, local_id=21, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.95, ]  io_data[ cmd_io=192, ]
+sys_data[ local_name=Audience Camera, room_ass=08, local_id=22, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.96, ]  io_data[ cmd_io=190, ]
 
 
 
@@ -178,8 +178,8 @@ sys_data[ local_name=Station N1, room_ass=15, local_id=31, filter=(22), ]  io_da
 sys_data[ local_name=Station N2, room_ass=15, local_id=32, filter=(22), ]  io_data[ cmd_io=458, ]
 sys_data[ local_name=Station N3, room_ass=15, local_id=33, filter=(22), ]  io_data[ cmd_io=459, ]
 sys_data[ local_name=Station N4, room_ass=15, local_id=34, filter=(22), ]  io_data[ cmd_io=460, ]
-sys_data[ local_name=Station W1, room_ass=15, local_id=35, filter=(22), ]  io_data[ cmd_io=461, ]
-sys_data[ local_name=Station E1, room_ass=15, local_id=36, filter=(22), ]  io_data[ cmd_io=462, ]
+sys_data[ local_name=Station W1, room_ass=15, local_id=35, filter=(22), ]  io_data[ cmd_io=462, ]
+sys_data[ local_name=Station E1, room_ass=15, local_id=36, filter=(22), ]  io_data[ cmd_io=461, ]
 sys_data[ local_name=Station S1, room_ass=15, local_id=37, filter=(22), ]  io_data[ cmd_io=463, ]
 sys_data[ local_name=Station S2, room_ass=15, local_id=38, filter=(22), ]  io_data[ cmd_io=464, ]
 sys_data[ local_name=Station S3, room_ass=15, local_id=39, filter=(22), ]  io_data[ cmd_io=465, ]

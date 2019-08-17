@@ -299,6 +299,14 @@ sys_data[ local_name=Capture PC 9 SDI Input 2, filter=(2), ]  io_data[ cmd_io=26
 sys_data[ local_name=Capture PC 10 SDI Input 1, filter=(2), ]  io_data[ cmd_io=267, ]
 sys_data[ local_name=Capture PC 10 SDI Input 2, filter=(2), ]  io_data[ cmd_io=268, ]
 
+sys_data[ local_name=TriCaster Monitor North, filter=(6), ]  io_data[ cmd_io=316, ]
+sys_data[ local_name=TriCaster Monitor South, filter=(6), ]  io_data[ cmd_io=317, ]
+
+sys_data[ local_name=Preview Monitor Left, filter=(6), ]  io_data[ cmd_io=319, ]
+sys_data[ local_name=Preview Monitor Right, filter=(6), ]  io_data[ cmd_io=318, ]
+
+sys_data[ local_name=Panel Preview, filter=(6), ]  io_data[ cmd_io=299, ]
+
 
 //Filming Studio
 sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(29), ] io_data[ cmd_io=247,  ]
@@ -314,13 +322,13 @@ sys_data[ local_name=Projector VidProc Input 2, room_ass=23, local_id=06, filter
 sys_data[ local_name=Projector VidProc Input 3, room_ass=23, local_id=07, filter=(36), ]  io_data[ cmd_io=40, ]
 sys_data[ local_name=Projector VidProc Input 4, room_ass=23, local_id=08, filter=(36), ]  io_data[ cmd_io=41, ]
 
-sys_data[ local_name=PROJ 2B-1, room_ass=23, local_id=09, sys_preset=01, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.11, ]  io_data[ relay_processor=1, rly_on=(2+29+), rly_off=(1+30+), ]
-sys_data[ local_name=PROJ 2B-4, room_ass=23, local_id=10, sys_preset=01, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.12, ]
+sys_data[ local_name=PROJ 2B-1, room_ass=23, local_id=09, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.11, ]  io_data[ relay_processor=1, rly_on=(2+29+), rly_off=(1+30+), ]
+sys_data[ local_name=PROJ 2B-4, room_ass=23, local_id=10, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.12, ]
 
-sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ cmd_io=12, ]
-sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ cmd_io=13, ]
-sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ cmd_io=14, ]
-sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ cmd_io=15, ]
+sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ cmd_io=15, ]
+sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ cmd_io=14, ]
+sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ cmd_io=13, ]
+sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ cmd_io=12, ]
 sys_data[ local_name=South Soffit Display 1, room_ass=23, local_id=15, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.17, ]  io_data[ cmd_io=16, ]
 sys_data[ local_name=South Soffit Display 2, room_ass=23, local_id=16, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.18, ]  io_data[ cmd_io=17, ]
 sys_data[ local_name=South Soffit Display 3, room_ass=23, local_id=17, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.19, ]  io_data[ cmd_io=18, ]
@@ -352,6 +360,8 @@ sys_data[ local_name=NC1 Expander 2A-2 Input 1, room_ass=23, local_id=36, filter
 sys_data[ local_name=NC1 Expander 2A-2 Input 2, room_ass=23, local_id=37, filter=(41), ]  io_data[ cmd_io=28, ]
 sys_data[ local_name=NC1 Expander 2A-2 Input 3, room_ass=23, local_id=38, filter=(41), ]  io_data[ cmd_io=29, ]
 sys_data[ local_name=NC1 Expander 2A-2 Input 4, room_ass=23, local_id=39, filter=(41), ]  io_data[ cmd_io=30, ]
+
+
 
 
 

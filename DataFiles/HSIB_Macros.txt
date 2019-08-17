@@ -34,6 +34,26 @@
 //[02] = Room 567 - 'LCD Matrix Mode' - projector power off, all 3 quads are in matrix mode, and macros [08-10] route to Left Quad, Center Quad, and Right Quad respectively
 //[03] = Room 567 - 'Projector Mode' - projector power on, displays 1 and 10 power on
 
+
+
+//222 Forum
+room_ass=23: macro_id=33: name=All Displays, list=(1*,2,3,4,5,6,7,8,9,10,),
+room_ass=23: macro_id=34: name=Projectors, list=(1*,2,),
+room_ass=23: macro_id=35: name=LCDs, list=(3*,4,5,6,7,8,9,10,),
+
+room_ass=23: macro_id=57: name=All On, list=(33,),
+room_ass=23: macro_id=58: name=All Off, list=(33,),
+
+
+
+room_ass=23: macro_id=61: name=Projectors, list=(34,),
+room_ass=23: macro_id=71: name=Projectors, list=(34,),
+
+room_ass=23: macro_id=62: name=LCDs On, list=(35,),
+room_ass=23: macro_id=72: name=LCDs Of, list=(35,),
+
+
+
 /////////////////////////////////////////////////////////////////////////////////
 
 //305
@@ -250,10 +270,10 @@ room_ass=13: macro_id=27: name=Projector Mode, special_function=3,
 room_ass=13: macro_id=33: name=All Displays, list=(1*,2,3,4,),
 room_ass=13: macro_id=34: name=All LCDs, list=(2,3*,4,),
 
-room_ass=13: macro_id=57: name=Sys On Uncombined, list=(34, 01, 26,),
-room_ass=13: macro_id=58: name=Sys Off Uncombined, list=(33, 01, ),
-room_ass=13: macro_id=59: name=Sys On Combined, list=(34, 01, 26,),
-room_ass=13: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
+room_ass=13: macro_id=57: name=Sys On Uncombined, list=(03, 26,),
+room_ass=13: macro_id=58: name=Sys Off Uncombined, list=(33, 03, ),
+room_ass=13: macro_id=59: name=Sys On Combined, list=(03, 26,),
+room_ass=13: macro_id=60: name=Sys Off Combined, list=(33, 03, ),
 
 
 
