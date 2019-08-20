@@ -306,6 +306,20 @@ room_ass=15: macro_id=60: name=Sys Off Combined, list=(33, 01, ),
 /////////////////////////////////////////////////////////////////////////////////////
 
 //727
+room_ass=16: macro_id=01: name=Projector N, pgm_audio=1, usb=1, list=(1*,),
+room_ass=16: macro_id=02: name=Projector E, list=(2*,),
+room_ass=16: macro_id=03: name=Projector S, list=(3*,),
+room_ass=16: macro_id=04: name=Projector W, list=(4*,),
+room_ass=16: macro_id=05: name=Soft Conf, list=(41*,),
+room_ass=16: macro_id=06: name=PC to DGE, pgm_audio=1, usb=1, list=(49*,),
+
+room_ass=16: macro_id=10: name=All Displays, pgm_audio=1, usb=1, list=(1*,2,3,4,),
+
+room_ass=16: macro_id=33: name=All Displays, list=(1*,2,3,4,),
+
+room_ass=16: macro_id=57: name=Sys On Uncombined, list=(33, 10,),
+room_ass=16: macro_id=58: name=Sys Off Uncombined, list=(33, 10, ),
+
 
 //731
 
