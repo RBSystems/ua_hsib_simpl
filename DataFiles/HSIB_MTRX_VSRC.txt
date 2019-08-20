@@ -83,8 +83,8 @@ sys_data[ local_name=PC, pgm_audio=1, room_ass=08, local_id=2, filter=(15), ]  i
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=08, local_id=1, filter=(15), ]  io_data[ cmd_io=178, usb_mac=0289cc, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=08, local_id=3, filter=(15), ]  io_data[ cmd_io=306, ]
 
-sys_data[ local_name=Presenter Camera, room_ass=08, local_id=21, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.95, ]  io_data[ cmd_io=192, ]
-sys_data[ local_name=Audience Camera, room_ass=08, local_id=22, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.96, ]  io_data[ cmd_io=190, ]
+sys_data[ local_name=Presenter Camera, room_ass=08, local_id=21, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.96, ]  io_data[ cmd_io=192, ]
+sys_data[ local_name=Audience Camera, room_ass=08, local_id=22, filter=(15), ]  device_data[ is_camera=1, ip_address=10.156.26.95, ]  io_data[ cmd_io=190, ]
 
 
 
@@ -264,7 +264,7 @@ sys_data[ local_name=Presenter Camera, room_ass=19, local_id=21, filter=(25), ] 
 
 
 
-//513 BioComm
+//513 BioCom
 sys_data[ local_name=NC1 5A-3 Expander Monitor Output, filter=( 34 ), ]  io_data[ cmd_io=261, ]
 sys_data[ local_name=NC1 5A-4 Expander Monitor Output, filter=( 35 ), ]  io_data[ cmd_io=262, ]
 
