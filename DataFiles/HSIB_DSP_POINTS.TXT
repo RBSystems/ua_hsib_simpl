@@ -260,9 +260,10 @@ room_ass=13, point_type=1, local_index=4, local_name=Ceiling Mic Mix, group_id=0
 
 room_ass=13, point_type=2, local_index=5, local_name=Privacy Mute, group_id=04, fixed_id=05, tag_mute=R567_Privacy_muteState,
 room_ass=13, point_type=2, local_index=6, local_name=USB Conference RX, tag_gain=R567_ConfRx_gain_volLevel, tag_mute=R567_ConfRx_gain_muteState,
-room_ass=13, point_type=2, local_index=7, local_name=VTC Conference RX, tag_gain=R567_VTC_Rx_gain_volLevel, tag_mute=R567_VTC_Rx_gain_muteState,
-room_ass=13, point_type=2, local_index=8, local_name=VTC Conference TX, tag_gain=R567_VTC_Tx_gain_volLevel, tag_mute=R567_VTC_Tx_gain_muteState,
-room_ass=13, point_type=2, local_index=9, local_name=Program, group_id=03, fixed_id=02, tag_gain=R567_PGM_gain_volLevel, tag_mute=R567_PGM_gain_muteState,
+room_ass=13, point_type=2, local_index=7, local_name=Zoom Conf RX, tag_mute=R567_ConfRx2_gain_muteState, default_mute=1,
+room_ass=13, point_type=2, local_index=8, local_name=VTC Conference RX, tag_gain=R567_VTC_Rx_gain_volLevel, tag_mute=R567_VTC_Rx_gain_muteState,
+room_ass=13, point_type=2, local_index=9, local_name=VTC Conference TX, tag_gain=R567_VTC_Tx_gain_volLevel, tag_mute=R567_VTC_Tx_gain_muteState,
+room_ass=13, point_type=2, local_index=10, local_name=Program, group_id=03, fixed_id=02, tag_gain=R567_PGM_gain_volLevel, tag_mute=R567_PGM_gain_muteState,
 
 	//SOURCE ROUTING:
 	room_ass=13, point_type=3, local_index=11, local_name=PGM Router, tag_rte=R567_PGM_router,
