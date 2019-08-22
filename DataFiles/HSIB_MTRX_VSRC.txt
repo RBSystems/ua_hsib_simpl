@@ -193,8 +193,8 @@ sys_data[ local_name=Wireless, pgm_audio=3, room_ass=16, local_id=3, filter=(23)
 sys_data[ local_name=HDMI Plate North, room_ass=16, local_id=10, filter=(23), ]  io_data[ cmd_io=566, ]
 sys_data[ local_name=HDMI Plate South, room_ass=16, local_id=11, filter=(23), ]  io_data[ cmd_io=569, ]
 
-sys_data[ local_name=Audience Camera, room_ass=16, local_id=22, filter=(23), ]  device_data[ is_camera=1, ip_address=10.156.26.185, ]  io_data[ cmd_io=565, ]
-sys_data[ local_name=Presenter Camera, room_ass=16, local_id=21, filter=(23), ]  device_data[ is_camera=1, ip_address=10.156.26.186, ]  io_data[ cmd_io=568, ]
+sys_data[ local_name=Audience Camera, room_ass=16, local_id=22, filter=(23), ]  device_data[ is_camera=1, ip_address=10.156.26.186, ]  io_data[ cmd_io=568, ]
+sys_data[ local_name=Presenter Camera, room_ass=16, local_id=21, filter=(23), ]  device_data[ is_camera=1, ip_address=10.156.26.185, ]  io_data[ cmd_io=565, ]
 
 
 
