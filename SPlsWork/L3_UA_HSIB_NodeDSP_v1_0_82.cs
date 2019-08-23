@@ -942,7 +942,7 @@ private void FUPDATERCLISTITEMS (  SplusExecutionContext __context__ )
     
     }
     
-object RC_STATE_OnRelease_7 ( Object __EventInfo__ )
+object RC_STATE_OnPush_7 ( Object __EventInfo__ )
 
     { 
     Crestron.Logos.SplusObjects.SignalEventArgs __SignalEventArg__ = (Crestron.Logos.SplusObjects.SignalEventArgs)__EventInfo__;
@@ -961,7 +961,7 @@ object RC_STATE_OnRelease_7 ( Object __EventInfo__ )
         
         
         __context__.SourceCodeLine = 703;
-        SYS . IRCSTATE = (ushort) ( Functions.Not( RC_STATE  .Value ) ) ; 
+        SYS . IRCSTATE = (ushort) ( RC_STATE  .Value ) ; 
         __context__.SourceCodeLine = 704;
         if ( Functions.TestForTrue  ( ( Functions.Not( IGROUPSEM ))  ) ) 
             { 
@@ -1059,7 +1059,7 @@ object RC_STATE_OnRelease_7 ( Object __EventInfo__ )
     
 }
 
-object RC_STATE_OnPush_8 ( Object __EventInfo__ )
+object RC_STATE_OnRelease_8 ( Object __EventInfo__ )
 
     { 
     Crestron.Logos.SplusObjects.SignalEventArgs __SignalEventArg__ = (Crestron.Logos.SplusObjects.SignalEventArgs)__EventInfo__;
@@ -1070,7 +1070,7 @@ object RC_STATE_OnPush_8 ( Object __EventInfo__ )
         
         
         __context__.SourceCodeLine = 767;
-        SYS . IRCSTATE = (ushort) ( Functions.Not( RC_STATE  .Value ) ) ; 
+        SYS . IRCSTATE = (ushort) ( RC_STATE  .Value ) ; 
         __context__.SourceCodeLine = 769;
         FUPDATERCLISTITEMS (  __context__  ) ; 
         __context__.SourceCodeLine = 771;
@@ -3304,8 +3304,8 @@ public override void LogosSplusInitialize()
     for( uint i = 0; i < 2; i++ )
         DEFAULTPOINTALL[i+1].OnDigitalPush.Add( new InputChangeHandlerWrapper( DEFAULTPOINTALL_OnPush_6, false ) );
         
-    RC_STATE.OnDigitalRelease.Add( new InputChangeHandlerWrapper( RC_STATE_OnRelease_7, false ) );
-    RC_STATE.OnDigitalPush.Add( new InputChangeHandlerWrapper( RC_STATE_OnPush_8, false ) );
+    RC_STATE.OnDigitalPush.Add( new InputChangeHandlerWrapper( RC_STATE_OnPush_7, false ) );
+    RC_STATE.OnDigitalRelease.Add( new InputChangeHandlerWrapper( RC_STATE_OnRelease_8, false ) );
     for( uint i = 0; i < 50; i++ )
         DSPVOLUP1[i+1].OnDigitalPush.Add( new InputChangeHandlerWrapper( DSPVOLUP1_OnPush_9, true ) );
         

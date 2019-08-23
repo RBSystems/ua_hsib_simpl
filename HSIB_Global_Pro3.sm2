@@ -26807,7 +26807,7 @@ mP=4
 P1=
 P2=350d
 P3=2d
-P4=1=18, bold, white,; 2=18, bold, greenblue,;
+P4=1=18, bold, white,; 2=16, bold, greenblue,;
 ]
 [
 ObjTp=Sm
@@ -29247,7 +29247,7 @@ mP=4
 P1=
 P2=350d
 P3=2d
-P4=1=18, bold, white,; 2=18, bold, greenblue,;
+P4=1=18, bold, white,; 2=16, bold, greenblue,;
 ]
 [
 ObjTp=Sm
@@ -46351,8 +46351,8 @@ O400=7631
 mP=4
 P1=
 P2=
-P3=1d
-P4=1=white,18,;2=bluegreen, bold, 16,;
+P3=2d
+P4=1=white,20,;2=bluegreen, bold, 18,;
 ]
 [
 ObjTp=Sm
@@ -59443,8 +59443,8 @@ O400=9309
 mP=4
 P1=
 P2=
-P3=1d
-P4=1=white,18,;2=bluegreen, bold, 16,;
+P3=2d
+P4=1=white,20,;2=bluegreen, bold, 18,;
 ]
 [
 ObjTp=Sm
@@ -60148,8 +60148,8 @@ O400=11207
 mP=4
 P1=
 P2=
-P3=1d
-P4=1=white,18,;2=bluegreen, bold, 16,;
+P3=2d
+P4=1=white,20,;2=bluegreen, bold, 18,;
 ]
 [
 ObjTp=Sm
@@ -61754,8 +61754,8 @@ O400=11540
 mP=4
 P1=
 P2=
-P3=1d
-P4=1=white,18,;2=bluegreen, bold, 16,;
+P3=2d
+P4=1=white,20,;2=bluegreen, bold, 18,;
 ]
 [
 ObjTp=Sm
