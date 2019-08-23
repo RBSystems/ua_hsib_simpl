@@ -248,19 +248,19 @@ sys_data[ local_name=CAE-PC Station 6, room_ass=17, local_id=44, filter=( 38 ), 
 
 
 //Room 855
-sys_data[ local_name=PC, pgm_audio=1, room_ass=18, local_id=2, filter=(24), ]  io_data[ cmd_io=581, ]
-sys_data[ local_name=Laptop, pgm_audio=2, room_ass=18, local_id=1, filter=(24), ]  io_data[ cmd_io=582, ]
-sys_data[ local_name=Wireless, pgm_audio=3, room_ass=18, local_id=3, filter=(24), ]  io_data[ cmd_io=51, ]
+sys_data[ local_name=PC, pgm_audio=1, room_ass=18, local_id=2, filter=(25), ]  io_data[ cmd_io=581, ]
+sys_data[ local_name=Laptop, pgm_audio=2, room_ass=18, local_id=1, filter=(25), ]  io_data[ cmd_io=582, ]
+sys_data[ local_name=Wireless, pgm_audio=3, room_ass=18, local_id=3, filter=(25), ]  io_data[ cmd_io=51, ]
 
 
 
 //Room 880
-sys_data[ local_name=PC, pgm_audio=1, room_ass=19, local_id=2, filter=(25), ]  io_data[ cmd_io=601, usb_mac=0289c3, ]
-sys_data[ local_name=Laptop, pgm_audio=2, room_ass=19, local_id=1, filter=(25), ]  io_data[ cmd_io=602, usb_mac=0289ba, ]
-sys_data[ local_name=Wireless, pgm_audio=3, room_ass=19, local_id=3, filter=(25), ]  io_data[ cmd_io=52, ]
+sys_data[ local_name=PC, pgm_audio=1, room_ass=19, local_id=2, filter=(26), ]  io_data[ cmd_io=601, usb_mac=0289c3, ]
+sys_data[ local_name=Laptop, pgm_audio=2, room_ass=19, local_id=1, filter=(26), ]  io_data[ cmd_io=602, usb_mac=0289ba, ]
+sys_data[ local_name=Wireless, pgm_audio=3, room_ass=19, local_id=3, filter=(26), ]  io_data[ cmd_io=52, ]
 
-sys_data[ local_name=Audience Camera, room_ass=19, local_id=22, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.243, ]  io_data[ cmd_io=607, ]
-sys_data[ local_name=Presenter Camera, room_ass=19, local_id=21, filter=(25), ]  device_data[ is_camera=1, ip_address=10.156.26.244, ]  io_data[ cmd_io=605, ]
+sys_data[ local_name=Audience Camera, room_ass=19, local_id=22, filter=(26), ]  device_data[ is_camera=1, ip_address=10.156.26.243, ]  io_data[ cmd_io=607, ]
+sys_data[ local_name=Presenter Camera, room_ass=19, local_id=21, filter=(26), ]  device_data[ is_camera=1, ip_address=10.156.26.244, ]  io_data[ cmd_io=605, ]
 
 
 
@@ -301,10 +301,10 @@ sys_data[ local_name=TriCaster 5A-2 HDMI Out, filter=(7), ]  io_data[ cmd_io=248
 
 
 //Filming Studio
-sys_data[ local_name=SDI INPUT 1, room_ass=21, filter=(26), ]  io_data[ cmd_io=255, ] 
-sys_data[ local_name=SDI INPUT 2, room_ass=21, filter=(26), ]  io_data[ cmd_io=256, ]
-sys_data[ local_name=SDI INPUT 3, room_ass=21, filter=(26), ]  io_data[ cmd_io=257, ]
-sys_data[ local_name=SDI INPUT 4, room_ass=21, filter=(26), ]  io_data[ cmd_io=258, ]
+sys_data[ local_name=SDI INPUT 1, room_ass=21, filter=(40), ]  io_data[ cmd_io=255, ] 
+sys_data[ local_name=SDI INPUT 2, room_ass=21, filter=(40), ]  io_data[ cmd_io=256, ]
+sys_data[ local_name=SDI INPUT 3, room_ass=21, filter=(40), ]  io_data[ cmd_io=257, ]
+sys_data[ local_name=SDI INPUT 4, room_ass=21, filter=(40), ]  io_data[ cmd_io=258, ]
 
 
 

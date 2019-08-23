@@ -11,6 +11,8 @@ filter_type=src, filter_id=50, group_id=1, filter_name=Cisco VTC 1,
 filter_type=src, filter_id=51, group_id=1, filter_name=Cisco VTC 2,
 filter_type=src, filter_id=52, group_id=1, filter_name=Cisco VTC 3,
 
+filter_type=src, filter_id=03, group_id=1, filter_name=Edit Suite,
+
 filter_type=src, filter_id=04, group_id=1, filter_name=L3AV,
 filter_type=src, filter_id=05, group_id=1, filter_name=Monitors,
 
@@ -39,7 +41,7 @@ filter_type=src, filter_id=25, group_id=2, filter_name=Room 855,
 filter_type=src, filter_id=26, group_id=2, filter_name=Room 880,
 
 //film studio
-filter_type=src, filter_id=26, group_id=3, filter_name=Aux Inputs, group_name=Filming Studio,
+filter_type=src, filter_id=40, group_id=3, filter_name=Aux Inputs, group_name=Filming Studio,
 
 //forum
 filter_type=src, filter_id=27, group_id=4, filter_name=Aux Box, group_name=Forum,
@@ -67,6 +69,11 @@ filter_type=src, filter_id=39, group_id=6, filter_name=SimDeck,
 //bioCom
 filter_type=dst, filter_id=01, group_id=1, filter_name=AJA Record, group_name=BioCom,
 filter_type=dst, filter_id=02, group_id=1, filter_name=Capture Stations,
+
+filter_type=dst, filter_id=03, group_id=1, filter_name=Edit Suite,
+
+
+
 //filter_type=dst, filter_id=04, group_id=1, filter_name=KVM,
 filter_type=dst, filter_id=05, group_id=1, filter_name=Matrox Streaming,
 filter_type=dst, filter_id=06, group_id=1, filter_name=Monitors,

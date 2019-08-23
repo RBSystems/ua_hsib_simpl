@@ -3,15 +3,15 @@
 
 
 //Tricasters
-audio_mtrx[ cmd_io=Main_router_1, local_name=BioCom TriCaster_1 In01, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_1 In02, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_1 In03, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_1 In04, room_ass=01, filter_id=(7), ]
+audio_mtrx[ cmd_io=Main_router_1, local_name=TriCaster 1 In01, room_ass=01, filter_id=(7), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In02, room_ass=01, filter_id=(7), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In03, room_ass=01, filter_id=(7), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In04, room_ass=01, filter_id=(7), ]
 
-audio_mtrx[ cmd_io=Main_router_2, local_name=BioCom TriCaster_2 In01, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_2 In02, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_2 In03, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster_2 In04, room_ass=01, filter_id=(8), ]
+audio_mtrx[ cmd_io=Main_router_2, local_name=TriCaster 2 In01, room_ass=01, filter_id=(8), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In02, room_ass=01, filter_id=(8), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In03, room_ass=01, filter_id=(8), ]
+//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In04, room_ass=01, filter_id=(8), ]
 
 
 //Capture Boxes
@@ -98,8 +98,25 @@ audio_mtrx[ cmd_io=Main_router_79, local_name=VTC 1, filter_id=(50), ]
 audio_mtrx[ cmd_io=Main_router_80, local_name=VTC 2, filter_id=(51), ]
 audio_mtrx[ cmd_io=Main_router_81, local_name=VTC 3, filter_id=(52), ]
 
-audio_mtrx[ cmd_io=Main_router_83, local_name=Forum Tx 1, room_ass=23, filter_id=(46), ]
-audio_mtrx[ cmd_io=Main_router_84, local_name=Forum Tx 2, room_ass=23, filter_id=(46), ]
-audio_mtrx[ cmd_io=Main_router_85, local_name=Forum Tx 3, room_ass=23, filter_id=(46), ]
-audio_mtrx[ cmd_io=Main_router_86, local_name=Forum Tx 4, room_ass=23, filter_id=(46), ]
-audio_mtrx[ cmd_io=Main_router_87, local_name=Forum Tx 5, room_ass=23, filter_id=(46), ]
+audio_mtrx[ cmd_io=Main_router_82, local_name=Forum Tx 1, room_ass=23, filter_id=(46), ]
+audio_mtrx[ cmd_io=Main_router_83, local_name=Forum Tx 2, room_ass=23, filter_id=(46), ]
+audio_mtrx[ cmd_io=Main_router_84, local_name=Forum Tx 3, room_ass=23, filter_id=(46), ]
+audio_mtrx[ cmd_io=Main_router_85, local_name=Forum Tx 4, room_ass=23, filter_id=(46), ]
+audio_mtrx[ cmd_io=Main_router_86, local_name=Forum Tx 5, room_ass=23, filter_id=(46), ]
+
+audio_mtrx[ cmd_io=Main_router_87, local_name=ZeeVee 5A-1, filter_id=(37), ]
+audio_mtrx[ cmd_io=Main_router_88, local_name=ZeeVee 5A-2, filter_id=(37), ]
+audio_mtrx[ cmd_io=Main_router_89, local_name=ZeeVee 5A-3, filter_id=(37), ]
+audio_mtrx[ cmd_io=Main_router_90, local_name=ZeeVee 5A-5, filter_id=(37), ]
+
+
+audio_mtrx[ cmd_io=Main_router_90, local_name=ZeeVee 5A-5, filter_id=(37), ]
+
+
+audio_mtrx[ cmd_io=160, local_name=Edit Suite IP-5A-4, filter_id=(3), ]
+audio_mtrx[ cmd_io=161, local_name=Edit Suite IP-5A-5, filter_id=(3), ]
+audio_mtrx[ cmd_io=162, local_name=Edit Suite IP-5A-6, filter_id=(3), ]
+audio_mtrx[ cmd_io=163, local_name=Edit Suite IP-5A-7, filter_id=(3), ]
+audio_mtrx[ cmd_io=164, local_name=Edit Suite IP-5A-8, filter_id=(3), ]
+audio_mtrx[ cmd_io=165, local_name=Edit Suite IP-5A-9, filter_id=(3), ]
+audio_mtrx[ cmd_io=166, local_name=Repair IP-5A-31, filter_id=(3), ]
