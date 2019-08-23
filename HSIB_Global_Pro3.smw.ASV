@@ -26807,7 +26807,7 @@ mP=4
 P1=
 P2=350d
 P3=2d
-P4=1=18, bold, white,; 2=18, bold, greenblue,;
+P4=1=18, bold, white,; 2=16, bold, greenblue,;
 ]
 [
 ObjTp=Sm
@@ -29247,7 +29247,7 @@ mP=4
 P1=
 P2=350d
 P3=2d
-P4=1=18, bold, white,; 2=18, bold, greenblue,;
+P4=1=18, bold, white,; 2=16, bold, greenblue,;
 ]
 [
 ObjTp=Sm

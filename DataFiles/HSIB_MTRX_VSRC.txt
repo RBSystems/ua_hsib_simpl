@@ -187,8 +187,8 @@ sys_data[ local_name=Station S4, room_ass=15, local_id=40, filter=(22), ]  io_da
 
 
 //Room 727  Televiz
-sys_data[ local_name=PC, pgm_audio=1, room_ass=16, local_id=2, filter=(23), ]  io_data[ cmd_io=561, usb_mac=029851, ]
-sys_data[ local_name=Laptop, pgm_audio=2, room_ass=16, local_id=1, filter=(23), ]  io_data[ cmd_io=562, usb_mac=029844, ]
+sys_data[ local_name=PC, pgm_audio=1, room_ass=16, local_id=2, filter=(23), ]  io_data[ cmd_io=561, usb_mac=029844, ]
+sys_data[ local_name=Laptop, pgm_audio=2, room_ass=16, local_id=1, filter=(23), ]  io_data[ cmd_io=562, usb_mac=029851, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=16, local_id=3, filter=(23), ]  io_data[ cmd_io=50, ]
 sys_data[ local_name=HDMI Plate North, room_ass=16, local_id=10, filter=(23), ]  io_data[ cmd_io=566, ]
 sys_data[ local_name=HDMI Plate South, room_ass=16, local_id=11, filter=(23), ]  io_data[ cmd_io=569, ]
