@@ -360,20 +360,6 @@ room_ass=17: macro_id=38: name=Quad 03, list=(09*,10,11,12,), special_function=0
 room_ass=17: macro_id=39: name=Quad 04, list=(13*,14,15,16,), special_function=05,
 room_ass=17: macro_id=40: name=Quad 05, list=(17*,18,19,20,), special_function=05,
 
-//extra VDst
-room_ass=17: macro_id=81: name=Watchout 1, list=(24*,),
-room_ass=17: macro_id=82: name=Watchout 2, list=(25*,),
-room_ass=17: macro_id=83: name=Throwdown A HDMI1, list=(31*,),
-room_ass=17: macro_id=84: name=Throwdown A HDMI2, list=(32*,),
-room_ass=17: macro_id=85: name=Throwdown B HDMI1, list=(33*,),
-room_ass=17: macro_id=86: name=Throwdown B HDMI2, list=(34*,),
-room_ass=17: macro_id=87: name=Throwdown C HDMI1, list=(35*,),
-room_ass=17: macro_id=88: name=Throwdown C HDMI2, list=(36*,),
-room_ass=17: macro_id=89: name=Throwdown D HDMI1, list=(37*,),
-room_ass=17: macro_id=90: name=Throwdown D HDMI2, list=(38*,),
-
-
-
 //system
 room_ass=17: macro_id=57: name=Sys On Uncombined, list=(33, 32, 21,22,23,24,25, ),
 room_ass=17: macro_id=58: name=Sys Off Uncombined, list=(33, 32, 21,22,23,24,25, ),
@@ -390,6 +376,18 @@ room_ass=17: macro_id=72: name=Sys On Uncombined, list=(37,),
 room_ass=17: macro_id=73: name=Sys On Uncombined, list=(38,),
 room_ass=17: macro_id=74: name=Sys On Uncombined, list=(39,),
 room_ass=17: macro_id=75: name=Sys On Uncombined, list=(40,),
+
+//extra VDst
+room_ass=17: macro_id=81: name=Watchout 1, list=(24*,),
+room_ass=17: macro_id=82: name=Watchout 2, list=(25*,),
+room_ass=17: macro_id=83: name=Throwdown A HDMI1, list=(31*,),
+room_ass=17: macro_id=84: name=Throwdown A HDMI2, list=(32*,),
+room_ass=17: macro_id=85: name=Throwdown B HDMI1, list=(33*,),
+room_ass=17: macro_id=86: name=Throwdown B HDMI2, list=(34*,),
+room_ass=17: macro_id=87: name=Throwdown C HDMI1, list=(35*,),
+room_ass=17: macro_id=88: name=Throwdown C HDMI2, list=(36*,),
+room_ass=17: macro_id=89: name=Throwdown D HDMI1, list=(37*,),
+room_ass=17: macro_id=90: name=Throwdown D HDMI2, list=(38*,),
 
 /////////////////////////////////////////////////////////////////////////////////////
 
