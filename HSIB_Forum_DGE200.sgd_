@@ -4,13 +4,13 @@ Sgntr=SGD
 RelVrs=3
 VTProeVer=6.2.00
 Schema=1
-CRCGUID=283C9AA2-B728-4E7D-94A2-AF50C68E8211
+CRCGUID=BBF4E145-C99D-4D2C-9711-F8A52EB32ECA
 ]
 ;================================================================================
 [
 ObjTp=Hd
 ProjectFile=HSIB_Forum_DGE200.vtp
-VtpGuid=B4296125-249F-48C0-A7C9-6ECD734822C4
+VtpGuid=7BCC4ECA-4501-49B0-840D-ED5AF71DDD40
 ]
 ;================================================================================
 [
@@ -20,7 +20,7 @@ Hint=VTCDirectoryList (Smart Object ID=3)
 Code=1
 SGControlType=Subpage Reference List Vertical
 SGControlName=VTCDirectoryList
-GUID=4CBC81B8-71B2-4AEE-85E7-3158455B9A81
+GUID=B6933D8B-67F9-4EED-A2C0-691E8C1933DC
 SmplCName=HSIB_Forum_DGE200_4.20 - Admin VTC_VTCDirectoryList.ced
 SMWRev=4.02.20
 Expand=expand_random
@@ -1533,7 +1533,7 @@ Hint=MTRX_AdminVDst (Smart Object ID=2)
 Code=2
 SGControlType=Subpage Reference List Vertical
 SGControlName=MTRX_AdminVDst
-GUID=B1278E18-9B9B-40C3-B2A6-9899415FAAAA
+GUID=25769354-EE49-46C9-9B94-72983F9EA4D4
 SmplCName=HSIB_Forum_DGE200_[4.10 - Admin Routing Lists] 4.11 - Admin MTX DstVid List_MTRX_AdminVDst.ced
 SMWRev=4.02.20
 Expand=expand_random
@@ -2530,7 +2530,7 @@ Hint=MTRX_AdminVSrc (Smart Object ID=1)
 Code=3
 SGControlType=Subpage Reference List Vertical
 SGControlName=MTRX_AdminVSrc
-GUID=9831450F-8DA2-4CC2-A2D0-2D8DEC71E54D
+GUID=1EE1538F-5623-4DCB-97E5-48B531DAEE1A
 SmplCName=HSIB_Forum_DGE200_[4.10 - Admin Routing Lists] 4.11 - Admin MTX SrcVid List_MTRX_AdminVSrc.ced
 SMWRev=4.02.20
 Expand=expand_random
@@ -3527,7 +3527,7 @@ Hint=DSP_AdminLine (Smart Object ID=5)
 Code=4
 SGControlType=Subpage Reference List Vertical
 SGControlName=DSP_AdminLine
-GUID=488E2DA5-0844-44B1-B163-2354AEF87824
+GUID=27B1A90E-ED1D-4C0A-9E6B-2566768D3775
 SmplCName=HSIB_Forum_DGE200_4.30 - Admin Audio_DSP_AdminLine.ced
 SMWRev=4.02.20
 Expand=expand_random
@@ -5160,7 +5160,7 @@ Hint=DSP_AdminMics (Smart Object ID=4)
 Code=5
 SGControlType=Subpage Reference List Vertical
 SGControlName=DSP_AdminMics
-GUID=624A8623-01CA-4F6C-AB4B-2FDC0D7A01D1
+GUID=08A9121F-F9BE-4147-BDC7-F20EF6A11CA7
 SmplCName=HSIB_Forum_DGE200_4.30 - Admin Audio_DSP_AdminMics.ced
 SMWRev=4.02.20
 Expand=expand_random
@@ -6793,7 +6793,7 @@ Hint=AdminGlobalDisplays (Smart Object ID=6)
 Code=6
 SGControlType=Subpage Reference List Vertical
 SGControlName=AdminGlobalDisplays
-GUID=146FC26F-3CA4-464E-A21C-9FA08C54F7C1
+GUID=4827F376-97CD-4C47-B2B0-1FD6685EEC0A
 SmplCName=HSIB_Forum_DGE200_4.60 - Admin Global_AdminGlobalDisplays.ced
 SMWRev=4.02.20
 Expand=expand_random
