@@ -331,7 +331,7 @@ room_ass=17: macro_id=05: name=Display 05, list=(05*,),
 room_ass=17: macro_id=06: name=Display 06, list=(06*,),
 room_ass=17: macro_id=07: name=Display 07, list=(07*,),
 room_ass=17: macro_id=08: name=Display 08, list=(08*,),
-room_ass=17: macro_id=09: name=Display 09, list=(09*,),
+room_ass=17: macro_id=09: name=Display 09, list=(09*,), pgm_audio=1, usb=1, 
 room_ass=17: macro_id=10: name=Display 10, list=(10*,),
 room_ass=17: macro_id=11: name=Display 11, list=(11*,),
 room_ass=17: macro_id=12: name=Display 12, list=(12*,),
@@ -356,9 +356,22 @@ room_ass=17: macro_id=33: name=LED Wall, list=(1*,),
 
 room_ass=17: macro_id=36: name=Quad 01, list=(01*,02,03,04,), special_function=05,
 room_ass=17: macro_id=37: name=Quad 02, list=(05*,06,07,08,), special_function=05,
-room_ass=17: macro_id=38: name=Quad 03, list=(09*,10,11,12,), special_function=05,
+room_ass=17: macro_id=38: name=Quad 03, list=(09*,10,11,12,), special_function=05, pgm_audio=1, usb=1, 
 room_ass=17: macro_id=39: name=Quad 04, list=(13*,14,15,16,), special_function=05,
 room_ass=17: macro_id=40: name=Quad 05, list=(17*,18,19,20,), special_function=05,
+
+//extra VDst
+room_ass=17: macro_id=81: name=Watchout 1, list=(24*,),
+room_ass=17: macro_id=82: name=Watchout 2, list=(25*,),
+room_ass=17: macro_id=83: name=Throwdown A HDMI1, list=(31*,),
+room_ass=17: macro_id=84: name=Throwdown A HDMI2, list=(32*,),
+room_ass=17: macro_id=85: name=Throwdown B HDMI1, list=(33*,),
+room_ass=17: macro_id=86: name=Throwdown B HDMI2, list=(34*,),
+room_ass=17: macro_id=87: name=Throwdown C HDMI1, list=(35*,),
+room_ass=17: macro_id=88: name=Throwdown C HDMI2, list=(36*,),
+room_ass=17: macro_id=89: name=Throwdown D HDMI1, list=(37*,),
+room_ass=17: macro_id=90: name=Throwdown D HDMI2, list=(38*,),
+
 
 
 //system
