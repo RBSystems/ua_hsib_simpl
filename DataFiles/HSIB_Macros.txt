@@ -314,7 +314,7 @@ room_ass=16: macro_id=04: name=Projector W, list=(4*,),
 room_ass=16: macro_id=05: name=Soft Conf, list=(41*,),
 room_ass=16: macro_id=06: name=PC to DGE, pgm_audio=1, usb=1, list=(49*,),
 
-room_ass=16: macro_id=10: name=All Displays, pgm_audio=1, usb=1, list=(1*,2,3,4,),
+room_ass=16: macro_id=10: name=All Displays, pgm_audio=1, usb=1, list=(1*,2,3,4,), special_function=6,
 
 room_ass=16: macro_id=33: name=All Displays, list=(1*,2,3,4,),
 
