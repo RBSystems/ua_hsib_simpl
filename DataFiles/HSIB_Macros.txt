@@ -12,6 +12,7 @@
 //[1-25] 	VDst Outputs 	(listObjects = VDstLocalID)
 //[26]		USB only		(listObjects = [VDstLocalID, VSrcLocalID])
 //[27]		PGM audio only  (listObject  = VSrcLocalID) 
+//[28]      USB + PGM Audio
 //[28-30]   unused at the moment
 //[31-40] 	Displays Power	(listObjects = VDstLocalID)
 //[41-56] 	Cam Presets		(listObjects = CamLocalID)	
@@ -325,29 +326,32 @@ room_ass=16: macro_id=58: name=Sys Off Uncombined, list=(33, 10, ),
 //731
 room_ass=17: macro_id=01: name=Display 01, list=(01*,),
 room_ass=17: macro_id=02: name=Display 02, list=(02*,),
-room_ass=17: macro_id=03: name=Display 03, list=(03*,),
-room_ass=17: macro_id=04: name=Display 04, list=(04*,),
-room_ass=17: macro_id=05: name=Display 05, list=(05*,),
-room_ass=17: macro_id=06: name=Display 06, list=(06*,),
-room_ass=17: macro_id=07: name=Display 07, list=(07*,),
-room_ass=17: macro_id=08: name=Display 08, list=(08*,),
-room_ass=17: macro_id=09: name=Display 09, list=(09*,), pgm_audio=1, usb=1, 
-room_ass=17: macro_id=10: name=Display 10, list=(10*,),
-room_ass=17: macro_id=11: name=Display 11, list=(11*,),
-room_ass=17: macro_id=12: name=Display 12, list=(12*,),
-room_ass=17: macro_id=13: name=Display 13, list=(13*,),
-room_ass=17: macro_id=14: name=Display 14, list=(14*,),
-room_ass=17: macro_id=15: name=Display 15, list=(15*,),
-room_ass=17: macro_id=16: name=Display 16, list=(16*,),
-room_ass=17: macro_id=17: name=Display 17, list=(17*,),
-room_ass=17: macro_id=18: name=Display 18, list=(18*,),
-room_ass=17: macro_id=19: name=Display 19, list=(19*,),
-room_ass=17: macro_id=20: name=Display 20, list=(20*,),
+room_ass=17: macro_id=03: name=Display 03, list=(20*,),
+room_ass=17: macro_id=04: name=Display 04, list=(19*,),
+room_ass=17: macro_id=05: name=Display 05, list=(03*,),
+room_ass=17: macro_id=06: name=Display 06, list=(04*,),
+room_ass=17: macro_id=07: name=Display 07, list=(18*,),
+room_ass=17: macro_id=08: name=Display 08, list=(17*,),
+room_ass=17: macro_id=09: name=Display 09, list=(05*,), 
+room_ass=17: macro_id=10: name=Display 10, list=(06*,),
+room_ass=17: macro_id=11: name=Display 11, list=(16*,),
+room_ass=17: macro_id=12: name=Display 12, list=(15*,),
+room_ass=17: macro_id=13: name=Display 13, list=(07*,),
+room_ass=17: macro_id=14: name=Display 14, list=(08*,),
+room_ass=17: macro_id=15: name=Display 15, list=(14*,),
+room_ass=17: macro_id=16: name=Display 16, list=(13*,),
+room_ass=17: macro_id=17: name=Display 17, list=(09*,),
+room_ass=17: macro_id=18: name=Display 18, list=(10*,),
+room_ass=17: macro_id=19: name=Display 19, list=(12*,),
+room_ass=17: macro_id=20: name=Display 20, list=(11*,),
 room_ass=17: macro_id=21: name=Quad 01, list=(01*,02,03,04,),
 room_ass=17: macro_id=22: name=Quad 02, list=(05*,06,07,08,),
 room_ass=17: macro_id=23: name=Quad 03, list=(09*,10,11,12,),
 room_ass=17: macro_id=24: name=Quad 04, list=(13*,14,15,16,),
 room_ass=17: macro_id=25: name=Quad 05, list=(17*,18,19,20,),
+
+room_ass=17: macro_id=28: name=USB & Audio, pgm_audio=1, usb=1,
+
 
 //display power
 room_ass=17: macro_id=31: name=LED Wall, list=(1*,), 
@@ -356,26 +360,31 @@ room_ass=17: macro_id=33: name=LED Wall, list=(1*,),
 
 room_ass=17: macro_id=36: name=Quad 01, list=(01*,02,03,04,), special_function=05,
 room_ass=17: macro_id=37: name=Quad 02, list=(05*,06,07,08,), special_function=05,
-room_ass=17: macro_id=38: name=Quad 03, list=(09*,10,11,12,), special_function=05, pgm_audio=1, usb=1, 
+room_ass=17: macro_id=38: name=Quad 03, list=(09*,10,11,12,), special_function=05,
 room_ass=17: macro_id=39: name=Quad 04, list=(13*,14,15,16,), special_function=05,
 room_ass=17: macro_id=40: name=Quad 05, list=(17*,18,19,20,), special_function=05,
 
 //system
-room_ass=17: macro_id=57: name=Sys On Uncombined, list=(33, 32, 21,22,23,24,25, ),
-room_ass=17: macro_id=58: name=Sys Off Uncombined, list=(33, 32, 21,22,23,24,25, ),
+room_ass=17: macro_id=57: name=Sys On Uncombined, list=(33, 21,22,23,24,25, ),
+room_ass=17: macro_id=58: name=Sys Off Uncombined, list=(33, 21,22,23,24,25, ),
 
 //display modes
-room_ass=17: macro_id=61: name=Sys On Uncombined, list=(36,),
-room_ass=17: macro_id=62: name=Sys On Uncombined, list=(37,),
-room_ass=17: macro_id=63: name=Sys On Uncombined, list=(38,),
-room_ass=17: macro_id=64: name=Sys On Uncombined, list=(39,),
-room_ass=17: macro_id=65: name=Sys On Uncombined, list=(40,),
+room_ass=17: macro_id=61: name=Quad 01 Mtrx On, list=(36,),
+room_ass=17: macro_id=62: name=Quad 02 Mtrx On, list=(37,),
+room_ass=17: macro_id=63: name=Quad 03 Mtrx On, list=(38,),
+room_ass=17: macro_id=64: name=Quad 04 Mtrx On, list=(39,),
+room_ass=17: macro_id=65: name=Quad 05 Mtrx On, list=(40,),
 
-room_ass=17: macro_id=71: name=Sys On Uncombined, list=(36,),
-room_ass=17: macro_id=72: name=Sys On Uncombined, list=(37,),
-room_ass=17: macro_id=73: name=Sys On Uncombined, list=(38,),
-room_ass=17: macro_id=74: name=Sys On Uncombined, list=(39,),
-room_ass=17: macro_id=75: name=Sys On Uncombined, list=(40,),
+room_ass=17: macro_id=71: name=Quad 01 Mtrx Off, list=(36,),
+room_ass=17: macro_id=72: name=Quad 02 Mtrx Off, list=(37,),
+room_ass=17: macro_id=73: name=Quad 03 Mtrx Off, list=(38,),
+room_ass=17: macro_id=74: name=Quad 04 Mtrx Off, list=(39,),
+room_ass=17: macro_id=75: name=Quad 05 Mtrx Off, list=(40,),
+
+room_ass=17: macro_id=66: name=Projectors On, list=(32,),
+
+room_ass=17: macro_id=76: name=Projectors Off, list=(32,),
+
 
 //extra VDst
 room_ass=17: macro_id=81: name=Watchout 1, list=(24*,),
