@@ -366,7 +366,7 @@ room_ass=17: macro_id=40: name=Quad 05, list=(17*,18,19,20,), special_function=0
 
 //system
 room_ass=17: macro_id=57: name=Sys On Uncombined, list=(33, 21,22,23,24,25, ),
-room_ass=17: macro_id=58: name=Sys Off Uncombined, list=(33, 21,22,23,24,25, ),
+room_ass=17: macro_id=58: name=Sys Off Uncombined, list=(33, 32, 21,22,23,24,25, ),
 
 //display modes
 room_ass=17: macro_id=61: name=Quad 01 Mtrx On, list=(36,),

@@ -418,14 +418,14 @@ sys_data[ local_name=Watchout MediaServer In1, room_ass=17, local_id=24, filter=
 sys_data[ local_name=Watchout MediaServer In2, room_ass=17, local_id=25, filter=(44), ]  io_data[ cmd_io=243, ]
 
 
-sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=17, local_id=31, filter=(42), ]  io_data[ cmd_io=521, ]
-sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=17, local_id=32, filter=(42), ]  io_data[ cmd_io=522, ]
-sys_data[ local_name=Throwdown B-HDMI Out 1, room_ass=17, local_id=33, filter=(42), ]  io_data[ cmd_io=524, ] 
-sys_data[ local_name=Throwdown B-HDMI Out 2, room_ass=17, local_id=34, filter=(42), ]  io_data[ cmd_io=525, ]
-sys_data[ local_name=Throwdown C-HDMI Out 1, room_ass=17, local_id=35, filter=(42), ]  io_data[ cmd_io=527, ]
-sys_data[ local_name=Throwdown C-HDMI Out 2, room_ass=17, local_id=36, filter=(42), ]  io_data[ cmd_io=528, ]
-sys_data[ local_name=Throwdown D-HDMI Out 1, room_ass=17, local_id=37, filter=(42), ]  io_data[ cmd_io=530, ]
-sys_data[ local_name=Throwdown D-HDMI Out 2, room_ass=17, local_id=38, filter=(42), ]  io_data[ cmd_io=531, ]
+sys_data[ local_name=Throwdown A-1, room_ass=17, local_id=31, filter=(42), ]  io_data[ cmd_io=521, ]
+sys_data[ local_name=Throwdown A-2, room_ass=17, local_id=32, filter=(42), ]  io_data[ cmd_io=522, ]
+sys_data[ local_name=Throwdown B-1, room_ass=17, local_id=33, filter=(42), ]  io_data[ cmd_io=524, ] 
+sys_data[ local_name=Throwdown B-2, room_ass=17, local_id=34, filter=(42), ]  io_data[ cmd_io=525, ]
+sys_data[ local_name=Throwdown C-1, room_ass=17, local_id=35, filter=(42), ]  io_data[ cmd_io=527, ]
+sys_data[ local_name=Throwdown C-2, room_ass=17, local_id=36, filter=(42), ]  io_data[ cmd_io=528, ]
+sys_data[ local_name=Throwdown D-1, room_ass=17, local_id=37, filter=(42), ]  io_data[ cmd_io=530, ]
+sys_data[ local_name=Throwdown D-2, room_ass=17, local_id=38, filter=(42), ]  io_data[ cmd_io=531, ]
 
 sys_data[ local_name=Panel Preview, room_ass=17, local_id=49, ]  io_data[ cmd_io=486, ]
 
