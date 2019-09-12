@@ -12,6 +12,59 @@
 //  50 *leave blank (for 'other room' Panel Preview)
 
 
+
+//222 Forum
+sys_data[ local_name=LED Wall VidProc Input 1, room_ass=23, local_id=01, filter=(33), ]  io_data[ cmd_io=50, ] 
+sys_data[ local_name=LED Wall VidProc Input 2, room_ass=23, local_id=02, filter=(33), ]  io_data[ cmd_io=51, ]
+sys_data[ local_name=LED Wall VidProc Input 3, room_ass=23, local_id=03, filter=(33), ]  io_data[ cmd_io=52, ]
+sys_data[ local_name=LED Wall VidProc Input 4, room_ass=23, local_id=04, filter=(33), ]  io_data[ cmd_io=53, ]
+sys_data[ local_name=Projector VidProc Input 1, room_ass=23, local_id=05, filter=(36), ]  io_data[ cmd_io=38, ]
+sys_data[ local_name=Projector VidProc Input 2, room_ass=23, local_id=06, filter=(36), ]  io_data[ cmd_io=39, ]
+sys_data[ local_name=Projector VidProc Input 3, room_ass=23, local_id=07, filter=(36), ]  io_data[ cmd_io=40, ]
+sys_data[ local_name=Projector VidProc Input 4, room_ass=23, local_id=08, filter=(36), ]  io_data[ cmd_io=41, ]
+
+sys_data[ local_name=PROJ 2B-1, room_ass=23, local_id=09, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.11, ]  io_data[ relay_processor=1, rly_on=(2+29+), rly_off=(1+30+), ]
+sys_data[ local_name=PROJ 2B-4, room_ass=23, local_id=10, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.12, ]
+
+sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ cmd_io=15, ]
+sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ cmd_io=14, ]
+sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ cmd_io=13, ]
+sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ cmd_io=12, ]
+sys_data[ local_name=South Soffit Display 1, room_ass=23, local_id=15, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.17, ]  io_data[ cmd_io=16, ]
+sys_data[ local_name=South Soffit Display 2, room_ass=23, local_id=16, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.18, ]  io_data[ cmd_io=17, ]
+sys_data[ local_name=South Soffit Display 3, room_ass=23, local_id=17, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.19, ]  io_data[ cmd_io=18, ]
+sys_data[ local_name=South Soffit Display 4, room_ass=23, local_id=18, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.20, ]  io_data[ cmd_io=19, ]
+
+sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=23, local_id=21, filter=(30), ]  io_data[ cmd_io=4, ]
+sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=23, local_id=22, filter=(30), ]  io_data[ cmd_io=5, ]
+
+sys_data[ local_name=Stage Podium HDMI Out 1, room_ass=23, local_id=23, filter=(35), ]  io_data[ cmd_io=7, ]
+sys_data[ local_name=Stage Podium HDMI Out 2, room_ass=23, local_id=24, filter=(35), ]  io_data[ cmd_io=8, ]
+
+sys_data[ local_name=Mix Cart HDMI Out 1, room_ass=23, local_id=25, filter=(34), ]  io_data[ cmd_io=1, ]
+sys_data[ local_name=MIX Cart HDMI Out 2, room_ass=23, local_id=26, filter=(34), ]  io_data[ cmd_io=2, ]
+
+sys_data[ local_name=KVM TX For SW 2A-1-LOCKED ROUTE, local_id=27, local_id=38, room_ass=23, filter=(32), ]  io_data[ cmd_io=34, ]
+
+sys_data[ local_name=Touch Panel Video Preview, local_id=49, room_ass=23, filter=(31), ]  io_data[ cmd_io=32, ]
+
+sys_data[ local_name=Capture PC 1-SDI In 1, room_ass=23, local_id=28, filter=(37), ]  io_data[ cmd_io=24, ]
+sys_data[ local_name=Capture PC 1-SDI In 2, room_ass=23, local_id=29, filter=(37), ]  io_data[ cmd_io=25, ]
+sys_data[ local_name=Matrox Recorder 1, room_ass=23, local_id=30, filter=(37), ]  io_data[ cmd_io=26, ]
+sys_data[ local_name=Flex PC 2A-1 USB Video Input, room_ass=23, local_id=41, filter=(39), ]  io_data[ cmd_io=33, ]
+
+sys_data[ local_name=Tricaster 2A-1 SDI In 1, room_ass=23, local_id=32, filter=(40), ]  io_data[ cmd_io=20, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 2, room_ass=23, local_id=33, filter=(40), ]  io_data[ cmd_io=21, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 3, room_ass=23, local_id=34, filter=(40), ]  io_data[ cmd_io=22, ]
+sys_data[ local_name=Tricaster 2A-1 SDI In 4, room_ass=23, local_id=35, filter=(40), ]  io_data[ cmd_io=23, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 1, room_ass=23, local_id=36, filter=(41), ]  io_data[ cmd_io=27, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 2, room_ass=23, local_id=37, filter=(41), ]  io_data[ cmd_io=28, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 3, room_ass=23, local_id=38, filter=(41), ]  io_data[ cmd_io=29, ]
+sys_data[ local_name=NC1 Expander 2A-2 Input 4, room_ass=23, local_id=39, filter=(41), ]  io_data[ cmd_io=30, ]
+
+
+
+
 //ROOM 305
 sys_data[ local_name=Projector Left North, room_ass=01, filter_id=11, local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.46, ]  io_data[ cmd_io=87, relay_processor=1, rly_on=(10+), rly_off=(9+), ]
 sys_data[ local_name=Projector Right North, room_ass=01, filter_id=11, local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.47, ]  io_data[ cmd_io=89, relay_processor=1, rly_on=(12+), rly_off=(11+), usb_mac=02925e, ]
@@ -247,142 +300,6 @@ sys_data[ local_name=Panel Preview, room_ass=16, filter_id=(26), local_id=49, ] 
 //sys_data[ local_name=Cisco Codec Content, room_ass=16, filter_id=(26), local_src_id=6, is_virtual=1, ]
 
 
-//ROOM 855
-sys_data[ local_name=Projector Left, room_ass=18, filter_id=(28), local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ cmd_io=584, relay_processor=1, rly_on=(35+), rly_off=(36+), ]
-
-sys_data[ local_name=Projector Right, room_ass=18, filter_id=(28), local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ cmd_io=585, relay_processor=1, rly_on=(33+), rly_off=(34+), ]
-
-sys_data[ local_name=Panel Preview, room_ass=18, filter_id=(28), local_id=49, ]  io_data[ cmd_io=581, ]
-
-//NO CISCO CAPABILITY NEEDED IN THIS ROOM
-
-//ROOM 880
-sys_data[ local_name=Projector Left, room_ass=19, filter_id=(29), local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
-
-sys_data[ local_name=Projector Right, room_ass=19, filter_id=(29), local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, usb_mac=029262, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
-
-sys_data[ local_name=USB Video, room_ass=19, filter_id=(29), local_id=41, ] device_data[ ip_address=10.156.24.124, ]  io_data[ cmd_io=602, ]
-
-sys_data[ local_name=Panel Preview, room_ass=19, filter_id=(29), local_id=49, ]  io_data[ cmd_io=601, ]
-
-//sys_data[ local_name=Aux Feed, room_ass=19, filter_id=(29), local_src_id=4, is_virtual=1, ]
-//sys_data[ local_name=Cisco Codec Camera, room_ass=19, filter_id=(29), local_src_id=5, is_virtual=1, ]
-//sys_data[ local_name=Cisco Codec Content, room_ass=19, filter_id=(29), local_src_id=6, is_virtual=1, ]
-
-
-//ROOM 513A BioCom
-sys_data[ local_name=Video Conf Camera, filter=(50), ]  device_data[ is_vtc=1, ] io_data[ cmd_io=290, vtc_io=1, ]
-sys_data[ local_name=Video Conf Camera, filter=(51), ]  device_data[ is_vtc=2, ] io_data[ cmd_io=293, vtc_io=1, ]
-sys_data[ local_name=Video Conf Camera, filter=(52), ]  device_data[ is_vtc=3, ] io_data[ cmd_io=296, vtc_io=1, ]
-
-sys_data[ local_name=Video Conf Content, filter=(50), ]  device_data[ is_vtc=1,] io_data[ cmd_io=291, vtc_io=2, ]
-sys_data[ local_name=Video Conf Content, filter=(51), ]  device_data[ is_vtc=2,] io_data[ cmd_io=294, vtc_io=2, ]
-sys_data[ local_name=Video Conf Content, filter=(52), ]  device_data[ is_vtc=3,] io_data[ cmd_io=297, vtc_io=2, ]
-
-sys_data[ local_name=Video Conf AuxIn, filter=(50), ]  device_data[ is_vtc=1, ]  io_data[ cmd_io=292, vtc_io=3, ]
-sys_data[ local_name=Video Conf AuxIn, filter=(51), ]  device_data[ is_vtc=2, ]  io_data[ cmd_io=295, vtc_io=3, ]
-sys_data[ local_name=Video Conf AuxIn, filter=(52), ]  device_data[ is_vtc=3, ]  io_data[ cmd_io=298, vtc_io=3, ]
-
-sys_data[ local_name=AJA KIPRO REC 5A-1, filter=(1), ]  io_data[ cmd_io=217, ]
-sys_data[ local_name=AJA KIPRO REC 5A-2, filter=(1), ]  io_data[ cmd_io=219, ]
-sys_data[ local_name=AJA KIPRO REC 5A-3, filter=(1), ]  io_data[ cmd_io=221, ]
-sys_data[ local_name=Capture PC 1 SDI Input 1, filter=(2), ]  io_data[ cmd_io=249, ]
-sys_data[ local_name=Capture PC 1 SDI Input 2, filter=(2), ]  io_data[ cmd_io=250, ]
-sys_data[ local_name=Capture PC 2 SDI Input 1, filter=(2), ]  io_data[ cmd_io=251, ]
-sys_data[ local_name=Capture PC 2 SDI Input 2, filter=(2), ]  io_data[ cmd_io=252, ]
-sys_data[ local_name=Capture PC 3 SDI Input 1, filter=(2), ]  io_data[ cmd_io=253, ]
-sys_data[ local_name=Capture PC 3 SDI Input 2, filter=(2), ]  io_data[ cmd_io=254, ]
-sys_data[ local_name=Capture PC 4 SDI Input 1, filter=(2), ]  io_data[ cmd_io=255, ]
-sys_data[ local_name=Capture PC 4 SDI Input 2, filter=(2), ]  io_data[ cmd_io=256, ]
-sys_data[ local_name=Capture PC 5 SDI Input 1, filter=(2), ]  io_data[ cmd_io=257, ]
-sys_data[ local_name=Capture PC 5 SDI Input 2, filter=(2), ]  io_data[ cmd_io=258, ]
-sys_data[ local_name=Capture PC 6 SDI Input 1, filter=(2), ]  io_data[ cmd_io=259, ]
-sys_data[ local_name=Capture PC 6 SDI Input 2, filter=(2), ]  io_data[ cmd_io=260, ]
-sys_data[ local_name=Capture PC 7 SDI Input 1, filter=(2), ]  io_data[ cmd_io=261, ]
-sys_data[ local_name=Capture PC 7 SDI Input 2, filter=(2), ]  io_data[ cmd_io=262, ]
-sys_data[ local_name=Capture PC 8 SDI Input 1, filter=(2), ]  io_data[ cmd_io=263, ]
-sys_data[ local_name=Capture PC 8 SDI Input 2, filter=(2), ]  io_data[ cmd_io=264, ]
-sys_data[ local_name=Capture PC 9 SDI Input 1, filter=(2), ]  io_data[ cmd_io=265, ]
-sys_data[ local_name=Capture PC 9 SDI Input 2, filter=(2), ]  io_data[ cmd_io=266, ]
-sys_data[ local_name=Capture PC 10 SDI Input 1, filter=(2), ]  io_data[ cmd_io=267, ]
-sys_data[ local_name=Capture PC 10 SDI Input 2, filter=(2), ]  io_data[ cmd_io=268, ]
-
-sys_data[ local_name=Matrox 01, filter=(5), ]  io_data[ cmd_io=269, ]
-
-
-
-sys_data[ local_name=TriCaster Monitor North, filter=(6), ]  io_data[ cmd_io=316, ]
-sys_data[ local_name=TriCaster Monitor South, filter=(6), ]  io_data[ cmd_io=317, ]
-
-sys_data[ local_name=Preview Monitor Left, filter=(6), ]  io_data[ cmd_io=319, ]
-sys_data[ local_name=Preview Monitor Right, filter=(6), ]  io_data[ cmd_io=318, ]
-
-sys_data[ local_name=Panel Preview, filter=(6), ]  io_data[ cmd_io=299, ]
-
-
-//Filming Studio
-sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(46), ] io_data[ cmd_io=247, ]
-
-
-//222 Forum
-sys_data[ local_name=LED Wall VidProc Input 1, room_ass=23, local_id=01, filter=(33), ]  io_data[ cmd_io=50, ] 
-sys_data[ local_name=LED Wall VidProc Input 2, room_ass=23, local_id=02, filter=(33), ]  io_data[ cmd_io=51, ]
-sys_data[ local_name=LED Wall VidProc Input 3, room_ass=23, local_id=03, filter=(33), ]  io_data[ cmd_io=52, ]
-sys_data[ local_name=LED Wall VidProc Input 4, room_ass=23, local_id=04, filter=(33), ]  io_data[ cmd_io=53, ]
-sys_data[ local_name=Projector VidProc Input 1, room_ass=23, local_id=05, filter=(36), ]  io_data[ cmd_io=38, ]
-sys_data[ local_name=Projector VidProc Input 2, room_ass=23, local_id=06, filter=(36), ]  io_data[ cmd_io=39, ]
-sys_data[ local_name=Projector VidProc Input 3, room_ass=23, local_id=07, filter=(36), ]  io_data[ cmd_io=40, ]
-sys_data[ local_name=Projector VidProc Input 4, room_ass=23, local_id=08, filter=(36), ]  io_data[ cmd_io=41, ]
-
-sys_data[ local_name=PROJ 2B-1, room_ass=23, local_id=09, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.11, ]  io_data[ relay_processor=1, rly_on=(2+29+), rly_off=(1+30+), ]
-sys_data[ local_name=PROJ 2B-4, room_ass=23, local_id=10, ]  device_data[ is_display=1, device_type=barco_proj, ip_address=10.156.26.12, ]
-
-sys_data[ local_name=North Soffit Display 1, room_ass=23, local_id=11, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.13, ]  io_data[ cmd_io=15, ]
-sys_data[ local_name=North Soffit Display 2, room_ass=23, local_id=12, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.14, ]  io_data[ cmd_io=14, ]
-sys_data[ local_name=North Soffit Display 3, room_ass=23, local_id=13, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.15, ]  io_data[ cmd_io=13, ]
-sys_data[ local_name=North Soffit Display 4, room_ass=23, local_id=14, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.16, ]  io_data[ cmd_io=12, ]
-sys_data[ local_name=South Soffit Display 1, room_ass=23, local_id=15, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.17, ]  io_data[ cmd_io=16, ]
-sys_data[ local_name=South Soffit Display 2, room_ass=23, local_id=16, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.18, ]  io_data[ cmd_io=17, ]
-sys_data[ local_name=South Soffit Display 3, room_ass=23, local_id=17, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.19, ]  io_data[ cmd_io=18, ]
-sys_data[ local_name=South Soffit Display 4, room_ass=23, local_id=18, filter=(38), ]  device_data[ is_display=1, device_type=sony_lcd, ip_address=10.156.26.20, ]  io_data[ cmd_io=19, ]
-
-sys_data[ local_name=Throwdown A-HDMI Out 1, room_ass=23, local_id=21, filter=(30), ]  io_data[ cmd_io=4, ]
-sys_data[ local_name=Throwdown A-HDMI Out 2, room_ass=23, local_id=22, filter=(30), ]  io_data[ cmd_io=5, ]
-
-sys_data[ local_name=Stage Podium HDMI Out 1, room_ass=23, local_id=23, filter=(35), ]  io_data[ cmd_io=7, ]
-sys_data[ local_name=Stage Podium HDMI Out 2, room_ass=23, local_id=24, filter=(35), ]  io_data[ cmd_io=8, ]
-
-sys_data[ local_name=Mix Cart HDMI Out 1, room_ass=23, local_id=25, filter=(34), ]  io_data[ cmd_io=1, ]
-sys_data[ local_name=MIX Cart HDMI Out 2, room_ass=23, local_id=26, filter=(34), ]  io_data[ cmd_io=2, ]
-
-sys_data[ local_name=KVM TX For SW 2A-1-LOCKED ROUTE, local_id=27, local_id=38, room_ass=23, filter=(32), ]  io_data[ cmd_io=34, ]
-
-sys_data[ local_name=Touch Panel Video Preview, local_id=49, room_ass=23, filter=(31), ]  io_data[ cmd_io=32, ]
-
-sys_data[ local_name=Capture PC 1-SDI In 1, room_ass=23, local_id=28, filter=(37), ]  io_data[ cmd_io=24, ]
-sys_data[ local_name=Capture PC 1-SDI In 2, room_ass=23, local_id=29, filter=(37), ]  io_data[ cmd_io=25, ]
-sys_data[ local_name=Matrox Recorder 1, room_ass=23, local_id=30, filter=(37), ]  io_data[ cmd_io=26, ]
-sys_data[ local_name=Flex PC 2A-1 USB Video Input, room_ass=23, local_id=41, filter=(39), ]  io_data[ cmd_io=33, ]
-
-sys_data[ local_name=Tricaster 2A-1 SDI In 1, room_ass=23, local_id=32, filter=(40), ]  io_data[ cmd_io=20, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 2, room_ass=23, local_id=33, filter=(40), ]  io_data[ cmd_io=21, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 3, room_ass=23, local_id=34, filter=(40), ]  io_data[ cmd_io=22, ]
-sys_data[ local_name=Tricaster 2A-1 SDI In 4, room_ass=23, local_id=35, filter=(40), ]  io_data[ cmd_io=23, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 1, room_ass=23, local_id=36, filter=(41), ]  io_data[ cmd_io=27, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 2, room_ass=23, local_id=37, filter=(41), ]  io_data[ cmd_io=28, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 3, room_ass=23, local_id=38, filter=(41), ]  io_data[ cmd_io=29, ]
-sys_data[ local_name=NC1 Expander 2A-2 Input 4, room_ass=23, local_id=39, filter=(41), ]  io_data[ cmd_io=30, ]
-
-
-
-
-
-//Remote Classrooms
-sys_data[ local_name=ZeeVee Encoder 1, filter=(45), ]  io_data[ cmd_io=312, ]
-sys_data[ local_name=ZeeVee Encoder 2, filter=(45), ]  io_data[ cmd_io=313, ]
-sys_data[ local_name=ZeeVee Encoder 3, filter=(45), ]  io_data[ cmd_io=314, ]
-sys_data[ local_name=ZeeVee Encoder 4, filter=(45), ]  io_data[ cmd_io=315, ]
-
 
 
 
@@ -428,5 +345,123 @@ sys_data[ local_name=Throwdown D-1, room_ass=17, local_id=37, filter=(42), ]  io
 sys_data[ local_name=Throwdown D-2, room_ass=17, local_id=38, filter=(42), ]  io_data[ cmd_io=531, ]
 
 sys_data[ local_name=Panel Preview, room_ass=17, local_id=49, ]  io_data[ cmd_io=486, ]
+
+
+
+//ROOM 855
+sys_data[ local_name=Projector Left, room_ass=18, filter_id=(28), local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.231, ] io_data[ cmd_io=584, relay_processor=1, rly_on=(35+), rly_off=(36+), ]
+
+sys_data[ local_name=Projector Right, room_ass=18, filter_id=(28), local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.232, ] io_data[ cmd_io=585, relay_processor=1, rly_on=(33+), rly_off=(34+), ]
+
+sys_data[ local_name=Panel Preview, room_ass=18, filter_id=(28), local_id=49, ]  io_data[ cmd_io=581, ]
+
+//NO CISCO CAPABILITY NEEDED IN THIS ROOM
+
+//ROOM 880
+sys_data[ local_name=Projector Left, room_ass=19, filter_id=(29), local_id=1, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.242, ]  io_data[ cmd_io=606, relay_processor=1, rly_on=(39+), rly_off=(40+), ]
+
+sys_data[ local_name=Projector Right, room_ass=19, filter_id=(29), local_id=2, ]  device_data[ is_display=1, processor_index=5, device_type=sony_proj, ip_address=10.156.26.241, ]  io_data[ cmd_io=604, usb_mac=029262, relay_processor=1, rly_on=(37+), rly_off=(38+), ]
+
+sys_data[ local_name=USB Video, room_ass=19, filter_id=(29), local_id=41, ] device_data[ ip_address=10.156.24.124, ]  io_data[ cmd_io=602, ]
+
+sys_data[ local_name=Panel Preview, room_ass=19, filter_id=(29), local_id=49, ]  io_data[ cmd_io=601, ]
+
+//sys_data[ local_name=Aux Feed, room_ass=19, filter_id=(29), local_src_id=4, is_virtual=1, ]
+//sys_data[ local_name=Cisco Codec Camera, room_ass=19, filter_id=(29), local_src_id=5, is_virtual=1, ]
+//sys_data[ local_name=Cisco Codec Content, room_ass=19, filter_id=(29), local_src_id=6, is_virtual=1, ]
+
+
+
+//ROOM 513A BioCom
+sys_data[ local_name=Video Conf Camera, filter=(50), ]  device_data[ is_vtc=1, ] io_data[ cmd_io=290, vtc_io=1, ]
+sys_data[ local_name=Video Conf Camera, filter=(51), ]  device_data[ is_vtc=2, ] io_data[ cmd_io=293, vtc_io=1, ]
+sys_data[ local_name=Video Conf Camera, filter=(52), ]  device_data[ is_vtc=3, ] io_data[ cmd_io=296, vtc_io=1, ]
+
+sys_data[ local_name=Video Conf Content, filter=(50), ]  device_data[ is_vtc=1,] io_data[ cmd_io=291, vtc_io=2, ]
+sys_data[ local_name=Video Conf Content, filter=(51), ]  device_data[ is_vtc=2,] io_data[ cmd_io=294, vtc_io=2, ]
+sys_data[ local_name=Video Conf Content, filter=(52), ]  device_data[ is_vtc=3,] io_data[ cmd_io=297, vtc_io=2, ]
+
+sys_data[ local_name=Video Conf AuxIn, filter=(50), ]  device_data[ is_vtc=1, ]  io_data[ cmd_io=292, vtc_io=3, ]
+sys_data[ local_name=Video Conf AuxIn, filter=(51), ]  device_data[ is_vtc=2, ]  io_data[ cmd_io=295, vtc_io=3, ]
+sys_data[ local_name=Video Conf AuxIn, filter=(52), ]  device_data[ is_vtc=3, ]  io_data[ cmd_io=298, vtc_io=3, ]
+
+sys_data[ local_name=AJA KIPRO REC 5A-1, filter=(1), ]  io_data[ cmd_io=217, ]
+sys_data[ local_name=AJA KIPRO REC 5A-2, filter=(1), ]  io_data[ cmd_io=219, ]
+sys_data[ local_name=AJA KIPRO REC 5A-3, filter=(1), ]  io_data[ cmd_io=221, ]
+
+sys_data[ local_name=Tricaster 5A-1 SDI In 1, filter=(7), ]  io_data[ cmd_io=223, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 2, filter=(7), ]  io_data[ cmd_io=224, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 3, filter=(7), ]  io_data[ cmd_io=225, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 4, filter=(7), ]  io_data[ cmd_io=226, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 1, filter=(8), ]  io_data[ cmd_io=227, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 2, filter=(8), ]  io_data[ cmd_io=227, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 3, filter=(8), ]  io_data[ cmd_io=228, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 4, filter=(8), ]  io_data[ cmd_io=230, ]
+
+sys_data[ local_name=Tricaster 5A-1 SDI In 1, filter=(9), ]  io_data[ cmd_io=231, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 2, filter=(9), ]  io_data[ cmd_io=232, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 3, filter=(9), ]  io_data[ cmd_io=233, ]
+sys_data[ local_name=Tricaster 5A-1 SDI In 4, filter=(9), ]  io_data[ cmd_io=234, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 1, filter=(10), ]  io_data[ cmd_io=235, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 2, filter=(10), ]  io_data[ cmd_io=236, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 3, filter=(10), ]  io_data[ cmd_io=237, ]
+sys_data[ local_name=Tricaster 5A-2 SDI In 4, filter=(10), ]  io_data[ cmd_io=238, ]
+
+sys_data[ local_name=Capture PC 1 SDI Input 1, filter=(2), ]  io_data[ cmd_io=249, ]
+sys_data[ local_name=Capture PC 1 SDI Input 2, filter=(2), ]  io_data[ cmd_io=250, ]
+sys_data[ local_name=Capture PC 2 SDI Input 1, filter=(2), ]  io_data[ cmd_io=251, ]
+sys_data[ local_name=Capture PC 2 SDI Input 2, filter=(2), ]  io_data[ cmd_io=252, ]
+sys_data[ local_name=Capture PC 3 SDI Input 1, filter=(2), ]  io_data[ cmd_io=253, ]
+sys_data[ local_name=Capture PC 3 SDI Input 2, filter=(2), ]  io_data[ cmd_io=254, ]
+sys_data[ local_name=Capture PC 4 SDI Input 1, filter=(2), ]  io_data[ cmd_io=255, ]
+sys_data[ local_name=Capture PC 4 SDI Input 2, filter=(2), ]  io_data[ cmd_io=256, ]
+sys_data[ local_name=Capture PC 5 SDI Input 1, filter=(2), ]  io_data[ cmd_io=257, ]
+sys_data[ local_name=Capture PC 5 SDI Input 2, filter=(2), ]  io_data[ cmd_io=258, ]
+sys_data[ local_name=Capture PC 6 SDI Input 1, filter=(2), ]  io_data[ cmd_io=259, ]
+sys_data[ local_name=Capture PC 6 SDI Input 2, filter=(2), ]  io_data[ cmd_io=260, ]
+sys_data[ local_name=Capture PC 7 SDI Input 1, filter=(2), ]  io_data[ cmd_io=261, ]
+sys_data[ local_name=Capture PC 7 SDI Input 2, filter=(2), ]  io_data[ cmd_io=262, ]
+sys_data[ local_name=Capture PC 8 SDI Input 1, filter=(2), ]  io_data[ cmd_io=263, ]
+sys_data[ local_name=Capture PC 8 SDI Input 2, filter=(2), ]  io_data[ cmd_io=264, ]
+sys_data[ local_name=Capture PC 9 SDI Input 1, filter=(2), ]  io_data[ cmd_io=265, ]
+sys_data[ local_name=Capture PC 9 SDI Input 2, filter=(2), ]  io_data[ cmd_io=266, ]
+sys_data[ local_name=Capture PC 10 SDI Input 1, filter=(2), ]  io_data[ cmd_io=267, ]
+sys_data[ local_name=Capture PC 10 SDI Input 2, filter=(2), ]  io_data[ cmd_io=268, ]
+
+sys_data[ local_name=Matrox 01, filter=(5), ]  io_data[ cmd_io=269, ]
+sys_data[ local_name=Matrox 02, filter=(5), ]  io_data[ cmd_io=270, ]
+sys_data[ local_name=Matrox 03, filter=(5), ]  io_data[ cmd_io=271, ]
+sys_data[ local_name=Matrox 04, filter=(5), ]  io_data[ cmd_io=272, ]
+sys_data[ local_name=Matrox 05, filter=(5), ]  io_data[ cmd_io=273, ]
+sys_data[ local_name=Matrox 06, filter=(5), ]  io_data[ cmd_io=274, ]
+sys_data[ local_name=Matrox 07, filter=(5), ]  io_data[ cmd_io=275, ]
+sys_data[ local_name=Matrox 08, filter=(5), ]  io_data[ cmd_io=276, ]
+sys_data[ local_name=Matrox 09, filter=(5), ]  io_data[ cmd_io=277, ]
+sys_data[ local_name=Matrox 10, filter=(5), ]  io_data[ cmd_io=278, ]
+
+sys_data[ local_name=Edit Suite 508, filter=(3), ]  io_data[ cmd_io=216, ]
+sys_data[ local_name=Edit Suite 509, filter=(3), ]  io_data[ cmd_io=215, ]
+sys_data[ local_name=Edit Suite 510, filter=(3), ]  io_data[ cmd_io=214, ]
+sys_data[ local_name=Edit Suite 511, filter=(3), ]  io_data[ cmd_io=213, ]
+sys_data[ local_name=Edit Suite 514, filter=(3), ]  io_data[ cmd_io=212, ]
+sys_data[ local_name=Edit Suite 515, filter=(3), ]  io_data[ cmd_io=211, ]
+
+sys_data[ local_name=TriCaster Monitor North, filter=(6), ]  io_data[ cmd_io=316, ]
+sys_data[ local_name=TriCaster Monitor South, filter=(6), ]  io_data[ cmd_io=317, ]
+
+sys_data[ local_name=Preview Monitor Left, filter=(6), ]  io_data[ cmd_io=319, ]
+sys_data[ local_name=Preview Monitor Right, filter=(6), ]  io_data[ cmd_io=318, ]
+
+sys_data[ local_name=Panel Preview, filter=(6), ]  io_data[ cmd_io=299, ]
+
+
+//Filming Studio
+sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(46), ] io_data[ cmd_io=247, ]
+
+//Remote Classrooms
+sys_data[ local_name=ZeeVee Encoder 1, filter=(45), ]  io_data[ cmd_io=312, ]
+sys_data[ local_name=ZeeVee Encoder 2, filter=(45), ]  io_data[ cmd_io=313, ]
+sys_data[ local_name=ZeeVee Encoder 3, filter=(45), ]  io_data[ cmd_io=314, ]
+sys_data[ local_name=ZeeVee Encoder 4, filter=(45), ]  io_data[ cmd_io=315, ]
 
 

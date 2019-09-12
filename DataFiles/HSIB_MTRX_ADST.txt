@@ -4,14 +4,14 @@
 
 //Tricasters
 audio_mtrx[ cmd_io=Main_router_1, local_name=TriCaster 1 In01, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In02, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In03, room_ass=01, filter_id=(7), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 1 In04, room_ass=01, filter_id=(7), ]
+audio_mtrx[ cmd_io=Main_router_91, local_name=TriCaster 1 In02, room_ass=01, filter_id=(7), ]
+audio_mtrx[ cmd_io=Main_router_92, local_name=TriCaster 1 In03, room_ass=01, filter_id=(7), ]
+audio_mtrx[ cmd_io=Main_router_93, local_name=TriCaster 1 In04, room_ass=01, filter_id=(7), ]
 
 audio_mtrx[ cmd_io=Main_router_2, local_name=TriCaster 2 In01, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In02, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In03, room_ass=01, filter_id=(8), ]
-//audio_mtrx[ cmd_io=****, local_name=BioCom TriCaster 2 In04, room_ass=01, filter_id=(8), ]
+audio_mtrx[ cmd_io=Main_router_94, local_name=TriCaster 2 In02, room_ass=01, filter_id=(8), ]
+audio_mtrx[ cmd_io=Main_router_95, local_name=TriCaster 2 In03, room_ass=01, filter_id=(8), ]
+audio_mtrx[ cmd_io=Main_router_96, local_name=TriCaster 2 In04, room_ass=01, filter_id=(8), ]
 
 
 //Capture Boxes
@@ -76,9 +76,9 @@ audio_mtrx[ cmd_io=Main_router_56, local_name=MobileCart Mix, room_ass=16, filte
 audio_mtrx[ cmd_io=Main_router_57, local_name=MobileCart Mix, room_ass=18, filter_id=(28), ]
 audio_mtrx[ cmd_io=Main_router_58, local_name=MobileCart Mix, room_ass=19, filter_id=(29), ]
 
-audio_mtrx[ cmd_io=Main_router_59, local_name=Rec 5A 1, filter_id=(7), ]
-audio_mtrx[ cmd_io=Main_router_60, local_name=Rec 5A 2, filter_id=(8), ]
-audio_mtrx[ cmd_io=Main_router_61, local_name=Rec 5A 3, filter_id=(9), ]
+audio_mtrx[ cmd_io=Main_router_59, local_name=AJA KIPRO Rec 5A-1, filter_id=(1), ]
+audio_mtrx[ cmd_io=Main_router_60, local_name=AJA KIPRO Rec 5A-2, filter_id=(1), ]
+audio_mtrx[ cmd_io=Main_router_61, local_name=AJA KIPRO Rec 5A-3, filter_id=(1), ]
 
 audio_mtrx[ cmd_io=Main_router_62, local_name=Remote VTC Rx, room_ass=01, filter_id=(11), ]
 audio_mtrx[ cmd_io=Main_router_63, local_name=Remote VTC Rx, room_ass=02, filter_id=(12), ]

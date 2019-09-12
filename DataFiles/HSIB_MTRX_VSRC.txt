@@ -11,6 +11,32 @@
 
 
 
+//222 Forum
+sys_data[ local_name=Stage Podium HDMI In 1, room_ass=23, local_id=01, filter=( 31 ), ]  io_data[ cmd_io=7, ]
+sys_data[ local_name=Stage Podium HDMI In 2, room_ass=23, local_id=02, filter=( 31 ), ]  io_data[ cmd_io=8, ]
+sys_data[ local_name=Mersive, room_ass=23, local_id=03, filter=( 29 ), ]  io_data[ cmd_io=56, ]
+sys_data[ local_name=Zoom PC Output, local_id=10, room_ass=23, filter=( 29 ), ]  io_data[ cmd_io=55, ]
+sys_data[ local_name=MIX CART HDMI IN 1, local_id=11, room_ass=23, filter=( 30 ), ]  io_data[ cmd_io=1, ]
+sys_data[ local_name=MIX CART HDMI IN 2, local_id=12, room_ass=23, filter=( 30 ), ]  io_data[ cmd_io=2, ]
+
+sys_data[ local_name=Cam Stage Left Back, room_ass=23, local_id=21, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.21, ]  io_data[ cmd_io=26, ]
+sys_data[ local_name=Cam Stage Right Back, room_ass=23, local_id=22, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.22, ]  io_data[ cmd_io=27, ]
+sys_data[ local_name=Cam Stage Left, room_ass=23, local_id=23, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.23, ]  io_data[ cmd_io=28, ]
+sys_data[ local_name=Cam Stage Right, room_ass=23, local_id=24, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.24, ]  io_data[ cmd_io=29, ] 
+
+sys_data[ local_name=Throwdown A-HDMI IN 1, local_id=17, room_ass=23, filter=( 27 ), ]  io_data[ cmd_io=4, ]
+sys_data[ local_name=Throwdown A-HDMI IN 2, local_id=18, room_ass=23, filter=( 27 ), ]  io_data[ cmd_io=5, ]
+
+
+sys_data[ local_name=TriCaster 2A-1 SDI Out 1, room_ass=23, local_id=31, filter=( 32 ), ]  io_data[ cmd_io=20, ]
+sys_data[ local_name=TriCaster 2A-1 SDI Out 2, room_ass=23, local_id=32, filter=( 32 ), ]  io_data[ cmd_io=21, ]
+sys_data[ local_name=TriCaster 2A-1 SDI Out 3, room_ass=23, local_id=33, filter=( 32 ), ]  io_data[ cmd_io=22, ]
+sys_data[ local_name=TriCaster 2A-1 SDI Out 4, room_ass=23, local_id=34, filter=( 32 ), ]  io_data[ cmd_io=23, ]
+sys_data[ local_name=TriCaster 2A-1 DVI Out, room_ass=23, local_id=35, filter=( 32 ), ]  io_data[ cmd_io=32, ]
+sys_data[ local_name=TriCaster 2A-1 HDMI Out, room_ass=23, local_id=36, filter=( 32 ), ]  io_data[ cmd_io=33, ]
+sys_data[ local_name=TriCaster 2A-1 DP Out, room_ass=23, local_id=37, filter=( 32 ), ]  io_data[ cmd_io=34, ]
+sys_data[ local_name=NC1 2A-2 Expander Monitor Output, room_ass=23, local_id=38, filter=( 33 ), ]  io_data[ cmd_io=36, ]
+
 
 
 //Room 305   
@@ -245,13 +271,10 @@ sys_data[ local_name=CAE-PC Station 5, room_ass=17, local_id=43, filter=( 38 ), 
 sys_data[ local_name=CAE-PC Station 6, room_ass=17, local_id=44, filter=( 38 ), ]  io_data[ cmd_io=497, ]
 
 
-
-
 //Room 855
 sys_data[ local_name=PC, pgm_audio=1, room_ass=18, local_id=2, filter=(25), ]  io_data[ cmd_io=581, ]
 sys_data[ local_name=Laptop, pgm_audio=2, room_ass=18, local_id=1, filter=(25), ]  io_data[ cmd_io=582, ]
 sys_data[ local_name=Wireless, pgm_audio=3, room_ass=18, local_id=3, filter=(25), ]  io_data[ cmd_io=51, ]
-
 
 
 //Room 880
@@ -276,9 +299,9 @@ sys_data[ local_name=Video Conf Content, filter=(50), ]  device_data[ is_vtc=1, 
 sys_data[ local_name=Video Conf Content, filter=(51), ]  device_data[ is_vtc=2, ]  io_data[ cmd_io=293, vtc_io=2, ]
 sys_data[ local_name=Video Conf Content, filter=(52), ]  device_data[ is_vtc=3, ]  io_data[ cmd_io=295, vtc_io=2, ]
 
-sys_data[ local_name=AJA KIPRO REC 5A-1  Out, filter=(1), ]  io_data[ cmd_io=217, ]
-sys_data[ local_name=AJA KIPRO REC 5A-2  Out, filter=(1), ]  io_data[ cmd_io=219, ]
-sys_data[ local_name=AJA KIPRO REC 5A-3  Out, filter=(1), ]  io_data[ cmd_io=221, ]
+sys_data[ local_name=AJA KIPRO REC 5A-1 Out, filter=(1), ]  io_data[ cmd_io=217, ]
+sys_data[ local_name=AJA KIPRO REC 5A-2 Out, filter=(1), ]  io_data[ cmd_io=219, ]
+sys_data[ local_name=AJA KIPRO REC 5A-3 Out, filter=(1), ]  io_data[ cmd_io=221, ]
 sys_data[ local_name=DVS-605-IP 5A-10 SDI IN, filter=(2), ]  io_data[ cmd_io=232, ]
 sys_data[ local_name=DVS-605-IP 5A-21 SDI IN, filter=(2), ]  io_data[ cmd_io=233, ]
 sys_data[ local_name=HDMI Aux Plate 5A-10, filter=(2), ]  io_data[ cmd_io=298, ]
@@ -298,6 +321,12 @@ sys_data[ local_name=TriCaster 5A-2 SDI Out 4, filter=(7), ]  io_data[ cmd_io=23
 sys_data[ local_name=TriCaster 5A-2 DVI Out, filter=(7), ]  io_data[ cmd_io=247, ]
 sys_data[ local_name=TriCaster 5A-2 HDMI Out, filter=(7), ]  io_data[ cmd_io=248, ]
 
+sys_data[ local_name=Edit Suite 508, filter=(3), ]  io_data[ cmd_io=216, ]
+sys_data[ local_name=Edit Suite 509, filter=(3), ]  io_data[ cmd_io=215, ]
+sys_data[ local_name=Edit Suite 510, filter=(3), ]  io_data[ cmd_io=214, ]
+sys_data[ local_name=Edit Suite 511, filter=(3), ]  io_data[ cmd_io=213, ]
+sys_data[ local_name=Edit Suite 514, filter=(3), ]  io_data[ cmd_io=212, ]
+sys_data[ local_name=Edit Suite 515, filter=(3), ]  io_data[ cmd_io=211, ]
 
 
 //Filming Studio
@@ -305,37 +334,6 @@ sys_data[ local_name=SDI INPUT 1, room_ass=21, filter=(40), ]  io_data[ cmd_io=2
 sys_data[ local_name=SDI INPUT 2, room_ass=21, filter=(40), ]  io_data[ cmd_io=256, ]
 sys_data[ local_name=SDI INPUT 3, room_ass=21, filter=(40), ]  io_data[ cmd_io=257, ]
 sys_data[ local_name=SDI INPUT 4, room_ass=21, filter=(40), ]  io_data[ cmd_io=258, ]
-
-
-
-//222 Forum
-sys_data[ local_name=Stage Podium HDMI In 1, room_ass=23, local_id=01, filter=( 31 ), ]  io_data[ cmd_io=7, ]
-sys_data[ local_name=Stage Podium HDMI In 2, room_ass=23, local_id=02, filter=( 31 ), ]  io_data[ cmd_io=8, ]
-sys_data[ local_name=Mersive, room_ass=23, local_id=03, filter=( 29 ), ]  io_data[ cmd_io=56, ]
-sys_data[ local_name=Zoom PC Output, local_id=10, room_ass=23, filter=( 29 ), ]  io_data[ cmd_io=55, ]
-sys_data[ local_name=MIX CART HDMI IN 1, local_id=11, room_ass=23, filter=( 30 ), ]  io_data[ cmd_io=1, ]
-sys_data[ local_name=MIX CART HDMI IN 2, local_id=12, room_ass=23, filter=( 30 ), ]  io_data[ cmd_io=2, ]
-
-sys_data[ local_name=Cam Stage Left Back, room_ass=23, local_id=21, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.21, ]  io_data[ cmd_io=26, ]
-sys_data[ local_name=Cam Stage Right Back, room_ass=23, local_id=22, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.22, ]  io_data[ cmd_io=27, ]
-sys_data[ local_name=Cam Stage Left, room_ass=23, local_id=23, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.23, ]  io_data[ cmd_io=28, ]
-sys_data[ local_name=Cam Stage Right, room_ass=23, local_id=24, filter=( 28 ), ]  device_data[ is_camera=1, ip_address=10.156.26.24, ]  io_data[ cmd_io=29, ] 
-
-sys_data[ local_name=Throwdown A-HDMI IN 1, local_id=17, room_ass=23, filter=( 27 ), ]  io_data[ cmd_io=4, ]
-sys_data[ local_name=Throwdown A-HDMI IN 2, local_id=18, room_ass=23, filter=( 27 ), ]  io_data[ cmd_io=5, ]
-
-
-sys_data[ local_name=TriCaster 2A-1 SDI Out 1, room_ass=23, local_id=31, filter=( 32 ), ]  io_data[ cmd_io=20, ]
-sys_data[ local_name=TriCaster 2A-1 SDI Out 2, room_ass=23, local_id=32, filter=( 32 ), ]  io_data[ cmd_io=21, ]
-sys_data[ local_name=TriCaster 2A-1 SDI Out 3, room_ass=23, local_id=33, filter=( 32 ), ]  io_data[ cmd_io=22, ]
-sys_data[ local_name=TriCaster 2A-1 SDI Out 4, room_ass=23, local_id=34, filter=( 32 ), ]  io_data[ cmd_io=23, ]
-sys_data[ local_name=TriCaster 2A-1 DVI Out, room_ass=23, local_id=35, filter=( 32 ), ]  io_data[ cmd_io=32, ]
-sys_data[ local_name=TriCaster 2A-1 HDMI Out, room_ass=23, local_id=36, filter=( 32 ), ]  io_data[ cmd_io=33, ]
-sys_data[ local_name=TriCaster 2A-1 DP Out, room_ass=23, local_id=37, filter=( 32 ), ]  io_data[ cmd_io=34, ]
-sys_data[ local_name=NC1 2A-2 Expander Monitor Output, room_ass=23, local_id=38, filter=( 33 ), ]  io_data[ cmd_io=36, ]
-
-
-
 
 
 //Remote Classrooms
@@ -349,3 +347,5 @@ sys_data[ local_name=ZeeVee Decoder 7, filter=( 40 ), ]  io_data[ cmd_io=318, ]
 sys_data[ local_name=ZeeVee Decoder 8, filter=( 40 ), ]  io_data[ cmd_io=319, ]
 sys_data[ local_name=ZeeVee Decoder 9, filter=( 40 ), ]  io_data[ cmd_io=320, ]
 sys_data[ local_name=ZeeVee Decoder 10, filter=( 40 ), ]  io_data[ cmd_io=321, ]
+
+
