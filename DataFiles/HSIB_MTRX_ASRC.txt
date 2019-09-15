@@ -185,6 +185,15 @@ audio_mtrx[ cmd_io=142, local_name=PGM Tx, room_ass=17, filter_id=(24), ]
 audio_mtrx[ cmd_io=143, local_name=TriCaster 01 Prgm Out, filter_id=(6), ]
 audio_mtrx[ cmd_io=144, local_name=TriCaster 02 Prgm Out, filter_id=(7), ]
 
+audio_mtrx[ cmd_io=145, local_name=AJA KIPRO Rec 5A-1, filter_id=(1), ]
+audio_mtrx[ cmd_io=146, local_name=AJA KIPRO Rec 5A-2, filter_id=(1), ]
+audio_mtrx[ cmd_io=147, local_name=AJA KIPRO Rec 5A-3, filter_id=(1), ]
+
+
+
+audio_mtrx[ cmd_io=148, local_name=TriCaster 01 Hdph Out, filter_id=(6), ]
+audio_mtrx[ cmd_io=149, local_name=TriCaster 02 Hdph Out, filter_id=(7), ]
+
 
 audio_mtrx[ cmd_io=150, local_name=QSC Audio Player, filter_id=(5), ]
 
