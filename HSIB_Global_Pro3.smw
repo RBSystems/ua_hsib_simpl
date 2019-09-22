@@ -5654,6 +5654,21 @@ Sy1=0
 Mx1=0
 ]
 [
+ObjTp=Bw
+H=1
+Lx=0
+Ly=0
+Rx=1405
+Ry=913
+Xm=-1
+Ym=-1
+SH=713
+Z=100
+P=2616
+Ht=1
+Hi=129
+]
+[
 ObjTp=Et
 H=1
 DvH=595
@@ -99040,7 +99055,7 @@ mO=1
 tO=1
 O1=16469
 mP=1
-P1=Cisco VTC 01
+P1=Cisco VTC 02
 ]
 [
 ObjTp=Sm
@@ -101332,7 +101347,7 @@ mO=1
 tO=1
 O1=16470
 mP=1
-P1=Cisco VTC 01
+P1=Cisco VTC 03
 ]
 [
 ObjTp=Sm
@@ -104417,7 +104432,7 @@ O58=149
 O59=149
 O60=149
 O61=12105
-O63=18940
+O63=16844
 O64=31761
 O66=18413
 O68=18944
@@ -235102,6 +235117,12 @@ Nm=S.x_ROOMS_List_022_En
 ObjTp=Sg
 H=16843
 Nm=S.x_ROOMS_List_023_En
+]
+[
+ObjTp=Sg
+H=16844
+Nm=//S.x_VTC_ControlSelect_UnitName$
+SgTp=4
 ]
 [
 ObjTp=Sg
