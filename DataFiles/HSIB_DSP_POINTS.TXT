@@ -32,11 +32,32 @@ room_ass=23, point_type=1, local_index=3, local_name=Wireless Mic 03, tag_gain=F
 room_ass=23, point_type=1, local_index=4, local_name=Wireless Mic 04, tag_gain=FORUM_Wmic04_gain_volLevel, tag_mute=FORUM_Wmic04_gain_muteState, dsp_system=2,
 room_ass=23, point_type=1, local_index=5, local_name=Mobile Wireless Mic Mix, tag_gain=FORUM_MobileWmicMix_gain_volLevel, tag_mute=FORUM_MobileWmicMix_gain_muteState, dsp_system=2,
 room_ass=23, point_type=1, local_index=6, local_name=Podium Mic, tag_gain=FORUM_PodiumMic_gain_volLevel, tag_mute=FORUM_PodiumMic_gain_muteState, dsp_system=2,
-room_ass=23, point_type=2, local_index=7, local_name=Program, tag_gain=FORUM_PGM_gain_volLevel, tag_mute=FORUM_PGM_gain_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=7, local_name=Master to PA, tag_gain=Forum_MasterToPA_gainvolLevel, tag_mute=Forum_MasterToPA_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=8, local_name=CR Speakers, tag_gain=Forum_CRSPKRS_gainvolLevel, tag_mute=Forum_CRSPKRS_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=9, local_name=All PGM Sources, tag_gain=FORUM_PGM_gain_volLevel, tag_mute=FORUM_PGM_gain_muteState, dsp_system=2,
+	
+room_ass=23, point_type=2, local_index=10, local_name=tp TriCaster, tag_gain=Forum_Tricaster_tx_gainvolLevel, tag_mute=Forum_Tricaster_tx_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=11, local_name=to CapPC & Matrox, tag_gain=Forum_CapPC_Matrox_gainvolLevel, tag_mute=Forum_CapPC_Matrox_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=12, local_name=to BioCom, tag_gain=Forum_Biocomm_tx_gainvolLevel, tag_mute=Forum_Biocomm_tx_gain_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=13, local_name=from BioCom, tag_gain=Forum_Biocomm_rx_gainvolLevel, tag_mute=Forum_Biocomm_rx_gain_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=14, local_name=to Cisco VTC, tag_gain=Forum_CiscoVTC_tx_gainvolLevel, tag_mute=Forum_CiscoVTC_tx_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=15, local_name=from Cisco VTC, tag_gain=Forum_CiscoVTC_rx_gainvolLevel, tag_mute=Forum_CiscoVTC_rx_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=16, local_name=to Zoom PC, tag_gain=Forum_ZoomPC_tx_gainvolLevel, tag_mute=Forum_ZoomPC_tx_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=17, local_name=from Zoom PC, tag_gain=Forum_ZoomPC_rx_gainvolLevel, tag_mute=Forum_ZoomPC_rx_muteState, dsp_system=2,
+
+room_ass=23, point_type=2, local_index=18, local_name=to Asst Listening, tag_gain=Forum_ALS_gainvolLevel, tag_mute=Forum_ALS_muteState, dsp_system=2,
+
+
 
 	//SOURCE ROUTING:
-	room_ass=23, point_type=3, local_index=8, local_name=Program, tag_rte=FORUM_PGM_router, dsp_system=2,
-	
+	//room_ass=23, point_type=3, local_index=8, local_name=Program, tag_rte=FORUM_PGM_router, dsp_system=2,
+
+
 
 //Room 305
 

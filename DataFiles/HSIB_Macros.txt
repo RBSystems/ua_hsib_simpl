@@ -52,7 +52,7 @@ room_ass=23: macro_id=61: name=Projectors, list=(34,),
 room_ass=23: macro_id=71: name=Projectors, list=(34,),
 
 room_ass=23: macro_id=62: name=LCDs On, list=(35,),
-room_ass=23: macro_id=72: name=LCDs Of, list=(35,),
+room_ass=23: macro_id=72: name=LCDs Off, list=(35,),
 
 
 

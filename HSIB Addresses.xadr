@@ -11,6 +11,8 @@ Version=1.0
 DefaultEntry=
 
 [ComSpecs]
+Test Pro3=auto 10.32.11.237;username admin;password password
+Test CP3=auto 10.32.11.242;username admin;password password
 CP-5A-1_ip=auto 10.156.32.100
 CP-5A-2_ip=auto 10.156.32.101
 CP-5A-3_ip=auto 10.156.32.102
@@ -41,6 +43,8 @@ DM-DGE-200-C 855=auto 10.156.27.147
 DM-DGE-200-C 880=auto 10.156.27.158
 
 [Notes]
+Test Pro3=
+Test CP3=
 CP-5A-1_ip=PRO3
 CP-5A-2_ip=PRO3
 CP-5A-3_ip=CP3
