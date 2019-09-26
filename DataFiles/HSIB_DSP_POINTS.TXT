@@ -37,12 +37,12 @@ room_ass=23, point_type=2, local_index=7, local_name=Master to PA, tag_gain=Foru
 room_ass=23, point_type=2, local_index=8, local_name=CR Speakers, tag_gain=Forum_CRSPKRS_gainvolLevel, tag_mute=Forum_CRSPKRS_muteState, dsp_system=2,
 room_ass=23, point_type=2, local_index=9, local_name=All PGM Sources, tag_gain=FORUM_PGM_gain_volLevel, tag_mute=FORUM_PGM_gain_muteState, dsp_system=2,
 	
-room_ass=23, point_type=2, local_index=10, local_name=tp TriCaster, tag_gain=Forum_Tricaster_tx_gainvolLevel, tag_mute=Forum_Tricaster_tx_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=10, local_name=to TriCaster, tag_gain=Forum_Tricaster_tx_gainvolLevel, tag_mute=Forum_Tricaster_tx_muteState, dsp_system=2,
 
 room_ass=23, point_type=2, local_index=11, local_name=to CapPC & Matrox, tag_gain=Forum_CapPC_Matrox_gainvolLevel, tag_mute=Forum_CapPC_Matrox_muteState, dsp_system=2,
 
-room_ass=23, point_type=2, local_index=12, local_name=to BioCom, tag_gain=Forum_Biocomm_tx_gainvolLevel, tag_mute=Forum_Biocomm_tx_gain_muteState, dsp_system=2,
-room_ass=23, point_type=2, local_index=13, local_name=from BioCom, tag_gain=Forum_Biocomm_rx_gainvolLevel, tag_mute=Forum_Biocomm_rx_gain_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=12, local_name=to BioCom, tag_gain=Forum_Biocomm_tx_gainvolLevel, tag_mute=Forum_Biocomm_tx_muteState, dsp_system=2,
+room_ass=23, point_type=2, local_index=13, local_name=from BioCom, tag_gain=Forum_Biocomm_rx_gainvolLevel, tag_mute=Forum_Biocomm_rx_muteState, dsp_system=2,
 
 room_ass=23, point_type=2, local_index=14, local_name=to Cisco VTC, tag_gain=Forum_CiscoVTC_tx_gainvolLevel, tag_mute=Forum_CiscoVTC_tx_muteState, dsp_system=2,
 room_ass=23, point_type=2, local_index=15, local_name=from Cisco VTC, tag_gain=Forum_CiscoVTC_rx_gainvolLevel, tag_mute=Forum_CiscoVTC_rx_muteState, dsp_system=2,
