@@ -49853,7 +49853,7 @@ I1=14053
 I2=2200
 I3=58239
 I4=60048
-I5=41517
+I5=17441
 I6=149
 I7=149
 I8=149
@@ -239347,6 +239347,11 @@ Nm=S.x_VTC_DirectoryLocal
 ObjTp=Sg
 H=17440
 Nm=S.x_VTC_DirectoryGet
+]
+[
+ObjTp=Sg
+H=17441
+Nm=//S.23_GUI_Ethernet_OfflineManager_Offline_FB
 ]
 [
 ObjTp=Sg

@@ -1486,7 +1486,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_83
                             } 
                         
                         __context__.SourceCodeLine = 1026;
-                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_18__" , 1400 , __SPLS_TMPVAR__WAITLABEL_18___Callback ) ;
+                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_23__" , 1400 , __SPLS_TMPVAR__WAITLABEL_23___Callback ) ;
                         } 
                     
                     else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == (  (int) ( 3 ) ) ) ) ) 
@@ -1599,7 +1599,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_83
             return 0; // default return value (none specified in module)
             }
             
-        public void __SPLS_TMPVAR__WAITLABEL_18___CallbackFn( object stateInfo )
+        public void __SPLS_TMPVAR__WAITLABEL_23___CallbackFn( object stateInfo )
         {
         
             try
@@ -2270,7 +2270,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_83
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (IROOM == 2))  ) ) 
                         {
                         __context__.SourceCodeLine = 1503;
-                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_19__" , 1000 , __SPLS_TMPVAR__WAITLABEL_19___Callback ) ;
+                        CreateWait ( "__SPLS_TMPVAR__WAITLABEL_24__" , 1000 , __SPLS_TMPVAR__WAITLABEL_24___Callback ) ;
                         }
                     
                     } 
@@ -2296,7 +2296,7 @@ namespace UserModule_L3_UA_HSIB_NODEMST_V1_0_83
         
         }
         
-    public void __SPLS_TMPVAR__WAITLABEL_19___CallbackFn( object stateInfo )
+    public void __SPLS_TMPVAR__WAITLABEL_24___CallbackFn( object stateInfo )
     {
     
         try
@@ -5128,8 +5128,8 @@ public override void LogosSplusInitialize()
         m_StringInputList.Add( FROM_GLOBAL_RX__DOLLAR___2__AnalogSerialInput__ + i, FROM_GLOBAL_RX__DOLLAR___2[i+1] );
     }
     
-    __SPLS_TMPVAR__WAITLABEL_18___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_18___CallbackFn );
-    __SPLS_TMPVAR__WAITLABEL_19___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_19___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_23___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_23___CallbackFn );
+    __SPLS_TMPVAR__WAITLABEL_24___Callback = new WaitFunction( __SPLS_TMPVAR__WAITLABEL_24___CallbackFn );
     
     for( uint i = 0; i < 2; i++ )
         RC_ON[i+1].OnDigitalPush.Add( new InputChangeHandlerWrapper( RC_ON_OnPush_0, false ) );
@@ -5259,8 +5259,8 @@ public override void LogosSimplSharpInitialize()
 public UserModuleClass_L3_UA_HSIB_NODEMST_V1_0_83 ( string InstanceName, string ReferenceID, Crestron.Logos.SplusObjects.CrestronStringEncoding nEncodingType ) : base( InstanceName, ReferenceID, nEncodingType ) {}
 
 
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_18___Callback;
-private WaitFunction __SPLS_TMPVAR__WAITLABEL_19___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_23___Callback;
+private WaitFunction __SPLS_TMPVAR__WAITLABEL_24___Callback;
 
 
 const uint RC_ON__DigitalInput__ = 0;
