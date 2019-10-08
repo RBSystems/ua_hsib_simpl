@@ -39,6 +39,9 @@
 
 
 //222 Forum
+room_ass=23: macro_id=01: name=Projector VProcIn1, list=(5*,),
+
+
 room_ass=23: macro_id=33: name=All Displays, list=(9*,10,11,12,13,14,15,16,17,18,),
 room_ass=23: macro_id=34: name=Projectors, list=(9*,10,),
 room_ass=23: macro_id=35: name=LCDs, list=(11*,12,13,14,15,16,17,18,),
