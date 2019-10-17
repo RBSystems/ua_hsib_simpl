@@ -459,9 +459,9 @@ sys_data[ local_name=Panel Preview, filter=(6), ]  io_data[ cmd_io=299, ]
 sys_data[ local_name=FILMING-512-HDMI OUTPUT, filter=(46), ] io_data[ cmd_io=247, ]
 
 //Remote Classrooms
-sys_data[ local_name=ZeeVee Encoder 1, filter=(45), ]  io_data[ cmd_io=312, ]
-sys_data[ local_name=ZeeVee Encoder 2, filter=(45), ]  io_data[ cmd_io=313, ]
-sys_data[ local_name=ZeeVee Encoder 3, filter=(45), ]  io_data[ cmd_io=314, ]
-sys_data[ local_name=ZeeVee Encoder 4, filter=(45), ]  io_data[ cmd_io=315, ]
+sys_data[ local_name=ZeeVee Encoder 1, filter=(37), ]  io_data[ cmd_io=312, ]
+sys_data[ local_name=ZeeVee Encoder 2, filter=(37), ]  io_data[ cmd_io=313, ]
+sys_data[ local_name=ZeeVee Encoder 3, filter=(37), ]  io_data[ cmd_io=314, ]
+sys_data[ local_name=ZeeVee Encoder 4, filter=(37), ]  io_data[ cmd_io=315, ]
 
 
